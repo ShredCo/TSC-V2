@@ -7,7 +7,7 @@ public class TestingPlayer : MonoBehaviour
 {
     Rigidbody rb;
 
-    public float moveSpeed = 20f;
+    float moveSpeed = 3.5f;
     [SerializeField] public float rotationSpeed = 180f;
     Vector3 velocity;
     private Vector2 movementInputVector;
