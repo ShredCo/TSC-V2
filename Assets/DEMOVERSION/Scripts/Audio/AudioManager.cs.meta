@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9d7ebcea7db63b64c8e3be7fb681949a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - backgroundMusic: {instanceID: 0}
+  - track1: {fileID: 8300000, guid: f9c9abf67c0e1614b826f96ee1e17f1f, type: 3}
+  - track2: {fileID: 8300000, guid: 5d18940192c648041848b24bd261b2cd, type: 3}
+  - track3: {fileID: 8300000, guid: 53579d0d85143924d948d355290d1642, type: 3}
+  - track4: {fileID: 8300000, guid: 0ab961b66d4ac234f9ee794732288c62, type: 3}
+  - track5: {instanceID: 0}
+  - track6: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
