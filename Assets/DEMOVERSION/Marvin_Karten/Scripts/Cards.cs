@@ -11,6 +11,7 @@ public class Cards : ScriptableObject
     public int powerPoints;
     public int attack;
     public string description;
+    public GameObject cardModel;
 
     public Sprite artwork;
 
