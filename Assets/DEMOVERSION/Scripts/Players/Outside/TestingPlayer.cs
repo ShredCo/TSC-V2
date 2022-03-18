@@ -38,4 +38,11 @@ public class TestingPlayer : MonoBehaviour
         rotationInputFloat = context.ReadValue<float>();
         //Debug.Log("rotation: " + rotationInputFloat);
     }
+
+
+
+
+
+    //Inventory Stuff
+    [SerializeField] InventoryUI inventoryUI;
 }
