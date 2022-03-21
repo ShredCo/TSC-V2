@@ -24,15 +24,14 @@ public class SpawnBallManager : MonoBehaviour
         //Spawns a new Ball or Respawns
         if (gamepad.dpad.up.wasPressedThisFrame && ballInGame == false)
         {
-            if (UICanvasManager.Instance.gameIsPaused == false)
-            {
+            
                 if (ballInGame == true)
                 {
                     Destroy(GameObject.FindGameObjectWithTag("Ball"));
                 }
                 SpawnBall();
                 ballInGame = true;
-            }
+            
         }
     }
 

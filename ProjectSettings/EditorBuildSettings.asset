@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/DEMOVERSION/Scenes/Lobby.unity
     guid: b93c34a8cdd8bc844918ce743d509300
   - enabled: 0
-    path: Assets/DEMOVERSION/Scenes/1vs1_MainScene.unity
+    path: Assets/DEMOVERSION/Scenes/Training Center.unity
     guid: 2f5673346b0ae3744a156b98b7d69f7e
   - enabled: 1
     path: Assets/DEMOVERSION/Scenes/1vs1_SamuraiMountains.unity
