@@ -22,7 +22,7 @@ public class SpawnBallManager : MonoBehaviour
         var gamepad = Gamepad.current;
 
         //Spawns a new Ball or Respawns
-        if (gamepad.dpad.up.wasPressedThisFrame && ballInGame == false)
+        if (gamepad.dpad.up.wasPressedThisFrame)
         {
             
                 if (ballInGame == true)

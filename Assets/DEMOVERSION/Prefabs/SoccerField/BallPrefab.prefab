@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 634203762722141515}
   - component: {fileID: -829069779385028828}
   - component: {fileID: -6682981004254365117}
+  - component: {fileID: -2490347629408913679}
   m_Layer: 7
   m_Name: BallPrefab
   m_TagString: Ball
@@ -240,3 +241,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playBallSound: {fileID: -829069779385028828}
+--- !u!114 &-2490347629408913679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204713485860717510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8004a03ba748b449473015f6954ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
