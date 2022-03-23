@@ -8,17 +8,15 @@ public class PlayerController : MonoBehaviour
     // Singleton
     public static PlayerController Instance;
 
-    // Variables for the movement
-   //[Header("movement variables")]
-   //[SerializeField] public float rotationSpeed = 1500.0f;
-   //[SerializeField] public float moveSpeed = 2.0f;
-
-    private Vector2 movement;
-    private Pole[] poles;
+    private Vector2 movementMainPole;
+    private Vector2 movementCrewPole;
+    private MainPole[] mainPole;
+    private CrewPoles[] crewPoles;
     private GameObject arrow;
-    protected int currentPoleIndex;
 
-    //public bool lockedDownPressed = false;
+    
+    protected int currentMainPoleIndex;
+    protected int currentCrewPoleIndex;
     
     private void Awake()
     {
@@ -28,75 +26,95 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        poles[currentPoleIndex].Move(movement * Time.deltaTime);
-        poles[currentPoleIndex].PoleLockedDown();
+        mainPole[currentMainPoleIndex].MoveAndRotate(movementMainPole * Time.deltaTime);
+        mainPole[currentMainPoleIndex].PoleLockedDown();
+
+        crewPoles[currentCrewPoleIndex].MoveAndRotate(movementCrewPole * Time.deltaTime);
+        crewPoles[currentCrewPoleIndex].PoleLockedDown();
+        
     }
 
     // when a new player joins he receives an array of poles + an arrow to see which pole is selected
-    internal void ReceivePoles(Pole[] poles)
+    internal void ReceiveMainPoles(MainPole[] poles)
     {
-        this.poles = poles;
+        this.mainPole = poles;
     }
+    internal void ReceiveCrewPoles(CrewPoles[] poles)
+    {
+        this.crewPoles = poles;
+    }
+
 
     internal void ReceiveArrow(GameObject gO)
     {
         arrow = gO;
     }
 
-    #region Input System Events
-    public void OnMove(InputAction.CallbackContext context)
+    #region Input System -> Gets the movement values from controller
+    public void MoveMainPole(InputAction.CallbackContext context)
     {
         // x as rotation, y as movement
-        movement = context.ReadValue<Vector2>();
+        movementMainPole = context.ReadValue<Vector2>();
 
-        movement.x *= Pole.Instance.rotationSpeed;
-        movement.y *= Pole.Instance.moveSpeed;
+        movementMainPole.x *= MainPole.Instance.rotationSpeed;
+        movementMainPole.y *= MainPole.Instance.moveSpeed;
+    }
+    public void MoveCrewPoles(InputAction.CallbackContext context)
+    {
+        // x as rotation, y as movement
+        movementCrewPole = context.ReadValue<Vector2>();
+
+        movementCrewPole.x *= CrewPoles.Instance.rotationSpeed;
+        movementCrewPole.y *= CrewPoles.Instance.moveSpeed;
     }
 
+    #endregion
+
+    #region Input System -> Gets the input for switching crew poles
     public void PolesMinus(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
-            if (currentPoleIndex > 0)
+            if (currentCrewPoleIndex > 0)
             {
-                currentPoleIndex--;
-                Vector3 offsetPosition = poles[currentPoleIndex].transform.position;
+                currentCrewPoleIndex--;
+                Vector3 offsetPosition = crewPoles[currentCrewPoleIndex].transform.position;
                 offsetPosition.z = 0f;
                 offsetPosition.y = 0f;
                 arrow.transform.position = offsetPosition;
+                Debug.Log(currentCrewPoleIndex);
             }
     }
 
     public void PolesPlus(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
-            if (currentPoleIndex < poles.Length - 1)
+            if (currentCrewPoleIndex < crewPoles.Length - 1)
             {
-                currentPoleIndex++;
-                Vector3 offsetPosition = poles[currentPoleIndex].transform.position;
+                currentCrewPoleIndex++;
+                Vector3 offsetPosition = crewPoles[currentCrewPoleIndex].transform.position;
                 offsetPosition.z = 0f;
                 offsetPosition.y = 0f;
                 arrow.transform.position = offsetPosition;
+                Debug.Log(currentCrewPoleIndex);
             }
     }
 
-    // TODO: not working yet
+    #endregion
+
+    #region Input System -> Gets Input for reset current pole rotation
     public void LockPoleDown(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
             //Pole.Instance.lockedDownPressed = true;
-            poles[currentPoleIndex].lockedDownPressed = true;
+            mainPole[currentCrewPoleIndex].lockedDownPressed = true;
         }
 
         if (context.phase == InputActionPhase.Canceled)
         {
             //Pole.Instance.lockedDownPressed = false;
-            poles[currentPoleIndex].lockedDownPressed = false;
+            mainPole[currentCrewPoleIndex].lockedDownPressed = false;
         }
     }
     #endregion
-
-
-
-
 }

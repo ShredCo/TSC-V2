@@ -22,7 +22,7 @@ public class NpcMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward*walkspeed * Time.deltaTime;
+        transform.position += transform.forward * walkspeed * Time.deltaTime;
         timecounter += Time.deltaTime;
         if (timecounter >= turntiming)
         {

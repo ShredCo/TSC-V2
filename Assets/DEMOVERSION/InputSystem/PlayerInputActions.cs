@@ -19,9 +19,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ""id"": ""3e057471-fd5a-433b-b520-ed920eaacb4b"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""MoveMainPole"",
                     ""type"": ""Value"",
                     ""id"": ""550ae3c5-7951-4d43-a9df-f7c11b3d2d9d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveCrewPoles"",
+                    ""type"": ""Value"",
+                    ""id"": ""6f0914c6-a9f4-46e7-91df-bb26ffe7ac0c"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -125,57 +133,13 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""f0ceb23b-7966-4557-8f24-7bcd3ab8cfa6"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""a3e2f02e-419b-40ec-906f-fa5be2265962"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""4307fe5a-1a99-4a59-b884-87110f1b241d"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse & Keyboard"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""c3a03c04-cf3a-4ab3-ae6b-929d412286d6"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse & Keyboard"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""Move&Rotation"",
                     ""id"": ""3499a5d8-6b67-4e44-a5d0-950124737163"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveMainPole"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -186,7 +150,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveMainPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -197,29 +161,29 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveMainPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
                     ""id"": ""22a52de3-5c7b-42f1-8e77-e5313da1a898"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveMainPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
                     ""id"": ""d769f038-4255-448b-babc-24e949dbeea8"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveMainPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -354,6 +318,61 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""PolesUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Move&Rotation"",
+                    ""id"": ""9accde07-a4a0-4982-9661-1f4bb46586f4"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCrewPoles"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""26fbd9af-f6e2-4682-80c6-a31cfb599024"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveCrewPoles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""45764631-4134-4dad-9fde-3f2857ba83c3"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveCrewPoles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""48b68183-7e8b-485d-b74a-aabf940a36fc"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveCrewPoles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""baee0209-fa20-4690-866e-6f7cd549da50"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveCrewPoles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1008,7 +1027,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
 }");
         // PlayerMovement
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
-        m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerMovement_MoveMainPole = m_PlayerMovement.FindAction("MoveMainPole", throwIfNotFound: true);
+        m_PlayerMovement_MoveCrewPoles = m_PlayerMovement.FindAction("MoveCrewPoles", throwIfNotFound: true);
         m_PlayerMovement_PolesUp = m_PlayerMovement.FindAction("PolesUp", throwIfNotFound: true);
         m_PlayerMovement_PolesDown = m_PlayerMovement.FindAction("PolesDown", throwIfNotFound: true);
         m_PlayerMovement_SquareButton = m_PlayerMovement.FindAction("SquareButton", throwIfNotFound: true);
@@ -1086,7 +1106,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     // PlayerMovement
     private readonly InputActionMap m_PlayerMovement;
     private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
-    private readonly InputAction m_PlayerMovement_Movement;
+    private readonly InputAction m_PlayerMovement_MoveMainPole;
+    private readonly InputAction m_PlayerMovement_MoveCrewPoles;
     private readonly InputAction m_PlayerMovement_PolesUp;
     private readonly InputAction m_PlayerMovement_PolesDown;
     private readonly InputAction m_PlayerMovement_SquareButton;
@@ -1103,7 +1124,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerMovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_PlayerMovement_Movement;
+        public InputAction @MoveMainPole => m_Wrapper.m_PlayerMovement_MoveMainPole;
+        public InputAction @MoveCrewPoles => m_Wrapper.m_PlayerMovement_MoveCrewPoles;
         public InputAction @PolesUp => m_Wrapper.m_PlayerMovement_PolesUp;
         public InputAction @PolesDown => m_Wrapper.m_PlayerMovement_PolesDown;
         public InputAction @SquareButton => m_Wrapper.m_PlayerMovement_SquareButton;
@@ -1125,9 +1147,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerMovementActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
+                @MoveMainPole.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
+                @MoveMainPole.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
+                @MoveMainPole.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
+                @MoveCrewPoles.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveCrewPoles;
+                @MoveCrewPoles.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveCrewPoles;
+                @MoveCrewPoles.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveCrewPoles;
                 @PolesUp.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
                 @PolesUp.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
                 @PolesUp.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
@@ -1168,9 +1193,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @MoveMainPole.started += instance.OnMoveMainPole;
+                @MoveMainPole.performed += instance.OnMoveMainPole;
+                @MoveMainPole.canceled += instance.OnMoveMainPole;
+                @MoveCrewPoles.started += instance.OnMoveCrewPoles;
+                @MoveCrewPoles.performed += instance.OnMoveCrewPoles;
+                @MoveCrewPoles.canceled += instance.OnMoveCrewPoles;
                 @PolesUp.started += instance.OnPolesUp;
                 @PolesUp.performed += instance.OnPolesUp;
                 @PolesUp.canceled += instance.OnPolesUp;
@@ -1377,7 +1405,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     }
     public interface IPlayerMovementActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnMoveMainPole(InputAction.CallbackContext context);
+        void OnMoveCrewPoles(InputAction.CallbackContext context);
         void OnPolesUp(InputAction.CallbackContext context);
         void OnPolesDown(InputAction.CallbackContext context);
         void OnSquareButton(InputAction.CallbackContext context);

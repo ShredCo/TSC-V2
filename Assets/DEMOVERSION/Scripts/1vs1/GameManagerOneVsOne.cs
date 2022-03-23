@@ -9,9 +9,12 @@ public class GameManagerOneVsOne : MonoBehaviour
     // Singleton
     public static GameManagerOneVsOne Instance;
 
-    // Poles per side
-    [SerializeField] private Pole[] polesPlayerOne = new Pole[4];
-    [SerializeField] private Pole[] polesPlayerTwo = new Pole[4];
+    // Add MainPoles to players
+    [SerializeField] private MainPole[] mainPolePlayer1 = new MainPole[1];
+    [SerializeField] private MainPole[] mainPolePlayer2 = new MainPole[1];
+
+    [SerializeField] private CrewPoles[] crewPolesPlayer1 = new CrewPoles[4];
+    [SerializeField] private CrewPoles[] crewPolesPlayer2 = new CrewPoles[4];
 
     [Header("currentPoles")]
     [SerializeField] private GameObject arrowOne;
@@ -47,7 +50,8 @@ public class GameManagerOneVsOne : MonoBehaviour
                 int id = players.Count + 1;
                 players.Add(player, id);
                 PlayerController playerController = player.GetComponent<PlayerController>();
-                playerController.ReceivePoles(id == 1 ? polesPlayerOne : polesPlayerTwo);
+                playerController.ReceiveMainPoles(id == 1 ? mainPolePlayer1 : mainPolePlayer2);
+                playerController.ReceiveCrewPoles(id == 1 ? crewPolesPlayer1 : crewPolesPlayer2);
                 playerController.ReceiveArrow(id == 1 ? arrowOne : arrowTwo);
 
                 player.gameObject.name = "Player_" + id;
