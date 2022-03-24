@@ -99,4 +99,13 @@ public class AISensor : MonoBehaviour
     {
         mesh = CreateWedgeMesh();
     }
+    private void OnDrawGizmos()
+    {
+        if (mesh)
+        {
+            Gizmos.color = meshColor;
+            Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
+
+        }
+    }
 }
