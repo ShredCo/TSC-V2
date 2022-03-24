@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa5d9f2e577705a4f8399ad035ff1bee, type: 3}
-  m_Name: Geisha_Red_Test_Card
+  m_Name: Card_Noob_Ninja
   m_EditorClassIdentifier: 
-  name: Geisha Red
+  name: Noob Ninja
   level: 1
-  health: 100
-  powerPoints: 50
-  attack: 50
-  description: Test Card. This is the desctiption.
+  health: 20
+  powerPoints: 10
+  attack: 5
+  description: Just a noob.
+  cardModel: {fileID: 0}
   artwork: {fileID: 21300000, guid: 17e8ec35e760f714abaae69e7848fb7f, type: 3}
-  element: {fileID: 21300000, guid: 7b993d19537914643a94ea6224d60280, type: 3}
+  element: {fileID: 21300000, guid: 93ec47ec1a8fdbb4487a5b6ff1c0bd28, type: 3}
