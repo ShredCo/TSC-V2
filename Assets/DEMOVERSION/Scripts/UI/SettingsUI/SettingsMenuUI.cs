@@ -32,8 +32,8 @@ public class SettingsMenuUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveSpeedCount.text = MainPole.Instance.moveSpeed.ToString();
-        rotationSpeedCount.text = MainPole.Instance.rotationSpeed.ToString();
+        moveSpeedCount.text = PolesPlayer.Instance.moveSpeed.ToString();
+        rotationSpeedCount.text = PolesPlayer.Instance.rotationSpeed.ToString();
     }
 
     public void GoBack()
@@ -49,33 +49,33 @@ public class SettingsMenuUI : MonoBehaviour
 
     public void DecreaseMoveSpeed()
     {
-        if(MainPole.Instance.moveSpeed > 0)
+        if(PolesPlayer.Instance.moveSpeed > 0)
         {
-            MainPole.Instance.moveSpeed -= 0.1f;
+            PolesPlayer.Instance.moveSpeed -= 0.1f;
         }      
     }
 
     public void IncreaseMoveSpeed()
     {
-        if (MainPole.Instance.moveSpeed < 3)
+        if (PolesPlayer.Instance.moveSpeed < 3)
         {
-            MainPole.Instance.moveSpeed += 0.1f;
+            PolesPlayer.Instance.moveSpeed += 0.1f;
         }
     }
 
     public void DecreaseRotationSpeed()
     {
-        if (MainPole.Instance.rotationSpeed > 0)
+        if (PolesPlayer.Instance.rotationSpeed > 0)
         {
-            MainPole.Instance.rotationSpeed -= 50f;
+            PolesPlayer.Instance.rotationSpeed -= 50f;
         }
     }
 
     public void IncreaseRotationSpeed()
     {
-        if (MainPole.Instance.rotationSpeed < 3000)
+        if (PolesPlayer.Instance.rotationSpeed < 3000)
         {
-            MainPole.Instance.rotationSpeed += 50f;
+            PolesPlayer.Instance.rotationSpeed += 50f;
         }
     }
 

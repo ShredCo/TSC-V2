@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class MainPole : MonoBehaviour
+public class PolesAI : MonoBehaviour
 {
     // Singleton
-    public static MainPole Instance;
+    public static PolesAI Instance;
 
     Rigidbody rb;
 
     [Header("movement variables")]
     [SerializeField] public float rotationSpeed = 1500.0f;
     [SerializeField] public float moveSpeed = 2.0f;
+
     // speed of go back to normal rotation when resetet back
     float speed = 5000f;
     public bool lockedDownPressed = false;
@@ -54,5 +54,4 @@ public class MainPole : MonoBehaviour
         }
     }
 
-    
 }

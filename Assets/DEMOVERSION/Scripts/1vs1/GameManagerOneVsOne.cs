@@ -9,12 +9,9 @@ public class GameManagerOneVsOne : MonoBehaviour
     // Singleton
     public static GameManagerOneVsOne Instance;
 
-    // Add MainPoles to players
-    [SerializeField] private MainPole[] mainPolePlayer1 = new MainPole[1];
-    [SerializeField] private MainPole[] mainPolePlayer2 = new MainPole[1];
-
-    [SerializeField] private CrewPoles[] crewPolesPlayer1 = new CrewPoles[4];
-    [SerializeField] private CrewPoles[] crewPolesPlayer2 = new CrewPoles[4];
+    // creates an array of poles for the players
+    [SerializeField] private PolesPlayer[] polesPlayer = new PolesPlayer[4];
+    [SerializeField] private PolesAI[] polesAI = new PolesAI[4];
 
     [Header("currentPoles")]
     [SerializeField] private GameObject arrowOne;
@@ -49,10 +46,17 @@ public class GameManagerOneVsOne : MonoBehaviour
             {
                 int id = players.Count + 1;
                 players.Add(player, id);
+
+                // Player receives his team
                 PlayerController playerController = player.GetComponent<PlayerController>();
-                playerController.ReceiveMainPoles(id == 1 ? mainPolePlayer1 : mainPolePlayer2);
-                playerController.ReceiveCrewPoles(id == 1 ? crewPolesPlayer1 : crewPolesPlayer2);
-                playerController.ReceiveArrow(id == 1 ? arrowOne : arrowTwo);
+                playerController.ReceivePolesPlayer(polesPlayer);
+                playerController.ReceiveArrow(arrowOne);
+
+               
+                // AI receives its team
+                PlayerControllerAI playerControllerAI = player.GetComponent<PlayerControllerAI>();
+                playerControllerAI.ReceivePolesAI(polesAI);
+                playerControllerAI.ReceiveArrowAI(arrowOne);
 
                 player.gameObject.name = "Player_" + id;
             }

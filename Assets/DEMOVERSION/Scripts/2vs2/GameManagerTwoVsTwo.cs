@@ -10,14 +10,14 @@ public class GameManagerTwoVsTwo : MonoBehaviour
     public static GameManagerTwoVsTwo Instance;
 
     // Poles Team 1
-    [SerializeField] private MainPole[] polesPlayerOne = new MainPole[2];
-    [SerializeField] private MainPole[] polesPlayerTwo = new MainPole[2];
+    [SerializeField] private PolesPlayer[] polesPlayerOne = new PolesPlayer[2];
+    [SerializeField] private PolesPlayer[] polesPlayerTwo = new PolesPlayer[2];
     [SerializeField] private GameObject arrowOne;
     [SerializeField] private GameObject arrowTwo;
 
     // Poles Team 2
-    [SerializeField] private MainPole[] polesPlayerThree = new MainPole[2];
-    [SerializeField] private MainPole[] polesPlayerFour = new MainPole[2];
+    [SerializeField] private PolesPlayer[] polesPlayerThree = new PolesPlayer[2];
+    [SerializeField] private PolesPlayer[] polesPlayerFour = new PolesPlayer[2];
     [SerializeField] private GameObject arrowThree;
     [SerializeField] private GameObject arrowFour;
 
@@ -60,20 +60,20 @@ public class GameManagerTwoVsTwo : MonoBehaviour
                 switch(id)
                 {
                     case 1:
-                        playerController.ReceiveMainPoles(polesPlayerOne);
+                        playerController.ReceivePolesPlayer(polesPlayerOne);
                         playerController.ReceiveArrow(arrowOne);
                  
                         break;
                     case 2:
-                        playerController.ReceiveMainPoles(polesPlayerTwo);
+                        playerController.ReceivePolesPlayer(polesPlayerTwo);
                         playerController.ReceiveArrow(arrowTwo);
                         break;
                     case 3:
-                        playerController.ReceiveMainPoles(polesPlayerThree);
+                        playerController.ReceivePolesPlayer(polesPlayerThree);
                         playerController.ReceiveArrow(arrowThree);
                         break;
                     case 4:
-                        playerController.ReceiveMainPoles(polesPlayerFour);
+                        playerController.ReceivePolesPlayer(polesPlayerFour);
                         playerController.ReceiveArrow(arrowFour);
                         break;
                 }

@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerAI : MonoBehaviour
 {
     // Singleton
-    public static PlayerController Instance;
+    public static PlayerControllerAI Instance;
 
-    private Vector2 movementPole;
-    private PolesPlayer[] polesPlayer;
-    private GameObject arrow;   
+    public float difficulty = 25;
+    public BallManager ball;
+
+    private Vector2 pos;
+    private PolesAI[] polesAI;
+    private GameObject arrow;
     protected int currentPoleIndex;
 
-    public BallManager ball;
-    
+
     private void Awake()
     {
         if (Instance == null)
@@ -23,30 +25,29 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        polesPlayer[currentPoleIndex].MoveAndRotate(movementPole * Time.deltaTime);
-        polesPlayer[currentPoleIndex].PoleLockedDown();
-       
+        
+        polesAI[currentPoleIndex].MoveAndRotate(Vector3.Lerp(transform.position, ball.transform.position, difficulty * Time.deltaTime));
     }
 
-    // when a new player joins he receives an array of poles + an arrow to see which pole is selected
-    internal void ReceivePolesPlayer(PolesPlayer[] poles)
+    // give the AI an array of Poles
+    internal void ReceivePolesAI(PolesAI[] poles)
     {
-        this.polesPlayer = poles;
+        this.polesAI = poles;
     }
 
-    internal void ReceiveArrow(GameObject gO)
+    internal void ReceiveArrowAI(GameObject gO)
     {
         arrow = gO;
     }
 
     #region Input System -> Gets the movement values from controller
-    public void MoveMainPole(InputAction.CallbackContext context)
+    public void MoveMainPole(Vector3 pos)
     {
         // x as rotation, y as movement
-        movementPole = context.ReadValue<Vector2>();
+        pos = Vector3.Lerp(transform.position, new Vector2(transform.position.x, ball.transform.position.y), difficulty * Time.deltaTime);
 
-        movementPole.x *= PolesPlayer.Instance.rotationSpeed;
-        movementPole.y *= PolesPlayer.Instance.moveSpeed;
+        pos.x *= PolesPlayer.Instance.rotationSpeed;
+        pos.y *= PolesPlayer.Instance.moveSpeed;
     }
 
     #endregion
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
             if (currentPoleIndex > 0)
             {
                 currentPoleIndex--;
-                Vector3 offsetPosition = polesPlayer[currentPoleIndex].transform.position;
+                Vector3 offsetPosition = polesAI[currentPoleIndex].transform.position;
                 offsetPosition.z = 0f;
                 offsetPosition.y = 0f;
                 arrow.transform.position = offsetPosition;
@@ -68,13 +69,13 @@ public class PlayerController : MonoBehaviour
     public void PolesPlus(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
-            if (currentPoleIndex < polesPlayer.Length - 1)
+            if (currentPoleIndex < polesAI.Length - 1)
             {
                 currentPoleIndex++;
-                Vector3 offsetPosition = polesPlayer[currentPoleIndex].transform.position;
+                Vector3 offsetPosition = polesAI[currentPoleIndex].transform.position;
                 offsetPosition.z = 0f;
                 offsetPosition.y = 0f;
-                arrow.transform.position = offsetPosition;              
+                arrow.transform.position = offsetPosition;
             }
     }
 
@@ -86,13 +87,13 @@ public class PlayerController : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             //Pole.Instance.lockedDownPressed = true;
-            polesPlayer[currentPoleIndex].lockedDownPressed = true;
+            polesAI[currentPoleIndex].lockedDownPressed = true;
         }
 
         if (context.phase == InputActionPhase.Canceled)
         {
             //Pole.Instance.lockedDownPressed = false;
-            polesPlayer[currentPoleIndex].lockedDownPressed = false;
+            polesAI[currentPoleIndex].lockedDownPressed = false;
         }
     }
     #endregion

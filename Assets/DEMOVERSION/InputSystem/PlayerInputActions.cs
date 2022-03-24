@@ -168,7 +168,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""22a52de3-5c7b-42f1-8e77-e5313da1a898"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
@@ -179,7 +179,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""d769f038-4255-448b-babc-24e949dbeea8"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",

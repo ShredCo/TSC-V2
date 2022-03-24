@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class CrewPoles : MonoBehaviour
+public class PolesPlayer : MonoBehaviour
 {
     // Singleton
-    public static CrewPoles Instance;
+    public static PolesPlayer Instance;
 
     Rigidbody rb;
 
     [Header("movement variables")]
     [SerializeField] public float rotationSpeed = 1500.0f;
     [SerializeField] public float moveSpeed = 2.0f;
-
     // speed of go back to normal rotation when resetet back
     float speed = 5000f;
     public bool lockedDownPressed = false;
@@ -41,6 +41,7 @@ public class CrewPoles : MonoBehaviour
 
     }
 
+    // TODO: not working correctly for all poles yet
     public void PoleLockedDown()
     {
         if (lockedDownPressed == true)
@@ -53,4 +54,5 @@ public class CrewPoles : MonoBehaviour
         }
     }
 
+    
 }
