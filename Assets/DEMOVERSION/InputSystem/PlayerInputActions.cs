@@ -993,33 +993,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""PauseMenu"",
-            ""id"": ""f82b20d6-ea29-45af-ba91-5bbc697b9a7b"",
-            ""actions"": [
-                {
-                    ""name"": ""Continue"",
-                    ""type"": ""Button"",
-                    ""id"": ""dc53ae5d-ac42-4a00-9cf6-c0de6bd58a5d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""a364df04-8baa-4a4a-818c-849093c23a0f"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Continue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -1084,9 +1057,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_TestPlayer_Movement = m_TestPlayer.FindAction("Movement", throwIfNotFound: true);
         m_TestPlayer_Rotation = m_TestPlayer.FindAction("Rotation", throwIfNotFound: true);
         m_TestPlayer_OpenInventory = m_TestPlayer.FindAction("OpenInventory", throwIfNotFound: true);
-        // PauseMenu
-        m_PauseMenu = asset.FindActionMap("PauseMenu", throwIfNotFound: true);
-        m_PauseMenu_Continue = m_PauseMenu.FindAction("Continue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1415,39 +1385,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public TestPlayerActions @TestPlayer => new TestPlayerActions(this);
-
-    // PauseMenu
-    private readonly InputActionMap m_PauseMenu;
-    private IPauseMenuActions m_PauseMenuActionsCallbackInterface;
-    private readonly InputAction m_PauseMenu_Continue;
-    public struct PauseMenuActions
-    {
-        private @PlayerInputActions m_Wrapper;
-        public PauseMenuActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Continue => m_Wrapper.m_PauseMenu_Continue;
-        public InputActionMap Get() { return m_Wrapper.m_PauseMenu; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PauseMenuActions set) { return set.Get(); }
-        public void SetCallbacks(IPauseMenuActions instance)
-        {
-            if (m_Wrapper.m_PauseMenuActionsCallbackInterface != null)
-            {
-                @Continue.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnContinue;
-                @Continue.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnContinue;
-                @Continue.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnContinue;
-            }
-            m_Wrapper.m_PauseMenuActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Continue.started += instance.OnContinue;
-                @Continue.performed += instance.OnContinue;
-                @Continue.canceled += instance.OnContinue;
-            }
-        }
-    }
-    public PauseMenuActions @PauseMenu => new PauseMenuActions(this);
     private int m_Player1SchemeIndex = -1;
     public InputControlScheme Player1Scheme
     {
@@ -1500,9 +1437,5 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
-    }
-    public interface IPauseMenuActions
-    {
-        void OnContinue(InputAction.CallbackContext context);
     }
 }

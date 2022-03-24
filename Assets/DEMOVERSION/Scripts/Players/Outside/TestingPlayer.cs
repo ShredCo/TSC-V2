@@ -39,28 +39,4 @@ public class TestingPlayer : MonoBehaviour
         //Debug.Log("rotation: " + rotationInputFloat);
     }
 
-
-
-
-
-    //Inventory Stuff
-    [SerializeField] InventoryUI inventoryUI;
-
-    public void CloseInventory()
-    {
-        inventoryUI.gameObject.SetActive(false);
-        //InventoryToMovement();
-    }
-    public void OpenInventory()
-    {
-        inventoryUI.gameObject.SetActive(true);
-        SwitchToUI();
-        //MovementToInventory();
-    }
-    public void SwitchToUI()
-    {
-        playerInput.SwitchCurrentActionMap("UI");
-    }
-
-    [SerializeField] PlayerInput playerInput;
 }
