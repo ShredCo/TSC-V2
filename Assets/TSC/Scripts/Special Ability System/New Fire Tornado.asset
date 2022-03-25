@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc43fe4b96a708c41bf7dfff60c4f484, type: 3}
-  m_Name: New Fire Tornado Ability
+  m_Name: New Fire Tornado
   m_EditorClassIdentifier: 
-  name: Fire Tornado
-  cooldownTime: 20
-  activeTime: 0
-  characterModel: {fileID: 1947145488696995822, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
+  name: FIre Tornado
+  cooldownTime: 60
+  activeTime: 6
+  characterPrefab: {fileID: 1947145488696995822, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
+  spawn: {fileID: 0}
+  characterSpawn: {fileID: 0}
+  playerController: {fileID: 0}

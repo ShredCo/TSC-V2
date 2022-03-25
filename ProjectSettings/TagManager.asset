@@ -6,9 +6,10 @@ TagManager:
   tags:
   - SoccerPlayer
   - Ball
-  - Spawnpoint
   - Poles
   - TestPlayer
+  - FireTornado
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

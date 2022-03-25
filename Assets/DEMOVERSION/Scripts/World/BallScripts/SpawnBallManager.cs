@@ -14,6 +14,8 @@ public class SpawnBallManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
+
+        
     }
 
     // Update is called once per frame
@@ -35,18 +37,13 @@ public class SpawnBallManager : MonoBehaviour
         }
     }
 
-    public void SpawnPrefab(GameObject prefab)
-    {
-        Instantiate(ballObject, transform.position, transform.rotation);
-        ballInGame = true;
-    }
-
     public void SpawnBall()
     {
         if (ballInGame == true)
         {
             Destroy(GameObject.FindGameObjectWithTag("Ball"));
         }
-        SpawnPrefab(ballObject);
+        ballInGame = true;
+        Instantiate(ballObject, transform.position, transform.rotation);
     }
 }

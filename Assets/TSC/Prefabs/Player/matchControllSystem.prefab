@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6038e80719aca0242a176f27ab0f4a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpecialCard: {x: 0, y: 0}
+  characterVelocity: 750
+  ball: {fileID: 0}
 --- !u!114 &-229456059327777998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,58 +122,6 @@ MonoBehaviour:
     m_ActionName: PlayerMovement/PolesDown[/XInputControllerWindows/leftShoulder,/DualShock4GamepadHID/leftShoulder]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 83c4779b-e63a-430b-94b9-f81d823df85c
-    m_ActionName: PlayerMovement/SquareButton[/XInputControllerWindows/buttonWest,/DualShock4GamepadHID/buttonWest]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7776990381466126141}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: LockPoleDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 308fc2b6-f9bf-4457-992c-651d36525b18
-    m_ActionName: PlayerMovement/XButton[/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 72ee9967-193c-4bd9-9fd6-183f9414b98d
-    m_ActionName: PlayerMovement/TriangleButton[/XInputControllerWindows/buttonNorth,/DualShock4GamepadHID/buttonNorth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 24e1a5c8-32b7-4163-aa45-a9e106365b61
-    m_ActionName: PlayerMovement/OButton[/XInputControllerWindows/buttonEast,/DualShock4GamepadHID/buttonEast]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5223262b-f870-4fe5-a879-1b9d92351e39
-    m_ActionName: PlayerMovement/OptionsButton[/XInputControllerWindows/start,/DualShock4GamepadHID/start]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3eacd387-f003-47bd-be4e-3ab0c05cefee
-    m_ActionName: PlayerMovement/ShareButton[/XInputControllerWindows/select,/DualShock4GamepadHID/select]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c3c22943-33c6-4d14-b769-b9485352bf73
-    m_ActionName: PlayerMovement/Up[/XInputControllerWindows/dpad/up,/DualShock4GamepadHID/dpad/up]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 26d766ca-4830-4139-aa2b-4fba2ac26234
-    m_ActionName: PlayerMovement/Down[/XInputControllerWindows/dpad/down,/DualShock4GamepadHID/dpad/down]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8c61d3b1-fe00-47f3-94db-5b7715287b34
-    m_ActionName: PlayerMovement/Left[/XInputControllerWindows/dpad/left,/DualShock4GamepadHID/dpad/left]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 504c050b-7e89-43d9-a0dd-f3251a831a61
-    m_ActionName: PlayerMovement/Right[/XInputControllerWindows/dpad/right,/DualShock4GamepadHID/dpad/right]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: b74cc56e-2fc4-476d-9021-04ff31c6c5e1
     m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/DualShock4GamepadHID/leftStick/up,/XInputControllerWindows/rightStick/up,/DualShock4GamepadHID/rightStick/up,/XInputControllerWindows/leftStick/down,/DualShock4GamepadHID/leftStick/down,/XInputControllerWindows/rightStick/down,/DualShock4GamepadHID/rightStick/down,/XInputControllerWindows/leftStick/left,/DualShock4GamepadHID/leftStick/left,/XInputControllerWindows/rightStick/left,/DualShock4GamepadHID/rightStick/left,/XInputControllerWindows/leftStick/right,/DualShock4GamepadHID/leftStick/right,/XInputControllerWindows/rightStick/right,/DualShock4GamepadHID/rightStick/right,/XInputControllerWindows/dpad,/DualShock4GamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -221,7 +172,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7776990381466126141}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: MoveCrewPoles
+        m_MethodName: MoveSpecialCardCharacter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -233,6 +184,58 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6f0914c6-a9f4-46e7-91df-bb26ffe7ac0c
     m_ActionName: PlayerMovement/MoveCrewPoles[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftTrigger,/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83c4779b-e63a-430b-94b9-f81d823df85c
+    m_ActionName: PlayerMovement/SquareButton[/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7776990381466126141}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: LockPoleDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 308fc2b6-f9bf-4457-992c-651d36525b18
+    m_ActionName: PlayerMovement/XButton[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 72ee9967-193c-4bd9-9fd6-183f9414b98d
+    m_ActionName: PlayerMovement/TriangleButton[/DualShock4GamepadHID/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24e1a5c8-32b7-4163-aa45-a9e106365b61
+    m_ActionName: PlayerMovement/OButton[/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5223262b-f870-4fe5-a879-1b9d92351e39
+    m_ActionName: PlayerMovement/OptionsButton[/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3eacd387-f003-47bd-be4e-3ab0c05cefee
+    m_ActionName: PlayerMovement/ShareButton[/DualShock4GamepadHID/select]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3c22943-33c6-4d14-b769-b9485352bf73
+    m_ActionName: PlayerMovement/Up[/DualShock4GamepadHID/dpad/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 26d766ca-4830-4139-aa2b-4fba2ac26234
+    m_ActionName: PlayerMovement/Down[/DualShock4GamepadHID/dpad/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c61d3b1-fe00-47f3-94db-5b7715287b34
+    m_ActionName: PlayerMovement/Left[/DualShock4GamepadHID/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 504c050b-7e89-43d9-a0dd-f3251a831a61
+    m_ActionName: PlayerMovement/Right[/DualShock4GamepadHID/dpad/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player1
   m_DefaultActionMap: PlayerMovement

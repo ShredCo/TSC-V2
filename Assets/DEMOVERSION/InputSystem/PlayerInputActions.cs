@@ -27,7 +27,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""MoveCrewPoles"",
+                    ""name"": ""MoveSpecialCards"",
                     ""type"": ""Value"",
                     ""id"": ""6f0914c6-a9f4-46e7-91df-bb26ffe7ac0c"",
                     ""expectedControlType"": """",
@@ -320,57 +320,35 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Move&Rotation"",
+                    ""name"": ""Move Up and Down"",
                     ""id"": ""9accde07-a4a0-4982-9661-1f4bb46586f4"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveCrewPoles"",
+                    ""action"": ""MoveSpecialCards"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
+                    ""name"": ""Up"",
                     ""id"": ""26fbd9af-f6e2-4682-80c6-a31cfb599024"",
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""MoveCrewPoles"",
+                    ""action"": ""MoveSpecialCards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
+                    ""name"": ""Down"",
                     ""id"": ""45764631-4134-4dad-9fde-3f2857ba83c3"",
                     ""path"": ""<Gamepad>/rightStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""MoveCrewPoles"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""48b68183-7e8b-485d-b74a-aabf940a36fc"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""MoveCrewPoles"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""baee0209-fa20-4690-866e-6f7cd549da50"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""MoveCrewPoles"",
+                    ""action"": ""MoveSpecialCards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -1028,7 +1006,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         // PlayerMovement
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
         m_PlayerMovement_MoveMainPole = m_PlayerMovement.FindAction("MoveMainPole", throwIfNotFound: true);
-        m_PlayerMovement_MoveCrewPoles = m_PlayerMovement.FindAction("MoveCrewPoles", throwIfNotFound: true);
+        m_PlayerMovement_MoveSpecialCards = m_PlayerMovement.FindAction("MoveSpecialCards", throwIfNotFound: true);
         m_PlayerMovement_PolesUp = m_PlayerMovement.FindAction("PolesUp", throwIfNotFound: true);
         m_PlayerMovement_PolesDown = m_PlayerMovement.FindAction("PolesDown", throwIfNotFound: true);
         m_PlayerMovement_SquareButton = m_PlayerMovement.FindAction("SquareButton", throwIfNotFound: true);
@@ -1107,7 +1085,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerMovement;
     private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
     private readonly InputAction m_PlayerMovement_MoveMainPole;
-    private readonly InputAction m_PlayerMovement_MoveCrewPoles;
+    private readonly InputAction m_PlayerMovement_MoveSpecialCards;
     private readonly InputAction m_PlayerMovement_PolesUp;
     private readonly InputAction m_PlayerMovement_PolesDown;
     private readonly InputAction m_PlayerMovement_SquareButton;
@@ -1125,7 +1103,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         private @PlayerInputActions m_Wrapper;
         public PlayerMovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveMainPole => m_Wrapper.m_PlayerMovement_MoveMainPole;
-        public InputAction @MoveCrewPoles => m_Wrapper.m_PlayerMovement_MoveCrewPoles;
+        public InputAction @MoveSpecialCards => m_Wrapper.m_PlayerMovement_MoveSpecialCards;
         public InputAction @PolesUp => m_Wrapper.m_PlayerMovement_PolesUp;
         public InputAction @PolesDown => m_Wrapper.m_PlayerMovement_PolesDown;
         public InputAction @SquareButton => m_Wrapper.m_PlayerMovement_SquareButton;
@@ -1150,9 +1128,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @MoveMainPole.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
                 @MoveMainPole.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
                 @MoveMainPole.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
-                @MoveCrewPoles.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveCrewPoles;
-                @MoveCrewPoles.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveCrewPoles;
-                @MoveCrewPoles.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveCrewPoles;
+                @MoveSpecialCards.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveSpecialCards;
+                @MoveSpecialCards.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveSpecialCards;
+                @MoveSpecialCards.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveSpecialCards;
                 @PolesUp.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
                 @PolesUp.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
                 @PolesUp.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
@@ -1196,9 +1174,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @MoveMainPole.started += instance.OnMoveMainPole;
                 @MoveMainPole.performed += instance.OnMoveMainPole;
                 @MoveMainPole.canceled += instance.OnMoveMainPole;
-                @MoveCrewPoles.started += instance.OnMoveCrewPoles;
-                @MoveCrewPoles.performed += instance.OnMoveCrewPoles;
-                @MoveCrewPoles.canceled += instance.OnMoveCrewPoles;
+                @MoveSpecialCards.started += instance.OnMoveSpecialCards;
+                @MoveSpecialCards.performed += instance.OnMoveSpecialCards;
+                @MoveSpecialCards.canceled += instance.OnMoveSpecialCards;
                 @PolesUp.started += instance.OnPolesUp;
                 @PolesUp.performed += instance.OnPolesUp;
                 @PolesUp.canceled += instance.OnPolesUp;
@@ -1406,7 +1384,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     public interface IPlayerMovementActions
     {
         void OnMoveMainPole(InputAction.CallbackContext context);
-        void OnMoveCrewPoles(InputAction.CallbackContext context);
+        void OnMoveSpecialCards(InputAction.CallbackContext context);
         void OnPolesUp(InputAction.CallbackContext context);
         void OnPolesDown(InputAction.CallbackContext context);
         void OnSquareButton(InputAction.CallbackContext context);

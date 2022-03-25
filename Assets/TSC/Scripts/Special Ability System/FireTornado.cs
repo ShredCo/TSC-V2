@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,20 +7,44 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu]
 public class FireTornado : Ability
 {
-    public GameObject characterModel;
+    public static FireTornado instance;
+
+
+    public GameObject characterPrefab;
+    GameObject Character;
+
+    public Transform spawn;
+    public GameObject characterSpawn;
+    private Vector3 spawnPos;
     
+    private void Awake()
+    {
+        if (instance = null)
+            instance = this;
+    }
+
+    [SerializeField] public PlayerController playerController;
+
     // individual code logic for this ability
     public override void Activate(GameObject parent)
     {
+        Debug.Log("FireTornado activated");
+        
         PlayerController playerController = parent.GetComponent<PlayerController>();
-        Rigidbody characterRB = characterModel.GetComponent<Rigidbody>();
+        Debug.Log("Vector 3 Values: " + playerController.offsetPositionCard);
+        Rigidbody characterRB = characterPrefab.GetComponent<Rigidbody>();
 
-        Instantiate(characterModel, new Vector3(-0.3f, 0.1213f, -0.693f), Quaternion.identity);
-        characterRB.velocity = playerController.movementSpecialCard.normalized * playerController.characterVelocity;
+        
+        
+        Instantiate(characterPrefab, playerController.offsetPositionCard, Quaternion.identity);
+
+        // movement up & down
+        //characterRB.MovePosition(new Vector3(0f, 0f, -playerController.movementSpecialCard.y) + characterModel.transform.position);
     }
 
     public override void BeginnCooldown(GameObject parent)
     {
-        base.BeginnCooldown(parent);
+        Debug.Log("Cooldown activated");
+        Destroy(characterPrefab);
     }
 }

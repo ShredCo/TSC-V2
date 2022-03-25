@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,7 +16,6 @@ public class AbilityHolder : MonoBehaviour
         active,
         cooldown
     }
-
     AbilityState state = AbilityState.ready;
     
     void Update()
@@ -27,6 +27,7 @@ public class AbilityHolder : MonoBehaviour
             case AbilityState.ready:
                 if (gamepad.buttonWest.wasPressedThisFrame)
                 {
+                    Debug.Log("West Button was pressed");
                     ability.Activate(gameObject);
                     state = AbilityState.active;
                     activeTime = ability.activeTime;
@@ -47,6 +48,7 @@ public class AbilityHolder : MonoBehaviour
                     cooldownTime -= Time.deltaTime;
                 else
                 {
+                   
                     state = AbilityState.ready;
                 }
                 break;

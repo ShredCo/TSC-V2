@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "MoveCrewPoles",
+                    "name": "MoveSpecialCards",
                     "type": "Value",
                     "id": "6f0914c6-a9f4-46e7-91df-bb26ffe7ac0c",
                     "expectedControlType": "",
@@ -307,57 +307,35 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Move&Rotation",
+                    "name": "Move Up and Down",
                     "id": "9accde07-a4a0-4982-9661-1f4bb46586f4",
-                    "path": "2DVector(mode=2)",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveCrewPoles",
+                    "action": "MoveSpecialCards",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
+                    "name": "Up",
                     "id": "26fbd9af-f6e2-4682-80c6-a31cfb599024",
                     "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveCrewPoles",
+                    "action": "MoveSpecialCards",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
+                    "name": "Down",
                     "id": "45764631-4134-4dad-9fde-3f2857ba83c3",
                     "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveCrewPoles",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "48b68183-7e8b-485d-b74a-aabf940a36fc",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "MoveCrewPoles",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "baee0209-fa20-4690-866e-6f7cd549da50",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "MoveCrewPoles",
+                    "action": "MoveSpecialCards",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
