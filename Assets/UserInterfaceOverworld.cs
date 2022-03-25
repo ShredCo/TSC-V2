@@ -33,6 +33,12 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject firstButtonCards;
     public GameObject firstButtonPoles;
 
+    [Header("DialogeSystem")] 
+    public GameObject canvasDialoge;
+
+    public GameObject firstSelectedButtonDialoge;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +114,18 @@ public class UserInterfaceOverworld : MonoBehaviour
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstButtonInventory);
+    }
+    #endregion
+    
+    #region openDialogeCanvas
+
+    public void openDialogeCanvas()
+    {
+        canvasPauseMenu.SetActive(false);
+        canvasDialoge.SetActive(true);
+        
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
     }
     #endregion
 
