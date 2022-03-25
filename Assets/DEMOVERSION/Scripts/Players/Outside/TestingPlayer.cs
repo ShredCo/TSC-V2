@@ -38,4 +38,5 @@ public class TestingPlayer : MonoBehaviour
         rotationInputFloat = context.ReadValue<float>();
         //Debug.Log("rotation: " + rotationInputFloat);
     }
+
 }

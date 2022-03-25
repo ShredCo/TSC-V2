@@ -882,6 +882,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""OpenInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb53dd91-9a81-4a9e-8b7b-4c78972ac58c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -972,6 +980,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4797a886-9c9f-439e-a6d4-5d7e5dc2b421"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1037,6 +1056,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_TestPlayer = asset.FindActionMap("TestPlayer", throwIfNotFound: true);
         m_TestPlayer_Movement = m_TestPlayer.FindAction("Movement", throwIfNotFound: true);
         m_TestPlayer_Rotation = m_TestPlayer.FindAction("Rotation", throwIfNotFound: true);
+        m_TestPlayer_OpenInventory = m_TestPlayer.FindAction("OpenInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1322,12 +1342,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private ITestPlayerActions m_TestPlayerActionsCallbackInterface;
     private readonly InputAction m_TestPlayer_Movement;
     private readonly InputAction m_TestPlayer_Rotation;
+    private readonly InputAction m_TestPlayer_OpenInventory;
     public struct TestPlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public TestPlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_TestPlayer_Movement;
         public InputAction @Rotation => m_Wrapper.m_TestPlayer_Rotation;
+        public InputAction @OpenInventory => m_Wrapper.m_TestPlayer_OpenInventory;
         public InputActionMap Get() { return m_Wrapper.m_TestPlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1343,6 +1365,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Rotation.started -= m_Wrapper.m_TestPlayerActionsCallbackInterface.OnRotation;
                 @Rotation.performed -= m_Wrapper.m_TestPlayerActionsCallbackInterface.OnRotation;
                 @Rotation.canceled -= m_Wrapper.m_TestPlayerActionsCallbackInterface.OnRotation;
+                @OpenInventory.started -= m_Wrapper.m_TestPlayerActionsCallbackInterface.OnOpenInventory;
+                @OpenInventory.performed -= m_Wrapper.m_TestPlayerActionsCallbackInterface.OnOpenInventory;
+                @OpenInventory.canceled -= m_Wrapper.m_TestPlayerActionsCallbackInterface.OnOpenInventory;
             }
             m_Wrapper.m_TestPlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1353,6 +1378,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Rotation.started += instance.OnRotation;
                 @Rotation.performed += instance.OnRotation;
                 @Rotation.canceled += instance.OnRotation;
+                @OpenInventory.started += instance.OnOpenInventory;
+                @OpenInventory.performed += instance.OnOpenInventory;
+                @OpenInventory.canceled += instance.OnOpenInventory;
             }
         }
     }
@@ -1408,5 +1436,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+        void OnOpenInventory(InputAction.CallbackContext context);
     }
 }
