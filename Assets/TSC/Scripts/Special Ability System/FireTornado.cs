@@ -29,14 +29,13 @@ public class FireTornado : Ability
     public override void Activate(GameObject parent)
     {
         Debug.Log("FireTornado activated");
-        
-        PlayerController playerController = parent.GetComponent<PlayerController>();
-        Debug.Log("Vector 3 Values: " + playerController.offsetPositionCard);
+
+        GameObject spawnpoint = GameObject.Find("SpecialCard_SpawnPoint");
         Rigidbody characterRB = characterPrefab.GetComponent<Rigidbody>();
 
         
         
-        Instantiate(characterPrefab, playerController.offsetPositionCard, Quaternion.identity);
+        Instantiate(characterPrefab, spawnpoint.transform.position, Quaternion.identity);
 
         // movement up & down
         //characterRB.MovePosition(new Vector3(0f, 0f, -playerController.movementSpecialCard.y) + characterModel.transform.position);
