@@ -8,11 +8,19 @@ public class PlayerController : MonoBehaviour
     // Singleton
     public static PlayerController Instance;
 
+    // Input System -> Input Values
     private Vector2 movementPole;
+    public Vector2 movementSpecialCard;
+
     private PolesPlayer[] polesPlayer;
+    private SpecialCard specialCard;
     private GameObject arrow;   
     protected int currentPoleIndex;
-
+    
+    // Special Cards move speed;
+    public float characterVelocity = 750f;
+    
+    
     public BallManager ball;
     
     private void Awake()
@@ -96,4 +104,13 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
+    
+    public void MoveSpecialCardCharacter(InputAction.CallbackContext context)
+    {
+        
+        movementSpecialCard = context.ReadValue<Vector2>();
+
+        movementSpecialCard.y *= characterVelocity;
+    }
+    
 }
