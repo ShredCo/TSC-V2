@@ -24,6 +24,8 @@ public class AISensor : MonoBehaviour
     int count;
     float scanInterval;
     float scanTimer;
+    bool engagedPlayer =false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class AISensor : MonoBehaviour
             Scan();
 
         }
+        
         
     }
     private void Scan() 
@@ -65,15 +68,17 @@ public class AISensor : MonoBehaviour
         Vector3 direction = dest - origin;
         if (direction.y < 0|| direction.y>height)
         {
+            
             return false;
         }
         direction.y = 0;
         float deltaAngle = Vector3.Angle(direction, transform.forward);
         if (deltaAngle > angle)
         {
+            
             return false;
-
         }
+        EngagePlayer();
         return true;
     }
     Mesh CreateWedgeMesh() 
@@ -186,6 +191,14 @@ public class AISensor : MonoBehaviour
         {
             Gizmos.DrawSphere(obj.transform.position, 0.2f);
 
+        }
+    }
+    void EngagePlayer() 
+    {
+        if (!engagedPlayer)
+        {       
+            Debug.Log("i see you");
+            engagedPlayer = true;
         }
     }
 }
