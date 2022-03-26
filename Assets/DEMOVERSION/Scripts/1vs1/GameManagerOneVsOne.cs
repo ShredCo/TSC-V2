@@ -11,7 +11,7 @@ public class GameManagerOneVsOne : MonoBehaviour
 
     // creates an array of poles for the players
     [SerializeField] private PolesPlayer[] polesPlayer = new PolesPlayer[4];
-    [SerializeField] private PolesAI[] polesAI = new PolesAI[4];
+    
 
     [Header("currentPoles")]
     [SerializeField] private GameObject arrowOne;
@@ -55,12 +55,6 @@ public class GameManagerOneVsOne : MonoBehaviour
                 playerController.ReceivePolesPlayer(polesPlayer);
                 playerController.ReceiveArrow(arrowOne);
                 playerController.ReceiveCardSpawnPos(specialCardSpawn);
-
-               
-                // AI receives its team
-                PlayerControllerAI playerControllerAI = player.GetComponent<PlayerControllerAI>();
-                playerControllerAI.ReceivePolesAI(polesAI);
-                playerControllerAI.ReceiveArrowAI(arrowOne);
 
                 player.gameObject.name = "Player_" + id;
             }
