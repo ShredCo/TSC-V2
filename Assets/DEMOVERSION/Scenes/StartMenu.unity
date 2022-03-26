@@ -206,6 +206,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2867208141879739775, guid: 55416cc0514ad2f4b9a738a129be82db, type: 3}
   m_PrefabInstance: {fileID: 1402712}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1402715 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1402712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1721953
 GameObject:
   m_ObjectHideFlags: 0
@@ -11156,6 +11161,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254802060}
   m_CullTransparentMesh: 0
+--- !u!1 &255911520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 255911521}
+  m_Layer: 0
+  m_Name: SamuraiGrunts (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &255911521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255911520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1895023172}
+  m_Father: {fileID: 1951005407}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &260421139
 GameObject:
   m_ObjectHideFlags: 0
@@ -14709,6 +14745,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8808103954549816764, guid: 0e5dee01f95472d48b307e5becd92770, type: 3}
   m_PrefabInstance: {fileID: 335523905}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &335523908 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 335523905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336610223
 GameObject:
   m_ObjectHideFlags: 0
@@ -16199,6 +16240,11 @@ Transform:
 --- !u!1 &369767537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4320267540308041406, guid: f17df183234a9b449a5dc4d93c8fda28, type: 3}
+  m_PrefabInstance: {fileID: 369767535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &369767538 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 369767535}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &370025743
@@ -36283,6 +36329,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7360238584173822182, guid: 53fb1a491bb845a49a2c22e8f0ff4535, type: 3}
   m_PrefabInstance: {fileID: 810938290}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &810938293 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 810938290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &816790811
 GameObject:
   m_ObjectHideFlags: 0
@@ -40147,6 +40198,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912101106}
   m_CullTransparentMesh: 1
+--- !u!1 &919111739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919111740}
+  m_Layer: 0
+  m_Name: VillageMans (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &919111740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919111739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1005123753}
+  m_Father: {fileID: 1951005407}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919943065
 GameObject:
   m_ObjectHideFlags: 0
@@ -44144,6 +44226,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2957496045497492184, guid: eda2892a7748bf4429230c5cbf8e472e, type: 3}
   m_PrefabInstance: {fileID: 1005123752}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1005123755 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1005123752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1009050847
 GameObject:
   m_ObjectHideFlags: 0
@@ -45405,6 +45492,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024117470}
   m_CullTransparentMesh: 0
+--- !u!1 &1030173066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030173067}
+  m_Layer: 0
+  m_Name: Senseis (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030173067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030173066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 369767536}
+  m_Father: {fileID: 1951005407}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030286995
 GameObject:
   m_ObjectHideFlags: 0
@@ -65558,6 +65676,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434769245}
   m_CullTransparentMesh: 1
+--- !u!1 &1435966302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1435966303}
+  m_Layer: 0
+  m_Name: SamuraiWarriors (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1435966303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435966302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 335523906}
+  m_Father: {fileID: 1951005407}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1436229255
 GameObject:
   m_ObjectHideFlags: 0
@@ -80416,6 +80565,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755831404}
   m_CullTransparentMesh: 0
+--- !u!1 &1756312594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1756312595}
+  m_Layer: 0
+  m_Name: Ninjas (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1756312595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756312594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1402713}
+  m_Father: {fileID: 1951005407}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757106539
 GameObject:
   m_ObjectHideFlags: 0
@@ -80639,6 +80819,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759502729}
   m_CullTransparentMesh: 0
+--- !u!1 &1760022097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760022098}
+  m_Layer: 0
+  m_Name: Geishas (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760022098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760022097}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 810938291}
+  m_Father: {fileID: 1951005407}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762545435
 GameObject:
   m_ObjectHideFlags: 0
@@ -87518,6 +87729,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6583976067767402917, guid: 59c5f854611bc1747b94938188561734, type: 3}
   m_PrefabInstance: {fileID: 1895023171}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1895023174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1895023171}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1895952402
 GameObject:
   m_ObjectHideFlags: 0
@@ -89890,13 +90106,20 @@ Transform:
   m_LocalPosition: {x: -82.3198, y: 23.3228, z: -1.7670999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 810938291}
-  - {fileID: 1402713}
-  - {fileID: 1895023172}
-  - {fileID: 335523906}
-  - {fileID: 369767536}
-  - {fileID: 1005123753}
-  - {fileID: 1976954128}
+  - {fileID: 1756312595}
+  - {fileID: 1435966303}
+  - {fileID: 1030173067}
+  - {fileID: 1760022098}
+  - {fileID: 919111740}
+  - {fileID: 255911521}
+  - {fileID: 1951499319}
+  - {fileID: 1402715}
+  - {fileID: 335523908}
+  - {fileID: 369767538}
+  - {fileID: 810938293}
+  - {fileID: 1005123755}
+  - {fileID: 1895023174}
+  - {fileID: 1976954130}
   m_Father: {fileID: 2069808427}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
@@ -89989,6 +90212,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951202246}
   m_CullTransparentMesh: 0
+--- !u!1 &1951499318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951499319}
+  m_Layer: 0
+  m_Name: VillageWomans (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951499319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951499318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1976954128}
+  m_Father: {fileID: 1951005407}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961127438
 GameObject:
   m_ObjectHideFlags: 0
@@ -90680,6 +90934,11 @@ Transform:
 --- !u!1 &1976954129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516449128851244721, guid: fb4f8c5ececea2947a670b136334de92, type: 3}
+  m_PrefabInstance: {fileID: 1976954127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1976954130 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1976954127}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1977934707
