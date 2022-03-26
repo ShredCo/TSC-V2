@@ -7,7 +7,7 @@ public class TestingPlayer : MonoBehaviour
 {
     Rigidbody rb;
 
-    float moveSpeed = 3.5f;
+    float moveSpeed = 5f;
     [SerializeField] public float rotationSpeed = 180f;
     Vector3 velocity;
     private Vector2 movementInputVector;
@@ -38,4 +38,5 @@ public class TestingPlayer : MonoBehaviour
         rotationInputFloat = context.ReadValue<float>();
         //Debug.Log("rotation: " + rotationInputFloat);
     }
+
 }
