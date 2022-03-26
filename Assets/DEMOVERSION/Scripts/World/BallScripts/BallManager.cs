@@ -1,34 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class BallManager : MonoBehaviour
 {
-    private Rigidbody rb;
+    public static BallManager Instance;
     public GameObject ball;
 
-    [SerializeField]
-    [Range(0, 5)]
-    protected float moveSpeed;
-
-    [SerializeField]
-    [Range(0, 5)]
-    protected float rangeX;
+    public bool ballInGame = false;
+    private Vector3 startPos;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        
+        if (Instance == null)
+            Instance = this;
+
+        ballInGame = false;
+        startPos = new Vector3(0f, 0.42f, -0.837f); // position of the GameObject the script is placed on
+        print(startPos);
     }
 
-    private void Start()
+    private void Update()
     {
-        SpawnMovement();
+        var gamepad = Gamepad.current;
+
+        //Spawns a new Ball or Respawns
+        if (gamepad.dpad.up.wasPressedThisFrame)
+        {
+            if (ballInGame == false)
+            {
+                SpawnSoccerBall();
+                ballInGame = true;
+            }
+           
+            // only for testing reason here. -> Can be deletet
+            SpawnSoccerBall();
+        }
     }
 
-    void SpawnMovement()
+    public void SpawnSoccerBall()
     {
-        float randomRangeX = Random.Range(-rangeX, rangeX);
-        rb.AddForce(new Vector3(randomRangeX, 0, moveSpeed * Time.deltaTime), ForceMode.Impulse);
+        ball.transform.position = startPos;
+        ballInGame = true;
     }
 }

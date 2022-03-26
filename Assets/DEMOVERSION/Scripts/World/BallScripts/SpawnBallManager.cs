@@ -7,8 +7,11 @@ public class SpawnBallManager : MonoBehaviour
 {
     public static SpawnBallManager Instance;
 
-    public GameObject ballObject;
+    public GameObject ballPrefab;
     public bool ballInGame = false;
+
+    private Vector3 spawnPoint = new Vector3(0f, 0.3402f, -0.743f);
+    
 
     private void Awake()
     {
@@ -21,29 +24,18 @@ public class SpawnBallManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var gamepad = Gamepad.current;
-
-        //Spawns a new Ball or Respawns
-        if (gamepad.dpad.up.wasPressedThisFrame)
-        {
-            
-                if (ballInGame == true)
-                {
-                    Destroy(GameObject.FindGameObjectWithTag("Ball"));
-                }
-                SpawnBall();
-                ballInGame = true;
-            
-        }
+        
     }
 
     public void SpawnBall()
     {
+        
+        
         if (ballInGame == true)
         {
             Destroy(GameObject.FindGameObjectWithTag("Ball"));
         }
         ballInGame = true;
-        Instantiate(ballObject, transform.position, transform.rotation);
+        Instantiate(ballPrefab, transform.position, transform.rotation);
     }
 }
