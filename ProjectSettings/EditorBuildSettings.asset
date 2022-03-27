@@ -12,7 +12,10 @@ EditorBuildSettings:
     path: Assets/DEMOVERSION/Scenes/OG_IDEA_PrototypScene.unity
     guid: b93c34a8cdd8bc844918ce743d509300
   - enabled: 0
-    path: Assets/TSC/_Scenes/Training Center.unity
+    path: Assets/_TSC/_Scenes/Training Center.unity
+    guid: 2f5673346b0ae3744a156b98b7d69f7e
+  - enabled: 0
+    path: Assets/_TSC/_Scenes/Training Center.unity
     guid: 2f5673346b0ae3744a156b98b7d69f7e
   - enabled: 1
     path: Assets/DEMOVERSION/Scenes/1vs1_SamuraiMountains.unity
