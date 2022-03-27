@@ -6,28 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/DEMOVERSION/Scenes/StartMenu.unity
-    guid: 60833e99f176d25419b52eaf2f2f2627
+    path: Assets/_TSC/_Scenes/PreScreen.unity
+    guid: f057a30f2dc7b78499df40fa44ba47eb
   - enabled: 1
-    path: Assets/DEMOVERSION/Scenes/OG_IDEA_PrototypScene.unity
-    guid: b93c34a8cdd8bc844918ce743d509300
-  - enabled: 0
-    path: Assets/_TSC/_Scenes/Training Center.unity
-    guid: 2f5673346b0ae3744a156b98b7d69f7e
-  - enabled: 0
-    path: Assets/_TSC/_Scenes/Training Center.unity
-    guid: 2f5673346b0ae3744a156b98b7d69f7e
+    path: Assets/_TSC/_Scenes/UI MainMenu.unity
+    guid: 4a0db935e98a0c342a8d6b5dae4dd722
   - enabled: 1
-    path: Assets/DEMOVERSION/Scenes/1vs1_SamuraiMountains.unity
-    guid: 8bb69e370e3761c4192e074d34f1dc9e
-  - enabled: 1
-    path: Assets/DEMOVERSION/Scenes/1vs1_PirateShip.unity
-    guid: 8cde845a1cb16b149bdb900f9dea2810
-  - enabled: 1
-    path: Assets/DEMOVERSION/Scenes/2vs2_Samurai.unity
-    guid: 912b613c475ead94d87fba6da4a96380
-  - enabled: 1
-    path: Assets/DEMOVERSION/Scenes/2vs2_Pirate.unity
-    guid: 41dc1d5d9b9dc5f4f82605c427465eb9
+    path: Assets/_TSC/_Scenes/Overworld 1.unity
+    guid: bfa5d56a0eb50f04ba05cb6891c91214
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c669e8e71df9185428858d143c1c4773, type: 2}

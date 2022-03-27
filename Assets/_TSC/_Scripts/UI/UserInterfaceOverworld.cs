@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class UserInterfaceOverworld : MonoBehaviour
 {
-    [Header("DialogeSystem Panels")] 
+    [Header("Canvases")] 
     public GameObject canvasPauseMenu;
     public GameObject canvasInventory;
     public GameObject canvasDialoge;
@@ -75,20 +76,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         #endregion
     }
 
-    void CloseWholeUI()
-    {
-        canvasPauseMenu.SetActive(false);
-        canvasInventory.SetActive(false);
-        canvasDialoge.SetActive(false);
-        panelBackpack.SetActive(false);
-        panelCards.SetActive(false);
-        panelPoles.SetActive(false);
-
-        gamePaused = false;
-        inventoryActive = false;
-        EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
-    }
-    
     #region open/close Pausemenu
     void Pause()
     {
@@ -131,6 +118,14 @@ public class UserInterfaceOverworld : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
     }
     #endregion
+    
+   
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+   
 
     #region L1/R1 Navigation System 
 
