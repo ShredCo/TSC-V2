@@ -8,45 +8,33 @@ using UnityEngine.EventSystems;
 
 public class UserInterfaceOverworld : MonoBehaviour
 {
+    [Header("DialogeSystem Panels")] 
     public GameObject canvasPauseMenu;
     public GameObject canvasInventory;
-
-    private bool gamePaused = false;
-    private bool inventoryActive = false;
+    public GameObject canvasDialoge;
     
-    [Header("Pausemenu first selected buttons")]
-    public GameObject firstButtonPauseMenu;
-    public GameObject firstButtonInventory;
-    public GameObject firstButtonSettings;
-
-
-
     [Header("Inventory Panels")]
     public GameObject panelBackpack;
     public GameObject panelCards;
     public GameObject panelPoles;
 
-    public int currentPanel = 1;
-
+    [Header("Pausemenu first selected buttons")]
+    public GameObject firstButtonPauseMenu;
+    public GameObject firstButtonInventory;
+    public GameObject firstButtonSettings;
+    
     [Header("Inventory first selected buttons")]
     public GameObject firstButtonBagpack;
     public GameObject firstButtonCards;
     public GameObject firstButtonPoles;
 
-    [Header("DialogeSystem")] 
-    public GameObject canvasDialoge;
-
+    [Header("Dialoge first selected buttons")]
     public GameObject firstSelectedButtonDialoge;
     
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public int currentPanel = 1;
+    private bool gamePaused = false;
+    private bool inventoryActive = false;
+    
     void Update()
     {
         var gamepad = Gamepad.current;
@@ -62,7 +50,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             }
         }
 
-        #region Inventory
+        #region Inventory switching input
 
         if (inventoryActive == true)
         {
@@ -72,8 +60,9 @@ public class UserInterfaceOverworld : MonoBehaviour
             SwitchInventoryPanels();
             }
         }
-
-        #region closeInventory
+        #endregion
+        
+        #region close Inventory with east button
         if (inventoryActive == true && gamepad.buttonEast.wasPressedThisFrame)
         {
             canvasPauseMenu.SetActive(true);
@@ -84,10 +73,22 @@ public class UserInterfaceOverworld : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
         }
         #endregion
-
-        #endregion
     }
 
+    void CloseWholeUI()
+    {
+        canvasPauseMenu.SetActive(false);
+        canvasInventory.SetActive(false);
+        canvasDialoge.SetActive(false);
+        panelBackpack.SetActive(false);
+        panelCards.SetActive(false);
+        panelPoles.SetActive(false);
+
+        gamePaused = false;
+        inventoryActive = false;
+        EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
+    }
+    
     #region open/close Pausemenu
     void Pause()
     {
@@ -98,9 +99,13 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     public void Resume()
     {
+        
         canvasPauseMenu.SetActive(false);
+        canvasInventory.SetActive(false);
+        canvasDialoge.SetActive(false);
         gamePaused = false;
         Time.timeScale = 1f;
+        EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
     }
     #endregion
 
@@ -111,8 +116,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         canvasPauseMenu.SetActive(false);
         canvasInventory.SetActive(true);
         inventoryActive = true;
-
-        EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstButtonInventory);
     }
     #endregion
