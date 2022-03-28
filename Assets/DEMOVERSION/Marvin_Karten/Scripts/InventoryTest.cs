@@ -35,14 +35,13 @@ public class InventoryTest : MonoBehaviour
 [Serializable]
 public class CardSlot
 {
+    [SerializeField] Cards card;
+    [SerializeField] int count;
     public CardSlot(Cards _card, int _count)
     {
         card = _card;
         count = _count;
     }
-
-    [SerializeField] Cards card;
-    [SerializeField] int count;
 
     public Cards Card => card;
     public int Count => count;
