@@ -16,7 +16,9 @@ public class UserInterfaceOverworld : MonoBehaviour
     
     [Header("Inventory Panels")]
     public GameObject panelBackpack;
-    public GameObject panelCards;
+    public GameObject panelCards1;
+    public GameObject panelCards2;
+    public GameObject panelCards3;
     public GameObject panelPoles;
 
     [Header("Pausemenu first selected buttons")]
@@ -152,19 +154,25 @@ public class UserInterfaceOverworld : MonoBehaviour
         {
             case 1:
                 panelBackpack.SetActive(true);
-                panelCards.SetActive(false);
+                panelCards1.SetActive(false);
+                panelCards2.SetActive(false);
+                panelCards3.SetActive(false);
                 panelPoles.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(firstButtonBagpack);
                 break;
             case 2:
                 panelBackpack.SetActive(false);
-                panelCards.SetActive(true);
+                panelCards1.SetActive(true);
+                panelCards2.SetActive(false);
+                panelCards3.SetActive(false);
                 panelPoles.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(firstButtonCards);
                 break;
             case 3:
                 panelBackpack.SetActive(false);
-                panelCards.SetActive(false);
+                panelCards1.SetActive(false);
+                panelCards2.SetActive(false);
+                panelCards3.SetActive(false);
                 panelPoles.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(firstButtonPoles);
                 break;
@@ -173,7 +181,31 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     }
     #endregion
+
+    #region Navigation Card Pages
+    public void EnableFirstPage()
+    {
+        panelCards1.SetActive(true);
+        panelCards2.SetActive(false);
+        panelCards3.SetActive(false);
+    }
+
+    public void EnableSecondPage()
+    {
+        panelCards1.SetActive(false);
+        panelCards2.SetActive(true);
+        panelCards3.SetActive(false);
+    }
+
+    public void EnableThirdPage()
+    {
+        panelCards1.SetActive(false);
+        panelCards2.SetActive(false);
+        panelCards3.SetActive(true);
+    }
+
+    #endregion
 }
-    
+
 
 
