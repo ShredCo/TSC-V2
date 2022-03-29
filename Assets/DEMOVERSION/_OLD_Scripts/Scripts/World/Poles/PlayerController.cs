@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    #region Input Systemem -> Special Cards
+    #region Input System -> Special Cards
     
     // Button North
     public void InstantiateAbility1(InputAction.CallbackContext context)
@@ -197,6 +197,7 @@ public class PlayerController : MonoBehaviour
 
                     
                     state = AbilityState.active;
+                    activeTime = ability.activeTime;
                     break;
             }
         }
@@ -214,6 +215,7 @@ public class PlayerController : MonoBehaviour
 
                     
                     state = AbilityState.active;
+                    activeTime = ability.activeTime;
                     break;
             }
         }
@@ -231,6 +233,7 @@ public class PlayerController : MonoBehaviour
 
                     
                     state = AbilityState.active;
+                    activeTime = ability.activeTime;
                     break;
             }
         }
