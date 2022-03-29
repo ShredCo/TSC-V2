@@ -13,8 +13,8 @@ public class FireTornado : Ability
     public GameObject characterPrefab;
     GameObject Character;
 
-    public Transform spawn;
-    public GameObject characterSpawn;
+   // public Transform spawn;
+   // public GameObject characterSpawn;
     private Vector3 spawnPos;
     
     private void Awake()
@@ -29,7 +29,8 @@ public class FireTornado : Ability
     public override void Activate(GameObject parent)
     {
         Debug.Log("FireTornado activated");
-
+        
+        // the gameobject "spawnpoint" is attached to the currentPoles already. So it is always on the current pole
         GameObject spawnpoint = GameObject.Find("SpecialCard_SpawnPoint");
         Rigidbody characterRB = characterPrefab.GetComponent<Rigidbody>();
 

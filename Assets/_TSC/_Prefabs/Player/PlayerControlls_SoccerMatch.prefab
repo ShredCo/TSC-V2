@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpecialCard: {x: 0, y: 0}
+  ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
+  cardSpawnPos: {fileID: 0}
+  offsetPositionCard: {x: 0, y: 0, z: 0}
   characterVelocity: 750
   ball: {fileID: 0}
 --- !u!114 &-229456059327777998
@@ -186,8 +189,8 @@ MonoBehaviour:
     m_ActionName: PlayerMovement/MoveCrewPoles[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftTrigger,/DualShock4GamepadHID/rightTrigger]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 83c4779b-e63a-430b-94b9-f81d823df85c
-    m_ActionName: PlayerMovement/SquareButton[/DualShock4GamepadHID/buttonWest]
+    m_ActionId: eb53dd91-9a81-4a9e-8b7b-4c78972ac58c
+    m_ActionName: TestPlayer/OpenInventory[/DualShock4GamepadHID/start]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7776990381466126141}
@@ -202,42 +205,74 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 308fc2b6-f9bf-4457-992c-651d36525b18
-    m_ActionName: PlayerMovement/XButton[/DualShock4GamepadHID/buttonSouth]
+    m_ActionId: 4bcbe821-795e-4f35-9cc7-f131a7e45630
+    m_ActionName: SoccerMatchControlls/L3[/DualShock4GamepadHID/leftStickPress]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 72ee9967-193c-4bd9-9fd6-183f9414b98d
-    m_ActionName: PlayerMovement/TriangleButton[/DualShock4GamepadHID/buttonNorth]
+      m_Calls:
+      - m_Target: {fileID: 7776990381466126141}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: InstantiateAbility1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c98e0dcb-e008-4b0c-be9f-e35c26dd30ea
+    m_ActionName: SoccerMatchControlls/Ability1[/DualShock4GamepadHID/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 24e1a5c8-32b7-4163-aa45-a9e106365b61
-    m_ActionName: PlayerMovement/OButton[/DualShock4GamepadHID/buttonEast]
+      m_Calls:
+      - m_Target: {fileID: 7776990381466126141}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: InstantiateAbility2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c9dd70b4-9ad7-416f-8a5a-b15a37ad03d8
+    m_ActionName: SoccerMatchControlls/Ability2[/DualShock4GamepadHID/buttonEast]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5223262b-f870-4fe5-a879-1b9d92351e39
-    m_ActionName: PlayerMovement/OptionsButton[/DualShock4GamepadHID/start]
+      m_Calls:
+      - m_Target: {fileID: 7776990381466126141}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: InstantiateAbility3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e4e80d05-fab6-43f3-8fb4-0595cdf9bb45
+    m_ActionName: SoccerMatchControlls/Ability3[/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3eacd387-f003-47bd-be4e-3ab0c05cefee
-    m_ActionName: PlayerMovement/ShareButton[/DualShock4GamepadHID/select]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c3c22943-33c6-4d14-b769-b9485352bf73
-    m_ActionName: PlayerMovement/Up[/DualShock4GamepadHID/dpad/up]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 26d766ca-4830-4139-aa2b-4fba2ac26234
-    m_ActionName: PlayerMovement/Down[/DualShock4GamepadHID/dpad/down]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8c61d3b1-fe00-47f3-94db-5b7715287b34
-    m_ActionName: PlayerMovement/Left[/DualShock4GamepadHID/dpad/left]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 504c050b-7e89-43d9-a0dd-f3251a831a61
-    m_ActionName: PlayerMovement/Right[/DualShock4GamepadHID/dpad/right]
+      m_Calls:
+      - m_Target: {fileID: 7776990381466126141}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: InstantiateAbility4
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7e24055d-0150-4c6e-be6c-dcd00620e3ab
+    m_ActionName: SoccerMatchControlls/Ability4[/DualShock4GamepadHID/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player1
-  m_DefaultActionMap: PlayerMovement
+  m_DefaultActionMap: SoccerMatchControlls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

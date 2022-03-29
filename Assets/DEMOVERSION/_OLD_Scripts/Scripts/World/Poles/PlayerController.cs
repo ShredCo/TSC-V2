@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,16 +9,21 @@ public class PlayerController : MonoBehaviour
     // Singleton
     public static PlayerController Instance;
 
+    private Pole1 pole1;
+
     // Input System -> Input Values
     private Vector2 movementPole;
-    public Vector2 movementSpecialCard;
+    private Vector2 movementSpecialCard;
 
     private PolesPlayer[] polesPlayer;
-    private GameObject arrow;
-    public GameObject cardSpawnPos;
-    private SpecialCardCharacter specialCardCharacter;
+    private SpecialCharacter[] specialCharacter;
+    
+    // Ability
+    public Ability ability;
+    private float cooldownTime;
+    private float activeTime;
 
-    public Vector3 offsetPositionCard;
+    private GameObject arrow;
     protected int currentPoleIndex;
     
     // Special Cards move speed;
@@ -26,17 +32,56 @@ public class PlayerController : MonoBehaviour
     
     public BallManager ball;
     
+    enum AbilityState
+    {
+        ready,
+        active,
+        cooldown
+    }
+    AbilityState state = AbilityState.ready;
+    
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
     }
 
+    private void Update()
+    {
+        switch (state)
+        {
+            case AbilityState.ready:
+                Debug.Log("Ability is now ready");
+                activeTime = ability.activeTime;
+                break;
+            case AbilityState.active:
+                if (activeTime > 0)
+                    cooldownTime -= Time.deltaTime;
+                else
+                {
+                    ability.BeginnCooldown(gameObject);
+                    state = AbilityState.ready;
+                    cooldownTime = ability.cooldownTime;
+                }
+                break;
+            case AbilityState.cooldown:
+                if (cooldownTime > 0)
+                    cooldownTime -= Time.deltaTime;
+                else
+                {
+                  
+                    state = AbilityState.ready;
+                }
+                break;
+        }
+    }
+
     private void FixedUpdate()
     {
         polesPlayer[currentPoleIndex].MoveAndRotate(movementPole * Time.deltaTime);
         polesPlayer[currentPoleIndex].PoleLockedDown();
-        specialCardCharacter.MoveUpAndDown(movementSpecialCard * Time.deltaTime);
+        
+        specialCharacter[1].MoveAndRotate(movementSpecialCard * Time.deltaTime);
        
     }
 
@@ -46,16 +91,17 @@ public class PlayerController : MonoBehaviour
     {
         this.polesPlayer = poles;
     }
+    
+    internal void ReceiveAbility(SpecialCharacter[] character)
+    {
+        this.specialCharacter = character;
+    }
 
     internal void ReceiveArrow(GameObject gO)
     {
         arrow = gO;
     }
-    
-    internal void ReceiveCardSpawnPos(GameObject gO)
-    {
-        cardSpawnPos = gO;
-    }
+
 
     #region Input System -> Gets the movement values from controller
     public void MoveMainPole(InputAction.CallbackContext context)
@@ -82,12 +128,6 @@ public class PlayerController : MonoBehaviour
                 offsetPositionArrow.z = 0f;
                 offsetPositionArrow.y = 0f;
                 arrow.transform.position = offsetPositionArrow;
-                
-                // updates the spawnPos of special cards
-                offsetPositionCard = polesPlayer[currentPoleIndex].transform.position;
-                offsetPositionCard.z = -0.4734f;
-                offsetPositionCard.y = 0.1223f;
-                cardSpawnPos.transform.position = offsetPositionCard;
             }
     }
 
@@ -102,13 +142,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 offsetPosition = polesPlayer[currentPoleIndex].transform.position;
                 offsetPosition.z = 0f;
                 offsetPosition.y = 0f;
-                arrow.transform.position = offsetPosition;   
-                
-                // updates the spawnPos of special cards
-                offsetPositionCard = polesPlayer[currentPoleIndex].transform.position;
-                offsetPositionCard.z = -0.4734f;
-                offsetPositionCard.y = 0.12f;
-                cardSpawnPos.transform.position = offsetPositionCard;
+                arrow.transform.position = offsetPosition;
             }
     }
     #endregion
@@ -129,13 +163,89 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
+
+    #region Input Systemem -> Special Cards
+    
+    // Button North
+    public void InstantiateAbility1(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            switch (state)
+            {
+                case AbilityState.ready:
+                    Debug.Log("Special Ability North is activated");
+                    ability.Activate(gameObject);
+                    
+                    // Sets the ability on active and sets the timer for how long it is active
+                    state = AbilityState.active;
+                    activeTime = ability.activeTime;
+                    break;
+            }
+        }
+    }
+    
+    // Button East
+    public void InstantiateAbility2(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            switch (state)
+            {
+                case AbilityState.ready:
+                    Debug.Log("Special Ability East is activated");
+
+                    
+                    state = AbilityState.active;
+                    break;
+            }
+        }
+    }
+    
+    // Button South
+    public void InstantiateAbility3(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            switch (state)
+            {
+                case AbilityState.ready:
+                    Debug.Log("Special Ability South is activated");
+
+                    
+                    state = AbilityState.active;
+                    break;
+            }
+        }
+    }
+    
+    // Button West
+    public void InstantiateAbility4(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            switch (state)
+            {
+                case AbilityState.ready:
+                    Debug.Log("Special Ability West is activated");
+
+                    
+                    state = AbilityState.active;
+                    break;
+            }
+        }
+    }
+    
+    #endregion
     
     public void MoveSpecialCardCharacter(InputAction.CallbackContext context)
     {
-        
         movementSpecialCard = context.ReadValue<Vector2>();
-
-        movementSpecialCard.y *= SpecialCardCharacter.Instance.moveSpeed;
+        movementSpecialCard.y *= SpecialCharacter.Instance.moveSpeed;
     }
-    
+
+    public void AttackOtherPole(InputAction.CallbackContext context)
+    {
+        
+    }
 }

@@ -9,7 +9,7 @@ TagManager:
   - Poles
   - TestPlayer
   - FireTornado
-  - SpawnPoint
+  - SpecialCardsSpawnpoint
   layers:
   - Default
   - TransparentFX

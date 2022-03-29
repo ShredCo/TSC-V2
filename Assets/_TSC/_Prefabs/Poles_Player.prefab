@@ -346,7 +346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe313de93fe491744babbaffe7c4d097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 0}
+  ability: {fileID: 11400000, guid: 8a026b2cc7ba5a845890a8e9353c1b09, type: 2}
+  Pole1Health: {fileID: 11400000, guid: 982b117034888e1448ab6c480c4eb482, type: 2}
+  PoleHit: {fileID: 11400000, guid: 6a9f1ed5eed5f854fa83a98afbc3bb33, type: 2}
 --- !u!114 &3404912865613560865
 MonoBehaviour:
   m_ObjectHideFlags: 0

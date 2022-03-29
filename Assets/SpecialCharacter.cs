@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PolesPlayer : MonoBehaviour
+public class SpecialCharacter : MonoBehaviour
 {
     // Singleton
-    public static PolesPlayer Instance;
+    public static SpecialCharacter Instance;
 
     Rigidbody rb;
 
     [Header("movement variables")]
     [SerializeField] public float rotationSpeed = 1500.0f;
     [SerializeField] public float moveSpeed = 2.0f;
-    // speed of go back to normal rotation when resetet back
-    float speed = 5000f;
+
     public bool lockedDownPressed = false;
 
     private void Awake()
@@ -37,21 +35,7 @@ public class PolesPlayer : MonoBehaviour
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
 
         // Sets the default limit for the movement
-        rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+        rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.6f, 0.6f));
 
     }
-    
-    public void PoleLockedDown()
-    {
-        if (lockedDownPressed == true)
-        {
-            Debug.Log("locked down method used");
-            var step = speed * Time.deltaTime;
-            Quaternion normalQuaternion = Quaternion.identity;
-            Quaternion lockedUpQuaternion = Quaternion.RotateTowards(transform.rotation, normalQuaternion, step);
-            rb.MoveRotation(lockedUpQuaternion);
-        }
-    }
-
-    
 }

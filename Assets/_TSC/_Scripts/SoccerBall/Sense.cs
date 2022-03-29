@@ -15,7 +15,7 @@ public class Sense : MonoBehaviour
 
         foreach (Collider item in colliders)
         {
-            Debug.Log(item.name);
+           // Debug.Log(item.name);
         }
     }
 
