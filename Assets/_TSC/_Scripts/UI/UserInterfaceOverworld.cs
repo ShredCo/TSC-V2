@@ -18,6 +18,9 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject panelBackpack;
     public GameObject panelCards;
     public GameObject panelPoles;
+    public GameObject panelCards1;
+    public GameObject panelCards2;
+    public GameObject panelCards3;
 
     [Header("Pausemenu first selected buttons")]
     public GameObject firstButtonPauseMenu;
@@ -102,6 +105,10 @@ public class UserInterfaceOverworld : MonoBehaviour
     {
         canvasPauseMenu.SetActive(false);
         canvasInventory.SetActive(true);
+        panelCards.SetActive(true);
+        panelCards1.SetActive(true);
+        panelCards2.SetActive(false);
+        panelCards3.SetActive(false);
         inventoryActive = true;
         EventSystem.current.SetSelectedGameObject(firstButtonInventory);
     }
@@ -159,6 +166,9 @@ public class UserInterfaceOverworld : MonoBehaviour
             case 2:
                 panelBackpack.SetActive(false);
                 panelCards.SetActive(true);
+                panelCards1.SetActive(true);
+                panelCards2.SetActive(false);
+                panelCards3.SetActive(false);
                 panelPoles.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(firstButtonCards);
                 break;
@@ -173,7 +183,31 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     }
     #endregion
+
+    #region Navigation Card Pages
+    public void EnableFirstPage()
+    {
+        panelCards1.SetActive(true);
+        panelCards2.SetActive(false);
+        panelCards3.SetActive(false);
+    }
+
+    public void EnableSecondPage()
+    {
+        panelCards1.SetActive(false);
+        panelCards2.SetActive(true);
+        panelCards3.SetActive(false);
+    }
+
+    public void EnableThirdPage()
+    {
+        panelCards1.SetActive(false);
+        panelCards2.SetActive(false);
+        panelCards3.SetActive(true);
+    }
+
+    #endregion
 }
-    
+
 
 
