@@ -29,12 +29,10 @@ public class InventoryUI : MonoBehaviour
     {
         activePage = cardPage.Page1;
         UpdateCardList1();
-        //UpdateCardList2();
     }
 
     void UpdateCardList1()
     {
-        
         //Clear all existing items
         foreach (Transform child in cardPage1.transform)
         {
@@ -48,44 +46,6 @@ public class InventoryUI : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
-        //foreach (var cardSlot in inventory.Slots)
-        //{
-
-        //    if (activePage == cardPage.Page1)
-        //    {
-        //        var slotUIobj = Instantiate(cardSlotUIPrefab, cardPage1.transform);
-        //        print("Spawned " + (index - 1) + " on " + activePage);
-        //        slotUIobj.SetData(cardSlot);
-        //        if (index < (maxCardsOnPage + 1))
-        //        {
-        //            index++;
-        //            print(activePage + " set index to: " + index);
-        //        }
-        //        if(index > maxCardsOnPage)
-        //        {
-        //            activePage = cardPage.Page2;
-        //            print("Set 2" + activePage);
-        //        }
-        //    }
-
-        //    if (activePage == cardPage.Page2)
-        //    {
-        //        var slotUIobj = Instantiate(cardSlotUIPrefab, cardPage2.transform);
-        //        print("Spawned " + (index - 1) + " on " + activePage);
-        //        slotUIobj.SetData(cardSlot);
-        //        if (index <+ 2 * (maxCardsOnPage + 1))
-        //        {
-        //            index++;
-        //            print(activePage + " set index to: " + index);
-        //        }
-        //        if (index > 2 * maxCardsOnPage)
-        //        {
-        //            activePage = cardPage.Page3;
-        //            print("Set 3" + activePage);
-        //        }
-        //    }
-        //}
 
         foreach (var cardSlot in inventory.Slots)
         {
