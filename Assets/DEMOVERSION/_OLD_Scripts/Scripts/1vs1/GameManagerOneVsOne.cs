@@ -11,16 +11,13 @@ public class GameManagerOneVsOne : MonoBehaviour
 
     // creates an array of poles for the players
     [SerializeField] private PolesPlayer[] polesPlayer = new PolesPlayer[4];
+    [SerializeField] private SpecialCharacter[] specialCharacter = new SpecialCharacter[4];
     
-
+    
     [Header("currentPoles")]
     [SerializeField] private GameObject arrowOne;
     [SerializeField] private GameObject arrowTwo;
     
-    [Header("Current Special Card spawn")]
-    [SerializeField] private GameObject specialCardSpawn;
-
-
     // all players in a dictionary, player input as key, value is the id, can be simplified with only a list or array
     public Dictionary<PlayerInput, int> players = new Dictionary<PlayerInput, int>();
 
@@ -54,7 +51,8 @@ public class GameManagerOneVsOne : MonoBehaviour
                 PlayerController playerController = player.GetComponent<PlayerController>();
                 playerController.ReceivePolesPlayer(polesPlayer);
                 playerController.ReceiveArrow(arrowOne);
-                playerController.ReceiveCardSpawnPos(specialCardSpawn);
+                playerController.ReceiveAbility(specialCharacter);
+  
 
                 player.gameObject.name = "Player_" + id;
             }

@@ -15,7 +15,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
-            ""name"": ""PlayerMovement"",
+            ""name"": ""SoccerMatchControlls"",
             ""id"": ""3e057471-fd5a-433b-b520-ed920eaacb4b"",
             ""actions"": [
                 {
@@ -51,81 +51,41 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""SquareButton"",
+                    ""name"": ""L3"",
                     ""type"": ""Button"",
-                    ""id"": ""83c4779b-e63a-430b-94b9-f81d823df85c"",
+                    ""id"": ""4bcbe821-795e-4f35-9cc7-f131a7e45630"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""XButton"",
+                    ""name"": ""Ability1"",
                     ""type"": ""Button"",
-                    ""id"": ""308fc2b6-f9bf-4457-992c-651d36525b18"",
+                    ""id"": ""c98e0dcb-e008-4b0c-be9f-e35c26dd30ea"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""TriangleButton"",
+                    ""name"": ""Ability2"",
                     ""type"": ""Button"",
-                    ""id"": ""72ee9967-193c-4bd9-9fd6-183f9414b98d"",
+                    ""id"": ""c9dd70b4-9ad7-416f-8a5a-b15a37ad03d8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""OButton"",
+                    ""name"": ""Ability3"",
                     ""type"": ""Button"",
-                    ""id"": ""24e1a5c8-32b7-4163-aa45-a9e106365b61"",
+                    ""id"": ""e4e80d05-fab6-43f3-8fb4-0595cdf9bb45"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""OptionsButton"",
+                    ""name"": ""Ability4"",
                     ""type"": ""Button"",
-                    ""id"": ""5223262b-f870-4fe5-a879-1b9d92351e39"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""ShareButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""3eacd387-f003-47bd-be4e-3ab0c05cefee"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Up"",
-                    ""type"": ""Button"",
-                    ""id"": ""c3c22943-33c6-4d14-b769-b9485352bf73"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""26d766ca-4830-4139-aa2b-4fba2ac26234"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Left"",
-                    ""type"": ""Button"",
-                    ""id"": ""8c61d3b1-fe00-47f3-94db-5b7715287b34"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Right"",
-                    ""type"": ""Button"",
-                    ""id"": ""504c050b-7e89-43d9-a0dd-f3251a831a61"",
+                    ""id"": ""7e24055d-0150-4c6e-be6c-dcd00620e3ab"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -189,116 +149,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fac52bb0-2a61-4da7-8447-ac26be91925e"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""SquareButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3b16faaf-3c2c-4ad2-b454-e2b7bfd7f6ee"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""XButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""187a108d-a2ca-42ca-8a07-3fefd602610f"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""TriangleButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2565a237-2f3b-4721-bfba-f6415f5bddfe"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""OButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a662e02a-fd69-4bb8-ae6a-aef99533ceff"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""OptionsButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cada0840-7e38-4156-84a2-ce85cd2b7cd5"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""ShareButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""18ea6c3a-8577-4465-8d62-a4c50b54240f"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6988dd1f-3833-49d5-a31d-e76db3d966c8"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0a772d86-8bc7-4d40-930e-c3db51d1134d"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f5b0dbed-e747-42a3-bf20-236be7588b05"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e53d087a-02f9-4976-b540-56d77a254ad7"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
@@ -351,6 +201,61 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""MoveSpecialCards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88bd1412-3592-404e-b384-969e3eb99ba4"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""L3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd4e903a-bec1-4731-a3c2-4678aa48936e"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""Ability1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff3ea976-b9a1-4c9e-b854-1859e04a8208"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""Ability2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7cb745c-7c9e-433b-b649-4ac6b2554bd0"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""Ability3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9faa7cd-0fd2-4721-a058-92d4e9841349"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""Ability4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1022,22 +927,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // PlayerMovement
-        m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
-        m_PlayerMovement_MoveMainPole = m_PlayerMovement.FindAction("MoveMainPole", throwIfNotFound: true);
-        m_PlayerMovement_MoveSpecialCards = m_PlayerMovement.FindAction("MoveSpecialCards", throwIfNotFound: true);
-        m_PlayerMovement_PolesUp = m_PlayerMovement.FindAction("PolesUp", throwIfNotFound: true);
-        m_PlayerMovement_PolesDown = m_PlayerMovement.FindAction("PolesDown", throwIfNotFound: true);
-        m_PlayerMovement_SquareButton = m_PlayerMovement.FindAction("SquareButton", throwIfNotFound: true);
-        m_PlayerMovement_XButton = m_PlayerMovement.FindAction("XButton", throwIfNotFound: true);
-        m_PlayerMovement_TriangleButton = m_PlayerMovement.FindAction("TriangleButton", throwIfNotFound: true);
-        m_PlayerMovement_OButton = m_PlayerMovement.FindAction("OButton", throwIfNotFound: true);
-        m_PlayerMovement_OptionsButton = m_PlayerMovement.FindAction("OptionsButton", throwIfNotFound: true);
-        m_PlayerMovement_ShareButton = m_PlayerMovement.FindAction("ShareButton", throwIfNotFound: true);
-        m_PlayerMovement_Up = m_PlayerMovement.FindAction("Up", throwIfNotFound: true);
-        m_PlayerMovement_Down = m_PlayerMovement.FindAction("Down", throwIfNotFound: true);
-        m_PlayerMovement_Left = m_PlayerMovement.FindAction("Left", throwIfNotFound: true);
-        m_PlayerMovement_Right = m_PlayerMovement.FindAction("Right", throwIfNotFound: true);
+        // SoccerMatchControlls
+        m_SoccerMatchControlls = asset.FindActionMap("SoccerMatchControlls", throwIfNotFound: true);
+        m_SoccerMatchControlls_MoveMainPole = m_SoccerMatchControlls.FindAction("MoveMainPole", throwIfNotFound: true);
+        m_SoccerMatchControlls_MoveSpecialCards = m_SoccerMatchControlls.FindAction("MoveSpecialCards", throwIfNotFound: true);
+        m_SoccerMatchControlls_PolesUp = m_SoccerMatchControlls.FindAction("PolesUp", throwIfNotFound: true);
+        m_SoccerMatchControlls_PolesDown = m_SoccerMatchControlls.FindAction("PolesDown", throwIfNotFound: true);
+        m_SoccerMatchControlls_L3 = m_SoccerMatchControlls.FindAction("L3", throwIfNotFound: true);
+        m_SoccerMatchControlls_Ability1 = m_SoccerMatchControlls.FindAction("Ability1", throwIfNotFound: true);
+        m_SoccerMatchControlls_Ability2 = m_SoccerMatchControlls.FindAction("Ability2", throwIfNotFound: true);
+        m_SoccerMatchControlls_Ability3 = m_SoccerMatchControlls.FindAction("Ability3", throwIfNotFound: true);
+        m_SoccerMatchControlls_Ability4 = m_SoccerMatchControlls.FindAction("Ability4", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1101,94 +1001,69 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // PlayerMovement
-    private readonly InputActionMap m_PlayerMovement;
-    private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
-    private readonly InputAction m_PlayerMovement_MoveMainPole;
-    private readonly InputAction m_PlayerMovement_MoveSpecialCards;
-    private readonly InputAction m_PlayerMovement_PolesUp;
-    private readonly InputAction m_PlayerMovement_PolesDown;
-    private readonly InputAction m_PlayerMovement_SquareButton;
-    private readonly InputAction m_PlayerMovement_XButton;
-    private readonly InputAction m_PlayerMovement_TriangleButton;
-    private readonly InputAction m_PlayerMovement_OButton;
-    private readonly InputAction m_PlayerMovement_OptionsButton;
-    private readonly InputAction m_PlayerMovement_ShareButton;
-    private readonly InputAction m_PlayerMovement_Up;
-    private readonly InputAction m_PlayerMovement_Down;
-    private readonly InputAction m_PlayerMovement_Left;
-    private readonly InputAction m_PlayerMovement_Right;
-    public struct PlayerMovementActions
+    // SoccerMatchControlls
+    private readonly InputActionMap m_SoccerMatchControlls;
+    private ISoccerMatchControllsActions m_SoccerMatchControllsActionsCallbackInterface;
+    private readonly InputAction m_SoccerMatchControlls_MoveMainPole;
+    private readonly InputAction m_SoccerMatchControlls_MoveSpecialCards;
+    private readonly InputAction m_SoccerMatchControlls_PolesUp;
+    private readonly InputAction m_SoccerMatchControlls_PolesDown;
+    private readonly InputAction m_SoccerMatchControlls_L3;
+    private readonly InputAction m_SoccerMatchControlls_Ability1;
+    private readonly InputAction m_SoccerMatchControlls_Ability2;
+    private readonly InputAction m_SoccerMatchControlls_Ability3;
+    private readonly InputAction m_SoccerMatchControlls_Ability4;
+    public struct SoccerMatchControllsActions
     {
         private @PlayerInputActions m_Wrapper;
-        public PlayerMovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MoveMainPole => m_Wrapper.m_PlayerMovement_MoveMainPole;
-        public InputAction @MoveSpecialCards => m_Wrapper.m_PlayerMovement_MoveSpecialCards;
-        public InputAction @PolesUp => m_Wrapper.m_PlayerMovement_PolesUp;
-        public InputAction @PolesDown => m_Wrapper.m_PlayerMovement_PolesDown;
-        public InputAction @SquareButton => m_Wrapper.m_PlayerMovement_SquareButton;
-        public InputAction @XButton => m_Wrapper.m_PlayerMovement_XButton;
-        public InputAction @TriangleButton => m_Wrapper.m_PlayerMovement_TriangleButton;
-        public InputAction @OButton => m_Wrapper.m_PlayerMovement_OButton;
-        public InputAction @OptionsButton => m_Wrapper.m_PlayerMovement_OptionsButton;
-        public InputAction @ShareButton => m_Wrapper.m_PlayerMovement_ShareButton;
-        public InputAction @Up => m_Wrapper.m_PlayerMovement_Up;
-        public InputAction @Down => m_Wrapper.m_PlayerMovement_Down;
-        public InputAction @Left => m_Wrapper.m_PlayerMovement_Left;
-        public InputAction @Right => m_Wrapper.m_PlayerMovement_Right;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
+        public SoccerMatchControllsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveMainPole => m_Wrapper.m_SoccerMatchControlls_MoveMainPole;
+        public InputAction @MoveSpecialCards => m_Wrapper.m_SoccerMatchControlls_MoveSpecialCards;
+        public InputAction @PolesUp => m_Wrapper.m_SoccerMatchControlls_PolesUp;
+        public InputAction @PolesDown => m_Wrapper.m_SoccerMatchControlls_PolesDown;
+        public InputAction @L3 => m_Wrapper.m_SoccerMatchControlls_L3;
+        public InputAction @Ability1 => m_Wrapper.m_SoccerMatchControlls_Ability1;
+        public InputAction @Ability2 => m_Wrapper.m_SoccerMatchControlls_Ability2;
+        public InputAction @Ability3 => m_Wrapper.m_SoccerMatchControlls_Ability3;
+        public InputAction @Ability4 => m_Wrapper.m_SoccerMatchControlls_Ability4;
+        public InputActionMap Get() { return m_Wrapper.m_SoccerMatchControlls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerMovementActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerMovementActions instance)
+        public static implicit operator InputActionMap(SoccerMatchControllsActions set) { return set.Get(); }
+        public void SetCallbacks(ISoccerMatchControllsActions instance)
         {
-            if (m_Wrapper.m_PlayerMovementActionsCallbackInterface != null)
+            if (m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface != null)
             {
-                @MoveMainPole.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
-                @MoveMainPole.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
-                @MoveMainPole.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveMainPole;
-                @MoveSpecialCards.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveSpecialCards;
-                @MoveSpecialCards.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveSpecialCards;
-                @MoveSpecialCards.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMoveSpecialCards;
-                @PolesUp.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
-                @PolesUp.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
-                @PolesUp.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesUp;
-                @PolesDown.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesDown;
-                @PolesDown.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesDown;
-                @PolesDown.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnPolesDown;
-                @SquareButton.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnSquareButton;
-                @SquareButton.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnSquareButton;
-                @SquareButton.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnSquareButton;
-                @XButton.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnXButton;
-                @XButton.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnXButton;
-                @XButton.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnXButton;
-                @TriangleButton.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnTriangleButton;
-                @TriangleButton.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnTriangleButton;
-                @TriangleButton.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnTriangleButton;
-                @OButton.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnOButton;
-                @OButton.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnOButton;
-                @OButton.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnOButton;
-                @OptionsButton.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnOptionsButton;
-                @OptionsButton.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnOptionsButton;
-                @OptionsButton.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnOptionsButton;
-                @ShareButton.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShareButton;
-                @ShareButton.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShareButton;
-                @ShareButton.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShareButton;
-                @Up.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnUp;
-                @Up.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnUp;
-                @Up.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnUp;
-                @Down.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnDown;
-                @Down.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnDown;
-                @Down.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnDown;
-                @Left.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnLeft;
-                @Left.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnLeft;
-                @Left.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnLeft;
-                @Right.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRight;
-                @Right.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRight;
-                @Right.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRight;
+                @MoveMainPole.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveMainPole;
+                @MoveMainPole.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveMainPole;
+                @MoveMainPole.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveMainPole;
+                @MoveSpecialCards.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveSpecialCards;
+                @MoveSpecialCards.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveSpecialCards;
+                @MoveSpecialCards.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveSpecialCards;
+                @PolesUp.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesUp;
+                @PolesUp.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesUp;
+                @PolesUp.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesUp;
+                @PolesDown.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
+                @PolesDown.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
+                @PolesDown.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
+                @L3.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
+                @L3.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
+                @L3.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
+                @Ability1.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility1;
+                @Ability1.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility1;
+                @Ability1.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility1;
+                @Ability2.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility2;
+                @Ability2.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility2;
+                @Ability2.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility2;
+                @Ability3.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility3;
+                @Ability3.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility3;
+                @Ability3.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility3;
+                @Ability4.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
+                @Ability4.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
+                @Ability4.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
             }
-            m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
+            m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @MoveMainPole.started += instance.OnMoveMainPole;
@@ -1203,40 +1078,25 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @PolesDown.started += instance.OnPolesDown;
                 @PolesDown.performed += instance.OnPolesDown;
                 @PolesDown.canceled += instance.OnPolesDown;
-                @SquareButton.started += instance.OnSquareButton;
-                @SquareButton.performed += instance.OnSquareButton;
-                @SquareButton.canceled += instance.OnSquareButton;
-                @XButton.started += instance.OnXButton;
-                @XButton.performed += instance.OnXButton;
-                @XButton.canceled += instance.OnXButton;
-                @TriangleButton.started += instance.OnTriangleButton;
-                @TriangleButton.performed += instance.OnTriangleButton;
-                @TriangleButton.canceled += instance.OnTriangleButton;
-                @OButton.started += instance.OnOButton;
-                @OButton.performed += instance.OnOButton;
-                @OButton.canceled += instance.OnOButton;
-                @OptionsButton.started += instance.OnOptionsButton;
-                @OptionsButton.performed += instance.OnOptionsButton;
-                @OptionsButton.canceled += instance.OnOptionsButton;
-                @ShareButton.started += instance.OnShareButton;
-                @ShareButton.performed += instance.OnShareButton;
-                @ShareButton.canceled += instance.OnShareButton;
-                @Up.started += instance.OnUp;
-                @Up.performed += instance.OnUp;
-                @Up.canceled += instance.OnUp;
-                @Down.started += instance.OnDown;
-                @Down.performed += instance.OnDown;
-                @Down.canceled += instance.OnDown;
-                @Left.started += instance.OnLeft;
-                @Left.performed += instance.OnLeft;
-                @Left.canceled += instance.OnLeft;
-                @Right.started += instance.OnRight;
-                @Right.performed += instance.OnRight;
-                @Right.canceled += instance.OnRight;
+                @L3.started += instance.OnL3;
+                @L3.performed += instance.OnL3;
+                @L3.canceled += instance.OnL3;
+                @Ability1.started += instance.OnAbility1;
+                @Ability1.performed += instance.OnAbility1;
+                @Ability1.canceled += instance.OnAbility1;
+                @Ability2.started += instance.OnAbility2;
+                @Ability2.performed += instance.OnAbility2;
+                @Ability2.canceled += instance.OnAbility2;
+                @Ability3.started += instance.OnAbility3;
+                @Ability3.performed += instance.OnAbility3;
+                @Ability3.canceled += instance.OnAbility3;
+                @Ability4.started += instance.OnAbility4;
+                @Ability4.performed += instance.OnAbility4;
+                @Ability4.canceled += instance.OnAbility4;
             }
         }
     }
-    public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+    public SoccerMatchControllsActions @SoccerMatchControlls => new SoccerMatchControllsActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1409,22 +1269,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
         }
     }
-    public interface IPlayerMovementActions
+    public interface ISoccerMatchControllsActions
     {
         void OnMoveMainPole(InputAction.CallbackContext context);
         void OnMoveSpecialCards(InputAction.CallbackContext context);
         void OnPolesUp(InputAction.CallbackContext context);
         void OnPolesDown(InputAction.CallbackContext context);
-        void OnSquareButton(InputAction.CallbackContext context);
-        void OnXButton(InputAction.CallbackContext context);
-        void OnTriangleButton(InputAction.CallbackContext context);
-        void OnOButton(InputAction.CallbackContext context);
-        void OnOptionsButton(InputAction.CallbackContext context);
-        void OnShareButton(InputAction.CallbackContext context);
-        void OnUp(InputAction.CallbackContext context);
-        void OnDown(InputAction.CallbackContext context);
-        void OnLeft(InputAction.CallbackContext context);
-        void OnRight(InputAction.CallbackContext context);
+        void OnL3(InputAction.CallbackContext context);
+        void OnAbility1(InputAction.CallbackContext context);
+        void OnAbility2(InputAction.CallbackContext context);
+        void OnAbility3(InputAction.CallbackContext context);
+        void OnAbility4(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
