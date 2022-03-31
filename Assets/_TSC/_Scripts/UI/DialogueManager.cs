@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
 
 
 public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
+    public GameObject firstSelectedButtonDialoge;
 
     public Animator animator;
+    public UserInterfaceOverworld userInterfaceOverworld;
     
 
 
@@ -24,7 +28,9 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
+        EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
         Time.timeScale = 1;
+        userInterfaceOverworld.canvasDialoge.SetActive(true);
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -60,6 +66,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue() 
     {
         animator.SetBool("IsOpen", false);
+        userInterfaceOverworld.Resume();
     }
 
 }
