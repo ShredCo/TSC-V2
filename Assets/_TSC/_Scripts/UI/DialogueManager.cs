@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
 
+    public Animator animator;
+    
+
 
     //made with Brackeys tutorial
     private Queue<string> sentences;
     // Start is called before the first frame update
+    
     void Start()
     {
         sentences = new Queue<string>();
@@ -19,6 +24,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
+        Time.timeScale = 1;
+        animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         sentences.Clear();
 
@@ -52,7 +59,7 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue() 
     {
-        Debug.Log("End of Conversation.");
+        animator.SetBool("IsOpen", false);
     }
 
 }
