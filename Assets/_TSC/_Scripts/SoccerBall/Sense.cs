@@ -8,15 +8,20 @@ public class Sense : MonoBehaviour
     public float checkRadius;
     public LayerMask checkLayers;
 
+    public Collider closestPlayer;
+
     private void Update()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
         Array.Sort(colliders, new DistanceComparer(transform));
 
-        foreach (Collider item in colliders)
-        {
-           // Debug.Log(item.name);
-        }
+        closestPlayer = colliders[0];
+        Debug.Log("Closest Enemy = " + closestPlayer);
+
+        //foreach (Collider item in colliders)
+        //{
+        //    Debug.Log(item.name);
+        //}
     }
 
     private void OnDrawGizmos()
