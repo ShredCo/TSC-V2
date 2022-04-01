@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public enum ItemType
 {
@@ -12,14 +13,26 @@ public enum ItemType
     Default
 }
 
+public enum ItemValue
+{
+    Low,
+    Medium,
+    High,
+}
+
 public abstract class ItemObject : ScriptableObject
 {
-    public GameObject prefab;
+    // reference for the UI
+    public GameObject ImagePrefab;
 
+    private int lowValue;
+    // enums
     public ItemType type;
+    public ItemValue value;
+    
+    public int moneyValue;
+    
     [TextArea(15,20)]
     public string description;
-
-    public int moneyValue;
 }
 
