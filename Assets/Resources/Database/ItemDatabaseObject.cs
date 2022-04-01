@@ -24,6 +24,4 @@ public class ItemDatabaseObject : ScriptableObject, ISerializationCallbackReceiv
     {
         
     }
-
-    
 }
