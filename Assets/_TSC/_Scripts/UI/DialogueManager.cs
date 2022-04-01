@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -14,7 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
     public UserInterfaceOverworld userInterfaceOverworld;
-    
+    public DialogueTrigger dialogueTrigger;
 
 
     //made with Brackeys tutorial
@@ -67,6 +68,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         userInterfaceOverworld.Resume();
+        SceneManager.LoadScene(2);
     }
 
 }

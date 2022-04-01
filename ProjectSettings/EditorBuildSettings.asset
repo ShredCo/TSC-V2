@@ -5,14 +5,17 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/_TSC/_Scenes/PreScreen.unity
-    guid: f057a30f2dc7b78499df40fa44ba47eb
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/_TSC/_Scenes/UI MainMenu.unity
     guid: 4a0db935e98a0c342a8d6b5dae4dd722
   - enabled: 1
     path: Assets/_TSC/_Scenes/Overworld 1.unity
     guid: bfa5d56a0eb50f04ba05cb6891c91214
+  - enabled: 1
+    path: Assets/_TSC/_Scenes/Training Center.unity
+    guid: 2f5673346b0ae3744a156b98b7d69f7e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c669e8e71df9185428858d143c1c4773, type: 2}
