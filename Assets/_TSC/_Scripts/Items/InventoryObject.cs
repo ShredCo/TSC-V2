@@ -25,9 +25,9 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     
     // checks if unity editor is runned. 
     // when the project is builded the "else" part will take over.
-    #if UNITY_EDITOR
     private void OnEnable()
     {
+    #if UNITY_EDITOR
         database = (ItemDatabaseObject) AssetDatabase.LoadAssetAtPath("Assets/Resources/Database.asset", typeof(ItemDatabaseObject));
     #else 
         database = Resources.Load<ItemDatabaseObject>("Database");

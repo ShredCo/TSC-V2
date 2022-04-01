@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: playerInventory
   m_EditorClassIdentifier: 
   money: 0
-  savePath: 
+  savePath: /Inventory.Save
   Container: []
