@@ -141,7 +141,7 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
    
 
