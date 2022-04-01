@@ -9,10 +9,10 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "new inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 {
-    
+
     [Header("Currency")]
     public int money;
-    
+
     [Header("References")]
     public string savePath;
     private ItemDatabaseObject database;

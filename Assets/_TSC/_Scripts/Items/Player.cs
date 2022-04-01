@@ -14,20 +14,21 @@ public class Player : MonoBehaviour
     {
         var item = other.GetComponent<Item>();
 
-        // Checks which type the new item is and adds it to its inventory
-        if (item.item.type == ItemType.DefaultCard)
+        switch (item.item.type)
         {
-            Debug.Log("DefaultCard");
-            inventory.AddItem(item.item, 1);
-            Destroy(other.gameObject);
-        }
-        if (item.item.type == ItemType.Money)
-        {
-            Debug.Log("Money");
-            inventory.AddMoney(item.item.moneyValue);
-            Destroy(other.gameObject);
+            // Checks which type the new item is and adds it to its inventory
+            case ItemType.DefaultCard:
+                Debug.Log("DefaultCard");
+                inventory.AddItem(item.item, 1);
+                Destroy(other.gameObject);
+                break;
+            case ItemType.Money:
+                Debug.Log("Money");
+                inventory.AddMoney(item.item.moneyValue);
+                Destroy(other.gameObject);
            
-            Debug.Log("Money: " + inventory.money);
+                Debug.Log("Money: " + inventory.money);
+                break;
         }
     }
 

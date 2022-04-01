@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,13 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+
 public class UserInterfaceOverworld : MonoBehaviour
 {
+    
+    [Header("Script References")]
+    public InventoryObject inventory;
+    
     [Header("Canvases")] 
     public GameObject canvasPauseMenu;
     public GameObject canvasInventory;
@@ -38,7 +44,9 @@ public class UserInterfaceOverworld : MonoBehaviour
     public int currentPanel = 1;
     private bool gamePaused = false;
     private bool inventoryActive = false;
-    
+
+    [SerializeField] public Text textMoney;
+
     void Update()
     {
         var gamepad = Gamepad.current;
@@ -53,6 +61,9 @@ public class UserInterfaceOverworld : MonoBehaviour
                 Pause();
             }
         }
+        
+        textMoney.text = inventory.money.ToString();
+        Debug.Log(inventory.money);
 
         #region Inventory switching input
 
