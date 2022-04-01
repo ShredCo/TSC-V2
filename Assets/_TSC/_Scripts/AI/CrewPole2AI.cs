@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class CrewPole2AI : MonoBehaviour
 {
-    public float difficulty = 25;
+    [SerializeField] public Sense sense;
+
+    public float difficulty = 0.01f;
     public Transform ball;
 
     private Rigidbody rb;
 
+    private float poleMovement;
+    private Transform newPolePosition;
+
     private void Start()
     {
+        newPolePosition = transform;
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rb.transform.position = Vector3.Lerp(transform.position, ball.transform.position, difficulty * Time.deltaTime);
+        if (sense.closestPlayer.name == "pos4" || sense.closestPlayer.name == "pos5" || sense.closestPlayer.name == "pos6" || sense.closestPlayer.name == "pos7" || sense.closestPlayer.name == "pos8")
+        {
+            // Calculate the difference between the ball and the closest enemy player
+            poleMovement = sense.closestPlayer.transform.position.z - ball.transform.position.z;
+            // Calculate new position of pole
+            newPolePosition.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
+            // Set new position with Lerp
+            rb.transform.position = Vector3.Lerp(transform.position, newPolePosition.position, difficulty * Time.deltaTime);
+        }
 
-        // Sets the default limit for the movement
-        rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.1f, -0.1f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.12f, 0.12f));
-
+        rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.1f, -0.1f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.1f, 0.1f));
     }
 }

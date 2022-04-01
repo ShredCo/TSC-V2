@@ -2333,7 +2333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
       propertyPath: m_Name
-      value: CrewPole1
+      value: CrewPole1AI
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
       propertyPath: m_IsActive
@@ -7086,7 +7086,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: 0.0000000041592374, y: 0.9763476, z: -0.21620676, w: 0.000000018782309}
+  m_LocalRotation: {x: -0.000000007204011, y: 0.9763476, z: -0.21620676, w: -0.00000003253191}
   m_LocalPosition: {x: -0.3456396, y: 0.4361034, z: 0.14357889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7427,7 +7427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228e714a58aba0a4c988fabb109de5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 4
+  sense: {fileID: 1766185139}
+  difficulty: 0.01
   ball: {fileID: 1110746730}
 --- !u!54 &709125709
 Rigidbody:
@@ -7706,7 +7707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8bc5b7a6abab24aa9ab41b7e0ec303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 5
+  sense: {fileID: 1766185139}
+  difficulty: 0.01
   ball: {fileID: 1110746730}
 --- !u!54 &716181479
 Rigidbody:
@@ -7827,6 +7829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 729400863}
+  - component: {fileID: 729400864}
   m_Layer: 0
   m_Name: Poles_AI
   m_TagString: Untagged
@@ -7852,6 +7855,20 @@ Transform:
   m_Father: {fileID: 1727475516}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &729400864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729400862}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e114f017f96e01644925bf80183a465f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AICrewPole2: {fileID: 0}
+  rbAICrewPole2: {fileID: 857028771}
 --- !u!1 &731801969
 GameObject:
   m_ObjectHideFlags: 0
@@ -8970,7 +8987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a4cbe5940681947968e1d88aa5fd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 3
+  sense: {fileID: 1766185139}
+  difficulty: 0.01
   ball: {fileID: 1110746730}
 --- !u!54 &857028771
 Rigidbody:
@@ -9469,7 +9487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
       propertyPath: m_Name
-      value: CrewPole3
+      value: CrewPole3AI
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
       propertyPath: m_IsActive
@@ -12453,7 +12471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9712fa6c645bf644b70c315053a0161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 5
+  sense: {fileID: 1766185139}
+  difficulty: 0.01
   ball: {fileID: 1110746730}
 --- !u!54 &1137467382
 Rigidbody:
@@ -13411,6 +13430,10 @@ PrefabInstance:
     - target: {fileID: 2204713485860717510, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: m_Name
       value: BallPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204713485860717511, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
@@ -18263,6 +18286,7 @@ MonoBehaviour:
   checkLayers:
     serializedVersion: 2
     m_Bits: 256
+  closestPlayer: {fileID: 1979058432}
 --- !u!1 &1769660372
 GameObject:
   m_ObjectHideFlags: 0
@@ -19337,7 +19361,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: 0.0000000041592374, y: 0.9763476, z: -0.21620676, w: 0.000000018782309}
+  m_LocalRotation: {x: -0.000000007204011, y: 0.9763476, z: -0.21620676, w: -0.00000003253191}
   m_LocalPosition: {x: -0.3456396, y: 0.4361034, z: 0.14357889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20228,7 +20252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
       propertyPath: m_Name
-      value: CrewPole2
+      value: CrewPole2AI
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
       propertyPath: m_IsActive

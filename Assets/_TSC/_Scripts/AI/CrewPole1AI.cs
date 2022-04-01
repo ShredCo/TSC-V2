@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class CrewPole1AI : MonoBehaviour
 {
-    public float difficulty = 25;
+    [SerializeField] public Sense sense;
+
+    public float difficulty = 0.01f;
     public Transform ball;
 
     private Rigidbody rb;
 
+    private float poleMovement;
+    private Transform newPolePosition;
+
     private void Start()
     {
+        newPolePosition = transform;
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rb.transform.position = Vector3.Lerp(transform.position, ball.transform.position, difficulty * Time.deltaTime);
-
-        // Sets the default limit for the movement
+        if (sense.closestPlayer.name == "pos2" || sense.closestPlayer.name == "pos3")
+        {
+            // Calculate the difference between the ball and the closest enemy player
+            poleMovement = sense.closestPlayer.transform.position.z - ball.transform.position.z;
+            // Calculate new position of pole
+            newPolePosition.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
+            // Set new position with Lerp
+            rb.transform.position = Vector3.Lerp(transform.position, newPolePosition.position, difficulty * Time.deltaTime);
+        }
         rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
-
     }
 }
