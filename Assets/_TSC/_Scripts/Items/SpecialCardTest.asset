@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb26e27ad839f740bbfaeb5ee1f851b, type: 3}
   m_Name: SpecialCardTest
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 1
   Name: TestName
   Level: 2
   PowerPoints: 0
   Health: 100
   Attack: 50
-  CardArtwork: {fileID: 0}
+  CardArtwork: {fileID: 21300000, guid: 32aca6ae9847bbd43a0d3b92e12543a9, type: 3}

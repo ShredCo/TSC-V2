@@ -213,7 +213,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 300}
+  m_SizeDelta: {x: 222, y: 295}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8442811276514815582
 CanvasRenderer:
@@ -267,15 +267,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultCardSlot:
     ID: 0
-    item: {fileID: 0}
-    amount: 0
+    DefaultCard: {fileID: 0}
+    Amount: 0
   countText: {fileID: 5473993210426852957}
   nameText: {fileID: 8442811277029367184}
   levelText: {fileID: 8442811277064514515}
-  powerPointsText: {fileID: 8442811277003732399}
   attackText: {fileID: 8442811277220768249}
   healthText: {fileID: 8442811277003732399}
-  desctiptionText: {fileID: 0}
   cardArtwork: {fileID: 8442811275992415174}
 --- !u!114 &7921969306037903143
 MonoBehaviour:
@@ -469,8 +467,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.781002, y: 132.40005}
-  m_SizeDelta: {x: 110.03, y: 24.8826}
+  m_AnchoredPosition: {x: -19.849983, y: 133.6}
+  m_SizeDelta: {x: 131.1, y: 24.0315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8442811277029367187
 CanvasRenderer:
@@ -564,7 +562,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 67.7, y: 123.8}
-  m_SizeDelta: {x: 24.7881, y: 27.3571}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8442811277064514514
 CanvasRenderer:
@@ -620,8 +618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 0
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &8442811277220768244
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +656,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -59.9, y: -94.7}
-  m_SizeDelta: {x: 28, y: 19}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8442811277220768248
 CanvasRenderer:
@@ -714,5 +712,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 0
+  m_HorizontalFit: 2
+  m_VerticalFit: 2

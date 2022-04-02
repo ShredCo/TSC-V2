@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: DefaultCardTest
   m_EditorClassIdentifier: 
   Type: 0
-  Name: TestName
+  Name: TestNameAAAAAAAAAA
   Level: 2
   PowerPoints: 0
   Health: 100
   Attack: 50
-  CardArtwork: {fileID: 0}
+  CardArtwork: {fileID: 21300000, guid: 2a9c3984d2884d740819ceb77152a60e, type: 3}
