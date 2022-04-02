@@ -16,8 +16,11 @@ public class Player : MonoBehaviour
 
         if (item.item)
         {
+            
+            
             switch (item.item.Type)
             {
+                    
                 // Checks which type the new item is and adds it to its inventory
                 case ItemType.Money:
                     Debug.Log("Money");
