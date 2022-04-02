@@ -2333,7 +2333,6 @@ GameObject:
   - component: {fileID: 682254106}
   - component: {fileID: 682254109}
   - component: {fileID: 682254110}
-  - component: {fileID: 682254111}
   - component: {fileID: 1390919692663619599}
   m_Layer: 0
   m_Name: Character_Village_Man_Black
@@ -2471,23 +2470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160ecfc824652634a95e34e28afb7c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &682254111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607527550670310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 176dee6ebc1456348ade6179f08c80a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slots:
-  - card: {fileID: 11400000, guid: 2c92f074566777d49ab000a7813dfad9, type: 2}
-    count: 1
-  - card: {fileID: 11400000, guid: e7b5011ce08ab7a418412f381261fd27, type: 2}
-    count: 2
 --- !u!114 &1390919692663619599
 MonoBehaviour:
   m_ObjectHideFlags: 0

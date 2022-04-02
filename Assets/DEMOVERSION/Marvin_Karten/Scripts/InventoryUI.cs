@@ -19,10 +19,10 @@ public class InventoryUI : MonoBehaviour
         Page3
     }
 
-    InventoryTest inventory;
+    public InventoryObject inventory;
     private void Awake()
     {
-        inventory = InventoryTest.GetInventory();
+        
     }
 
     private void Start()
@@ -47,14 +47,14 @@ public class InventoryUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (var cardSlot in inventory.Slots)
+        foreach (var cardSlot in inventory.DefaultCardContainer)
         {
             index++;
             if (index <= maxCardsOnPage)
             {
                 activePage = cardPage.Page1;
             }
-            else if (index > maxCardsOnPage && index <= (2*maxCardsOnPage))
+            else if (index > maxCardsOnPage && index <= (2 * maxCardsOnPage))
             {
                 activePage = cardPage.Page2;
             }
@@ -78,7 +78,7 @@ public class InventoryUI : MonoBehaviour
                 slotUIobj = Instantiate(cardSlotUIPrefab, cardPage3.transform);
                 slotUIobj.SetData(cardSlot);
             }
-            
+
         }
 
     }

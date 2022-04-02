@@ -19,6 +19,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject canvasPauseMenu;
     public GameObject canvasInventory;
     public GameObject canvasDialoge;
+    public GameObject canvasSettings;
     
     [Header("Inventory Panels")]
     public GameObject panelBackpack;
@@ -37,6 +38,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject firstButtonBagpack;
     public GameObject firstButtonCards;
     public GameObject firstButtonPoles;
+    public GameObject firstButtonTEST;
 
     [Header("Dialoge first selected buttons")]
     public GameObject firstSelectedButtonDialoge;
@@ -95,18 +97,18 @@ public class UserInterfaceOverworld : MonoBehaviour
     {
         canvasPauseMenu.SetActive(true);
         gamePaused = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
     }
 
     public void Resume()
     {
-        
         canvasPauseMenu.SetActive(false);
         canvasInventory.SetActive(false);
         canvasDialoge.SetActive(false);
         gamePaused = false;
         Time.timeScale = 1f;
-        EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
+        //EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
     }
     #endregion
 

@@ -14,4 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 0
   savePath: /Inventory.Save
-  Container: []
+  ItemContainer: []
+  DefaultCardContainer:
+  - ID: 1
+    DefaultCard: {fileID: 0}
+    Amount: 0
+  - ID: 1
+    DefaultCard: {fileID: 0}
+    Amount: 0
+  SpecialCardContainer: []

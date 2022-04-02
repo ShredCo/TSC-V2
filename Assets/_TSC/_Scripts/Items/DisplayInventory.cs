@@ -9,7 +9,7 @@ public class DisplayInventory : MonoBehaviour
     public InventoryObject inventory;
 
     // Makes a dictionary of the items which should be showed on the UI
-    private Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
+    private Dictionary<ISlotItem, GameObject> itemsDisplayed = new Dictionary<ISlotItem, GameObject>();
     
     // variables for getting the position of the displayed image of the item
     public int xSpaceBetweenItems;
@@ -32,38 +32,38 @@ public class DisplayInventory : MonoBehaviour
 
     public void UpdateDisplay()
     {
-        for (int i = 0; i < inventory.Container.Count; i++)
+        for (int i = 0; i < inventory.ItemContainer.Count; i++)
         {
             // checks if the picked up item is already in the inventory.
             // if yes -> it updates it's value in the UI
-            if (itemsDisplayed.ContainsKey(inventory.Container[i]))
+            if (itemsDisplayed.ContainsKey(inventory.ItemContainer[i]))
             {
-                itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                itemsDisplayed[inventory.ItemContainer[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.ItemContainer[i].Amount.ToString("n0");
             }
             else
             {
                 // When the item isn't in the inventory already -> Instantiates the image of the item
-                var obj = Instantiate(inventory.Container[i].item.ImagePrefab, Vector3.zero, Quaternion.identity, transform);
+                var obj = Instantiate(inventory.ItemContainer[i].Item.ImagePrefab, Vector3.zero, Quaternion.identity, transform);
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.ItemContainer[i].Amount.ToString("n0");
                 
                 // Adds it to the items displayed dictionary
-                itemsDisplayed.Add(inventory.Container[i], obj);
+                itemsDisplayed.Add(inventory.ItemContainer[i], obj);
             }
         }
     }
 
     public void CreateDisplay()
     {
-        for (int i = 0; i < inventory.Container.Count; i++)
+        for (int i = 0; i < inventory.ItemContainer.Count; i++)
         {
             // Instantiates the image of the item
-            var obj = Instantiate(inventory.Container[i].item.ImagePrefab, Vector3.zero, Quaternion.identity, transform);
+            var obj = Instantiate(inventory.ItemContainer[i].Item.ImagePrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.ItemContainer[i].Amount.ToString("n0");
             
             // Adds it to the items displayed dictionary
-            itemsDisplayed.Add(inventory.Container[i], obj);
+            itemsDisplayed.Add(inventory.ItemContainer[i], obj);
         }
     }
 
