@@ -67,21 +67,31 @@ public class InventoryUI : MonoBehaviour
                 case cardPage.Page1:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPage1.transform);
                     slotUIobj.SetData(cardSlot);
-                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    if (index == 1)
+                    {
+                        FirstButtonCardSelection.FirstButtonLineUpCardPage1 = slotUIobj.gameObject;
+                    }
                     break;
                 case cardPage.Page2:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPage2.transform);
                     slotUIobj.SetData(cardSlot);
-                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    if (index == 5)
+                    {
+                        FirstButtonCardSelection.FirstButtonLineUpCardPage2 = slotUIobj.gameObject;
+                    }
                     break;
                 case cardPage.Page3:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPage3.transform);
                     slotUIobj.SetData(cardSlot);
-                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    if (index == 9)
+                    {
+                        FirstButtonCardSelection.FirstButtonLineUpCardPage3 = slotUIobj.gameObject;
+                    }
                     break;
                 default:
                     break;
             }
+            
         }
 
     }
