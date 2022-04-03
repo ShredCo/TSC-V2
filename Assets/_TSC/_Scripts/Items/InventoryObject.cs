@@ -18,17 +18,52 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     private ItemDatabaseObject database;
     
     
-    // Creates a List with slots for the inventory
-    // Adds an item to it
+    // creates a List with slots for the inventory
+    // adds an item to it
     public List<ISlotItem> ItemContainer = new List<ISlotItem>();
 
     public List<ISlotDefaultCard> DefaultCardContainer = new List<ISlotDefaultCard>();
 
     public List<ISlotSpecialCard> SpecialCardContainer = new List<ISlotSpecialCard>();
 
-    
+
+    // arrays to store the Player Line Up
+    public DefaultCardObject[] PlayerDefaultCardLineUp = new DefaultCardObject[4];
+
+    public SpecialCardObject[] PlayerSpecialCardLineUp = new SpecialCardObject[4];
+
+    // arrays to store the AI Line Up
+    public DefaultCardObject[] AIDefaultCardLineUp = new DefaultCardObject[4]; //may not be needed
+
+    public SpecialCardObject[] AISpecialCardLineUp = new SpecialCardObject[4]; //may not be needed
+
+    // methods to add cards to Line Up
+    public void AddDefaultCardtoLineUp(DefaultCardObject Card, int ID)
+    {
+        PlayerDefaultCardLineUp[ID] = Card;
+    }    
+    public void AddSpecialCardtoLineUp(SpecialCardObject Card, int ID)
+    {
+        PlayerSpecialCardLineUp[ID] = Card;
+    }
+
+    // methods to save Line Up for match
+    public void SavePlayerLineUp()
+    {
+        LineUpController.PlayerDefaultCardLineUP = PlayerDefaultCardLineUp;
+        LineUpController.PlayerSpecialCardLineUP = PlayerSpecialCardLineUp;
+    }
+
+    // will be called from NPC, that has its own Line Up
+    public void SaveAILineUp(DefaultCardObject[] defaultCardObjects, SpecialCardObject[] specialCardObjects)
+    {
+        LineUpController.PlayerDefaultCardLineUP = defaultCardObjects;
+        LineUpController.PlayerSpecialCardLineUP = specialCardObjects;
+    }
+
+
     // checks if unity editor is runned. 
-    // when the project is builded the "else" part will take over.
+    // when the project is built the "else" part will take over.
     private void OnEnable()
     {
     #if UNITY_EDITOR
