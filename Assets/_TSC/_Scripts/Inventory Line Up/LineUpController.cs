@@ -11,4 +11,6 @@ public class LineUpController : MonoBehaviour
     // Arrays to save AI Line Up
     public static DefaultCardObject[] AIDefaultCardLineUP = new DefaultCardObject[4];
     public static SpecialCardObject[] AISpecialCardLineUP = new SpecialCardObject[4];
+
+    public static int ActivePole;
 }

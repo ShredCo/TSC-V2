@@ -220,6 +220,32 @@ public class UserInterfaceOverworld : MonoBehaviour
     }
 
     #endregion
+
+    #region Card Button methods
+
+    // When a button for a pole is selected, the current pole to equip the cards on is selected.
+    public void SetActivePoleMain()
+    {
+        LineUpController.ActivePole = 0;
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActivePoleFirst()
+    {
+        LineUpController.ActivePole = 1;
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActivePoleSecond()
+    {
+        LineUpController.ActivePole = 2;
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActivePoleThird()
+    {
+        LineUpController.ActivePole = 3;
+        Debug.Log(LineUpController.ActivePole);
+    }
+
+    #endregion
 }
 
 
