@@ -10,7 +10,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] CardSlotUI cardSlotUIPrefab;
 
     int index = 0;
-    int maxCardsOnPage = 5;
+    int maxCardsOnPage = 4;
     cardPage activePage;
     enum cardPage
     {
