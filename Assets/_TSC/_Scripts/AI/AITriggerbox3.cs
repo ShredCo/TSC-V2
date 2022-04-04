@@ -5,7 +5,6 @@ using UnityEngine;
 public class AITriggerbox3 : MonoBehaviour
 {
     public CrewPole3AI crewPole3AI;
-
     public ShootingState shootingState;
 
     public IEnumerator LoadShot()
