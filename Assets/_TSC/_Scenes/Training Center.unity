@@ -1780,8 +1780,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122800942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: 0.017, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalPosition: {x: -0.07, y: 0.11160004, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 729400863}
   m_RootOrder: 6
@@ -1863,6 +1863,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crewPole2AI: {fileID: 857028770}
   shootingState: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loadingSpeed: 1
+  shootingSpeed: 20
 --- !u!1 &161423414
 GameObject:
   m_ObjectHideFlags: 0
@@ -7209,7 +7235,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.0000000041592374, y: 0.9763476, z: -0.21620676, w: -0.000000018782309}
+  m_LocalRotation: {x: 0.0000000041592374, y: 0.9763476, z: -0.21620676, w: 0.000000018782309}
   m_LocalPosition: {x: -0.3456396, y: 0.4361034, z: 0.14357889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -13867,8 +13893,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284550496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.66, y: 0.017, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.6}
+  m_LocalPosition: {x: -0.67, y: 0.11160004, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.25, z: 0.6}
   m_Children: []
   m_Father: {fileID: 729400863}
   m_RootOrder: 4
@@ -13950,6 +13976,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPoleAI: {fileID: 716181478}
   shootingState: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loadingSpeed: 1
+  shootingSpeed: 20
 --- !u!1 &1287670667
 GameObject:
   m_ObjectHideFlags: 0
@@ -15798,8 +15832,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470586890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.472, y: 0.017, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalPosition: {x: -0.47, y: 0.11160004, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 729400863}
   m_RootOrder: 5
@@ -15881,6 +15915,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crewPole1AI: {fileID: 1137467381}
   shootingState: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loadingSpeed: 1
+  shootingSpeed: 20
 --- !u!1 &1488530129
 GameObject:
   m_ObjectHideFlags: 0
@@ -16460,8 +16502,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547882080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.332, y: 0.017, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalPosition: {x: 0.33, y: 0.11160004, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 729400863}
   m_RootOrder: 7
@@ -16543,6 +16585,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crewPole3AI: {fileID: 709125708}
   shootingState: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loadingSpeed: 1
+  shootingSpeed: 20
 --- !u!1 &1570872606
 GameObject:
   m_ObjectHideFlags: 0
@@ -19809,7 +19859,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -19825,7 +19875,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.0000000041592374, y: 0.9763476, z: -0.21620676, w: -0.000000018782309}
+  m_LocalRotation: {x: 0.0000000041592374, y: 0.9763476, z: -0.21620676, w: 0.000000018782309}
   m_LocalPosition: {x: -0.3456396, y: 0.4361034, z: 0.14357889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
