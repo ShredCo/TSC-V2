@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: money_1000
   m_EditorClassIdentifier: 
   ImagePrefab: {fileID: 0}
-  type: 0
-  value: 2
-  moneyValue: 1000
-  description: 
+  Type: 0
+  Value: 0
+  MoneyValue: 1000
+  Description: 

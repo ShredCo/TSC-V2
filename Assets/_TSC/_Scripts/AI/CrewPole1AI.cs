@@ -9,7 +9,7 @@ public class CrewPole1AI : MonoBehaviour
     public float difficulty = 0.01f;
     public Transform ball;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     private float poleMovement;
     private Transform newPolePosition;

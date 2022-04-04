@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e723d7760337446b3d7b2b6b7f37ac, type: 3}
   m_Name: InventoryDatabase
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 9ae112c3838da78408a5b67cbbf6c0ce, type: 2}
+  DefaultCards:
+  - {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
+  SpecialCards:
+  - {fileID: 0}

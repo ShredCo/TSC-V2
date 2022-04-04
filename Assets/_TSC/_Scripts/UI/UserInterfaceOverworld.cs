@@ -15,29 +15,52 @@ public class UserInterfaceOverworld : MonoBehaviour
     [Header("Script References")]
     public InventoryObject inventory;
     
+    #region Inventory Canvas/Panels
     [Header("Canvases")] 
     public GameObject canvasPauseMenu;
     public GameObject canvasInventory;
     public GameObject canvasDialoge;
-    
-    [Header("Inventory Panels")]
-    public GameObject panelBackpack;
-    public GameObject panelCards;
-    public GameObject panelPoles;
-    public GameObject panelCards1;
-    public GameObject panelCards2;
-    public GameObject panelCards3;
+    public GameObject canvasSettings;
 
-    [Header("Pausemenu first selected buttons")]
+    [Header("Panels Inventory")] 
+    public GameObject panelInventory;
+    public GameObject panelBackpack;
+    public GameObject panelLineUpTeam;
+    public GameObject panelLineUpAbilitys;
+    
+    [Header("Panels equip cards")]
+    public GameObject panelEquipPoleCards;
+    public GameObject panelEquipAbilityCards;
+    
+    // Buttons
+    [Header("Buttons Pausenmenu")]
     public GameObject firstButtonPauseMenu;
     public GameObject firstButtonInventory;
     public GameObject firstButtonSettings;
     
-    [Header("Inventory first selected buttons")]
+    [Header("Buttons Inventory")]
     public GameObject firstButtonBagpack;
-    public GameObject firstButtonCards;
-    public GameObject firstButtonPoles;
-
+    public GameObject firstButtonLineUpPoleCards;
+    public GameObject firstButtonLineUpPoleAbilitys;
+    #endregion
+    
+    #region Inventory Submenu Canvas/Panels/Buttons
+    [Header("Panels LineUP Team")]
+    public GameObject panelPoleCards1;
+    public GameObject panelPoleCards2;
+    public GameObject panelPoleCards3;
+    
+    [Header("Panels LineUP Team")]
+    public GameObject panelAbilityCards1;
+    public GameObject panelAbilityCards2;
+    public GameObject panelAbilityCards3;
+    
+    // Buttons
+    [Header("Buttons LineUps")]
+    public GameObject firstButtonPoleCard;
+    public GameObject firstButtonAbilityCard;
+    #endregion
+    
     [Header("Dialoge first selected buttons")]
     public GameObject firstSelectedButtonDialoge;
     
@@ -95,18 +118,18 @@ public class UserInterfaceOverworld : MonoBehaviour
     {
         canvasPauseMenu.SetActive(true);
         gamePaused = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
     }
 
     public void Resume()
     {
-        
         canvasPauseMenu.SetActive(false);
         canvasInventory.SetActive(false);
         canvasDialoge.SetActive(false);
         gamePaused = false;
         Time.timeScale = 1f;
-        EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
+        //EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
     }
     #endregion
 
@@ -116,10 +139,8 @@ public class UserInterfaceOverworld : MonoBehaviour
     {
         canvasPauseMenu.SetActive(false);
         canvasInventory.SetActive(true);
-        panelCards.SetActive(true);
-        panelCards1.SetActive(true);
-        panelCards2.SetActive(false);
-        panelCards3.SetActive(false);
+        panelBackpack.SetActive(true);
+
         inventoryActive = true;
         EventSystem.current.SetSelectedGameObject(firstButtonInventory);
     }
@@ -147,6 +168,7 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     #region L1/R1 Navigation System 
 
+    // TODO: Animate the buttons when switching
     void SwitchInventoryPanels()
     {
         var gamepad = Gamepad.current;
@@ -170,24 +192,21 @@ public class UserInterfaceOverworld : MonoBehaviour
         {
             case 1:
                 panelBackpack.SetActive(true);
-                panelCards.SetActive(false);
-                panelPoles.SetActive(false);
+                panelLineUpTeam.SetActive(false);
+                panelLineUpAbilitys.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(firstButtonBagpack);
                 break;
             case 2:
                 panelBackpack.SetActive(false);
-                panelCards.SetActive(true);
-                panelCards1.SetActive(true);
-                panelCards2.SetActive(false);
-                panelCards3.SetActive(false);
-                panelPoles.SetActive(false);
-                EventSystem.current.SetSelectedGameObject(firstButtonCards);
+                panelLineUpTeam.SetActive(true);
+                panelLineUpAbilitys.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(firstButtonLineUpPoleCards);
                 break;
             case 3:
                 panelBackpack.SetActive(false);
-                panelCards.SetActive(false);
-                panelPoles.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(firstButtonPoles);
+                panelLineUpTeam.SetActive(false);
+                panelLineUpAbilitys.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(firstButtonLineUpPoleAbilitys);
                 break;
 
         }
@@ -198,23 +217,72 @@ public class UserInterfaceOverworld : MonoBehaviour
     #region Navigation Card Pages
     public void EnableFirstPage()
     {
-        panelCards1.SetActive(true);
-        panelCards2.SetActive(false);
-        panelCards3.SetActive(false);
+        panelPoleCards1.SetActive(true);
+        panelPoleCards2.SetActive(false);
+        panelPoleCards3.SetActive(false);
     }
 
     public void EnableSecondPage()
     {
-        panelCards1.SetActive(false);
-        panelCards2.SetActive(true);
-        panelCards3.SetActive(false);
+        panelPoleCards1.SetActive(false);
+        panelPoleCards2.SetActive(true);
+        panelPoleCards3.SetActive(false);
     }
 
     public void EnableThirdPage()
     {
-        panelCards1.SetActive(false);
-        panelCards2.SetActive(false);
-        panelCards3.SetActive(true);
+        panelPoleCards1.SetActive(false);
+        panelPoleCards2.SetActive(false);
+        panelPoleCards3.SetActive(true);
+    }
+
+    #endregion
+
+    #region PoleCard Button methods
+    // When a button for a pole is selected, the current pole to equip the cards on is selected.
+    public void SetActivePoleMain()
+    {
+        LineUpController.ActivePole = 0;
+        
+        panelInventory.SetActive(false);
+        panelEquipPoleCards.SetActive(true);
+        EnableFirstPage();
+        
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCard);
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActivePoleFirst()
+    {
+        LineUpController.ActivePole = 1;
+        
+        panelInventory.SetActive(false);
+        panelEquipPoleCards.SetActive(true);
+        EnableFirstPage();
+        
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCard);
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActivePoleSecond()
+    {
+        LineUpController.ActivePole = 2;
+        
+        panelInventory.SetActive(false);
+        panelEquipPoleCards.SetActive(true);
+        EnableFirstPage();
+
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCard);
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActivePoleThird()
+    {
+        LineUpController.ActivePole = 3;
+        
+        panelInventory.SetActive(false);
+        panelEquipPoleCards.SetActive(true);
+        EnableFirstPage();
+        
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCard);
+        Debug.Log(LineUpController.ActivePole);
     }
 
     #endregion

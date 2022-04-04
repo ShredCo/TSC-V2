@@ -14,22 +14,43 @@ public class Player : MonoBehaviour
     {
         var item = other.GetComponent<Item>();
 
-        switch (item.item.type)
+        if (item.item)
         {
-            // Checks which type the new item is and adds it to its inventory
-            case ItemType.DefaultCard:
-                Debug.Log("DefaultCard");
-                inventory.AddItem(item.item, 1);
-                Destroy(other.gameObject);
-                break;
-            case ItemType.Money:
-                Debug.Log("Money");
-                inventory.AddMoney(item.item.moneyValue);
-                Destroy(other.gameObject);
+            
+            
+            switch (item.item.Type)
+            {
+                    
+                // Checks which type the new item is and adds it to its inventory
+                case ItemType.Money:
+                    Debug.Log("Money");
+                    inventory.AddMoney(item.item.MoneyValue);
+                    Destroy(other.gameObject);
            
-                Debug.Log("Money: " + inventory.money);
-                break;
+                    Debug.Log("Money: " + inventory.money);
+                    break;
+            }
         }
+
+        if (item.card)
+        {
+            switch (item.card.Type)
+            {
+                // Checks which type the new card is and adds it to its inventory
+                case CardType.DefaultCard:
+                    Debug.Log("DefaultCard");
+                    inventory.AddDefaultCard(item.card, 1);
+                    Destroy(other.gameObject);
+                    break;
+                case CardType.SpecialCard:
+                    Debug.Log("SpecialCard");
+                    inventory.AddSpecialCard(item.card, 1);
+                    Destroy(other.gameObject);
+                    break;
+
+            }
+        }
+
     }
 
     private void Update()
@@ -49,6 +70,6 @@ public class Player : MonoBehaviour
     // Clears the inventory 
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
+        inventory.ItemContainer.Clear();
     }
 }

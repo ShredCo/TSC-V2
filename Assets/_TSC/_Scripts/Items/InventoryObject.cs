@@ -18,13 +18,52 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     private ItemDatabaseObject database;
     
     
-    // Creates a List with slots for the inventory
-    // Adds an item to it
-    public List<InventorySlot> Container = new List<InventorySlot>();
+    // creates a List with slots for the inventory
+    // adds an item to it
+    public List<ISlotItem> ItemContainer = new List<ISlotItem>();
 
-    
+    public List<ISlotDefaultCard> DefaultCardContainer = new List<ISlotDefaultCard>();
+
+    public List<ISlotSpecialCard> SpecialCardContainer = new List<ISlotSpecialCard>();
+
+
+    // arrays to store the Player Line Up
+    public DefaultCardObject[] PlayerDefaultCardLineUp = new DefaultCardObject[4];
+
+    public SpecialCardObject[] PlayerSpecialCardLineUp = new SpecialCardObject[4];
+
+    // arrays to store the AI Line Up
+    public DefaultCardObject[] AIDefaultCardLineUp = new DefaultCardObject[4]; //may not be needed
+
+    public SpecialCardObject[] AISpecialCardLineUp = new SpecialCardObject[4]; //may not be needed
+
+    // methods to add cards to Line Up
+    public void AddDefaultCardtoLineUp(DefaultCardObject Card, int ID)
+    {
+        PlayerDefaultCardLineUp[ID] = Card;
+    }    
+    public void AddSpecialCardtoLineUp(SpecialCardObject Card, int ID)
+    {
+        PlayerSpecialCardLineUp[ID] = Card;
+    }
+
+    // methods to save Line Up for match
+    public void SavePlayerLineUp()
+    {
+        LineUpController.PlayerDefaultCardLineUP = PlayerDefaultCardLineUp;
+        LineUpController.PlayerSpecialCardLineUP = PlayerSpecialCardLineUp;
+    }
+
+    // will be called from NPC, that has its own Line Up
+    public void SaveAILineUp(DefaultCardObject[] defaultCardObjects, SpecialCardObject[] specialCardObjects)
+    {
+        LineUpController.PlayerDefaultCardLineUP = defaultCardObjects;
+        LineUpController.PlayerSpecialCardLineUP = specialCardObjects;
+    }
+
+
     // checks if unity editor is runned. 
-    // when the project is builded the "else" part will take over.
+    // when the project is built the "else" part will take over.
     private void OnEnable()
     {
     #if UNITY_EDITOR
@@ -35,21 +74,48 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     }
 
 
-    #region Methods -> Add item and currency to inventory
+    #region Methods -> Add items, cards and currency to inventory
+    // Items
     public void AddItem(ItemObject _item, int _amount)
     {
-        for (int i = 0; i < Container.Count; i++)
+        for (int i = 0; i < ItemContainer.Count; i++)
         {
-            if (Container[i].item == _item)
+            if (ItemContainer[i].Item == _item)
             {
-                Container[i].AddAmount(_amount);
+                ItemContainer[i].AddAmount(_amount);
                 return;
             }
         }
-        Container.Add(new InventorySlot(database.GetId[_item], _item, _amount));
+        ItemContainer.Add(new ISlotItem(database.GetItemID[_item], _item, _amount));
+    }
+    // Default Cards
+    public void AddDefaultCard(CardObject _item, int _amount)
+    {
+        for (int i = 0; i < DefaultCardContainer.Count; i++)
+        {
+            if (DefaultCardContainer[i].DefaultCard == _item)
+            {
+                DefaultCardContainer[i].AddAmount(_amount);
+                return;
+            }
+        }
+        DefaultCardContainer.Add(new ISlotDefaultCard(database.GetDefaultCardID[_item], _item, _amount));
     }
 
-    
+    // Special Cards
+    public void AddSpecialCard(CardObject _item, int _amount)
+    {
+        for (int i = 0; i < SpecialCardContainer.Count; i++)
+        {
+            if (SpecialCardContainer[i].SpecialCard == _item)
+            {
+                SpecialCardContainer[i].AddAmount(_amount);
+                return;
+            }
+        }
+        SpecialCardContainer.Add(new ISlotSpecialCard(database.GetSpecialCardID[_item], _item, _amount));
+    }
+
     public void AddMoney(int _moneyValue)
     {
         money += _moneyValue;
@@ -84,30 +150,72 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
-        for (int i = 0; i < Container.Count; i++)
+        for (int i = 0; i < ItemContainer.Count; i++)
         {
-            Container[i].item = database.GetItem[Container[i].ID];
+            ItemContainer[i].Item = database.GetItem[ItemContainer[i].ID];
         }
     }
 }
 
     [System.Serializable]
-    public class InventorySlot
+    public class ISlotItem // Inventory slot for items
     {
         public int ID;
-        public ItemObject item;
-        public int amount;
+        public ItemObject Item;
+        public int Amount;
 
         // defines a space for an object in the inventory
-        public InventorySlot(int _id, ItemObject _item, int _amount)
+        public ISlotItem(int _id, ItemObject _item, int _amount)
         {
             ID = _id;
-            item = _item;
-            amount = _amount;
+            Item = _item;
+            Amount = _amount;
         }
 
         public void AddAmount(int value)
         {
-            amount += value;
+            Amount += value;
         }
     }
+
+[System.Serializable]
+public class ISlotDefaultCard // Inventory slot for default cards
+{
+    public int ID;
+    public CardObject DefaultCard;
+    public int Amount;
+
+    // defines a space for an object in the inventory
+    public ISlotDefaultCard(int _id, CardObject _item, int _amount)
+    {
+        ID = _id;
+        DefaultCard = _item;
+        Amount = _amount;
+    }
+
+    public void AddAmount(int value)
+    {
+        Amount += value;
+    }
+}
+
+[System.Serializable]
+public class ISlotSpecialCard // Inventory slot for default cards
+{
+    public int ID;
+    public CardObject SpecialCard;
+    public int Amount;
+
+    // defines a space for an object in the inventory
+    public ISlotSpecialCard(int _id, CardObject _item, int _amount)
+    {
+        ID = _id;
+        SpecialCard = _item;
+        Amount = _amount;
+    }
+
+    public void AddAmount(int value)
+    {
+        Amount += value;
+    }
+}

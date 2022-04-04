@@ -10,7 +10,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] CardSlotUI cardSlotUIPrefab;
 
     int index = 0;
-    int maxCardsOnPage = 12;
+    int maxCardsOnPage = 4;
     cardPage activePage;
     enum cardPage
     {
@@ -19,11 +19,7 @@ public class InventoryUI : MonoBehaviour
         Page3
     }
 
-    InventoryTest inventory;
-    private void Awake()
-    {
-        inventory = InventoryTest.GetInventory();
-    }
+    public InventoryObject inventory;
 
     private void Start()
     {
@@ -47,14 +43,15 @@ public class InventoryUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (var cardSlot in inventory.Slots)
+        foreach (var cardSlot in inventory.DefaultCardContainer)
         {
+            // if the max amount of cards is spawned on one page, switch enum "activePage" to next page.
             index++;
             if (index <= maxCardsOnPage)
             {
                 activePage = cardPage.Page1;
             }
-            else if (index > maxCardsOnPage && index <= (2*maxCardsOnPage))
+            else if (index > maxCardsOnPage && index <= (2 * maxCardsOnPage))
             {
                 activePage = cardPage.Page2;
             }
@@ -62,23 +59,29 @@ public class InventoryUI : MonoBehaviour
             {
                 activePage = cardPage.Page3;
             }
+
+            // Spawn cards in inventory pages depending on enum "activePage"
             CardSlotUI slotUIobj;
-            if (activePage == cardPage.Page1)
+            switch (activePage)
             {
-                slotUIobj = Instantiate(cardSlotUIPrefab, cardPage1.transform);
-                slotUIobj.SetData(cardSlot);
+                case cardPage.Page1:
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPage1.transform);
+                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    break;
+                case cardPage.Page2:
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPage2.transform);
+                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    break;
+                case cardPage.Page3:
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPage3.transform);
+                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    break;
+                default:
+                    break;
             }
-            else if (activePage == cardPage.Page2)
-            {
-                slotUIobj = Instantiate(cardSlotUIPrefab, cardPage2.transform);
-                slotUIobj.SetData(cardSlot);
-            }
-            else if (activePage == cardPage.Page3)
-            {
-                slotUIobj = Instantiate(cardSlotUIPrefab, cardPage3.transform);
-                slotUIobj.SetData(cardSlot);
-            }
-            
         }
 
     }
