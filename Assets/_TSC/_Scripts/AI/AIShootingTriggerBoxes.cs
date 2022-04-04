@@ -18,6 +18,12 @@ public class AIShootingTriggerBoxes : MonoBehaviour
     private float startCountDown = 2f;
 
     public ShootingState shootingState;
+
+    public IEnumerator LoadShot()
+    {
+        yield return new WaitForSeconds(2);
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
@@ -31,7 +37,7 @@ public class AIShootingTriggerBoxes : MonoBehaviour
     {
         shootingState = ShootingState.Default;
     }
-
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Ball"))
