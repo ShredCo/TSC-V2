@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
+using UnityEngine.EventSystems;
 
 [CreateAssetMenu(fileName = "new inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
@@ -26,11 +27,11 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     public List<ISlotSpecialCard> SpecialCardContainer = new List<ISlotSpecialCard>();
 
-
+    #region Line Up
     // arrays to store the Player Line Up
-    public DefaultCardObject[] PlayerDefaultCardLineUp = new DefaultCardObject[4];
+    public CardObject[] PlayerDefaultCardLineUp = new CardObject[4];
 
-    public SpecialCardObject[] PlayerSpecialCardLineUp = new SpecialCardObject[4];
+    public CardObject[] PlayerSpecialCardLineUp = new CardObject[4];
 
     // arrays to store the AI Line Up
     public DefaultCardObject[] AIDefaultCardLineUp = new DefaultCardObject[4]; //may not be needed
@@ -38,29 +39,34 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     public SpecialCardObject[] AISpecialCardLineUp = new SpecialCardObject[4]; //may not be needed
 
     // methods to add cards to Line Up
-    public void AddDefaultCardtoLineUp(DefaultCardObject Card, int ID)
+    public void AddDefaultCardtoLineUp()
     {
-        PlayerDefaultCardLineUp[ID] = Card;
+        LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
+        PlayerDefaultCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot; // Save the selected Card to the local Line Up Array (to display in inv)
+        SavePlayerLineUp(); // save the local Line Up to the static Line Up on the LineUpController script (to access it from the match scene)
+        InventoryUI.Instance.UpdateSelectedPoleCards();
     }    
-    public void AddSpecialCardtoLineUp(SpecialCardObject Card, int ID)
+    public void AddSpecialCardtoLineUp()
     {
-        PlayerSpecialCardLineUp[ID] = Card;
+        LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
+        PlayerSpecialCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot;
+        SavePlayerLineUp();
     }
 
-    // methods to save Line Up for match
+    // save the Line Ups to he static Arrays from the LineUpController script
     public void SavePlayerLineUp()
     {
         LineUpController.PlayerDefaultCardLineUP = PlayerDefaultCardLineUp;
         LineUpController.PlayerSpecialCardLineUP = PlayerSpecialCardLineUp;
     }
 
-    // will be called from NPC, that has its own Line Up
-    public void SaveAILineUp(DefaultCardObject[] defaultCardObjects, SpecialCardObject[] specialCardObjects)
+    // save the Line Ups to he static Arrays from the LineUpController script (has to be called from the NPC with its Line Ups)
+    public void SaveAILineUp(CardObject[] defaultCardObjects, CardObject[] specialCardObjects)
     {
         LineUpController.PlayerDefaultCardLineUP = defaultCardObjects;
         LineUpController.PlayerSpecialCardLineUP = specialCardObjects;
     }
-
+    #endregion
 
     // checks if unity editor is runned. 
     // when the project is built the "else" part will take over.

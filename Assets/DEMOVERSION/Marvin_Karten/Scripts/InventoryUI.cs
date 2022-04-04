@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI Instance;
+
     [SerializeField] GameObject cardPage1;
     [SerializeField] GameObject cardPage2;
     [SerializeField] GameObject cardPage3;
     [SerializeField] CardSlotUI cardSlotUIPrefab;
+
+    [SerializeField] GameObject buttonMainPole;
+    [SerializeField] GameObject buttonCrewPole1;
+    [SerializeField] GameObject buttonCrewPole2;
+    [SerializeField] GameObject buttonCrewPole3;
+    [SerializeField] CardSlotUI poleSelectedCardPrefab;
 
     int index = 0;
     int maxCardsOnPage = 4;
@@ -23,8 +31,10 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
         activePage = cardPage.Page1;
         UpdateCardList1();
+        UpdateSelectedPoleCards();
     }
 
     void UpdateCardList1()
@@ -94,5 +104,60 @@ public class InventoryUI : MonoBehaviour
             
         }
 
+    }
+
+    public void UpdateSelectedPoleCards()
+    {
+        foreach (Transform child in buttonMainPole.transform)
+        {
+            if (child.CompareTag("SelectedPoleCard"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        foreach (Transform child in buttonCrewPole1.transform)
+        {
+            if (child.CompareTag("SelectedPoleCard"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        foreach (Transform child in buttonCrewPole2.transform)
+        {
+            if (child.CompareTag("SelectedPoleCard"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        foreach (Transform child in buttonCrewPole3.transform)
+        {
+            if (child.CompareTag("SelectedPoleCard"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        CardSlotUI slotUIobj;
+
+        slotUIobj = Instantiate(poleSelectedCardPrefab, buttonMainPole.transform);
+        slotUIobj.SetData(LineUpController.PoleSlotCardMain);
+
+        slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole1.transform);
+        if (LineUpController.PoleSlotCardCrew1 != null)
+        {
+            slotUIobj.SetData(LineUpController.PoleSlotCardCrew1);
+        }
+
+        slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole2.transform);
+        if (LineUpController.PoleSlotCardCrew2 != null)
+        {
+            slotUIobj.SetData(LineUpController.PoleSlotCardCrew2);
+        }
+
+        slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole3.transform);
+        if (LineUpController.PoleSlotCardCrew3 != null)
+        {
+            slotUIobj.SetData(LineUpController.PoleSlotCardCrew3);
+        }
     }
 }
