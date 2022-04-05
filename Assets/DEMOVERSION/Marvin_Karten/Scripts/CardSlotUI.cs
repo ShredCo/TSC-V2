@@ -28,4 +28,13 @@ public class CardSlotUI : MonoBehaviour
         cardArtwork.sprite = cardSlot.DefaultCard.CardArtwork;
         CardSlot = cardSlot.DefaultCard;
     }
+
+    public void SetData(CardObject cardSlot)
+    {
+        nameText.text = cardSlot.Name;
+        levelText.text = "Lv. " + cardSlot.Level.ToString();
+        attackText.text = cardSlot.Attack.ToString();
+        healthText.text = cardSlot.Health.ToString();
+        cardArtwork.sprite = cardSlot.CardArtwork;
+    }
 }
