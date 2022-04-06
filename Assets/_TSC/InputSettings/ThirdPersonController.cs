@@ -17,7 +17,7 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField]
     private float jumpForce = 5f;
     [SerializeField]
-    private float maxSpeed = 3.3f;
+    private float maxSpeed = 3.5f;
     private Vector3 forceDirection = Vector3.zero;
 
     [SerializeField]
@@ -70,7 +70,7 @@ public class ThirdPersonController : MonoBehaviour
         Vector3 direction = rb.velocity;
         direction.y = 0f;
         
-        if (move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
+        if (move.ReadValue<Vector2>().sqrMagnitude > 0.01f && direction.sqrMagnitude > 0.01f)
             this.rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
         else
             rb.angularVelocity = Vector3.zero;
