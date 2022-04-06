@@ -2627,7 +2627,7 @@ GameObject:
   - component: {fileID: 7755298403575423103}
   - component: {fileID: 7755298403575423096}
   m_Layer: 0
-  m_Name: OverWorldPlayer
+  m_Name: Ow_Player_Main
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
