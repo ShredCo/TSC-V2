@@ -34,7 +34,7 @@ public class ThirdPersonController : MonoBehaviour
     private void OnEnable()
     {
         //playerActionsAsset.OverWorldPlayer.Jump.started += DoJump;
-        //playerActionsAsset.OverWorldPlayer.Attack.started += DoAttack;
+        playerActionsAsset.OverWorldPlayer.Attack.started += DoAttack;
         move = playerActionsAsset.OverWorldPlayer.Move;
         playerActionsAsset.OverWorldPlayer.Enable();
     }
@@ -42,7 +42,7 @@ public class ThirdPersonController : MonoBehaviour
     private void OnDisable()
     {
         //playerActionsAsset.OverWorldPlayer.Jump.started -= DoJump;
-        //playerActionsAsset.OverWorldPlayer.Attack.started -= DoAttack;
+        playerActionsAsset.OverWorldPlayer.Attack.started -= DoAttack;
         playerActionsAsset.OverWorldPlayer.Disable();
     }
 
