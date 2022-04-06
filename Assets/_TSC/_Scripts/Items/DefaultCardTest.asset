@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb26e27ad839f740bbfaeb5ee1f851b, type: 3}
   m_Name: DefaultCardTest
   m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 111782, guid: 35dd43ae5c2e10a4abb1ec8f5ecb5c11, type: 3}
   Type: 0
   Name: TestNameAAAAAAAAAA
   Level: 2

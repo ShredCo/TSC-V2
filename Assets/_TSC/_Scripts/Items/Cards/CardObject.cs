@@ -10,6 +10,8 @@ public enum CardType
 
 public class CardObject : ScriptableObject
 {
+    public GameObject PlayerPrefab;
+
     public CardType Type;
 
     [Header("Default Card")]

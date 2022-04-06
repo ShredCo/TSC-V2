@@ -35,6 +35,16 @@ public class GameManagerOneVsOne : MonoBehaviour
         Cursor.visible = false;
         ScorePlayer1 = 0;
         ScorePlayer2 = 0;
+
+        // Line Up
+        // Get static Line Up Arrays from the LineUpController script
+
+        //playerDefaultCardLineUP = LineUpController.PlayerDefaultCardLineUP;
+        //playerSpecialCardLineUP = LineUpController.PlayerSpecialCardLineUP;
+        //AIDefaultCardLineUP = LineUpController.AIDefaultCardLineUP;
+        //AISpecialCardLineUP = LineUpController.AISpecialCardLineUP;
+
+        SpawnPlayerLineUp();
     }
     private void Update()
     {
@@ -82,7 +92,7 @@ public class GameManagerOneVsOne : MonoBehaviour
             print("ball in game:");
         }
     }
-        public void ScoreEnemy()
+    public void ScoreEnemy()
     {
         if (ScorePlayer2 < 10)
         {
@@ -91,4 +101,32 @@ public class GameManagerOneVsOne : MonoBehaviour
             print("ball in game:");
         }
     }
+
+    #region Line Up
+    // Arrays to store the Line Ups
+    [SerializeField] CardObject[] playerDefaultCardLineUP = new CardObject[4];
+    [SerializeField] CardObject[] playerSpecialCardLineUP = new CardObject[4];
+    [SerializeField] CardObject[] AIDefaultCardLineUP = new CardObject[4];
+    [SerializeField] CardObject[] AISpecialCardLineUP = new CardObject[4];
+
+    [SerializeField] GameObject spawnPointMainPole;
+    [SerializeField] GameObject spawnPointCrewPole1_1;
+    [SerializeField] GameObject spawnPointCrewPole1_2;
+    [SerializeField] GameObject spawnPointCrewPole2_1;
+    [SerializeField] GameObject spawnPointCrewPole2_2;
+    [SerializeField] GameObject spawnPointCrewPole2_3;
+    [SerializeField] GameObject spawnPointCrewPole2_4;
+    [SerializeField] GameObject spawnPointCrewPole2_5;
+    [SerializeField] GameObject spawnPointCrewPole3_1;
+    [SerializeField] GameObject spawnPointCrewPole3_2;
+    [SerializeField] GameObject spawnPointCrewPole3_3;
+
+    public void SpawnPlayerLineUp()
+    {
+        GameObject spawnedPlayer = Instantiate(playerDefaultCardLineUP[0].PlayerPrefab) as GameObject;
+        spawnedPlayer.transform.parent = spawnPointMainPole.transform;
+        spawnedPlayer.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //spawnedPlayer.transform.localRotation = Quaternion.Euler(0, 0, -90);
+    }
+    #endregion
 }
