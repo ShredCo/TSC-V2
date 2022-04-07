@@ -44,6 +44,7 @@ public class GameManagerOneVsOne : MonoBehaviour
         AIDefaultCardLineUP = LineUpController.AIDefaultCardLineUP;
         AISpecialCardLineUP = LineUpController.AISpecialCardLineUP;
 
+
         SpawnPlayerLineUp();
     }
     private void Update()
