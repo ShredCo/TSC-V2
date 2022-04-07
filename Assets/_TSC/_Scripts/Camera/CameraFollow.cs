@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform ball;
-    public float lerpSpeed = 5;
+    public float lerpSpeed = 0.001f;
 
     private Vector3 offsetPosition;
     // Update is called once per frame

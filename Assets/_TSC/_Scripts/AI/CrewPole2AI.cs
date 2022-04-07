@@ -6,10 +6,11 @@ public class CrewPole2AI : MonoBehaviour
 {
     [SerializeField] public Sense sense;
 
-    public float difficulty = 0.01f;
+    
+    [SerializeField] private float difficulty = 0.01f;
+    
     public Transform ball;
-
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     private float poleMovement;
     private Transform newPolePosition;
@@ -18,6 +19,8 @@ public class CrewPole2AI : MonoBehaviour
     {
         newPolePosition = transform;
         rb = GetComponent<Rigidbody>();
+
+        var myValue = Mathf.Lerp(0, 10, 0.5f);
     }
 
     void Update()
