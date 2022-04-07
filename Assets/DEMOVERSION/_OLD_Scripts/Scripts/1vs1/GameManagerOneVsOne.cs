@@ -39,10 +39,10 @@ public class GameManagerOneVsOne : MonoBehaviour
         // Line Up
         // Get static Line Up Arrays from the LineUpController script
 
-        //playerDefaultCardLineUP = LineUpController.PlayerDefaultCardLineUP;
-        //playerSpecialCardLineUP = LineUpController.PlayerSpecialCardLineUP;
-        //AIDefaultCardLineUP = LineUpController.AIDefaultCardLineUP;
-        //AISpecialCardLineUP = LineUpController.AISpecialCardLineUP;
+        playerDefaultCardLineUP = LineUpController.PlayerDefaultCardLineUP;
+        playerSpecialCardLineUP = LineUpController.PlayerSpecialCardLineUP;
+        AIDefaultCardLineUP = LineUpController.AIDefaultCardLineUP;
+        AISpecialCardLineUP = LineUpController.AISpecialCardLineUP;
 
         SpawnPlayerLineUp();
     }
@@ -123,10 +123,66 @@ public class GameManagerOneVsOne : MonoBehaviour
 
     public void SpawnPlayerLineUp()
     {
-        GameObject spawnedPlayer = Instantiate(playerDefaultCardLineUP[0].PlayerPrefab) as GameObject;
-        spawnedPlayer.transform.parent = spawnPointMainPole.transform;
-        spawnedPlayer.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        //spawnedPlayer.transform.localRotation = Quaternion.Euler(0, 0, -90);
+        GameObject spawnedPlayer;
+
+        // SpawnMainPole
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[0].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointMainPole.transform);
+        spawnedPlayer.transform.position = spawnPointMainPole.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        // SpawnCrewPole1
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[1].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole1_1.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole1_1.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[1].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole1_2.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole1_2.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        // SpawnCrewPole2
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[2].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole2_1.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole2_1.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[2].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole2_2.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole2_2.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[2].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole2_3.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole2_3.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[2].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole2_4.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole2_4.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[2].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole2_5.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole2_5.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        // SpawnCrewPole3
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[3].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole3_1.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole3_1.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[3].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole3_2.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole3_2.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+        spawnedPlayer = Instantiate(playerDefaultCardLineUP[3].PlayerPrefab);
+        spawnedPlayer.transform.SetParent(spawnPointCrewPole3_3.transform);
+        spawnedPlayer.transform.position = spawnPointCrewPole3_3.transform.position;
+        spawnedPlayer.transform.rotation = Quaternion.Euler(0, -90, 0);
     }
     #endregion
 }
