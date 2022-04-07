@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI Instance;
+
     [SerializeField] GameObject cardPage1;
     [SerializeField] GameObject cardPage2;
     [SerializeField] GameObject cardPage3;
     [SerializeField] CardSlotUI cardSlotUIPrefab;
+
+    [SerializeField] GameObject buttonMainPole;
+    [SerializeField] GameObject buttonCrewPole1;
+    [SerializeField] GameObject buttonCrewPole2;
+    [SerializeField] GameObject buttonCrewPole3;
+    [SerializeField] CardSlotUI poleSelectedCardPrefab;
 
     int index = 0;
     int maxCardsOnPage = 4;
@@ -23,8 +31,11 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
         activePage = cardPage.Page1;
         UpdateCardList1();
+        inventory.SavePlayerLineUp();
+        UpdateSelectedPoleCards();
     }
 
     void UpdateCardList1()
@@ -67,22 +78,92 @@ public class InventoryUI : MonoBehaviour
                 case cardPage.Page1:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPage1.transform);
                     slotUIobj.SetData(cardSlot);
-                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    if (index == 1)
+                    {
+                        FirstButtonCardSelection.FirstButtonLineUpCardPage1 = slotUIobj.gameObject;
+                    }
                     break;
                 case cardPage.Page2:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPage2.transform);
                     slotUIobj.SetData(cardSlot);
-                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    if (index == 5)
+                    {
+                        FirstButtonCardSelection.FirstButtonLineUpCardPage2 = slotUIobj.gameObject;
+                    }
                     break;
                 case cardPage.Page3:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPage3.transform);
                     slotUIobj.SetData(cardSlot);
-                    slotUIobj.transform.localScale = new Vector3(0.6f, 0.6f, 1);
+                    if (index == 9)
+                    {
+                        FirstButtonCardSelection.FirstButtonLineUpCardPage3 = slotUIobj.gameObject;
+                    }
                     break;
                 default:
                     break;
             }
+            
         }
 
+    }
+
+    public void UpdateSelectedPoleCards()
+    {
+        // destroy existing cards
+        foreach (Transform child in buttonMainPole.transform)
+        {
+            if (child.CompareTag("SelectedPoleCard"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        foreach (Transform child in buttonCrewPole1.transform)
+        {
+            if (child.CompareTag("SelectedPoleCard"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        foreach (Transform child in buttonCrewPole2.transform)
+        {
+            if (child.CompareTag("SelectedPoleCard"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        foreach (Transform child in buttonCrewPole3.transform)
+        {
+            if (child.CompareTag("SelectedPoleCard"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        CardSlotUI slotUIobj;
+        // instantiate selected cards depending if there is a selected card
+        if (LineUpController.PlayerDefaultCardLineUP[0] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, buttonMainPole.transform);
+            slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[0]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (LineUpController.PlayerDefaultCardLineUP[1] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole1.transform);
+            slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[1]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (LineUpController.PlayerDefaultCardLineUP[2] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole2.transform);
+            slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[2]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (LineUpController.PlayerDefaultCardLineUP[3] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole3.transform);
+            slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[3]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
     }
 }

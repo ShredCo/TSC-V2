@@ -31,6 +31,9 @@ public class UserInterfaceOverworld : MonoBehaviour
     [Header("Panels equip cards")]
     public GameObject panelEquipPoleCards;
     public GameObject panelEquipAbilityCards;
+
+    [Header("Text equip cards")]
+    public Text EquipPoleText;
     
     // Buttons
     [Header("Buttons Pausenmenu")]
@@ -57,8 +60,12 @@ public class UserInterfaceOverworld : MonoBehaviour
     
     // Buttons
     [Header("Buttons LineUps")]
-    public GameObject firstButtonPoleCard;
+    public GameObject firstButtonPoleCardPage1;
+    public GameObject firstButtonPoleCardPage2;
+    public GameObject firstButtonPoleCardPage3;
     public GameObject firstButtonAbilityCard;
+    public GameObject firstButtonLeftArrow;
+    public GameObject firstButtonRightArrow;
     #endregion
     
     [Header("Dialoge first selected buttons")]
@@ -72,6 +79,10 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     void Update()
     {
+        firstButtonPoleCardPage1 = FirstButtonCardSelection.FirstButtonLineUpCardPage1;
+        firstButtonPoleCardPage2 = FirstButtonCardSelection.FirstButtonLineUpCardPage2;
+        firstButtonPoleCardPage3 = FirstButtonCardSelection.FirstButtonLineUpCardPage3;
+
         var gamepad = Gamepad.current;
         if (gamepad.startButton.wasPressedThisFrame)
         {
@@ -109,6 +120,18 @@ public class UserInterfaceOverworld : MonoBehaviour
 
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
+        }
+        #endregion
+        #region close LineUp selection with east button
+        if (panelEquipPoleCards.activeInHierarchy && gamepad.buttonEast.wasPressedThisFrame)
+        {
+            inventoryActive = true;
+            panelInventory.SetActive(true);
+            panelEquipPoleCards.SetActive(false);
+            EnableFirstPage();
+
+            EventSystem.current.SetSelectedGameObject(firstButtonLineUpPoleCards);
+            Debug.Log(LineUpController.ActivePole);
         }
         #endregion
     }
@@ -215,8 +238,58 @@ public class UserInterfaceOverworld : MonoBehaviour
     #endregion
 
     #region Navigation Card Pages
+
+    public enum ActivePage
+    {
+        Page1,
+        Page2,
+        Page3
+    }
+
+    ActivePage activePage = ActivePage.Page1;
+
+    public void EnableNextPage()
+    {
+        switch (activePage)
+        {
+            case ActivePage.Page1:
+                EventSystem.current.SetSelectedGameObject(firstButtonRightArrow);
+                EnableSecondPage();
+                break;
+            case ActivePage.Page2:
+                EventSystem.current.SetSelectedGameObject(firstButtonRightArrow);
+                EnableThirdPage();
+                break;
+            case ActivePage.Page3:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void EnablePreviousPage()
+    {
+        switch (activePage)
+        {
+            case ActivePage.Page1:
+                break;
+            case ActivePage.Page2:
+                EventSystem.current.SetSelectedGameObject(firstButtonLeftArrow);
+                EnableFirstPage();
+                break;
+            case ActivePage.Page3:
+                EventSystem.current.SetSelectedGameObject(firstButtonLeftArrow);
+                EnableSecondPage();
+                break;
+            default:
+                break;
+        }
+    }
+
     public void EnableFirstPage()
     {
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
+        activePage = ActivePage.Page1;
         panelPoleCards1.SetActive(true);
         panelPoleCards2.SetActive(false);
         panelPoleCards3.SetActive(false);
@@ -224,6 +297,7 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     public void EnableSecondPage()
     {
+        activePage = ActivePage.Page2;
         panelPoleCards1.SetActive(false);
         panelPoleCards2.SetActive(true);
         panelPoleCards3.SetActive(false);
@@ -231,6 +305,7 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     public void EnableThirdPage()
     {
+        activePage = ActivePage.Page3;
         panelPoleCards1.SetActive(false);
         panelPoleCards2.SetActive(false);
         panelPoleCards3.SetActive(true);
@@ -242,46 +317,54 @@ public class UserInterfaceOverworld : MonoBehaviour
     // When a button for a pole is selected, the current pole to equip the cards on is selected.
     public void SetActivePoleMain()
     {
+        EquipPoleText.text = "Equip Main Pole\nCards";
+        inventoryActive = false;
         LineUpController.ActivePole = 0;
         
         panelInventory.SetActive(false);
         panelEquipPoleCards.SetActive(true);
         EnableFirstPage();
         
-        EventSystem.current.SetSelectedGameObject(firstButtonPoleCard);
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
         Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleFirst()
     {
+        EquipPoleText.text = "Equip Crew Pole 1\nCards";
+        inventoryActive = false;
         LineUpController.ActivePole = 1;
         
         panelInventory.SetActive(false);
         panelEquipPoleCards.SetActive(true);
         EnableFirstPage();
         
-        EventSystem.current.SetSelectedGameObject(firstButtonPoleCard);
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
         Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleSecond()
     {
+        EquipPoleText.text = "Equip Crew Pole 2\nCards";
+        inventoryActive = false;
         LineUpController.ActivePole = 2;
         
         panelInventory.SetActive(false);
         panelEquipPoleCards.SetActive(true);
         EnableFirstPage();
 
-        EventSystem.current.SetSelectedGameObject(firstButtonPoleCard);
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
         Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleThird()
     {
+        EquipPoleText.text = "Equip Crew Pole 3\nCards";
+        inventoryActive = false;
         LineUpController.ActivePole = 3;
         
         panelInventory.SetActive(false);
         panelEquipPoleCards.SetActive(true);
         EnableFirstPage();
         
-        EventSystem.current.SetSelectedGameObject(firstButtonPoleCard);
+        EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
         Debug.Log(LineUpController.ActivePole);
     }
 

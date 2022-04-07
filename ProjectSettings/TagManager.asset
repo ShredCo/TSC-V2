@@ -10,6 +10,7 @@ TagManager:
   - TestPlayer
   - FireTornado
   - SpecialCardsSpawnpoint
+  - SelectedPoleCard
   layers:
   - Default
   - TransparentFX

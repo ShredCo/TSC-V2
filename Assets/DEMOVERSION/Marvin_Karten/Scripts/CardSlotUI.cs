@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CardSlotUI : MonoBehaviour
 {
     [Header("Variables")]
-    [SerializeField] ISlotDefaultCard defaultCardSlot;
+    [SerializeField] public CardObject CardSlot;
 
     [SerializeField] Text countText;
 
@@ -26,5 +26,15 @@ public class CardSlotUI : MonoBehaviour
         attackText.text = cardSlot.DefaultCard.Attack.ToString();
         healthText.text = cardSlot.DefaultCard.Health.ToString();
         cardArtwork.sprite = cardSlot.DefaultCard.CardArtwork;
+        CardSlot = cardSlot.DefaultCard;
+    }
+
+    public void SetData(CardObject cardSlot)
+    {
+        nameText.text = cardSlot.Name;
+        levelText.text = "Lv. " + cardSlot.Level.ToString();
+        attackText.text = cardSlot.Attack.ToString();
+        healthText.text = cardSlot.Health.ToString();
+        cardArtwork.sprite = cardSlot.CardArtwork;
     }
 }

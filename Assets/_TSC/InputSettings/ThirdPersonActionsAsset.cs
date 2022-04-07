@@ -33,14 +33,6 @@ public class @ThirdPersonActionsAsset : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Attack"",
-                    ""type"": ""Button"",
-                    ""id"": ""16429d54-7cbe-4097-82a1-762d64d413dc"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -131,28 +123,6 @@ public class @ThirdPersonActionsAsset : IInputActionCollection, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b7e3e527-80b2-4fcf-a7a5-d08e52bbf11f"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""gamepad"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b2d7ed46-f359-41cc-8cb3-c8b4dc746879"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""gamepad"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -169,7 +139,6 @@ public class @ThirdPersonActionsAsset : IInputActionCollection, IDisposable
         m_OverWorldPlayer = asset.FindActionMap("OverWorldPlayer", throwIfNotFound: true);
         m_OverWorldPlayer_Move = m_OverWorldPlayer.FindAction("Move", throwIfNotFound: true);
         m_OverWorldPlayer_Look = m_OverWorldPlayer.FindAction("Look", throwIfNotFound: true);
-        m_OverWorldPlayer_Attack = m_OverWorldPlayer.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -221,14 +190,12 @@ public class @ThirdPersonActionsAsset : IInputActionCollection, IDisposable
     private IOverWorldPlayerActions m_OverWorldPlayerActionsCallbackInterface;
     private readonly InputAction m_OverWorldPlayer_Move;
     private readonly InputAction m_OverWorldPlayer_Look;
-    private readonly InputAction m_OverWorldPlayer_Attack;
     public struct OverWorldPlayerActions
     {
         private @ThirdPersonActionsAsset m_Wrapper;
         public OverWorldPlayerActions(@ThirdPersonActionsAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_OverWorldPlayer_Move;
         public InputAction @Look => m_Wrapper.m_OverWorldPlayer_Look;
-        public InputAction @Attack => m_Wrapper.m_OverWorldPlayer_Attack;
         public InputActionMap Get() { return m_Wrapper.m_OverWorldPlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -244,9 +211,6 @@ public class @ThirdPersonActionsAsset : IInputActionCollection, IDisposable
                 @Look.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
-                @Attack.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_OverWorldPlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -257,9 +221,6 @@ public class @ThirdPersonActionsAsset : IInputActionCollection, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -277,6 +238,5 @@ public class @ThirdPersonActionsAsset : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
     }
 }
