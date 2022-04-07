@@ -15,6 +15,9 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
+  - first:
+      74: -3780516532778130023
+    second: mixamo.com (1)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -67,17 +70,31 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.28426397
+        functionName: Step
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7893401
+        functionName: Step
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
+      name: mixamo.com (1)
+      takeName: mixamo.com
       internalID: 0
-      firstFrame: 2
-      lastFrame: 48
+      firstFrame: 0
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -96,7 +113,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.28486648
+        functionName: Step
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8234421
+        functionName: Step
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

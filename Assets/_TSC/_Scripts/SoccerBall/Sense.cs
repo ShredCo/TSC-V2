@@ -16,7 +16,7 @@ public class Sense : MonoBehaviour
         Array.Sort(colliders, new DistanceComparer(transform));
 
         closestPlayer = colliders[0];
-        Debug.Log("Closest Enemy = " + closestPlayer);
+        //Debug.Log("Closest Enemy = " + closestPlayer);
 
         //foreach (Collider item in colliders)
         //{
