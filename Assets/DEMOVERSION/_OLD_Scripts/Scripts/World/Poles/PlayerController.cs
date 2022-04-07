@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         polesPlayer[currentPoleIndex].MoveAndRotate(movementPole * Time.deltaTime);
         polesPlayer[currentPoleIndex].PoleLockedDown();
         
-        specialCharacter[1].MoveAndRotate(movementSpecialCard * Time.deltaTime);
+        //specialCharacter[1].MoveAndRotate(movementSpecialCard * Time.deltaTime);
        
     }
 
