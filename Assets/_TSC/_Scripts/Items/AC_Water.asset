@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2eb26e27ad839f740bbfaeb5ee1f851b, type: 3}
-  m_Name: SpecialCardTest
+  m_Name: AC_Water
   m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 0}
   Type: 1
-  Name: TestName
-  Level: 2
+  Name: Special Card Water
+  Level: 30
   PowerPoints: 0
   Health: 100
   Attack: 50
-  CardArtwork: {fileID: 21300000, guid: 32aca6ae9847bbd43a0d3b92e12543a9, type: 3}
+  CardArtwork: {fileID: 21300000, guid: a3adff54d07ebc74d860c1e943dc7384, type: 3}

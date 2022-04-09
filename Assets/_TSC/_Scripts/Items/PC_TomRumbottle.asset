@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb26e27ad839f740bbfaeb5ee1f851b, type: 3}
+  m_Name: PC_TomRumbottle
+  m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 333646011653845782, guid: efaa1a4cf5b21ee4f8907becabd35798, type: 3}
+  Type: 0
+  Name: Tom Rumbottle
+  Level: 2
+  PowerPoints: 0
+  Health: 100
+  Attack: 50
+  CardArtwork: {fileID: 21300000, guid: 587fc2dcb0241374e97d060ed1a01240, type: 3}
