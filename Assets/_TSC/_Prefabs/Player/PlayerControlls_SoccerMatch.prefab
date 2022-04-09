@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2223526, y: 3.8131874, z: 4.5093493}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,10 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6038e80719aca0242a176f27ab0f4a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpecialCard: {x: 0, y: 0}
   ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
-  cardSpawnPos: {fileID: 0}
-  offsetPositionCard: {x: 0, y: 0, z: 0}
   characterVelocity: 750
   ball: {fileID: 0}
 --- !u!114 &-229456059327777998
@@ -271,6 +269,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7e24055d-0150-4c6e-be6c-dcd00620e3ab
     m_ActionName: SoccerMatchControlls/Ability4[/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b3f2f4e8-cd46-41db-ac98-86db47d5667f
+    m_ActionName: SoccerMatchControlls/Pause[/DualShock4GamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player1
   m_DefaultActionMap: SoccerMatchControlls
