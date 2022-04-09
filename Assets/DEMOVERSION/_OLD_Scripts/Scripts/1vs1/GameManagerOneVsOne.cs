@@ -291,9 +291,9 @@ public class GameManagerOneVsOne : MonoBehaviour
     public void GetLineUps()
     {
         playerDefaultCardLineUP = LineUpController.PlayerDefaultCardLineUP;
-        playerSpecialCardLineUP = LineUpController.PlayerSpecialCardLineUP;
+        playerSpecialCardLineUP = LineUpController.PlayerAbilityCardLineUP;
         AIDefaultCardLineUP = LineUpController.AIDefaultCardLineUP;
-        AISpecialCardLineUP = LineUpController.AISpecialCardLineUP;
+        AISpecialCardLineUP = LineUpController.AIAbilityCardLineUP;
     }
     #endregion
 }
