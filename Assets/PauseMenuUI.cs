@@ -27,11 +27,10 @@ public class PauseMenuUI : MonoBehaviour
     
     [Header("Buttons/Panel Help")]
     public GameObject ButtonCloseHelp;
-    private void Update()
-    {
-        
-    }
 
+    [Header("Buttons/Panel Settings")]
+    public GameObject ButtonCloseSettings;
+    
     #region Input System -> Pause Game
     public void Pause(InputAction.CallbackContext context)
     {
@@ -58,7 +57,9 @@ public class PauseMenuUI : MonoBehaviour
 
     public void Settings()
     {
-        
+        Panel_SettingsMenu.SetActive(true);
+        Panel_PauseMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(ButtonCloseSettings);
     }
 
     public void Menu()
@@ -101,6 +102,15 @@ public class PauseMenuUI : MonoBehaviour
     {
         Panel_PauseMenu.SetActive(true);
         Panel_HelpMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(ButtonResume);
+    }
+    #endregion
+    
+    #region SettingsMenu -> Button Methods
+    public void CloseSettingsMenu()
+    {
+        Panel_PauseMenu.SetActive(true);
+        Panel_SettingsMenu.SetActive(false);
         EventSystem.current.SetSelectedGameObject(ButtonResume);
     }
     #endregion
