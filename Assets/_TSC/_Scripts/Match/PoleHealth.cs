@@ -1,0 +1,199 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class PoleHealth : MonoBehaviour
+{
+    // Player poles
+    [Header("Player Pole Health")]
+    private float playerHealthMain;
+    private float playerMaxHealthMain;
+    public Image HealthBarPlayerMain;
+    public TextMeshProUGUI TextCurrentHealthPlayerMain;
+    public TextMeshProUGUI TextMaxHealthPlayerMain;
+    private float playerHealthCrew1;
+    private float playerMaxHealthCrew1;
+    public Image HealthBarPlayerCrew1;
+    public TextMeshProUGUI TextCurrentHealthPlayerCrew1;
+    public TextMeshProUGUI TextMaxHealthPlayerCrew1;
+    private float playerHealthCrew2;
+    private float playerMaxHealthCrew2;
+    public Image HealthBarPlayerCrew2;
+    public TextMeshProUGUI TextCurrentHealthPlayerCrew2;
+    public TextMeshProUGUI TextMaxHealthPlayerCrew2;
+    private float playerHealthCrew3;
+    private float playerMaxHealthCrew3;
+    public Image HealthBarPlayerCrew3;
+    public TextMeshProUGUI TextCurrentHealthPlayerCrew3;
+    public TextMeshProUGUI TextMaxHealthPlayerCrew3;
+
+    // AI poles
+    [Header("AI Pole Health")]
+    private float AIHealthMain;
+    private float AIMaxHealthMain;
+    public Image HealthBarAIMain;
+    public TextMeshProUGUI TextCurrentHealthAIMain;
+    public TextMeshProUGUI TextMaxHealthAIMain;
+    private float AIHealthCrew1;
+    private float AIMaxHealthCrew1;
+    public Image HealthBarAICrew1;
+    public TextMeshProUGUI TextCurrentHealthAICrew1;
+    public TextMeshProUGUI TextMaxHealthAICrew1;
+    private float AIHealthCrew2;
+    private float AIMaxHealthCrew2;
+    public Image HealthBarAICrew2;
+    public TextMeshProUGUI TextCurrentHealthAICrew2;
+    public TextMeshProUGUI TextMaxHealthAICrew2;
+    private float AIHealthCrew3;
+    private float AIMaxHealthCrew3;
+    public Image HealthBarAICrew3;
+    public TextMeshProUGUI TextCurrentHealthAICrew3;
+    public TextMeshProUGUI TextMaxHealthAICrew3;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        GetPoleHealth();
+        SetMaxHealth();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        UpdateHealthText();
+        UpdateHealth();
+        ChangeColor();
+    }
+
+    float lerpSpeed = 3f;
+
+
+    void GetPoleHealth()
+    {
+        // Player poles
+        playerHealthMain = LineUpController.PlayerDefaultCardLineUP[0].Health;
+        playerMaxHealthMain = LineUpController.PlayerDefaultCardLineUP[0].Health;
+        playerHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].Health;
+        playerMaxHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].Health;
+        playerHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].Health;
+        playerMaxHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].Health;
+        playerHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].Health;
+        playerMaxHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].Health;
+
+        // AI poles
+        //AIHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
+        //AIMaxHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
+        //AIHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
+        //AIMaxHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
+        //AIHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
+        //AIMaxHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
+        //AIHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
+        //AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
+    }
+
+    void UpdateHealthText()
+    {
+        // Player
+        TextCurrentHealthPlayerMain.text = Mathf.Clamp(playerHealthMain, 0f, playerMaxHealthMain).ToString();
+        TextCurrentHealthPlayerCrew1.text = Mathf.Clamp(playerHealthCrew1, 0f, playerMaxHealthCrew1).ToString();
+        TextCurrentHealthPlayerCrew2.text = Mathf.Clamp(playerHealthCrew2, 0f, playerMaxHealthCrew2).ToString();
+        TextCurrentHealthPlayerCrew3.text = Mathf.Clamp(playerHealthCrew3, 0f, playerMaxHealthCrew3).ToString();
+
+        // AI
+        //TextCurrentHealthAIMain.text = Mathf.Clamp(AIHealthMain, 0f, AIMaxHealthMain).ToString();
+        //TextCurrentHealthAICrew1.text = Mathf.Clamp(AIHealthCrew1, 0f, AIMaxHealthCrew1).ToString();
+        //TextCurrentHealthAICrew2.text = Mathf.Clamp(AIHealthCrew2, 0f, AIMaxHealthCrew2).ToString();
+        //TextCurrentHealthAICrew3.text = Mathf.Clamp(AIHealthCrew3, 0f, AIMaxHealthCrew3).ToString();
+    }
+
+    void SetMaxHealth()
+    {
+        // Player
+        TextMaxHealthPlayerMain.text = playerMaxHealthMain.ToString();
+        TextMaxHealthPlayerCrew1.text = playerMaxHealthCrew1.ToString();
+        TextMaxHealthPlayerCrew2.text = playerMaxHealthCrew2.ToString();
+        TextMaxHealthPlayerCrew3.text = playerMaxHealthCrew3.ToString();
+
+        // AI
+        //TextMaxHealthAIMain.text = AIMaxHealthMain.ToString();
+        //TextMaxHealthAICrew1.text = AIMaxHealthCrew1.ToString();
+        //TextMaxHealthAICrew2.text = AIMaxHealthCrew2.ToString();
+        //TextMaxHealthAICrew3.text = AIMaxHealthCrew3.ToString();
+    }
+
+    void UpdateHealth()
+    {
+        // Player
+        HealthBarPlayerMain.fillAmount = Mathf.Lerp(HealthBarPlayerMain.fillAmount, playerHealthMain / playerMaxHealthMain, lerpSpeed * Time.deltaTime);
+        HealthBarPlayerCrew1.fillAmount = Mathf.Lerp(HealthBarPlayerCrew1.fillAmount, playerHealthCrew1 / playerMaxHealthCrew1, lerpSpeed * Time.deltaTime);
+        HealthBarPlayerCrew2.fillAmount = Mathf.Lerp(HealthBarPlayerCrew2.fillAmount, playerHealthCrew2 / playerMaxHealthCrew2, lerpSpeed * Time.deltaTime);
+        HealthBarPlayerCrew3.fillAmount = Mathf.Lerp(HealthBarPlayerCrew3.fillAmount, playerHealthCrew3 / playerMaxHealthCrew3, lerpSpeed * Time.deltaTime);
+
+        // AI
+        //HealthBarAIMain.fillAmount = Mathf.Lerp(HealthBarAIMain.fillAmount, AIHealthMain / AIMaxHealthMain, lerpSpeed * Time.deltaTime);
+        //HealthBarAICrew1.fillAmount = Mathf.Lerp(HealthBarAICrew1.fillAmount, AIHealthCrew1 / AIMaxHealthCrew1, lerpSpeed * Time.deltaTime);
+        //HealthBarAICrew2.fillAmount = Mathf.Lerp(HealthBarAICrew2.fillAmount, AIHealthCrew2 / AIMaxHealthCrew2, lerpSpeed * Time.deltaTime);
+        //HealthBarAICrew3.fillAmount = Mathf.Lerp(HealthBarAICrew3.fillAmount, AIHealthCrew3 / AIMaxHealthCrew3, lerpSpeed * Time.deltaTime);
+    }
+
+    void ChangeColor()
+    {
+        // Player
+        HealthBarPlayerMain.color = Color.Lerp(Color.grey, Color.red, (playerHealthMain / playerMaxHealthMain));
+        HealthBarPlayerCrew1.color = Color.Lerp(Color.grey, Color.red, (playerHealthCrew1 / playerMaxHealthCrew1));
+        HealthBarPlayerCrew2.color = Color.Lerp(Color.grey, Color.red, (playerHealthCrew2 / playerMaxHealthCrew2));
+        HealthBarPlayerCrew3.color = Color.Lerp(Color.grey, Color.red, (playerHealthCrew3 / playerMaxHealthCrew3));
+
+        // AI
+        //HealthBarAIMain.color = Color.Lerp(Color.grey, Color.red, (AIHealthMain / AIMaxHealthMain));
+        //HealthBarAICrew1.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew1 / AIMaxHealthCrew1));
+        //HealthBarAICrew2.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew2 / AIMaxHealthCrew2));
+        //HealthBarAICrew3.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew3 / AIMaxHealthCrew3));
+    }
+
+    #region Player take damage
+    public void PlayerMainTakeDamage()
+    {
+        playerHealthMain -= 20;
+    }
+
+    public void PlayerCrew1TakeDamage()
+    {
+        playerHealthCrew1 -= 20;
+    }
+
+    public void PlayerCrew2TakeDamage()
+    {
+        playerHealthCrew2 -= 20;
+    }
+
+    public void PlayerCrew3TakeDamage()
+    {
+        playerHealthCrew3 -= 20;
+    }
+    #endregion
+
+    #region AI  take damage
+    public void AIMainTakeDamage()
+    {
+        AIHealthMain -= 20;
+    }
+
+    public void AICrew1TakeDamage()
+    {
+        AIHealthCrew1 -= 20;
+    }
+
+    public void AICrew2TakeDamage()
+    {
+        AIHealthCrew2 -= 20;
+    }
+
+    public void AICrew3TakeDamage()
+    {
+        AIHealthCrew3 -= 20;
+    }
+    #endregion
+}

@@ -34,7 +34,7 @@ public class PauseMenuUI : MonoBehaviour
     #region Input System -> Pause Game
     public void Pause(InputAction.CallbackContext context)
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         Canvas_PauseMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(ButtonResume);
     }
