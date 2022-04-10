@@ -43,7 +43,7 @@ public class GameManagerOneVsOne : MonoBehaviour
     }
     private void Update()
     {
-        if (ScorePlayer1 == 10 || ScorePlayer2 == 10)
+        if (ScorePlayer1 == 5 || ScorePlayer2 == 5)
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene(1);

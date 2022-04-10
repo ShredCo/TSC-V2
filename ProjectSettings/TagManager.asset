@@ -11,6 +11,7 @@ TagManager:
   - FireTornado
   - SpecialCardsSpawnpoint
   - SelectedPoleCard
+  - Powerpoint
   layers:
   - Default
   - TransparentFX
