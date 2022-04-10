@@ -6,6 +6,7 @@ using TMPro;
 
 public class PoleHealth : MonoBehaviour
 {
+    #region Health Variables
     // Player poles
     [Header("Player Pole Health")]
     private float playerHealthMain;
@@ -51,24 +52,37 @@ public class PoleHealth : MonoBehaviour
     public Image HealthBarAICrew3;
     public TextMeshProUGUI TextCurrentHealthAICrew3;
     public TextMeshProUGUI TextMaxHealthAICrew3;
+    #endregion
 
-    // Start is called before the first frame update
+    #region Pole GameObjects
+    // Player
+    public GameObject PlayerPoleMain;
+    public GameObject PlayerPoleCrew1;
+    public GameObject PlayerPoleCrew2;
+    public GameObject PlayerPoleCrew3;
+
+    // AI
+    public GameObject AIPoleMain;
+    public GameObject AIPoleCrew1;
+    public GameObject AIPoleCrew2;
+    public GameObject AIPoleCrew3;
+    #endregion
+
+    float lerpSpeed = 3f;
+
     void Start()
     {
         GetPoleHealth();
         SetMaxHealth();
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateHealthText();
         UpdateHealth();
         ChangeColor();
+        PoleChangeColor();
     }
-
-    float lerpSpeed = 3f;
-
 
     void GetPoleHealth()
     {
@@ -93,6 +107,26 @@ public class PoleHealth : MonoBehaviour
         //AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
     }
 
+    #region Poles GameObjects
+
+    void PoleChangeColor()
+    {
+        // Player
+        PlayerPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (playerHealthMain / playerMaxHealthMain));
+        PlayerPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (playerHealthCrew1 / playerMaxHealthCrew1));
+        PlayerPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (playerHealthCrew2 / playerMaxHealthCrew2));
+        PlayerPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (playerHealthCrew3 / playerMaxHealthCrew3));
+
+        // AI
+        //AIPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (AIHealthMain / AIMaxHealthMain));
+        //AIPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew1 / AIMaxHealthCrew1));
+        //AIPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew2 / AIMaxHealthCrew2));
+        //AIPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew3 / AIMaxHealthCrew3));
+    }
+
+    #endregion
+
+    #region UI
     void UpdateHealthText()
     {
         // Player
@@ -152,6 +186,7 @@ public class PoleHealth : MonoBehaviour
         //HealthBarAICrew2.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew2 / AIMaxHealthCrew2));
         //HealthBarAICrew3.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew3 / AIMaxHealthCrew3));
     }
+    #endregion
 
     #region Player take damage
     public void PlayerMainTakeDamage()
