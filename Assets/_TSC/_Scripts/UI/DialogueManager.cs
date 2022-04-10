@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    
     public Text nameText;
     public Text dialogueText;
     public GameObject firstSelectedButtonDialoge;
@@ -17,8 +18,10 @@ public class DialogueManager : MonoBehaviour
     public UserInterfaceOverworld userInterfaceOverworld;
     public DialogueTrigger dialogueTrigger;
     bool dialogueStarted = false;
+    
+    public NpcType npcType;
 
-
+    private DialogueState dialogueState;
     //made with Brackeys tutorial
     private Queue<string> sentences;
     // Start is called before the first frame update
@@ -32,6 +35,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueStarted)
         {
+            Player.instance.DialogueState = DialogueState.Talking;
             dialogueStarted = true;
             EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
             Time.timeScale = 1;
@@ -46,9 +50,7 @@ public class DialogueManager : MonoBehaviour
 
             }
             DisplayNextSentence();
-
         }
-        
     }
     public void DisplayNextSentence() 
     {
@@ -73,10 +75,25 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue() 
     {
+        Player.instance.DialogueState = DialogueState.Avaiable;
         dialogueStarted = false;
         animator.SetBool("IsOpen", false);
         userInterfaceOverworld.Resume();
-        //SceneManager.LoadScene(2);
+        if (npcType == NpcType.Agressive)
+        {
+            SceneManager.LoadScene(2);
+        }
+
+        if (npcType == NpcType.Neutral)
+        {
+            StartCoroutine(CooldownDialogue());
+        }
     }
 
+    public IEnumerator CooldownDialogue()
+    {
+        yield return new WaitForSeconds(2f);
+        DialogueTrigger.instance.IsTalking = false;
+        Debug.Log("Coroutine");
+    }
 }

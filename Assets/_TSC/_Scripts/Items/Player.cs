@@ -5,11 +5,25 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum DialogueState
+{
+    Avaiable,
+    NotAvaiable,
+    Talking
+}
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
+
     // gives the player an inventory
     public InventoryObject inventory;
-
+    public DialogueState DialogueState;
     private void OnTriggerEnter(Collider other)
     {
         var item = other.GetComponent<Item>();

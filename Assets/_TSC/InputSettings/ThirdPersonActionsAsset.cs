@@ -53,6 +53,15 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8a5de65-26ad-4bf7-a5d2-9e8722605819"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -165,6 +174,17 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e03e0809-247a-4c74-a4dd-b9eb064b314c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -182,6 +202,7 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
         m_OverWorldPlayer_Move = m_OverWorldPlayer.FindAction("Move", throwIfNotFound: true);
         m_OverWorldPlayer_Look = m_OverWorldPlayer.FindAction("Look", throwIfNotFound: true);
         m_OverWorldPlayer_Attack = m_OverWorldPlayer.FindAction("Attack", throwIfNotFound: true);
+        m_OverWorldPlayer_Interact = m_OverWorldPlayer.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -244,6 +265,7 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
     private readonly InputAction m_OverWorldPlayer_Move;
     private readonly InputAction m_OverWorldPlayer_Look;
     private readonly InputAction m_OverWorldPlayer_Attack;
+    private readonly InputAction m_OverWorldPlayer_Interact;
     public struct OverWorldPlayerActions
     {
         private @ThirdPersonActionsAsset m_Wrapper;
@@ -251,6 +273,7 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
         public InputAction @Move => m_Wrapper.m_OverWorldPlayer_Move;
         public InputAction @Look => m_Wrapper.m_OverWorldPlayer_Look;
         public InputAction @Attack => m_Wrapper.m_OverWorldPlayer_Attack;
+        public InputAction @Interact => m_Wrapper.m_OverWorldPlayer_Interact;
         public InputActionMap Get() { return m_Wrapper.m_OverWorldPlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -269,6 +292,9 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                 @Attack.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
+                @Interact.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_OverWorldPlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -282,6 +308,9 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -300,5 +329,6 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
