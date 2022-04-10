@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public UserInterfaceOverworld userInterfaceOverworld;
     public DialogueTrigger dialogueTrigger;
+    bool dialogueStarted = false;
 
 
     //made with Brackeys tutorial
@@ -29,19 +30,25 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
-        EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
-        Time.timeScale = 1;
-        userInterfaceOverworld.canvasDialoge.SetActive(true);
-        animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
-        sentences.Clear();
-
-        foreach (string sentence in dialogue.sentences)
+        if (!dialogueStarted)
         {
-            sentences.Enqueue(sentence);
+            dialogueStarted = true;
+            EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
+            Time.timeScale = 1;
+            userInterfaceOverworld.canvasDialoge.SetActive(true);
+            animator.SetBool("IsOpen", true);
+            nameText.text = dialogue.name;
+            sentences.Clear();
+
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+
+            }
+            DisplayNextSentence();
 
         }
-        DisplayNextSentence();
+        
     }
     public void DisplayNextSentence() 
     {
@@ -66,9 +73,10 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue() 
     {
+        dialogueStarted = false;
         animator.SetBool("IsOpen", false);
         userInterfaceOverworld.Resume();
-        SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(2);
     }
 
 }
