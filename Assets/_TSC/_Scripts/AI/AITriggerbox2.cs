@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class AITriggerbox2 : MonoBehaviour
     public float LoadingSpeed = 0.5f;
     public float ShotSpeed = 0.3f;
     
+    private bool isInZone = false;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
@@ -23,12 +26,34 @@ public class AITriggerbox2 : MonoBehaviour
             shootingState = ShootingState.Loading;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            isInZone = true;
+            if (shootingState == ShootingState.Default)
+            {
+                StartCoroutine(CheckForShot());
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         shootingState = ShootingState.Default;
+        isInZone = false;
     }
 
     // Coroutines
+    public IEnumerator CheckForShot()
+    {
+        if (isInZone == true)
+        {
+            yield return new WaitForSeconds(1f);
+            shootingState = ShootingState.Loading;
+            Debug.Log("now shot can be activated");
+        }
+    }
     public IEnumerator ResetPole()
     {
         yield return new WaitForSeconds(1.5f);
@@ -36,6 +61,7 @@ public class AITriggerbox2 : MonoBehaviour
     }
     public IEnumerator LoadShot()
     {
+        
         yield return new WaitForSeconds(1);
         //crewPole2AI.rb.transform.Rotate(rotationLoading * loadingSpeed * Time.deltaTime);
         crewPole2AI.rb.transform.rotation = Quaternion.Lerp(crewPole2AI.rb.transform.rotation, currentAngle, LoadingSpeed);

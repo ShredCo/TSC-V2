@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
     private float activeTime;
 
     private GameObject arrow;
-    [SerializeField] protected int currentPoleIndex;
+
+    protected int currentPoleIndex;
+    public int powerpointsCount = 0;
     
     // Special Cards move speed;
     public float characterVelocity = 750f;
@@ -53,7 +55,6 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case AbilityState.ready:
-                Debug.Log("Ability is now ready");
                 activeTime = ability.activeTime;
                 break;
             case AbilityState.active:

@@ -16,6 +16,8 @@ public class AITriggerbox1 : MonoBehaviour
     public float LoadingSpeed = 0.5f;
     public float ShotSpeed = 0.3f;
     
+    private bool isInZone = false;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
@@ -23,12 +25,32 @@ public class AITriggerbox1 : MonoBehaviour
             shootingState = ShootingState.Loading;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            isInZone = true;
+            if (shootingState == ShootingState.Default)
+            {
+                StartCoroutine(CheckForShot());
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         shootingState = ShootingState.Default;
+        isInZone = false;
     }
 
     // Coroutines
+    public IEnumerator CheckForShot()
+    {
+        if (isInZone == true)
+        {
+            yield return new WaitForSeconds(1f);
+            shootingState = ShootingState.Loading;
+        }
+    }
     public IEnumerator ResetPole()
     {
         yield return new WaitForSeconds(1.5f);

@@ -68,6 +68,9 @@ public class PoleHealth : MonoBehaviour
     public GameObject AIPoleCrew3;
     #endregion
 
+    public TextMeshProUGUI TextPowerpointsPlayer;
+    public TextMeshProUGUI TextPowerpointsEnemy;
+    
     float lerpSpeed = 3f;
 
     void Start()
@@ -82,6 +85,7 @@ public class PoleHealth : MonoBehaviour
         UpdateHealth();
         ChangeColor();
         PoleChangeColor();
+        UpdatePowerpointText();
     }
 
     void GetPoleHealth()
@@ -127,6 +131,13 @@ public class PoleHealth : MonoBehaviour
     #endregion
 
     #region UI
+
+
+    void UpdatePowerpointText()
+    {
+        TextPowerpointsPlayer.text = PlayerController.Instance.powerpointsCount.ToString();
+    }
+    
     void UpdateHealthText()
     {
         // Player
