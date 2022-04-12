@@ -14,9 +14,9 @@ public class LineUpMatchController : MonoBehaviour
     {
         // Get static Line Up Arrays from the LineUpController script
         PlayerDefaultCardLineUP = LineUpController.PlayerDefaultCardLineUP;
-        PlayerSpecialCardLineUP = LineUpController.PlayerSpecialCardLineUP;        
+        PlayerSpecialCardLineUP = LineUpController.PlayerAbilityCardLineUP;        
         AIDefaultCardLineUP = LineUpController.AIDefaultCardLineUP;
-        AISpecialCardLineUP = LineUpController.AISpecialCardLineUP;
+        AISpecialCardLineUP = LineUpController.AIAbilityCardLineUP;
     }
 
 }

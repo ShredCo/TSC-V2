@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 
 public class UserInterfaceOverworld : MonoBehaviour
@@ -34,6 +33,7 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     [Header("Text equip cards")]
     public Text EquipPoleText;
+    public Text EquipAbilityText;
     
     // Buttons
     [Header("Buttons Pausenmenu")]
@@ -44,7 +44,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     [Header("Buttons Inventory")]
     public GameObject firstButtonBagpack;
     public GameObject firstButtonLineUpPoleCards;
-    public GameObject firstButtonLineUpPoleAbilitys;
+    public GameObject firstButtonLineUpAbilityCards;
     #endregion
     
     #region Inventory Submenu Canvas/Panels/Buttons
@@ -63,9 +63,18 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject firstButtonPoleCardPage1;
     public GameObject firstButtonPoleCardPage2;
     public GameObject firstButtonPoleCardPage3;
+
+    public GameObject firstButtonAbilityCardPage1;
+    public GameObject firstButtonAbilityCardPage2;
+    public GameObject firstButtonAbilityCardPage3;
+
     public GameObject firstButtonAbilityCard;
-    public GameObject firstButtonLeftArrow;
-    public GameObject firstButtonRightArrow;
+
+    public GameObject firstButtonLeftArrowPoles;
+    public GameObject firstButtonRightArrowPoles;
+
+    public GameObject firstButtonLeftArrowAbilitys;
+    public GameObject firstButtonRightArrowAbilitys;
     #endregion
     
     [Header("Dialoge first selected buttons")]
@@ -79,9 +88,8 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     void Update()
     {
-        firstButtonPoleCardPage1 = FirstButtonCardSelection.FirstButtonLineUpCardPage1;
-        firstButtonPoleCardPage2 = FirstButtonCardSelection.FirstButtonLineUpCardPage2;
-        firstButtonPoleCardPage3 = FirstButtonCardSelection.FirstButtonLineUpCardPage3;
+        firstButtonPoleCardPage1 = FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1;
+        firstButtonAbilityCardPage1 = FirstButtonCardSelection.FirstButtonLineUpAbilityCardPage1;
 
         var gamepad = Gamepad.current;
         if (gamepad.startButton.wasPressedThisFrame)
@@ -128,9 +136,19 @@ public class UserInterfaceOverworld : MonoBehaviour
             inventoryActive = true;
             panelInventory.SetActive(true);
             panelEquipPoleCards.SetActive(false);
-            EnableFirstPage();
+            EnableFirstPoleCardPage();
 
             EventSystem.current.SetSelectedGameObject(firstButtonLineUpPoleCards);
+            Debug.Log(LineUpController.ActivePole);
+        }
+        if (panelEquipAbilityCards.activeInHierarchy && gamepad.buttonEast.wasPressedThisFrame)
+        {
+            inventoryActive = true;
+            panelInventory.SetActive(true);
+            panelEquipAbilityCards.SetActive(false);
+            EnableFirstAbilityCardPage();
+
+            EventSystem.current.SetSelectedGameObject(firstButtonLineUpAbilityCards);
             Debug.Log(LineUpController.ActivePole);
         }
         #endregion
@@ -229,16 +247,14 @@ public class UserInterfaceOverworld : MonoBehaviour
                 panelBackpack.SetActive(false);
                 panelLineUpTeam.SetActive(false);
                 panelLineUpAbilitys.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(firstButtonLineUpPoleAbilitys);
+                EventSystem.current.SetSelectedGameObject(firstButtonLineUpAbilityCards);
                 break;
 
         }
 
     }
     #endregion
-
-    #region Navigation Card Pages
-
+    
     public enum ActivePage
     {
         Page1,
@@ -246,19 +262,21 @@ public class UserInterfaceOverworld : MonoBehaviour
         Page3
     }
 
-    ActivePage activePage = ActivePage.Page1;
+    #region Navigation Pole Card Pages
+
+    ActivePage activePolePage = ActivePage.Page1;
 
     public void EnableNextPage()
     {
-        switch (activePage)
+        switch (activePolePage)
         {
             case ActivePage.Page1:
-                EventSystem.current.SetSelectedGameObject(firstButtonRightArrow);
-                EnableSecondPage();
+                EventSystem.current.SetSelectedGameObject(firstButtonRightArrowPoles);
+                EnableSecondPoleCardPage();
                 break;
             case ActivePage.Page2:
-                EventSystem.current.SetSelectedGameObject(firstButtonRightArrow);
-                EnableThirdPage();
+                EventSystem.current.SetSelectedGameObject(firstButtonRightArrowPoles);
+                EnableThirdPoleCardPage();
                 break;
             case ActivePage.Page3:
                 break;
@@ -269,43 +287,43 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     public void EnablePreviousPage()
     {
-        switch (activePage)
+        switch (activePolePage)
         {
             case ActivePage.Page1:
                 break;
             case ActivePage.Page2:
-                EventSystem.current.SetSelectedGameObject(firstButtonLeftArrow);
-                EnableFirstPage();
+                EventSystem.current.SetSelectedGameObject(firstButtonLeftArrowPoles);
+                EnableFirstPoleCardPage();
                 break;
             case ActivePage.Page3:
-                EventSystem.current.SetSelectedGameObject(firstButtonLeftArrow);
-                EnableSecondPage();
+                EventSystem.current.SetSelectedGameObject(firstButtonLeftArrowPoles);
+                EnableSecondPoleCardPage();
                 break;
             default:
                 break;
         }
     }
 
-    public void EnableFirstPage()
+    public void EnableFirstPoleCardPage()
     {
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
-        activePage = ActivePage.Page1;
+        activePolePage = ActivePage.Page1;
         panelPoleCards1.SetActive(true);
         panelPoleCards2.SetActive(false);
         panelPoleCards3.SetActive(false);
     }
 
-    public void EnableSecondPage()
+    public void EnableSecondPoleCardPage()
     {
-        activePage = ActivePage.Page2;
+        activePolePage = ActivePage.Page2;
         panelPoleCards1.SetActive(false);
         panelPoleCards2.SetActive(true);
         panelPoleCards3.SetActive(false);
     }
 
-    public void EnableThirdPage()
+    public void EnableThirdPoleCardPage()
     {
-        activePage = ActivePage.Page3;
+        activePolePage = ActivePage.Page3;
         panelPoleCards1.SetActive(false);
         panelPoleCards2.SetActive(false);
         panelPoleCards3.SetActive(true);
@@ -317,54 +335,189 @@ public class UserInterfaceOverworld : MonoBehaviour
     // When a button for a pole is selected, the current pole to equip the cards on is selected.
     public void SetActivePoleMain()
     {
+        LineUpController.CardType = true;
         EquipPoleText.text = "Equip Main Pole\nCards";
         inventoryActive = false;
         LineUpController.ActivePole = 0;
         
         panelInventory.SetActive(false);
         panelEquipPoleCards.SetActive(true);
-        EnableFirstPage();
+        EnableFirstPoleCardPage();
         
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
         Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleFirst()
     {
+        LineUpController.CardType = true;
         EquipPoleText.text = "Equip Crew Pole 1\nCards";
         inventoryActive = false;
         LineUpController.ActivePole = 1;
         
         panelInventory.SetActive(false);
         panelEquipPoleCards.SetActive(true);
-        EnableFirstPage();
+        EnableFirstPoleCardPage();
         
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
         Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleSecond()
     {
+        LineUpController.CardType = true;
         EquipPoleText.text = "Equip Crew Pole 2\nCards";
         inventoryActive = false;
         LineUpController.ActivePole = 2;
         
         panelInventory.SetActive(false);
         panelEquipPoleCards.SetActive(true);
-        EnableFirstPage();
+        EnableFirstPoleCardPage();
 
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
         Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleThird()
     {
+        LineUpController.CardType = true;
         EquipPoleText.text = "Equip Crew Pole 3\nCards";
         inventoryActive = false;
         LineUpController.ActivePole = 3;
         
         panelInventory.SetActive(false);
         panelEquipPoleCards.SetActive(true);
-        EnableFirstPage();
+        EnableFirstPoleCardPage();
         
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
+        Debug.Log(LineUpController.ActivePole);
+    }
+
+    #endregion
+
+
+    #region Navigation Ability Card Pages
+
+    ActivePage activeAbilityPage = ActivePage.Page1;
+
+    public void EnableNextAbilityPage()
+    {
+        switch (activeAbilityPage)
+        {
+            case ActivePage.Page1:
+                EventSystem.current.SetSelectedGameObject(firstButtonRightArrowAbilitys);
+                EnableSecondAbilityCardPage();
+                break;
+            case ActivePage.Page2:
+                EventSystem.current.SetSelectedGameObject(firstButtonRightArrowAbilitys);
+                EnableThirdAbilityCardPage();
+                break;
+            case ActivePage.Page3:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void EnablePreviousAbilityPage()
+    {
+        switch (activeAbilityPage)
+        {
+            case ActivePage.Page1:
+                break;
+            case ActivePage.Page2:
+                EventSystem.current.SetSelectedGameObject(firstButtonLeftArrowAbilitys);
+                EnableFirstAbilityCardPage();
+                break;
+            case ActivePage.Page3:
+                EventSystem.current.SetSelectedGameObject(firstButtonLeftArrowAbilitys);
+                EnableSecondAbilityCardPage();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void EnableFirstAbilityCardPage()
+    {
+        EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
+        activeAbilityPage = ActivePage.Page1;
+        panelAbilityCards1.SetActive(true);
+        panelAbilityCards2.SetActive(false);
+        panelAbilityCards3.SetActive(false);
+    }
+
+    public void EnableSecondAbilityCardPage()
+    {
+        activeAbilityPage = ActivePage.Page2;
+        panelAbilityCards1.SetActive(false);
+        panelAbilityCards2.SetActive(true);
+        panelAbilityCards3.SetActive(false);
+    }
+
+    public void EnableThirdAbilityCardPage()
+    {
+        activeAbilityPage = ActivePage.Page3;
+        panelAbilityCards1.SetActive(false);
+        panelAbilityCards2.SetActive(false);
+        panelAbilityCards3.SetActive(true);
+    }
+
+    #endregion
+
+    #region AbilityCard Button methods
+    // When a button for a pole is selected, the current pole to equip the cards on is selected.
+    public void SetActiveAbilityMain()
+    {
+        LineUpController.CardType = false;
+        EquipAbilityText.text = "Equip Main Ability\nCards";
+        inventoryActive = false;
+        LineUpController.ActivePole = 0;
+
+        panelInventory.SetActive(false);
+        panelEquipAbilityCards.SetActive(true);
+        EnableFirstAbilityCardPage();
+
+        EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActiveAbilityFirst()
+    {
+        LineUpController.CardType = false;
+        EquipAbilityText.text = "Equip Crew Pole 1\nCards";
+        inventoryActive = false;
+        LineUpController.ActivePole = 1;
+
+        panelInventory.SetActive(false);
+        panelEquipAbilityCards.SetActive(true);
+        EnableFirstAbilityCardPage();
+
+        EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActiveAbilitySecond()
+    {
+        LineUpController.CardType = false;
+        EquipAbilityText.text = "Equip Crew Pole 2\nCards";
+        inventoryActive = false;
+        LineUpController.ActivePole = 2;
+
+        panelInventory.SetActive(false);
+        panelEquipAbilityCards.SetActive(true);
+        EnableFirstAbilityCardPage();
+
+        EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
+        Debug.Log(LineUpController.ActivePole);
+    }
+    public void SetActiveAbilityThird()
+    {
+        LineUpController.CardType = false;
+        EquipAbilityText.text = "Equip Crew Pole 3\nCards";
+        inventoryActive = false;
+        LineUpController.ActivePole = 3;
+
+        panelInventory.SetActive(false);
+        panelEquipAbilityCards.SetActive(true);
+        EnableFirstAbilityCardPage();
+
+        EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
         Debug.Log(LineUpController.ActivePole);
     }
 

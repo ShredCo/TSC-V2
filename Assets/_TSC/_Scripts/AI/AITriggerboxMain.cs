@@ -15,15 +15,16 @@ public class AITriggerboxMain : MonoBehaviour
     public MainPoleAI mainPoleAI;
     public ShootingState shootingState;
 
-    // Could be used to interpolate the shots cleaner
-    [SerializeField] private AnimationCurve curve;
-    
     // Gives the value how much we want it to rotate
-    private Vector3 rotationLoading = new Vector3(0f,0f,-45f);
-    private Vector3 rotationShooting  = new Vector3(0f,0f,45f);
-    [SerializeField] private float loadingSpeed;
-    [SerializeField] private float shootingSpeed;
-    
+    private Quaternion loadingAngle = Quaternion.Euler(0f, 0f, -45f);
+    private Quaternion shotAngle = Quaternion.Euler(0f, 0f, 45f);
+    public Quaternion currentAngle;
+
+    // Difficulty
+    public float LoadingSpeed = 0.5f;
+    public float ShotSpeed = 0.3f;
+
+    private bool isInZone = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
@@ -31,12 +32,32 @@ public class AITriggerboxMain : MonoBehaviour
             shootingState = ShootingState.Loading;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            isInZone = true;
+            if (shootingState == ShootingState.Default)
+            {
+                StartCoroutine(CheckForShot());
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         shootingState = ShootingState.Default;
+        isInZone = false;
     }
 
     // Coroutines
+    public IEnumerator CheckForShot()
+    {
+        if (isInZone == true)
+        {
+            yield return new WaitForSeconds(1f);
+            shootingState = ShootingState.Loading;
+        }
+    }
     public IEnumerator ResetPole()
     {
         yield return new WaitForSeconds(1.5f);
@@ -45,16 +66,15 @@ public class AITriggerboxMain : MonoBehaviour
     public IEnumerator LoadShot()
     {
         yield return new WaitForSeconds(1);
-        mainPoleAI.rb.transform.Rotate(rotationLoading * loadingSpeed * Time.deltaTime);
-        //yield return new WaitForSeconds(2f);
+        mainPoleAI.rb.transform.rotation = Quaternion.Lerp(mainPoleAI.rb.transform.rotation, currentAngle, LoadingSpeed);
+        yield return new WaitForSeconds(0.5f);
         shootingState = ShootingState.Shooting;
     }
     
     public IEnumerator ShootShot()
     {
+        mainPoleAI.rb.transform.rotation = Quaternion.Lerp(mainPoleAI.rb.transform.rotation, currentAngle, ShotSpeed);
         yield return new WaitForSeconds(1f);
-        mainPoleAI.rb.transform.Rotate(rotationShooting * shootingSpeed * Time.deltaTime);
-        yield return new WaitForSeconds(2f);
         shootingState = ShootingState.Default;
     }
 
@@ -66,9 +86,11 @@ public class AITriggerboxMain : MonoBehaviour
                 StartCoroutine(ResetPole());
                 break;
             case ShootingState.Loading:
+                currentAngle = loadingAngle;
                 StartCoroutine(LoadShot());
                 break;
             case ShootingState.Shooting:
+                currentAngle = shotAngle;
                 StartCoroutine(ShootShot());
                 break;
         }

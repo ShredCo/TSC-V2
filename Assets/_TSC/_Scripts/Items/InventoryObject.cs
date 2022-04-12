@@ -25,7 +25,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     public List<ISlotDefaultCard> DefaultCardContainer = new List<ISlotDefaultCard>();
 
-    public List<ISlotSpecialCard> SpecialCardContainer = new List<ISlotSpecialCard>();
+    public List<ISlotSpecialCard> AbilityCardContainer = new List<ISlotSpecialCard>();
 
     #region Line Up
     // arrays to store the Player Line Up
@@ -41,30 +41,34 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     // methods to add cards to Line Up
     public void AddDefaultCardtoLineUp()
     {
-        LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
-        PlayerDefaultCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot; // Save the selected Card to the local Line Up Array (to display in inv)
-        SavePlayerLineUp(); // save the local Line Up to the static Line Up on the LineUpController script (to access it from the match scene)
-        InventoryUI.Instance.UpdateSelectedPoleCards();
+        if (LineUpController.CardType)
+        {
+            LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
+            PlayerDefaultCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot; // Save the selected Card to the local Line Up Array (to display in inv)
+            SavePlayerLineUp(); // save the local Line Up to the static Line Up on the LineUpController script (to access it from the match scene)
+            InventoryUI.Instance.UpdateLineUpCards();
+        }
+        else
+        {
+            LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
+            PlayerSpecialCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot;
+            SavePlayerLineUp();
+            InventoryUI.Instance.UpdateLineUpCards();
+        }
     }    
-    public void AddSpecialCardtoLineUp()
-    {
-        LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
-        PlayerSpecialCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot;
-        SavePlayerLineUp();
-    }
 
     // save the Line Ups to he static Arrays from the LineUpController script
     public void SavePlayerLineUp()
     {
         LineUpController.PlayerDefaultCardLineUP = PlayerDefaultCardLineUp;
-        LineUpController.PlayerSpecialCardLineUP = PlayerSpecialCardLineUp;
+        LineUpController.PlayerAbilityCardLineUP = PlayerSpecialCardLineUp;
     }
 
     // save the Line Ups to he static Arrays from the LineUpController script (has to be called from the NPC with its Line Ups)
     public void SaveAILineUp(CardObject[] defaultCardObjects, CardObject[] specialCardObjects)
     {
         LineUpController.PlayerDefaultCardLineUP = defaultCardObjects;
-        LineUpController.PlayerSpecialCardLineUP = specialCardObjects;
+        LineUpController.PlayerAbilityCardLineUP = specialCardObjects;
     }
     #endregion
 
@@ -111,15 +115,15 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     // Special Cards
     public void AddSpecialCard(CardObject _item, int _amount)
     {
-        for (int i = 0; i < SpecialCardContainer.Count; i++)
+        for (int i = 0; i < AbilityCardContainer.Count; i++)
         {
-            if (SpecialCardContainer[i].SpecialCard == _item)
+            if (AbilityCardContainer[i].SpecialCard == _item)
             {
-                SpecialCardContainer[i].AddAmount(_amount);
+                AbilityCardContainer[i].AddAmount(_amount);
                 return;
             }
         }
-        SpecialCardContainer.Add(new ISlotSpecialCard(database.GetSpecialCardID[_item], _item, _amount));
+        AbilityCardContainer.Add(new ISlotSpecialCard(database.GetSpecialCardID[_item], _item, _amount));
     }
 
     public void AddMoney(int _moneyValue)
