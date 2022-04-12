@@ -7,6 +7,10 @@ public class Ability : ScriptableObject
     public float cooldownTime;
     public float activeTime;
 
+    // Prefab and spawn position of the spawned character from special card
+    public GameObject characterPrefab;
+    protected Rigidbody rb;
+
     public virtual void Activate(GameObject parent)
     {
         
