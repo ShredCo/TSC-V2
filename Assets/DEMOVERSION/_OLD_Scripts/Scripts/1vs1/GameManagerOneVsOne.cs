@@ -65,7 +65,7 @@ public class GameManagerOneVsOne : MonoBehaviour
                 playerController.ReceivePolesPlayer(polesPlayer);
                 playerController.ReceiveArrow(arrowOne);
                 playerController.ReceiveAbility(specialCharacter);
-  
+
 
                 player.gameObject.name = "Player_" + id;
             }
@@ -295,5 +295,12 @@ public class GameManagerOneVsOne : MonoBehaviour
         AIDefaultCardLineUP = LineUpController.AIDefaultCardLineUP;
         AISpecialCardLineUP = LineUpController.AIAbilityCardLineUP;
     }
+    #endregion
+
+    #region Ability Card Spawning
+
+    public int PlayerPowerpoints;
+    public int AIPowerpoints;
+
     #endregion
 }

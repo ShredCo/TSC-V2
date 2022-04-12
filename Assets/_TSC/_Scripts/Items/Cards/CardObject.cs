@@ -14,6 +14,8 @@ public class CardObject : ScriptableObject
 
     public CardType Type;
 
+    public Ability Ability;
+
     [Header("Default Card")]
     public string Name;
     public int Level = 1;

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private float activeTime;
 
     private GameObject arrow;
-    protected int currentPoleIndex;
+    [SerializeField] protected int currentPoleIndex;
     
     // Special Cards move speed;
     public float characterVelocity = 750f;
@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        StartCoroutine(PlayerSpawnAbility());
+
         switch (state)
         {
             case AbilityState.ready:
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
                     cooldownTime -= Time.deltaTime;
                 else
                 {
-                  
+
                     state = AbilityState.ready;
                 }
                 break;
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
         polesPlayer[currentPoleIndex].MoveAndRotate(movementPole * Time.deltaTime);
         polesPlayer[currentPoleIndex].PoleLockedDown();
         
-        //specialCharacter[1].MoveAndRotate(movementSpecialCard * Time.deltaTime);
+        specialCharacter[1].MoveAndRotate(movementSpecialCard * Time.deltaTime);
        
     }
 
@@ -168,77 +170,77 @@ public class PlayerController : MonoBehaviour
     #region Input System -> Special Cards
     
     // Button North
-    public void InstantiateAbility1(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            switch (state)
-            {
-                case AbilityState.ready:
-                    Debug.Log("Special Ability North is activated");
-                    ability.Activate(gameObject);
+    //public void InstantiateAbility1(InputAction.CallbackContext context)
+    //{
+    //    if (context.phase == InputActionPhase.Performed)
+    //    {
+    //        switch (state)
+    //        {
+    //            case AbilityState.ready:
+    //                Debug.Log("Special Ability North is activated");
+    //                ability.Activate(gameObject);
                     
-                    // Sets the ability on active and sets the timer for how long it is active
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                    break;
-            }
-        }
-    }
+    //                // Sets the ability on active and sets the timer for how long it is active
+    //                state = AbilityState.active;
+    //                activeTime = ability.activeTime;
+    //                break;
+    //        }
+    //    }
+    //}
     
-    // Button East
-    public void InstantiateAbility2(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            switch (state)
-            {
-                case AbilityState.ready:
-                    Debug.Log("Special Ability East is activated");
+    //// Button East
+    //public void InstantiateAbility2(InputAction.CallbackContext context)
+    //{
+    //    if (context.phase == InputActionPhase.Performed)
+    //    {
+    //        switch (state)
+    //        {
+    //            case AbilityState.ready:
+    //                Debug.Log("Special Ability East is activated");
 
                     
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                    break;
-            }
-        }
-    }
+    //                state = AbilityState.active;
+    //                activeTime = ability.activeTime;
+    //                break;
+    //        }
+    //    }
+    //}
     
     // Button South
-    public void InstantiateAbility3(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            switch (state)
-            {
-                case AbilityState.ready:
-                    Debug.Log("Special Ability South is activated");
+    //public void InstantiateAbility3(InputAction.CallbackContext context)
+    //{
+    //    if (context.phase == InputActionPhase.Performed)
+    //    {
+    //        switch (state)
+    //        {
+    //            case AbilityState.ready:
+    //                Debug.Log("Special Ability South is activated");
 
                     
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                    break;
-            }
-        }
-    }
+    //                state = AbilityState.active;
+    //                activeTime = ability.activeTime;
+    //                break;
+    //        }
+    //    }
+    //}
     
     // Button West
-    public void InstantiateAbility4(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            switch (state)
-            {
-                case AbilityState.ready:
-                    Debug.Log("Special Ability West is activated");
+    //public void InstantiateAbility4(InputAction.CallbackContext context)
+    //{
+    //    if (context.phase == InputActionPhase.Performed)
+    //    {
+    //        switch (state)
+    //        {
+    //            case AbilityState.ready:
+    //                Debug.Log("Special Ability West is activated");
 
                     
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                    break;
-            }
-        }
-    }
+    //                state = AbilityState.active;
+    //                activeTime = ability.activeTime;
+    //                break;
+    //        }
+    //    }
+    //}
     
     #endregion
     
@@ -252,4 +254,74 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+
+    #region SpawnAbility
+
+    public GameObject SpawnPointAbility;
+
+    public PolesPlayer PoleMain;
+    public PolesPlayer PoleCrew1;
+    public PolesPlayer PoleCrew2;
+    public PolesPlayer PoleCrew3;
+
+    GameObject poleMainAbility;
+    GameObject poleCrew1Ability;
+    GameObject poleCrew2Ability;
+    GameObject poleCrew3Ability;
+
+    bool mainAbility = false;
+    bool crew1Ability = false;
+    bool crew2Ability = false;
+    bool crew3Ability = false;
+
+    Vector3 abilitySize = new Vector3(0.07f, 0.07f, 0.07f);
+    IEnumerator PlayerSpawnAbility()
+    {
+        var gamepad = Gamepad.current;
+        if (gamepad.buttonNorth.wasPressedThisFrame)
+        {
+            if (currentPoleIndex == 0 && mainAbility == false)
+            {
+                poleMainAbility = Instantiate(PoleMain.Ability.characterPrefab, SpawnPointAbility.transform);
+                poleMainAbility.transform.parent = null;
+                poleMainAbility.transform.localScale = abilitySize;
+                mainAbility = true;
+                yield return new WaitForSeconds(PoleMain.Ability.activeTime);
+                mainAbility = false;
+                Destroy(poleMainAbility);
+            }
+            else if (currentPoleIndex == 1)
+            {
+                poleCrew1Ability = Instantiate(PoleCrew1.Ability.characterPrefab, SpawnPointAbility.transform);
+                poleCrew1Ability.transform.parent = null;
+                poleCrew1Ability.transform.localScale = abilitySize;
+                crew1Ability = true;
+                yield return new WaitForSeconds(PoleCrew1.Ability.activeTime);
+                crew1Ability = false;
+                Destroy(poleCrew1Ability);
+            }
+            else if (currentPoleIndex == 2)
+            {
+                poleCrew2Ability = Instantiate(PoleCrew2.Ability.characterPrefab, SpawnPointAbility.transform);
+                poleCrew2Ability.transform.parent = null;
+                poleCrew2Ability.transform.localScale = abilitySize;
+                crew2Ability = true;
+                yield return new WaitForSeconds(PoleCrew2.Ability.activeTime);
+                crew2Ability = false;
+                Destroy(poleCrew2Ability);
+            }
+            else if (currentPoleIndex == 3)
+            {
+                poleCrew3Ability = Instantiate(PoleCrew3.Ability.characterPrefab, SpawnPointAbility.transform);
+                poleCrew3Ability.transform.parent = null;
+                poleCrew3Ability.transform.localScale = abilitySize;
+                crew3Ability = true;
+                yield return new WaitForSeconds(PoleCrew3.Ability.activeTime);
+                crew3Ability = false;
+                Destroy(poleCrew3Ability);
+            }
+        }
+    }
+
+    #endregion
 }
