@@ -28,25 +28,26 @@ public class Sense : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, checkRadius);
     }
-    
-    void OnTriggerEnter3D(Collider other){
 
-        if (other.CompareTag("AiTriggerboxMain")) 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("AiTriggerboxMain")) 
         {
-            
+            Debug.Log("Main");
         }
-        if (other.CompareTag("AiTriggerbox1")) 
+        if (collision.gameObject.CompareTag("AiTriggerbox1")) 
         {
-            
+            Debug.Log("1");
         }
-        if (other.CompareTag("AiTriggerbox2")) 
+        if (collision.gameObject.CompareTag("AiTriggerbox2")) 
         {
-            
-            
+            Debug.Log("2");
         }
-        if (other.CompareTag("AiTriggerbox3")) 
+        if (collision.gameObject.CompareTag("AiTriggerbox3")) 
         {
-            
+            Debug.Log("3");
         }
     }
+
 }

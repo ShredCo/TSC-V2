@@ -1,13 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ShootingState
-{
-    Default,
-    Loading,
-    Shooting,
-}
+
 public class PolesAI : MonoBehaviour
 {
     public CrewPole1AI MainPoleAI;
@@ -29,5 +25,5 @@ public class PolesAI : MonoBehaviour
     public float LoadingSpeed = 0.5f;
     public float ShotSpeed = 0.3f;
     
-
+    
 }

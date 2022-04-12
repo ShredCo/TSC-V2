@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case AbilityState.ready:
-                Debug.Log("Ability is now ready");
                 activeTime = ability.activeTime;
                 break;
             case AbilityState.active:
