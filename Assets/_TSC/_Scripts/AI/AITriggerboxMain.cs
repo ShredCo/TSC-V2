@@ -4,12 +4,6 @@ using System.Collections.Generic;
 using UnityEditor.Build;
 using UnityEngine;
 
-public enum ShootingState
-{
-    Default,
-    Loading,
-    Shooting,
-}
 public class AITriggerboxMain : MonoBehaviour
 {
     public MainPoleAI mainPoleAI;

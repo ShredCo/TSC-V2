@@ -5,6 +5,7 @@ using UnityEngine;
 public class AITriggerbox2 : MonoBehaviour
 {
     public CrewPole2AI crewPole2AI;
+    public GameObject AiTriggerbox2;
     public ShootingState shootingState;
 
     // Gives the value how much we want it to rotate
@@ -36,11 +37,13 @@ public class AITriggerbox2 : MonoBehaviour
     }
     public IEnumerator LoadShot()
     {
+        
         yield return new WaitForSeconds(1);
         //crewPole2AI.rb.transform.Rotate(rotationLoading * loadingSpeed * Time.deltaTime);
         crewPole2AI.rb.transform.rotation = Quaternion.Lerp(crewPole2AI.rb.transform.rotation, currentAngle, LoadingSpeed);
         yield return new WaitForSeconds(0.5f);
         shootingState = ShootingState.Shooting;
+        AiTriggerbox2.SetActive(false);
     }
     
     public IEnumerator ShootShot()
@@ -48,6 +51,7 @@ public class AITriggerbox2 : MonoBehaviour
         crewPole2AI.rb.transform.rotation = Quaternion.Lerp(crewPole2AI.rb.transform.rotation, currentAngle, ShotSpeed);
         yield return new WaitForSeconds(1f);
         shootingState = ShootingState.Default;
+        AiTriggerbox2.SetActive(true);
     }
 
     void FixedUpdate()

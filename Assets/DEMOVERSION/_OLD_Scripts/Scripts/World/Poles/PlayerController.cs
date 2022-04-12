@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     private GameObject arrow;
     protected int currentPoleIndex;
+    public int powerpointsCount = 0;
     
     // Special Cards move speed;
     public float characterVelocity = 750f;

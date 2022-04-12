@@ -28,4 +28,25 @@ public class Sense : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, checkRadius);
     }
+    
+    void OnTriggerEnter3D(Collider other){
+
+        if (other.CompareTag("AiTriggerboxMain")) 
+        {
+            
+        }
+        if (other.CompareTag("AiTriggerbox1")) 
+        {
+            
+        }
+        if (other.CompareTag("AiTriggerbox2")) 
+        {
+            
+            
+        }
+        if (other.CompareTag("AiTriggerbox3")) 
+        {
+            
+        }
+    }
 }
