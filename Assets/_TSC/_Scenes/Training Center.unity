@@ -8621,9 +8621,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sense: {fileID: 1766185139}
-  difficulty: 0.01
   ball: {fileID: 1110746730}
   rb: {fileID: 709125709}
+  smoothSpeed: 5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!54 &709125709
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8813,9 +8814,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sense: {fileID: 1766185139}
-  difficulty: 0.01
   ball: {fileID: 1110746730}
   rb: {fileID: 716181479}
+  smoothSpeed: 0.5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!54 &716181479
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12797,9 +12799,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sense: {fileID: 1766185139}
-  difficulty: 0.01
   ball: {fileID: 1110746730}
   rb: {fileID: 1137467382}
+  smoothSpeed: 0.5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!54 &1137467382
 Rigidbody:
   m_ObjectHideFlags: 0
