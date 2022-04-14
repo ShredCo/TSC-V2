@@ -26,9 +26,6 @@ public class ShopManager : MonoBehaviour
     public Text gemsUI_moneyText;
     public Text gemsUI_gemsText;
 
-    [Header("Scripts")]
-    public SwitchMainMenuUI switchMainMenuUI;
-
     [Header("Panels")]
     public GameObject mainCanvas;
     public GameObject shopPanel;
@@ -195,10 +192,7 @@ public class ShopManager : MonoBehaviour
             Inventory.instance.gems = Inventory.instance.gems - price;
             UpdateBankBalanceTexts();
         }
-        else if(Inventory.instance.gems < price)
-        {
-            OpenNotEnoughGemsPanel();
-        }
+       
     }
 
     public void Buy5_5kMoney(int price)
@@ -397,92 +391,7 @@ public class ShopManager : MonoBehaviour
         }
     }
     #endregion
-
-    #region Shop Navigation Methods
-    public void OpenCharacterShop()
-    {
-        
-        shopPanel.SetActive(false);
-        characterShop3D.SetActive(true);
-        
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(goBackFromCharacterShopButton);
-        switchMainMenuUI.GetComponent<SwitchMainMenuUI>().enabled = false;
-    }
-
-    public void OpenBallShop()
-    {
-        shopPanel.SetActive(false);
-        ballShopPanel.SetActive(true);
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(goBackFromBallShopButton);
-        switchMainMenuUI.GetComponent<SwitchMainMenuUI>().enabled = false;
-    }
-
-    public void OpenPoleShop()
-    {
-        shopPanel.SetActive(false);
-        poleShopPanel.SetActive(true);
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(goBackFromPoleShopButton);
-        switchMainMenuUI.GetComponent<SwitchMainMenuUI>().enabled = false;
-    }
-
-    public void OpenMoneyShop()
-    {
-        shopPanel.SetActive(false);
-        moneyShopPanel.SetActive(true);
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(goBackFromMoneyShopButton);
-        switchMainMenuUI.GetComponent<SwitchMainMenuUI>().enabled = false;
-    }
-
-    // TODO: not working
-    public void OpenNotEnoughGemsPanel()
-    {
-
-            notEnoughGemsPanel.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(goBackFromNotEnoughGemsButton);
-
-    }
-
-    public void DeactivateAllPanels()
-    {
-        characterShop3D.SetActive(false);
-        ballShopPanel.SetActive(false);
-        poleShopPanel.SetActive(false);
-        moneyShopPanel.SetActive(false);
-    }
-
-    public void GoBackToShop()
-    {
-        DeactivateAllPanels();
-
-        shopPanel.SetActive(true);
-        // Cameras
-        mainCamera.SetActive(true);
-        //characterShopCamera.SetActive(false);
-
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(openBallShopButton);
-        switchMainMenuUI.GetComponent<SwitchMainMenuUI>().enabled = true;
-    }
-
-    public void NavigateToGemShopFromAnywhere()
-    {
-        switchMainMenuUI.DeactivateAllUIs();
-        characterShop3D.SetActive(false);
-        ballShopPanel.SetActive(false);
-        poleShopPanel.SetActive(false);
-        moneyShopPanel.SetActive(false);
-
-        switchMainMenuUI.mainGemsPanel.SetActive(true);
-    }
-    #endregion
+    
 
     public void UpdateBankBalanceTexts()
     {
