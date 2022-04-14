@@ -346,7 +346,7 @@ public class PlayerController : MonoBehaviour
                 mainAbility = false;
                 Destroy(poleMainAbilityPrefab);
             }
-            else if (currentPoleIndex == 1)
+            else if (currentPoleIndex == 1 && crew1Ability == false)
             {
                 poleCrew1AbilityPrefab = Instantiate(PoleCrew1.Ability.characterPrefab, SpawnPointAbility.transform);
                 poleCrew1AbilityPrefab.transform.parent = null;
@@ -357,7 +357,7 @@ public class PlayerController : MonoBehaviour
                 crew1Ability = false;
                 Destroy(poleCrew1AbilityPrefab);
             }
-            else if (currentPoleIndex == 2)
+            else if (currentPoleIndex == 2 && crew2Ability == false)
             {
                 poleCrew2AbilityPrefab = Instantiate(PoleCrew2.Ability.characterPrefab, SpawnPointAbility.transform);
                 poleCrew2AbilityPrefab.transform.parent = null;
@@ -368,7 +368,7 @@ public class PlayerController : MonoBehaviour
                 crew2Ability = false;
                 Destroy(poleCrew2AbilityPrefab);
             }
-            else if (currentPoleIndex == 3)
+            else if (currentPoleIndex == 3 && crew3Ability == false)
             {
                 poleCrew3AbilityPrefab = Instantiate(PoleCrew3.Ability.characterPrefab, SpawnPointAbility.transform);
                 poleCrew3AbilityPrefab.transform.parent = null;
