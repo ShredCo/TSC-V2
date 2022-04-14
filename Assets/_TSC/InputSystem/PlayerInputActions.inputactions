@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MoveSpecialCards",
+                    "name": "MoveAbility",
                     "type": "Value",
                     "id": "6f0914c6-a9f4-46e7-91df-bb26ffe7ac0c",
                     "expectedControlType": "",
@@ -181,7 +181,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveSpecialCards",
+                    "action": "MoveAbility",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -192,7 +192,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveSpecialCards",
+                    "action": "MoveAbility",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -203,7 +203,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveSpecialCards",
+                    "action": "MoveAbility",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },

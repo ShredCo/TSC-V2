@@ -56,6 +56,14 @@ public class PolesPlayer : MonoBehaviour
             rb.MoveRotation(lockedUpQuaternion);
         }
     }
+    public void PoleFreeze()
+    {
+        var step = speed * Time.deltaTime;
+        Quaternion normalQuaternion = Quaternion.identity;
+        Quaternion lockedUpQuaternion = Quaternion.RotateTowards(transform.rotation, normalQuaternion, step);
+        rb.MoveRotation(lockedUpQuaternion);
+    }
+
     #region Ability
     public int Pole;
     public Ability Ability;
