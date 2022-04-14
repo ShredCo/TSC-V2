@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         if (instance == null)
             instance = this;
     }
-
+    
     // gives the player an inventory
     public InventoryObject inventory;
     public DialogueState DialogueState;
@@ -30,18 +30,12 @@ public class Player : MonoBehaviour
 
         if (item.item)
         {
-            
-            
             switch (item.item.Type)
             {
-                    
                 // Checks which type the new item is and adds it to its inventory
                 case ItemType.Money:
-                    Debug.Log("Money");
                     inventory.AddMoney(item.item.MoneyValue);
                     Destroy(other.gameObject);
-           
-                    Debug.Log("Money: " + inventory.money);
                     break;
             }
         }
