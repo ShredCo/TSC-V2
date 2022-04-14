@@ -25,6 +25,11 @@ public class PolesPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        GetAbility();
+    }
+
     public void MoveAndRotate(Vector2 movement)
     {
         // rotation
@@ -38,7 +43,6 @@ public class PolesPlayer : MonoBehaviour
 
         // Sets the default limit for the movement
         rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
-
     }
     
     public void PoleLockedDown()
@@ -52,6 +56,13 @@ public class PolesPlayer : MonoBehaviour
             rb.MoveRotation(lockedUpQuaternion);
         }
     }
+    #region Ability
+    public int Pole;
+    public Ability Ability;
+    void GetAbility()
+    {
+        Ability = LineUpController.PlayerAbilityCardLineUP[Pole].Ability;
+    }
 
-    
+    #endregion
 }

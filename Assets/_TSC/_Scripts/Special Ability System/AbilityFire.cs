@@ -5,10 +5,6 @@ using UnityEngine;
 [CreateAssetMenu] 
 public class AbilityFire : Ability
 {
-    // Prefab and spawn position of the spawned character from special card
-    public GameObject characterPrefab;
-    Rigidbody rb;
-    
     [Header("movement variables")]
     [SerializeField] public float rotationSpeed = 1500.0f;
     [SerializeField] public float moveSpeed = 2.0f;

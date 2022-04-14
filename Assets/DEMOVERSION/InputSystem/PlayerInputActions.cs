@@ -107,6 +107,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""ffebbe06-3052-433e-8648-803da08fa104"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -272,6 +281,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Player1"",
                     ""action"": ""Ability4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2c9e42f-453e-4a66-9756-7557ed2e0478"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -969,6 +989,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_SoccerMatchControlls_Ability2 = m_SoccerMatchControlls.FindAction("Ability2", throwIfNotFound: true);
         m_SoccerMatchControlls_Ability3 = m_SoccerMatchControlls.FindAction("Ability3", throwIfNotFound: true);
         m_SoccerMatchControlls_Ability4 = m_SoccerMatchControlls.FindAction("Ability4", throwIfNotFound: true);
+        m_SoccerMatchControlls_Pause = m_SoccerMatchControlls.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1054,6 +1075,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_SoccerMatchControlls_Ability2;
     private readonly InputAction m_SoccerMatchControlls_Ability3;
     private readonly InputAction m_SoccerMatchControlls_Ability4;
+    private readonly InputAction m_SoccerMatchControlls_Pause;
     public struct SoccerMatchControllsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1067,6 +1089,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Ability2 => m_Wrapper.m_SoccerMatchControlls_Ability2;
         public InputAction @Ability3 => m_Wrapper.m_SoccerMatchControlls_Ability3;
         public InputAction @Ability4 => m_Wrapper.m_SoccerMatchControlls_Ability4;
+        public InputAction @Pause => m_Wrapper.m_SoccerMatchControlls_Pause;
         public InputActionMap Get() { return m_Wrapper.m_SoccerMatchControlls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1103,6 +1126,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Ability4.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
                 @Ability4.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
                 @Ability4.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
+                @Pause.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1134,6 +1160,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Ability4.started += instance.OnAbility4;
                 @Ability4.performed += instance.OnAbility4;
                 @Ability4.canceled += instance.OnAbility4;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1321,6 +1350,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnAbility2(InputAction.CallbackContext context);
         void OnAbility3(InputAction.CallbackContext context);
         void OnAbility4(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

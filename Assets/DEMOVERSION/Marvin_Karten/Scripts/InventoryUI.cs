@@ -6,20 +6,33 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI Instance;
 
-    [SerializeField] GameObject cardPage1;
-    [SerializeField] GameObject cardPage2;
-    [SerializeField] GameObject cardPage3;
-    [SerializeField] CardSlotUI cardSlotUIPrefab;
+    [SerializeField] GameObject cardPolePage1;
+    [SerializeField] GameObject cardPolePage2;
+    [SerializeField] GameObject cardPolePage3;
 
-    [SerializeField] GameObject buttonMainPole;
-    [SerializeField] GameObject buttonCrewPole1;
-    [SerializeField] GameObject buttonCrewPole2;
-    [SerializeField] GameObject buttonCrewPole3;
+    [SerializeField] GameObject cardAbilityPage1;
+    [SerializeField] GameObject cardAbilityPage2;
+    [SerializeField] GameObject cardAbilityPage3;
+
+
+    [SerializeField] CardSlotUI cardSlotUIPrefab;
     [SerializeField] CardSlotUI poleSelectedCardPrefab;
 
-    int index = 0;
+    [SerializeField] GameObject spawnPointPoleCardMain;
+    [SerializeField] GameObject spawnPointPoleCard1;
+    [SerializeField] GameObject spawnPointPoleCard2;
+    [SerializeField] GameObject spawnPointPoleCard3;
+
+    [SerializeField] GameObject spawnPointAbilityCardMain;
+    [SerializeField] GameObject spawnPointAbilityCard1;
+    [SerializeField] GameObject spawnPointAbilityCard2;
+    [SerializeField] GameObject spawnPointAbilityCard3;
+
+    int indexPole = 0;
+    int indexAbility = 0;
     int maxCardsOnPage = 4;
-    cardPage activePage;
+    cardPage activePolePage;
+    cardPage activeAbilityPage;
     enum cardPage
     {
         Page1,
@@ -32,24 +45,26 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        activePage = cardPage.Page1;
-        UpdateCardList1();
         inventory.SavePlayerLineUp();
-        UpdateSelectedPoleCards();
+        UpdateLineUpCards();
+        activePolePage = cardPage.Page1;
+        activeAbilityPage = cardPage.Page1;
+        UpdatePoleCardList();
+        UpdateAbilityCardList();
     }
 
-    void UpdateCardList1()
+    void UpdatePoleCardList()
     {
         //Clear all existing items
-        foreach (Transform child in cardPage1.transform)
+        foreach (Transform child in cardPolePage1.transform)
         {
             Destroy(child.gameObject);
         }
-        foreach (Transform child in cardPage2.transform)
+        foreach (Transform child in cardPolePage2.transform)
         {
             Destroy(child.gameObject);
         }
-        foreach (Transform child in cardPage3.transform)
+        foreach (Transform child in cardPolePage3.transform)
         {
             Destroy(child.gameObject);
         }
@@ -57,47 +72,39 @@ public class InventoryUI : MonoBehaviour
         foreach (var cardSlot in inventory.DefaultCardContainer)
         {
             // if the max amount of cards is spawned on one page, switch enum "activePage" to next page.
-            index++;
-            if (index <= maxCardsOnPage)
+            indexPole++;
+            if (indexPole <= maxCardsOnPage)
             {
-                activePage = cardPage.Page1;
+                activePolePage = cardPage.Page1;
             }
-            else if (index > maxCardsOnPage && index <= (2 * maxCardsOnPage))
+            else if (indexPole > maxCardsOnPage && indexPole <= (2 * maxCardsOnPage))
             {
-                activePage = cardPage.Page2;
+                activePolePage = cardPage.Page2;
             }
             else
             {
-                activePage = cardPage.Page3;
+                activePolePage = cardPage.Page3;
             }
 
             // Spawn cards in inventory pages depending on enum "activePage"
             CardSlotUI slotUIobj;
-            switch (activePage)
+            switch (activePolePage)
             {
                 case cardPage.Page1:
-                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPage1.transform);
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPolePage1.transform);
                     slotUIobj.SetData(cardSlot);
-                    if (index == 1)
+                    if (indexPole == 1)
                     {
-                        FirstButtonCardSelection.FirstButtonLineUpCardPage1 = slotUIobj.gameObject;
+                        FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1 = slotUIobj.gameObject;
                     }
                     break;
                 case cardPage.Page2:
-                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPage2.transform);
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPolePage2.transform);
                     slotUIobj.SetData(cardSlot);
-                    if (index == 5)
-                    {
-                        FirstButtonCardSelection.FirstButtonLineUpCardPage2 = slotUIobj.gameObject;
-                    }
                     break;
                 case cardPage.Page3:
-                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPage3.transform);
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardPolePage3.transform);
                     slotUIobj.SetData(cardSlot);
-                    if (index == 9)
-                    {
-                        FirstButtonCardSelection.FirstButtonLineUpCardPage3 = slotUIobj.gameObject;
-                    }
                     break;
                 default:
                     break;
@@ -107,63 +114,156 @@ public class InventoryUI : MonoBehaviour
 
     }
 
-    public void UpdateSelectedPoleCards()
+    public void UpdateLineUpCards()
     {
-        // destroy existing cards
-        foreach (Transform child in buttonMainPole.transform)
+        foreach (Transform child in spawnPointPoleCardMain.transform)
         {
-            if (child.CompareTag("SelectedPoleCard"))
-            {
-                Destroy(child.gameObject);
-            }
+            Destroy(child.gameObject);
         }
-        foreach (Transform child in buttonCrewPole1.transform)
+        foreach (Transform child in spawnPointPoleCard1.transform)
         {
-            if (child.CompareTag("SelectedPoleCard"))
-            {
-                Destroy(child.gameObject);
-            }
+            Destroy(child.gameObject);
         }
-        foreach (Transform child in buttonCrewPole2.transform)
+        foreach (Transform child in spawnPointPoleCard2.transform)
         {
-            if (child.CompareTag("SelectedPoleCard"))
-            {
-                Destroy(child.gameObject);
-            }
+            Destroy(child.gameObject);
         }
-        foreach (Transform child in buttonCrewPole3.transform)
+        foreach (Transform child in spawnPointPoleCard3.transform)
         {
-            if (child.CompareTag("SelectedPoleCard"))
-            {
-                Destroy(child.gameObject);
-            }
+            Destroy(child.gameObject);
         }
 
         CardSlotUI slotUIobj;
         // instantiate selected cards depending if there is a selected card
         if (LineUpController.PlayerDefaultCardLineUP[0] != null)
         {
-            slotUIobj = Instantiate(poleSelectedCardPrefab, buttonMainPole.transform);
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointPoleCardMain.transform);
             slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[0]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
         if (LineUpController.PlayerDefaultCardLineUP[1] != null)
         {
-            slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole1.transform);
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointPoleCard1.transform);
             slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[1]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
         if (LineUpController.PlayerDefaultCardLineUP[2] != null)
         {
-            slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole2.transform);
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointPoleCard2.transform);
             slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[2]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
         if (LineUpController.PlayerDefaultCardLineUP[3] != null)
         {
-            slotUIobj = Instantiate(poleSelectedCardPrefab, buttonCrewPole3.transform);
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointPoleCard3.transform);
             slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[3]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
+
+        // destroy existing ability cards
+        foreach (Transform child in spawnPointAbilityCardMain.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in spawnPointAbilityCard1.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in spawnPointAbilityCard2.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in spawnPointAbilityCard3.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        //CardSlotUI slotUIobj;
+        // instantiate selected cards depending if there is a selected card
+        if (LineUpController.PlayerAbilityCardLineUP[0] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointAbilityCardMain.transform);
+            slotUIobj.SetData(LineUpController.PlayerAbilityCardLineUP[0]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (LineUpController.PlayerAbilityCardLineUP[1] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointAbilityCard1.transform);
+            slotUIobj.SetData(LineUpController.PlayerAbilityCardLineUP[1]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (LineUpController.PlayerDefaultCardLineUP[2] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointAbilityCard2.transform);
+            slotUIobj.SetData(LineUpController.PlayerAbilityCardLineUP[2]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (LineUpController.PlayerDefaultCardLineUP[3] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointAbilityCard3.transform);
+            slotUIobj.SetData(LineUpController.PlayerAbilityCardLineUP[3]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+    }
+
+    void UpdateAbilityCardList()
+    {
+        //Clear all existing items
+        foreach (Transform child in cardAbilityPage1.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in cardAbilityPage2.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in cardAbilityPage3.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (var cardSlot in inventory.AbilityCardContainer)
+        {
+            // if the max amount of cards is spawned on one page, switch enum "activePage" to next page.
+            indexAbility++;
+            if (indexAbility <= maxCardsOnPage)
+            {
+                activeAbilityPage = cardPage.Page1;
+            }
+            else if (indexAbility > maxCardsOnPage && indexAbility <= (2 * maxCardsOnPage))
+            {
+                activeAbilityPage = cardPage.Page2;
+            }
+            else
+            {
+                activeAbilityPage = cardPage.Page3;
+            }
+
+            // Spawn cards in inventory pages depending on enum "activePage"
+            CardSlotUI slotUIobj;
+            switch (activeAbilityPage)
+            {
+                case cardPage.Page1:
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardAbilityPage1.transform);
+                    slotUIobj.SetData(cardSlot);
+                    if (indexAbility == 1)
+                    {
+                        FirstButtonCardSelection.FirstButtonLineUpAbilityCardPage1 = slotUIobj.gameObject;
+                    }
+                    break;
+                case cardPage.Page2:
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardAbilityPage2.transform);
+                    slotUIobj.SetData(cardSlot);
+                    break;
+                case cardPage.Page3:
+                    slotUIobj = Instantiate(cardSlotUIPrefab, cardAbilityPage3.transform);
+                    slotUIobj.SetData(cardSlot);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
     }
 }

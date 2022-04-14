@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: AC_Wind
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 0}
-  Type: 1
+  Type: 0
+  Ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
   Name: Special Card Wind
   Level: 30
   PowerPoints: 0
