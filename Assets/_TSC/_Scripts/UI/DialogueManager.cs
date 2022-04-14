@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    
     public Text nameText;
     public Text dialogueText;
     public GameObject firstSelectedButtonDialoge;
@@ -16,8 +17,11 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public UserInterfaceOverworld userInterfaceOverworld;
     public DialogueTrigger dialogueTrigger;
+    bool dialogueStarted = false;
+    
+    public NpcType npcType;
 
-
+    private DialogueState dialogueState;
     //made with Brackeys tutorial
     private Queue<string> sentences;
     // Start is called before the first frame update
@@ -29,19 +33,24 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
-        EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
-        Time.timeScale = 1;
-        userInterfaceOverworld.canvasDialoge.SetActive(true);
-        animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
-        sentences.Clear();
-
-        foreach (string sentence in dialogue.sentences)
+        if (!dialogueStarted)
         {
-            sentences.Enqueue(sentence);
+            Player.instance.DialogueState = DialogueState.Talking;
+            dialogueStarted = true;
+            EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
+            Time.timeScale = 1;
+            userInterfaceOverworld.canvasDialoge.SetActive(true);
+            animator.SetBool("IsOpen", true);
+            nameText.text = dialogue.name;
+            sentences.Clear();
 
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+
+            }
+            DisplayNextSentence();
         }
-        DisplayNextSentence();
     }
     public void DisplayNextSentence() 
     {
@@ -66,9 +75,25 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue() 
     {
+        Player.instance.DialogueState = DialogueState.Avaiable;
+        dialogueStarted = false;
         animator.SetBool("IsOpen", false);
         userInterfaceOverworld.Resume();
-        SceneManager.LoadScene(2);
+        if (npcType == NpcType.Agressive)
+        {
+            SceneManager.LoadScene(2);
+        }
+
+        if (npcType == NpcType.Neutral)
+        {
+            StartCoroutine(CooldownDialogue());
+        }
     }
 
+    public IEnumerator CooldownDialogue()
+    {
+        yield return new WaitForSeconds(2f);
+        DialogueTrigger.instance.IsTalking = false;
+        Debug.Log("Coroutine");
+    }
 }
