@@ -27,14 +27,12 @@ public class MainPoleAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (sense.closestPlayer.name == "pos1")
-        {
             // Calculate the difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z - ball.transform.position.z;
+            //poleMovement = sense.closestPlayer.transform.position.z - ball.transform.position.z;
             // Calculate new position of pole and interpolate player on pole with ball
-            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
-        }
+            //Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
+            rb.transform.position = Vector3.SmoothDamp(transform.position, ball.position, ref velocity, smoothSpeed);
+        
         rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.7f, -0.7f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class PlayerController : MonoBehaviour
     private Pole1 pole1;
 
     // Input System -> Input Values
-    private Vector2 movementPole;
-    private Vector2 movementSpecialCard;
+    private Vector2 movementPoleInput;
+    private Vector2 movementAbilityInput;
 
     private PolesPlayer[] polesPlayer;
     private SpecialCharacter[] specialCharacter;
@@ -52,40 +53,89 @@ public class PlayerController : MonoBehaviour
     {
         StartCoroutine(PlayerSpawnAbility());
 
-        switch (state)
-        {
-            case AbilityState.ready:
-                activeTime = ability.activeTime;
-                break;
-            case AbilityState.active:
-                if (activeTime > 0)
-                    cooldownTime -= Time.deltaTime;
-                else
-                {
-                    ability.BeginnCooldown(gameObject);
-                    state = AbilityState.ready;
-                    cooldownTime = ability.cooldownTime;
-                }
-                break;
-            case AbilityState.cooldown:
-                if (cooldownTime > 0)
-                    cooldownTime -= Time.deltaTime;
-                else
-                {
+        
 
-                    state = AbilityState.ready;
-                }
-                break;
-        }
+        //switch (state)
+        //{
+        //    case AbilityState.ready:
+        //        activeTime = ability.activeTime;
+        //        break;
+        //    case AbilityState.active:
+        //        if (activeTime > 0)
+        //            cooldownTime -= Time.deltaTime;
+        //        else
+        //        {
+        //            ability.BeginnCooldown(gameObject);
+        //            state = AbilityState.ready;
+        //            cooldownTime = ability.cooldownTime;
+        //        }
+        //        break;
+        //    case AbilityState.cooldown:
+        //        if (cooldownTime > 0)
+        //            cooldownTime -= Time.deltaTime;
+        //        else
+        //        {
+        //
+        //            state = AbilityState.ready;
+        //        }
+        //        break;
+        //}
     }
 
     private void FixedUpdate()
     {
-        polesPlayer[currentPoleIndex].MoveAndRotate(movementPole * Time.deltaTime);
-        polesPlayer[currentPoleIndex].PoleLockedDown();
-        
-        specialCharacter[1].MoveAndRotate(movementSpecialCard * Time.deltaTime);
-       
+        if (currentPoleIndex == 0)
+        {
+            if (mainAbility)
+            {
+                polesPlayer[0].PoleFreeze();
+                poleMainAbility.MoveAndRotate(movementAbilityInput * Time.deltaTime);
+            }
+            else
+            {
+                polesPlayer[currentPoleIndex].MoveAndRotate(movementPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndex].PoleLockedDown();
+            }
+        }
+        else if (currentPoleIndex == 1)
+        {
+            if (crew1Ability)
+            {
+                polesPlayer[1].PoleFreeze();
+                poleCrew1Ability.MoveAndRotate(movementAbilityInput * Time.deltaTime);
+            }
+            else
+            {
+                polesPlayer[currentPoleIndex].MoveAndRotate(movementPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndex].PoleLockedDown();
+            }
+        }
+        else if (currentPoleIndex == 2)
+        {
+            if (crew2Ability)
+            {
+                polesPlayer[2].PoleFreeze();
+                poleCrew2Ability.MoveAndRotate(movementAbilityInput * Time.deltaTime);
+            }
+            else
+            {
+                polesPlayer[currentPoleIndex].MoveAndRotate(movementPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndex].PoleLockedDown();
+            }
+        }
+        else if (currentPoleIndex == 3)
+        {
+            if (crew3Ability)
+            {
+                polesPlayer[3].PoleFreeze();
+                poleCrew3Ability.MoveAndRotate(movementAbilityInput * Time.deltaTime);
+            }
+            else
+            {
+                polesPlayer[currentPoleIndex].MoveAndRotate(movementPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndex].PoleLockedDown();
+            }
+        }
     }
 
     // NOTE: Do some more research about this topic
@@ -111,10 +161,10 @@ public class PlayerController : MonoBehaviour
     public void MoveMainPole(InputAction.CallbackContext context)
     {
         // x as rotation, y as movement
-        movementPole = context.ReadValue<Vector2>();
+        movementPoleInput = context.ReadValue<Vector2>();
 
-        movementPole.x *= PolesPlayer.Instance.rotationSpeed;
-        movementPole.y *= PolesPlayer.Instance.moveSpeed;
+        movementPoleInput.x *= PolesPlayer.Instance.rotationSpeed;
+        movementPoleInput.y *= PolesPlayer.Instance.moveSpeed;
     }
 
     #endregion
@@ -245,15 +295,10 @@ public class PlayerController : MonoBehaviour
     
     #endregion
     
-    public void MoveSpecialCardCharacter(InputAction.CallbackContext context)
+    public void MoveAbility(InputAction.CallbackContext context)
     {
-        movementSpecialCard = context.ReadValue<Vector2>();
-        movementSpecialCard.y *= SpecialCharacter.Instance.moveSpeed;
-    }
-
-    public void AttackOtherPole(InputAction.CallbackContext context)
-    {
-        
+        movementAbilityInput = context.ReadValue<Vector2>();
+        movementAbilityInput.y *= SpecialCharacter.Instance.moveSpeed;
     }
 
     #region SpawnAbility
@@ -265,10 +310,15 @@ public class PlayerController : MonoBehaviour
     public PolesPlayer PoleCrew2;
     public PolesPlayer PoleCrew3;
 
-    GameObject poleMainAbility;
-    GameObject poleCrew1Ability;
-    GameObject poleCrew2Ability;
-    GameObject poleCrew3Ability;
+    GameObject poleMainAbilityPrefab;
+    GameObject poleCrew1AbilityPrefab;
+    GameObject poleCrew2AbilityPrefab;
+    GameObject poleCrew3AbilityPrefab;
+
+    SpecialCharacter poleMainAbility;
+    SpecialCharacter poleCrew1Ability;
+    SpecialCharacter poleCrew2Ability;
+    SpecialCharacter poleCrew3Ability;
 
     bool mainAbility = false;
     bool crew1Ability = false;
@@ -276,6 +326,11 @@ public class PlayerController : MonoBehaviour
     bool crew3Ability = false;
 
     Vector3 abilitySize = new Vector3(0.07f, 0.07f, 0.07f);
+    
+    public void SpawnAbilityButton(InputAction.CallbackContext context)
+    {
+        Debug.Log("Spawn Ability Button pressed");
+    }
     IEnumerator PlayerSpawnAbility()
     {
         var gamepad = Gamepad.current;
@@ -283,43 +338,47 @@ public class PlayerController : MonoBehaviour
         {
             if (currentPoleIndex == 0 && mainAbility == false)
             {
-                poleMainAbility = Instantiate(PoleMain.Ability.characterPrefab, SpawnPointAbility.transform);
-                poleMainAbility.transform.parent = null;
-                poleMainAbility.transform.localScale = abilitySize;
+                poleMainAbilityPrefab = Instantiate(PoleMain.Ability.characterPrefab, SpawnPointAbility.transform);
+                poleMainAbilityPrefab.transform.parent = null;
+                poleMainAbilityPrefab.transform.localScale = abilitySize;
+                poleMainAbility = poleMainAbilityPrefab.GetComponent<SpecialCharacter>();
                 mainAbility = true;
                 yield return new WaitForSeconds(PoleMain.Ability.activeTime);
                 mainAbility = false;
-                Destroy(poleMainAbility);
+                Destroy(poleMainAbilityPrefab);
             }
-            else if (currentPoleIndex == 1)
+            else if (currentPoleIndex == 1 && crew1Ability == false)
             {
-                poleCrew1Ability = Instantiate(PoleCrew1.Ability.characterPrefab, SpawnPointAbility.transform);
-                poleCrew1Ability.transform.parent = null;
-                poleCrew1Ability.transform.localScale = abilitySize;
+                poleCrew1AbilityPrefab = Instantiate(PoleCrew1.Ability.characterPrefab, SpawnPointAbility.transform);
+                poleCrew1AbilityPrefab.transform.parent = null;
+                poleCrew1AbilityPrefab.transform.localScale = abilitySize;
+                poleCrew1Ability = poleCrew1AbilityPrefab.GetComponent<SpecialCharacter>();
                 crew1Ability = true;
                 yield return new WaitForSeconds(PoleCrew1.Ability.activeTime);
                 crew1Ability = false;
-                Destroy(poleCrew1Ability);
+                Destroy(poleCrew1AbilityPrefab);
             }
-            else if (currentPoleIndex == 2)
+            else if (currentPoleIndex == 2 && crew2Ability == false)
             {
-                poleCrew2Ability = Instantiate(PoleCrew2.Ability.characterPrefab, SpawnPointAbility.transform);
-                poleCrew2Ability.transform.parent = null;
-                poleCrew2Ability.transform.localScale = abilitySize;
+                poleCrew2AbilityPrefab = Instantiate(PoleCrew2.Ability.characterPrefab, SpawnPointAbility.transform);
+                poleCrew2AbilityPrefab.transform.parent = null;
+                poleCrew2AbilityPrefab.transform.localScale = abilitySize;
+                poleCrew2Ability = poleCrew2AbilityPrefab.GetComponent<SpecialCharacter>();
                 crew2Ability = true;
                 yield return new WaitForSeconds(PoleCrew2.Ability.activeTime);
                 crew2Ability = false;
-                Destroy(poleCrew2Ability);
+                Destroy(poleCrew2AbilityPrefab);
             }
-            else if (currentPoleIndex == 3)
+            else if (currentPoleIndex == 3 && crew3Ability == false)
             {
-                poleCrew3Ability = Instantiate(PoleCrew3.Ability.characterPrefab, SpawnPointAbility.transform);
-                poleCrew3Ability.transform.parent = null;
-                poleCrew3Ability.transform.localScale = abilitySize;
+                poleCrew3AbilityPrefab = Instantiate(PoleCrew3.Ability.characterPrefab, SpawnPointAbility.transform);
+                poleCrew3AbilityPrefab.transform.parent = null;
+                poleCrew3AbilityPrefab.transform.localScale = abilitySize;
+                poleCrew3Ability = poleCrew3AbilityPrefab.GetComponent<SpecialCharacter>();
                 crew3Ability = true;
                 yield return new WaitForSeconds(PoleCrew3.Ability.activeTime);
                 crew3Ability = false;
-                Destroy(poleCrew3Ability);
+                Destroy(poleCrew3AbilityPrefab);
             }
         }
     }

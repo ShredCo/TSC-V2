@@ -85,6 +85,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     private bool inventoryActive = false;
 
     [SerializeField] public Text textMoney;
+    [SerializeField] public Text textWood;
 
     void Update()
     {
@@ -105,7 +106,7 @@ public class UserInterfaceOverworld : MonoBehaviour
         }
         
         textMoney.text = inventory.money.ToString();
-        Debug.Log(inventory.money);
+        textWood.text = inventory.wood.ToString();
 
         #region Inventory switching input
 
@@ -139,7 +140,6 @@ public class UserInterfaceOverworld : MonoBehaviour
             EnableFirstPoleCardPage();
 
             EventSystem.current.SetSelectedGameObject(firstButtonLineUpPoleCards);
-            Debug.Log(LineUpController.ActivePole);
         }
         if (panelEquipAbilityCards.activeInHierarchy && gamepad.buttonEast.wasPressedThisFrame)
         {
@@ -149,7 +149,6 @@ public class UserInterfaceOverworld : MonoBehaviour
             EnableFirstAbilityCardPage();
 
             EventSystem.current.SetSelectedGameObject(firstButtonLineUpAbilityCards);
-            Debug.Log(LineUpController.ActivePole);
         }
         #endregion
     }
@@ -345,7 +344,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         EnableFirstPoleCardPage();
         
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
-        Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleFirst()
     {
@@ -359,7 +357,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         EnableFirstPoleCardPage();
         
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
-        Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleSecond()
     {
@@ -373,7 +370,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         EnableFirstPoleCardPage();
 
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
-        Debug.Log(LineUpController.ActivePole);
     }
     public void SetActivePoleThird()
     {
@@ -387,7 +383,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         EnableFirstPoleCardPage();
         
         EventSystem.current.SetSelectedGameObject(firstButtonPoleCardPage1);
-        Debug.Log(LineUpController.ActivePole);
     }
 
     #endregion
@@ -476,7 +471,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         EnableFirstAbilityCardPage();
 
         EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
-        Debug.Log(LineUpController.ActivePole);
     }
     public void SetActiveAbilityFirst()
     {
@@ -490,7 +484,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         EnableFirstAbilityCardPage();
 
         EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
-        Debug.Log(LineUpController.ActivePole);
     }
     public void SetActiveAbilitySecond()
     {
@@ -504,7 +497,6 @@ public class UserInterfaceOverworld : MonoBehaviour
         EnableFirstAbilityCardPage();
 
         EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
-        Debug.Log(LineUpController.ActivePole);
     }
     public void SetActiveAbilityThird()
     {
@@ -518,9 +510,7 @@ public class UserInterfaceOverworld : MonoBehaviour
         EnableFirstAbilityCardPage();
 
         EventSystem.current.SetSelectedGameObject(firstButtonAbilityCardPage1);
-        Debug.Log(LineUpController.ActivePole);
     }
-
     #endregion
 }
 

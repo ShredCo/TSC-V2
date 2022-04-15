@@ -46,8 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
+  powerpointsCount: 0
   characterVelocity: 750
   ball: {fileID: 0}
+  SpawnPointAbility: {fileID: 0}
+  PoleMain: {fileID: 0}
+  PoleCrew1: {fileID: 0}
+  PoleCrew2: {fileID: 0}
+  PoleCrew3: {fileID: 0}
 --- !u!114 &-229456059327777998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,19 +212,7 @@ MonoBehaviour:
     m_ActionId: 4bcbe821-795e-4f35-9cc7-f131a7e45630
     m_ActionName: SoccerMatchControlls/L3[/DualShock4GamepadHID/leftStickPress]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7776990381466126141}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: InstantiateAbility1
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: c98e0dcb-e008-4b0c-be9f-e35c26dd30ea
     m_ActionName: SoccerMatchControlls/Ability1[/DualShock4GamepadHID/buttonNorth]
   - m_PersistentCalls:
@@ -271,7 +265,7 @@ MonoBehaviour:
     m_ActionName: SoccerMatchControlls/Ability4[/DualShock4GamepadHID/buttonWest]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: b3f2f4e8-cd46-41db-ac98-86db47d5667f
+    m_ActionId: ffebbe06-3052-433e-8648-803da08fa104
     m_ActionName: SoccerMatchControlls/Pause[/DualShock4GamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player1

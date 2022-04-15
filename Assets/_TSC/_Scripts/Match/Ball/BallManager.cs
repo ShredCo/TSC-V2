@@ -17,7 +17,6 @@ public class BallManager : MonoBehaviour
 
         ballInGame = false;
         startPos = new Vector3(0f, 0.42f, -0.837f); // position of the GameObject the script is placed on
-        print(startPos);
     }
 
     private void Update()

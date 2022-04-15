@@ -51,7 +51,6 @@ public class AITriggerbox2 : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             shootingState = ShootingState.Loading;
-            Debug.Log("now shot can be activated");
         }
     }
     public IEnumerator ResetPole()

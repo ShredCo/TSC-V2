@@ -20,32 +20,36 @@ public class Player : MonoBehaviour
         if (instance == null)
             instance = this;
     }
-
+    
     // gives the player an inventory
     public InventoryObject inventory;
     public DialogueState DialogueState;
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerStay(Collider other)
     {
         var item = other.GetComponent<Item>();
 
         if (item.item)
         {
-            
-            
             switch (item.item.Type)
             {
-                    
                 // Checks which type the new item is and adds it to its inventory
                 case ItemType.Money:
-                    Debug.Log("Money");
                     inventory.AddMoney(item.item.MoneyValue);
                     Destroy(other.gameObject);
-           
-                    Debug.Log("Money: " + inventory.money);
+                    break;
+                case ItemType.Resource:
+                    var gamepad = Gamepad.current;
+                    if (gamepad.buttonWest.wasPressedThisFrame)
+                    {
+                        inventory.AddResource(item.item.ResourceValue);
+                        Debug.Log(item.item.ResourceValue);
+                        StartCoroutine(HarvestWood(other.gameObject));
+                    }
                     break;
             }
         }
-
+        
         if (item.card)
         {
             switch (item.card.Type)
@@ -85,5 +89,13 @@ public class Player : MonoBehaviour
     private void OnApplicationQuit()
     {
         inventory.ItemContainer.Clear();
+    }
+
+    IEnumerator HarvestWood(GameObject wood)
+    {
+        wood.SetActive(false);
+        yield return new WaitForSeconds(10f);
+        wood.SetActive(true);
+
     }
 }

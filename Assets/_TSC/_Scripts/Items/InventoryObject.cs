@@ -14,6 +14,9 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     [Header("Currency")]
     public int money;
 
+    [Header("Resources")] 
+    public int wood;
+
     [Header("References")]
     public string savePath;
     private ItemDatabaseObject database;
@@ -126,6 +129,10 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         AbilityCardContainer.Add(new ISlotSpecialCard(database.GetSpecialCardID[_item], _item, _amount));
     }
 
+    public void AddResource(int _woodValue)
+    {
+        wood += _woodValue;
+    }
     public void AddMoney(int _moneyValue)
     {
         money += _moneyValue;

@@ -8411,7 +8411,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
+  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19329,7 +19329,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
+  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21025,10 +21025,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
   - {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
   playerSpecialCardLineUP:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ec2c9165d8375674886a161cf0508a0c, type: 2}
+  - {fileID: 11400000, guid: ec2c9165d8375674886a161cf0508a0c, type: 2}
+  - {fileID: 11400000, guid: ec2c9165d8375674886a161cf0508a0c, type: 2}
+  - {fileID: 11400000, guid: ec2c9165d8375674886a161cf0508a0c, type: 2}
   AIDefaultCardLineUP:
   - {fileID: 11400000, guid: 9d337eb2b2be42040b3d60cfb1cca9e6, type: 2}
   - {fileID: 11400000, guid: 9d337eb2b2be42040b3d60cfb1cca9e6, type: 2}
@@ -21098,28 +21098,64 @@ PrefabInstance:
       value: SoccerMatchControlls/Pause[/DualShock4GamepadHID/start]
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1946180349}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 437777367}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: MoveAbility
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveAbility
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Pause
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseMenuUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -21215,6 +21251,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+--- !u!114 &1946180349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7776990381466126141, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+  m_PrefabInstance: {fileID: 1946180348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6038e80719aca0242a176f27ab0f4a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1948629445
 GameObject:
   m_ObjectHideFlags: 0

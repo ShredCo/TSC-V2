@@ -29,6 +29,7 @@ public abstract class ItemObject : ScriptableObject
     public ItemValue Value;
     
     public int MoneyValue;
+    public int ResourceValue;
     
     [TextArea(15,20)]
     public string Description;
