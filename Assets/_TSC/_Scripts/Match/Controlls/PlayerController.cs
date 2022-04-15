@@ -327,10 +327,6 @@ public class PlayerController : MonoBehaviour
 
     Vector3 abilitySize = new Vector3(0.07f, 0.07f, 0.07f);
     
-    public void SpawnAbilityButton(InputAction.CallbackContext context)
-    {
-        Debug.Log("Spawn Ability Button pressed");
-    }
     IEnumerator PlayerSpawnAbility()
     {
         var gamepad = Gamepad.current;
