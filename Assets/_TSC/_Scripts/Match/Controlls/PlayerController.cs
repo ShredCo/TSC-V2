@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -300,11 +301,6 @@ public class PlayerController : MonoBehaviour
         movementAbilityInput.y *= SpecialCharacter.Instance.moveSpeed;
     }
 
-    public void AttackOtherPole(InputAction.CallbackContext context)
-    {
-        
-    }
-
     #region SpawnAbility
 
     public GameObject SpawnPointAbility;
@@ -330,6 +326,11 @@ public class PlayerController : MonoBehaviour
     bool crew3Ability = false;
 
     Vector3 abilitySize = new Vector3(0.07f, 0.07f, 0.07f);
+    
+    public void SpawnAbilityButton(InputAction.CallbackContext context)
+    {
+        Debug.Log("Spawn Ability Button pressed");
+    }
     IEnumerator PlayerSpawnAbility()
     {
         var gamepad = Gamepad.current;

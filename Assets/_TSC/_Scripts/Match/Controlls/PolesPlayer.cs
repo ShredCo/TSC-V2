@@ -49,7 +49,6 @@ public class PolesPlayer : MonoBehaviour
     {
         if (lockedDownPressed == true)
         {
-            Debug.Log("locked down method used");
             var step = speed * Time.deltaTime;
             Quaternion normalQuaternion = Quaternion.identity;
             Quaternion lockedUpQuaternion = Quaternion.RotateTowards(transform.rotation, normalQuaternion, step);
@@ -71,6 +70,5 @@ public class PolesPlayer : MonoBehaviour
     {
         Ability = LineUpController.PlayerAbilityCardLineUP[Pole].Ability;
     }
-
     #endregion
 }

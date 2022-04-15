@@ -85,6 +85,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     private bool inventoryActive = false;
 
     [SerializeField] public Text textMoney;
+    [SerializeField] public Text textWood;
 
     void Update()
     {
@@ -105,6 +106,7 @@ public class UserInterfaceOverworld : MonoBehaviour
         }
         
         textMoney.text = inventory.money.ToString();
+        textWood.text = inventory.wood.ToString();
 
         #region Inventory switching input
 
