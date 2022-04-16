@@ -131,8 +131,6 @@ public class PoleHealth : MonoBehaviour
     #endregion
 
     #region UI
-
-
     void UpdatePowerpointText()
     {
         TextPowerpointsPlayer.text = PlayerController.Instance.powerpointsCount.ToString();
