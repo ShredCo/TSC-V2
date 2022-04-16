@@ -19,7 +19,7 @@ public class AbilityAnimation : MonoBehaviour
     void Update()
     {
         //animator.SetFloat("speed", rb.velocity.magnitude / maxSpeed);
-        animator.SetFloat("speed", rb.velocity.magnitude / maxSpeed);
+        animator.SetFloat("speed", rb.velocity.magnitude);
         Debug.Log("Rb Velocity = " + rb.velocity.magnitude);
     }
 }
