@@ -16,6 +16,7 @@ TagManager:
   - AiTriggerboxMain
   - AiTriggerbox2
   - AiTriggerbox3
+  - Item
   layers:
   - Default
   - TransparentFX

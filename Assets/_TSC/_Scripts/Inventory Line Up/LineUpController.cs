@@ -17,6 +17,11 @@ public class LineUpController : MonoBehaviour
     public static CardObject[] AIDefaultCardLineUP = new CardObject[4];
     public static CardObject[] AIAbilityCardLineUP = new CardObject[4];
 
+    public static int MainPoleDifficulty;
+    public static int Crew1PoleDifficulty;
+    public static int Crew2PoleDifficulty;
+    public static int Crew3PoleDifficulty;
+
     public static int ActivePole;
 
     public static bool CardType = true;

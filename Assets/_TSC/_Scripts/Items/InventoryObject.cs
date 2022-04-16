@@ -48,14 +48,12 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         {
             LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
             PlayerDefaultCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot; // Save the selected Card to the local Line Up Array (to display in inv)
-            SavePlayerLineUp(); // save the local Line Up to the static Line Up on the LineUpController script (to access it from the match scene)
             InventoryUI.Instance.UpdateLineUpCards();
         }
         else
         {
             LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
             PlayerSpecialCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot;
-            SavePlayerLineUp();
             InventoryUI.Instance.UpdateLineUpCards();
         }
     }    
@@ -68,11 +66,11 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     }
 
     // save the Line Ups to he static Arrays from the LineUpController script (has to be called from the NPC with its Line Ups)
-    public void SaveAILineUp(CardObject[] defaultCardObjects, CardObject[] specialCardObjects)
-    {
-        LineUpController.PlayerDefaultCardLineUP = defaultCardObjects;
-        LineUpController.PlayerAbilityCardLineUP = specialCardObjects;
-    }
+    //public void SaveAILineUp(CardObject[] defaultCardObjects, CardObject[] specialCardObjects)
+    //{
+    //    LineUpController.PlayerDefaultCardLineUP = defaultCardObjects;
+    //    LineUpController.PlayerAbilityCardLineUP = specialCardObjects;
+    //}
     #endregion
 
     // checks if unity editor is runned. 
