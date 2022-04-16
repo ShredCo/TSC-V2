@@ -15,4 +15,7 @@ MonoBehaviour:
   name: AbilityFire
   cooldownTime: 10
   activeTime: 3
+  powerpointsCost: 3
   characterPrefab: {fileID: 1947145488696995822, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
+  rotationSpeed: 1500
+  moveSpeed: 2

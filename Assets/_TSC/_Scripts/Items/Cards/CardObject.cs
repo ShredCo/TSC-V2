@@ -20,8 +20,6 @@ public class CardObject : ScriptableObject
     public string Name;
     public int Level = 1;
 
-    public int PowerPoints;
-
     public int Health;
     public int Attack;
 

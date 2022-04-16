@@ -302,7 +302,6 @@ public class PlayerController : MonoBehaviour
     }
 
     #region SpawnAbility
-
     public GameObject SpawnPointAbility;
 
     public PolesPlayer PoleMain;
@@ -334,47 +333,68 @@ public class PlayerController : MonoBehaviour
         {
             if (currentPoleIndex == 0 && mainAbility == false)
             {
-                poleMainAbilityPrefab = Instantiate(PoleMain.Ability.characterPrefab, SpawnPointAbility.transform);
-                poleMainAbilityPrefab.transform.parent = null;
-                poleMainAbilityPrefab.transform.localScale = abilitySize;
-                poleMainAbility = poleMainAbilityPrefab.GetComponent<SpecialCharacter>();
-                mainAbility = true;
-                yield return new WaitForSeconds(PoleMain.Ability.activeTime);
-                mainAbility = false;
-                Destroy(poleMainAbilityPrefab);
+                if (powerpointsCount >= PoleMain.Ability.powerpointsCost)
+                {
+                    // Instantiates ability on main pole
+                    powerpointsCount -= PoleMain.Ability.powerpointsCost;
+                    poleMainAbilityPrefab = Instantiate(PoleMain.Ability.characterPrefab, SpawnPointAbility.transform);
+                    poleMainAbilityPrefab.transform.parent = null;
+                    poleMainAbilityPrefab.transform.localScale = abilitySize;
+                    poleMainAbility = poleMainAbilityPrefab.GetComponent<SpecialCharacter>();
+                    mainAbility = true;
+                    yield return new WaitForSeconds(PoleMain.Ability.activeTime);
+                    mainAbility = false;
+                    Destroy(poleMainAbilityPrefab);
+                }
+                
             }
             else if (currentPoleIndex == 1 && crew1Ability == false)
             {
-                poleCrew1AbilityPrefab = Instantiate(PoleCrew1.Ability.characterPrefab, SpawnPointAbility.transform);
-                poleCrew1AbilityPrefab.transform.parent = null;
-                poleCrew1AbilityPrefab.transform.localScale = abilitySize;
-                poleCrew1Ability = poleCrew1AbilityPrefab.GetComponent<SpecialCharacter>();
-                crew1Ability = true;
-                yield return new WaitForSeconds(PoleCrew1.Ability.activeTime);
-                crew1Ability = false;
-                Destroy(poleCrew1AbilityPrefab);
+                if (powerpointsCount >= PoleMain.Ability.powerpointsCost)
+                {
+                    // Instantiates ability on crew pole 1
+                    powerpointsCount -= PoleMain.Ability.powerpointsCost;
+                    poleCrew1AbilityPrefab = Instantiate(PoleCrew1.Ability.characterPrefab, SpawnPointAbility.transform);
+                    poleCrew1AbilityPrefab.transform.parent = null;
+                    poleCrew1AbilityPrefab.transform.localScale = abilitySize;
+                    poleCrew1Ability = poleCrew1AbilityPrefab.GetComponent<SpecialCharacter>();
+                    crew1Ability = true;
+                    yield return new WaitForSeconds(PoleCrew1.Ability.activeTime);
+                    crew1Ability = false;
+                    Destroy(poleCrew1AbilityPrefab);
+                }
             }
             else if (currentPoleIndex == 2 && crew2Ability == false)
             {
-                poleCrew2AbilityPrefab = Instantiate(PoleCrew2.Ability.characterPrefab, SpawnPointAbility.transform);
-                poleCrew2AbilityPrefab.transform.parent = null;
-                poleCrew2AbilityPrefab.transform.localScale = abilitySize;
-                poleCrew2Ability = poleCrew2AbilityPrefab.GetComponent<SpecialCharacter>();
-                crew2Ability = true;
-                yield return new WaitForSeconds(PoleCrew2.Ability.activeTime);
-                crew2Ability = false;
-                Destroy(poleCrew2AbilityPrefab);
+                if (powerpointsCount >= PoleMain.Ability.powerpointsCost)
+                {
+                    // Instantiates ability on crew pole 2
+                    powerpointsCount -= PoleMain.Ability.powerpointsCost;
+                    poleCrew2AbilityPrefab = Instantiate(PoleCrew2.Ability.characterPrefab, SpawnPointAbility.transform);
+                    poleCrew2AbilityPrefab.transform.parent = null;
+                    poleCrew2AbilityPrefab.transform.localScale = abilitySize;
+                    poleCrew2Ability = poleCrew2AbilityPrefab.GetComponent<SpecialCharacter>();
+                    crew2Ability = true;
+                    yield return new WaitForSeconds(PoleCrew2.Ability.activeTime);
+                    crew2Ability = false;
+                    Destroy(poleCrew2AbilityPrefab);
+                }
             }
             else if (currentPoleIndex == 3 && crew3Ability == false)
             {
-                poleCrew3AbilityPrefab = Instantiate(PoleCrew3.Ability.characterPrefab, SpawnPointAbility.transform);
-                poleCrew3AbilityPrefab.transform.parent = null;
-                poleCrew3AbilityPrefab.transform.localScale = abilitySize;
-                poleCrew3Ability = poleCrew3AbilityPrefab.GetComponent<SpecialCharacter>();
-                crew3Ability = true;
-                yield return new WaitForSeconds(PoleCrew3.Ability.activeTime);
-                crew3Ability = false;
-                Destroy(poleCrew3AbilityPrefab);
+                if (powerpointsCount >= PoleMain.Ability.powerpointsCost)
+                {
+                    // Instantiates ability on crew pole 3
+                    powerpointsCount -= PoleMain.Ability.powerpointsCost;
+                    poleCrew3AbilityPrefab = Instantiate(PoleCrew3.Ability.characterPrefab, SpawnPointAbility.transform);
+                    poleCrew3AbilityPrefab.transform.parent = null;
+                    poleCrew3AbilityPrefab.transform.localScale = abilitySize;
+                    poleCrew3Ability = poleCrew3AbilityPrefab.GetComponent<SpecialCharacter>();
+                    crew3Ability = true;
+                    yield return new WaitForSeconds(PoleCrew3.Ability.activeTime);
+                    crew3Ability = false;
+                    Destroy(poleCrew3AbilityPrefab);
+                }
             }
         }
     }

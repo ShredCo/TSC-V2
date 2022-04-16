@@ -6,6 +6,8 @@ public class Ability : ScriptableObject
     public new string name;
     public float cooldownTime;
     public float activeTime;
+    public int powerpointsCost;
+    
 
     // Prefab and spawn position of the spawned character from special card
     public GameObject characterPrefab;
