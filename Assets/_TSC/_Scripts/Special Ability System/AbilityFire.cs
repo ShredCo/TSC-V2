@@ -12,8 +12,6 @@ public class AbilityFire : Ability
     public override void Activate(GameObject parent)
     {
         GameObject fireMan = GameObject.Instantiate(characterPrefab, SpawnPointSpecialCards.instance.specialCardSpawnPos.transform.position, Quaternion.identity);
-        
-
         rb = fireMan.GetComponent<Rigidbody>();
     }
     

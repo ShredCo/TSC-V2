@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb26e27ad839f740bbfaeb5ee1f851b, type: 3}
-  m_Name: AC_Water
+  m_Script: {fileID: 11500000, guid: 2f8b0608dd90b8541a7ddf09c18123bb, type: 3}
+  m_Name: AC_Fire
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 1947145488696995822, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
+  PlayerPrefab: {fileID: 0}
   Type: 1
   Ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
-  Name: Special Card Water
-  Level: 30
-  Health: 100
-  Attack: 50
-  CardArtwork: {fileID: 21300000, guid: a3adff54d07ebc74d860c1e943dc7384, type: 3}
+  Name: FireAbility
+  Level: 1
+  Health: 0
+  Attack: 0
+  CardArtwork: {fileID: 21300000, guid: 7d1195d5a65744a4483cc826d8868792, type: 3}
