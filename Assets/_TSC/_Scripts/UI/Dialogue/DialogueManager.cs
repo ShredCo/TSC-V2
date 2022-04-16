@@ -20,7 +20,8 @@ public class DialogueManager : MonoBehaviour
     bool dialogueStarted = false;
     
     public NpcType npcType;
-
+    public WorkshopUI workshopUI;
+    
     private DialogueState dialogueState;
     //made with Brackeys tutorial
     private Queue<string> sentences;
@@ -83,10 +84,13 @@ public class DialogueManager : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
-
         if (npcType == NpcType.Neutral)
         {
             StartCoroutine(CooldownDialogue());
+        }
+        if (npcType == NpcType.Workshop)
+        {
+            workshopUI.OpenWorkshopUI();
         }
     }
 

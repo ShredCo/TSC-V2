@@ -8,7 +8,8 @@ using UnityEngine.InputSystem;
 public enum NpcType
 {
     Neutral,
-    Agressive
+    Agressive,
+    Workshop
 }
 
 public class DialogueTrigger : MonoBehaviour
