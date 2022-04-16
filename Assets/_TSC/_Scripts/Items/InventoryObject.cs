@@ -34,7 +34,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     // arrays to store the Player Line Up
     public CardObject[] PlayerDefaultCardLineUp = new CardObject[4];
 
-    public CardObject[] PlayerSpecialCardLineUp = new CardObject[4];
+    public CardObject[] PlayerAbilityCardLineUp = new CardObject[4];
 
     // arrays to store the AI Line Up
     public DefaultCardObject[] AIDefaultCardLineUp = new DefaultCardObject[4]; //may not be needed
@@ -53,7 +53,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         else
         {
             LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
-            PlayerSpecialCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot;
+            PlayerAbilityCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.CardSlot;
             InventoryUI.Instance.UpdateLineUpCards();
         }
     }    
@@ -62,7 +62,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     public void SavePlayerLineUp()
     {
         LineUpController.PlayerDefaultCardLineUP = PlayerDefaultCardLineUp;
-        LineUpController.PlayerAbilityCardLineUP = PlayerSpecialCardLineUp;
+        LineUpController.PlayerAbilityCardLineUP = PlayerAbilityCardLineUp;
     }
 
     // save the Line Ups to he static Arrays from the LineUpController script (has to be called from the NPC with its Line Ups)

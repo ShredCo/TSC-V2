@@ -28,6 +28,12 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] GameObject spawnPointAbilityCard2;
     [SerializeField] GameObject spawnPointAbilityCard3;
 
+    [Header("Woodshop dude")]
+    [SerializeField] GameObject spawnPointShopMain;
+    [SerializeField] GameObject spawnPointShopCrew1;
+    [SerializeField] GameObject spawnPointShopCrew2;
+    [SerializeField] GameObject spawnPointShopCrew3;
+
     int indexPole = 0;
     int indexAbility = 0;
     int maxCardsOnPage = 4;
@@ -45,7 +51,6 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        UpdateLineUpCards();
         activePolePage = cardPage.Page1;
         activeAbilityPage = cardPage.Page1;
         UpdatePoleCardList();
@@ -134,28 +139,28 @@ public class InventoryUI : MonoBehaviour
 
         CardSlotUI slotUIobj;
         // instantiate selected cards depending if there is a selected card
-        if (LineUpController.PlayerDefaultCardLineUP[0] != null)
+        if (inventory.PlayerDefaultCardLineUp[0] != null)
         {
             slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointPoleCardMain.transform);
-            slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[0]);
+            slotUIobj.SetData(inventory.PlayerDefaultCardLineUp[0]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
-        if (LineUpController.PlayerDefaultCardLineUP[1] != null)
+        if (inventory.PlayerDefaultCardLineUp[1] != null)
         {
             slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointPoleCard1.transform);
-            slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[1]);
+            slotUIobj.SetData(inventory.PlayerDefaultCardLineUp[1]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
-        if (LineUpController.PlayerDefaultCardLineUP[2] != null)
+        if (inventory.PlayerDefaultCardLineUp[2] != null)
         {
             slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointPoleCard2.transform);
-            slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[2]);
+            slotUIobj.SetData(inventory.PlayerDefaultCardLineUp[2]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
-        if (LineUpController.PlayerDefaultCardLineUP[3] != null)
+        if (inventory.PlayerDefaultCardLineUp[3] != null)
         {
             slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointPoleCard3.transform);
-            slotUIobj.SetData(LineUpController.PlayerDefaultCardLineUP[3]);
+            slotUIobj.SetData(inventory.PlayerDefaultCardLineUp[3]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
 
@@ -179,28 +184,72 @@ public class InventoryUI : MonoBehaviour
 
         //CardSlotUI slotUIobj;
         // instantiate selected cards depending if there is a selected card
-        if (LineUpController.PlayerAbilityCardLineUP[0] != null)
+        if (inventory.PlayerAbilityCardLineUp[0] != null)
         {
             slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointAbilityCardMain.transform);
-            slotUIobj.SetData(LineUpController.PlayerAbilityCardLineUP[0]);
+            slotUIobj.SetData(inventory.PlayerAbilityCardLineUp[0]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
-        if (LineUpController.PlayerAbilityCardLineUP[1] != null)
+        if (inventory.PlayerAbilityCardLineUp[1] != null)
         {
             slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointAbilityCard1.transform);
-            slotUIobj.SetData(LineUpController.PlayerAbilityCardLineUP[1]);
+            slotUIobj.SetData(inventory.PlayerAbilityCardLineUp[1]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
-        if (LineUpController.PlayerDefaultCardLineUP[2] != null)
+        if (inventory.PlayerAbilityCardLineUp[2] != null)
         {
             slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointAbilityCard2.transform);
-            slotUIobj.SetData(LineUpController.PlayerAbilityCardLineUP[2]);
+            slotUIobj.SetData(inventory.PlayerAbilityCardLineUp[2]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
-        if (LineUpController.PlayerDefaultCardLineUP[3] != null)
+        if (inventory.PlayerAbilityCardLineUp[3] != null)
         {
             slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointAbilityCard3.transform);
-            slotUIobj.SetData(LineUpController.PlayerAbilityCardLineUP[3]);
+            slotUIobj.SetData(inventory.PlayerAbilityCardLineUp[3]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+
+        // Woodshop dude
+        foreach (Transform child in spawnPointShopMain.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in spawnPointShopMain.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in spawnPointShopMain.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in spawnPointShopMain.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // instantiate selected cards depending if there is a selected card
+        if (inventory.PlayerDefaultCardLineUp[0] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointShopMain.transform);
+            slotUIobj.SetData(inventory.PlayerDefaultCardLineUp[0]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (inventory.PlayerDefaultCardLineUp[1] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointShopCrew1.transform);
+            slotUIobj.SetData(inventory.PlayerDefaultCardLineUp[1]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (inventory.PlayerDefaultCardLineUp[2] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointShopCrew2.transform);
+            slotUIobj.SetData(inventory.PlayerDefaultCardLineUp[2]);
+            slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
+        }
+        if (inventory.PlayerDefaultCardLineUp[3] != null)
+        {
+            slotUIobj = Instantiate(poleSelectedCardPrefab, spawnPointShopCrew3.transform);
+            slotUIobj.SetData(inventory.PlayerDefaultCardLineUp[3]);
             slotUIobj.transform.localScale = new Vector3(1.4f, 1.4f, 1);
         }
     }
