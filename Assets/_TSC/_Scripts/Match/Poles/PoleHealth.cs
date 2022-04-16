@@ -101,14 +101,14 @@ public class PoleHealth : MonoBehaviour
         playerMaxHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].Health;
 
         // AI poles
-        //AIHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
-        //AIMaxHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
-        //AIHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
-        //AIMaxHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
-        //AIHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
-        //AIMaxHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
-        //AIHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
-        //AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
+        AIHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
+        AIMaxHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
+        AIHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
+        AIMaxHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
+        AIHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
+        AIMaxHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
+        AIHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
+        AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
     }
 
     #region Poles GameObjects
@@ -145,10 +145,10 @@ public class PoleHealth : MonoBehaviour
         TextCurrentHealthPlayerCrew3.text = Mathf.Clamp(playerHealthCrew3, 0f, playerMaxHealthCrew3).ToString();
 
         // AI
-        //TextCurrentHealthAIMain.text = Mathf.Clamp(AIHealthMain, 0f, AIMaxHealthMain).ToString();
-        //TextCurrentHealthAICrew1.text = Mathf.Clamp(AIHealthCrew1, 0f, AIMaxHealthCrew1).ToString();
-        //TextCurrentHealthAICrew2.text = Mathf.Clamp(AIHealthCrew2, 0f, AIMaxHealthCrew2).ToString();
-        //TextCurrentHealthAICrew3.text = Mathf.Clamp(AIHealthCrew3, 0f, AIMaxHealthCrew3).ToString();
+        TextCurrentHealthAIMain.text = Mathf.Clamp(AIHealthMain, 0f, AIMaxHealthMain).ToString();
+        TextCurrentHealthAICrew1.text = Mathf.Clamp(AIHealthCrew1, 0f, AIMaxHealthCrew1).ToString();
+        TextCurrentHealthAICrew2.text = Mathf.Clamp(AIHealthCrew2, 0f, AIMaxHealthCrew2).ToString();
+        TextCurrentHealthAICrew3.text = Mathf.Clamp(AIHealthCrew3, 0f, AIMaxHealthCrew3).ToString();
     }
 
     void SetMaxHealth()
@@ -160,10 +160,10 @@ public class PoleHealth : MonoBehaviour
         TextMaxHealthPlayerCrew3.text = playerMaxHealthCrew3.ToString();
 
         // AI
-        //TextMaxHealthAIMain.text = AIMaxHealthMain.ToString();
-        //TextMaxHealthAICrew1.text = AIMaxHealthCrew1.ToString();
-        //TextMaxHealthAICrew2.text = AIMaxHealthCrew2.ToString();
-        //TextMaxHealthAICrew3.text = AIMaxHealthCrew3.ToString();
+        TextMaxHealthAIMain.text = AIMaxHealthMain.ToString();
+        TextMaxHealthAICrew1.text = AIMaxHealthCrew1.ToString();
+        TextMaxHealthAICrew2.text = AIMaxHealthCrew2.ToString();
+        TextMaxHealthAICrew3.text = AIMaxHealthCrew3.ToString();
     }
 
     void UpdateHealth()
@@ -175,10 +175,10 @@ public class PoleHealth : MonoBehaviour
         HealthBarPlayerCrew3.fillAmount = Mathf.Lerp(HealthBarPlayerCrew3.fillAmount, playerHealthCrew3 / playerMaxHealthCrew3, lerpSpeed * Time.deltaTime);
 
         // AI
-        //HealthBarAIMain.fillAmount = Mathf.Lerp(HealthBarAIMain.fillAmount, AIHealthMain / AIMaxHealthMain, lerpSpeed * Time.deltaTime);
-        //HealthBarAICrew1.fillAmount = Mathf.Lerp(HealthBarAICrew1.fillAmount, AIHealthCrew1 / AIMaxHealthCrew1, lerpSpeed * Time.deltaTime);
-        //HealthBarAICrew2.fillAmount = Mathf.Lerp(HealthBarAICrew2.fillAmount, AIHealthCrew2 / AIMaxHealthCrew2, lerpSpeed * Time.deltaTime);
-        //HealthBarAICrew3.fillAmount = Mathf.Lerp(HealthBarAICrew3.fillAmount, AIHealthCrew3 / AIMaxHealthCrew3, lerpSpeed * Time.deltaTime);
+        HealthBarAIMain.fillAmount = Mathf.Lerp(HealthBarAIMain.fillAmount, AIHealthMain / AIMaxHealthMain, lerpSpeed * Time.deltaTime);
+        HealthBarAICrew1.fillAmount = Mathf.Lerp(HealthBarAICrew1.fillAmount, AIHealthCrew1 / AIMaxHealthCrew1, lerpSpeed * Time.deltaTime);
+        HealthBarAICrew2.fillAmount = Mathf.Lerp(HealthBarAICrew2.fillAmount, AIHealthCrew2 / AIMaxHealthCrew2, lerpSpeed * Time.deltaTime);
+        HealthBarAICrew3.fillAmount = Mathf.Lerp(HealthBarAICrew3.fillAmount, AIHealthCrew3 / AIMaxHealthCrew3, lerpSpeed * Time.deltaTime);
     }
 
     void ChangeColor()
@@ -190,10 +190,10 @@ public class PoleHealth : MonoBehaviour
         HealthBarPlayerCrew3.color = Color.Lerp(Color.grey, Color.red, (playerHealthCrew3 / playerMaxHealthCrew3));
 
         // AI
-        //HealthBarAIMain.color = Color.Lerp(Color.grey, Color.red, (AIHealthMain / AIMaxHealthMain));
-        //HealthBarAICrew1.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew1 / AIMaxHealthCrew1));
-        //HealthBarAICrew2.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew2 / AIMaxHealthCrew2));
-        //HealthBarAICrew3.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew3 / AIMaxHealthCrew3));
+        HealthBarAIMain.color = Color.Lerp(Color.grey, Color.red, (AIHealthMain / AIMaxHealthMain));
+        HealthBarAICrew1.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew1 / AIMaxHealthCrew1));
+        HealthBarAICrew2.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew2 / AIMaxHealthCrew2));
+        HealthBarAICrew3.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew3 / AIMaxHealthCrew3));
     }
     #endregion
 

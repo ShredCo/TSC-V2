@@ -15,6 +15,9 @@ public enum NpcType
 public class DialogueTrigger : MonoBehaviour
 {
     public static DialogueTrigger instance;
+    
+    public NPCInventory NPCInventory;
+    public InventoryObject PlayerInventory;
 
     private void Awake()
     {
@@ -40,7 +43,6 @@ public class DialogueTrigger : MonoBehaviour
             {
                 TriggerDialogue();
                 x_Text.SetActive(false);
- 
             }
         }
     }
@@ -62,9 +64,13 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void TriggerDialogue()
     {
+        if (NPCInventory != null)
+        {
+            NPCInventory.SetNPCLineUp();
+            PlayerInventory.SavePlayerLineUp();
+        }
         IsTalking = true;
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         FindObjectOfType<DialogueManager>().npcType = NpcType;
-        
     }
 }

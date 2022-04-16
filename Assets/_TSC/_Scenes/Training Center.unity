@@ -4251,6 +4251,7 @@ MonoBehaviour:
   HealthBarPlayerMain: {fileID: 318756198}
   TextCurrentHealthPlayerMain: {fileID: 1441763295}
   TextMaxHealthPlayerMain: {fileID: 1337044268}
+
   HealthBarPlayerCrew1: {fileID: 891685375}
   TextCurrentHealthPlayerCrew1: {fileID: 1472053473}
   TextMaxHealthPlayerCrew1: {fileID: 769220846}
@@ -4272,6 +4273,7 @@ MonoBehaviour:
   HealthBarAICrew3: {fileID: 440349848}
   TextCurrentHealthAICrew3: {fileID: 280607931}
   TextMaxHealthAICrew3: {fileID: 1320989457}
+
   PlayerPoleMain: {fileID: 513153394}
   PlayerPoleCrew1: {fileID: 513153393}
   PlayerPoleCrew2: {fileID: 513153392}
@@ -4281,7 +4283,9 @@ MonoBehaviour:
   AIPoleCrew2: {fileID: 857028768}
   AIPoleCrew3: {fileID: 709125706}
   TextPowerpointsPlayer: {fileID: 1354508875}
+
   TextPowerpointsEnemy: {fileID: 1799487079}
+
 --- !u!1 &438355459
 GameObject:
   m_ObjectHideFlags: 0
