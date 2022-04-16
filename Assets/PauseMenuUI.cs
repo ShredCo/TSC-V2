@@ -113,5 +113,10 @@ public class PauseMenuUI : MonoBehaviour
         Panel_SettingsMenu.SetActive(false);
         EventSystem.current.SetSelectedGameObject(ButtonResume);
     }
+    
+    public void SetMusicAudioLevel(float sliderValue)
+    {
+        PolesPlayer.Instance.moveSpeed = sliderValue;
+    }
     #endregion
 }
