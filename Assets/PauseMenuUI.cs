@@ -107,6 +107,10 @@ public class PauseMenuUI : MonoBehaviour
     #endregion
     
     #region SettingsMenu -> Button Methods
+
+    [Header("Lights")]
+    public GameObject DayLight;
+    public GameObject NightLight;
     public void CloseSettingsMenu()
     {
         Panel_PauseMenu.SetActive(true);
@@ -114,9 +118,26 @@ public class PauseMenuUI : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(ButtonResume);
     }
     
-    public void SetMusicAudioLevel(float sliderValue)
+    // Pole controll settings
+    public void SetPoleSpeed(float sliderValue)
     {
         PolesPlayer.Instance.moveSpeed = sliderValue;
+    }
+    public void SetRotationSpeed(float sliderValue)
+    {
+        PolesPlayer.Instance.rotationSpeed = sliderValue;
+    }
+    
+    // Light settings
+    public void SetDayLight()
+    {
+        DayLight.SetActive(true);
+        NightLight.SetActive(false);
+    }
+    public void SetNightLight()
+    {
+        DayLight.SetActive(false);
+        NightLight.SetActive(true);
     }
     #endregion
 }

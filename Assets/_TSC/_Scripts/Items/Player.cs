@@ -14,6 +14,7 @@ public enum DialogueState
 public class Player : MonoBehaviour
 {
     public static Player instance;
+    private Rigidbody rb;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
             {
                 // Checks which type the new item is and adds it to its inventory
                 case ItemType.Money:
+                    // Adds money to the inventory
                     inventory.AddMoney(item.item.MoneyValue);
                     Destroy(other.gameObject);
                     break;
@@ -42,8 +44,8 @@ public class Player : MonoBehaviour
                     var gamepad = Gamepad.current;
                     if (gamepad.buttonWest.wasPressedThisFrame)
                     {
+                        // Adds the resource to the inventory
                         inventory.AddResource(item.item.ResourceValue);
-                        Debug.Log(item.item.ResourceValue);
                         StartCoroutine(HarvestWood(other.gameObject));
                     }
                     break;
