@@ -23,11 +23,11 @@ public class SpecialCharacter : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void MoveAndRotate(Vector2 movement)
+    public void MoveAbilityUpAndDown(Vector2 movement)
     {
         // movement up & down
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
-
+        rb.velocity = new Vector3(0f,0f,-movement.y);
         // Sets the default limit for the movement
         //rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.6f, 0.6f));
     }
