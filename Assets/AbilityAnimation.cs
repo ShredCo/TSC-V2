@@ -6,7 +6,7 @@ public class AbilityAnimation : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody rb;
-    private float maxSpeed = 5f;
+    private float maxSpeed = 0.5f;
     
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,8 @@ public class AbilityAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("speed", rb.velocity.magnitude);
+        //animator.SetFloat("speed", rb.velocity.magnitude / maxSpeed);
+        animator.SetFloat("speed", rb.velocity.magnitude / maxSpeed);
         Debug.Log("Rb Velocity = " + rb.velocity.magnitude);
     }
 }

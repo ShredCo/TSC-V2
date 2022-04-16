@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
             if (mainAbility)
             {
                 polesPlayer[0].PoleFreeze();
-                poleMainAbility.MoveAndRotate(movementAbilityInput * Time.deltaTime);
+                poleMainAbility.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
             }
             else
             {
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
             if (crew1Ability)
             {
                 polesPlayer[1].PoleFreeze();
-                poleCrew1Ability.MoveAndRotate(movementAbilityInput * Time.deltaTime);
+                poleCrew1Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
             }
             else
             {
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
             if (crew2Ability)
             {
                 polesPlayer[2].PoleFreeze();
-                poleCrew2Ability.MoveAndRotate(movementAbilityInput * Time.deltaTime);
+                poleCrew2Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
             }
             else
             {
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
             if (crew3Ability)
             {
                 polesPlayer[3].PoleFreeze();
-                poleCrew3Ability.MoveAndRotate(movementAbilityInput * Time.deltaTime);
+                poleCrew3Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
             }
             else
             {
