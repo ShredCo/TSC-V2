@@ -45,7 +45,6 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        inventory.SavePlayerLineUp();
         UpdateLineUpCards();
         activePolePage = cardPage.Page1;
         activeAbilityPage = cardPage.Page1;

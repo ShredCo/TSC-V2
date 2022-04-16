@@ -4822,18 +4822,18 @@ MonoBehaviour:
   HealthBarPlayerCrew3: {fileID: 658643891}
   TextCurrentHealthPlayerCrew3: {fileID: 1623170254}
   TextMaxHealthPlayerCrew3: {fileID: 128903268}
-  HealthBarAIMain: {fileID: 0}
-  TextCurrentHealthAIMain: {fileID: 0}
-  TextMaxHealthAIMain: {fileID: 0}
-  HealthBarAICrew1: {fileID: 0}
-  TextCurrentHealthAICrew1: {fileID: 0}
-  TextMaxHealthAICrew1: {fileID: 0}
-  HealthBarAICrew2: {fileID: 0}
-  TextCurrentHealthAICrew2: {fileID: 0}
-  TextMaxHealthAICrew2: {fileID: 0}
-  HealthBarAICrew3: {fileID: 0}
-  TextCurrentHealthAICrew3: {fileID: 0}
-  TextMaxHealthAICrew3: {fileID: 0}
+  HealthBarAIMain: {fileID: 271032686}
+  TextCurrentHealthAIMain: {fileID: 1075545840}
+  TextMaxHealthAIMain: {fileID: 183511107}
+  HealthBarAICrew1: {fileID: 1634474592}
+  TextCurrentHealthAICrew1: {fileID: 501479773}
+  TextMaxHealthAICrew1: {fileID: 1880308156}
+  HealthBarAICrew2: {fileID: 767108359}
+  TextCurrentHealthAICrew2: {fileID: 61336659}
+  TextMaxHealthAICrew2: {fileID: 493853621}
+  HealthBarAICrew3: {fileID: 571301075}
+  TextCurrentHealthAICrew3: {fileID: 1717502545}
+  TextMaxHealthAICrew3: {fileID: 57953431}
   PlayerPoleMain: {fileID: 513153394}
   PlayerPoleCrew1: {fileID: 513153393}
   PlayerPoleCrew2: {fileID: 513153392}
@@ -4843,7 +4843,7 @@ MonoBehaviour:
   AIPoleCrew2: {fileID: 857028768}
   AIPoleCrew3: {fileID: 709125706}
   TextPowerpointsPlayer: {fileID: 1354508875}
-  TextPowerpointsEnemy: {fileID: 0}
+  TextPowerpointsEnemy: {fileID: 1354508875}
 --- !u!1 &438355459
 GameObject:
   m_ObjectHideFlags: 0
