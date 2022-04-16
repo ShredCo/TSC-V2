@@ -4251,10 +4251,9 @@ MonoBehaviour:
   HealthBarPlayerMain: {fileID: 318756198}
   TextCurrentHealthPlayerMain: {fileID: 1441763295}
   TextMaxHealthPlayerMain: {fileID: 1337044268}
-
   HealthBarPlayerCrew1: {fileID: 891685375}
-  TextCurrentHealthPlayerCrew1: {fileID: 1472053473}
-  TextMaxHealthPlayerCrew1: {fileID: 769220846}
+  TextCurrentHealthPlayerCrew1: {fileID: 1441763295}
+  TextMaxHealthPlayerCrew1: {fileID: 1337044268}
   HealthBarPlayerCrew2: {fileID: 2145490610}
   TextCurrentHealthPlayerCrew2: {fileID: 1320393509}
   TextMaxHealthPlayerCrew2: {fileID: 614525183}
@@ -4273,7 +4272,6 @@ MonoBehaviour:
   HealthBarAICrew3: {fileID: 440349848}
   TextCurrentHealthAICrew3: {fileID: 280607931}
   TextMaxHealthAICrew3: {fileID: 1320989457}
-
   PlayerPoleMain: {fileID: 513153394}
   PlayerPoleCrew1: {fileID: 513153393}
   PlayerPoleCrew2: {fileID: 513153392}
@@ -4283,9 +4281,7 @@ MonoBehaviour:
   AIPoleCrew2: {fileID: 857028768}
   AIPoleCrew3: {fileID: 709125706}
   TextPowerpointsPlayer: {fileID: 1354508875}
-
   TextPowerpointsEnemy: {fileID: 1799487079}
-
 --- !u!1 &438355459
 GameObject:
   m_ObjectHideFlags: 0
@@ -7600,7 +7596,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
+  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19335,7 +19331,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
+  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
