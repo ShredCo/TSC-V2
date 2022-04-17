@@ -7,6 +7,8 @@ public class WorkshopLeveling : MonoBehaviour
     public int UpgradeWoodCost = 5;
     public int UpgradeMoneyCost = 1000;
 
+    public int RepairWoodCost = 1;
+
     public InventoryObject inventory;
 
     [Header("Spawnpoints")]
@@ -16,7 +18,7 @@ public class WorkshopLeveling : MonoBehaviour
     public GameObject Crew3PoleCardObject;
 
     public ISlotDefaultCard SelectedCard;
-
+    #region Upgrade functions
     public void UpgradeMainCard()
     {
         // Get the card you want to upgrade with GetComponentInChildren
@@ -169,4 +171,95 @@ public class WorkshopLeveling : MonoBehaviour
             Debug.Log("Card not upgradable");
         }
     }
+    #endregion
+
+    #region Repair functions
+    public void RepairMainCard()
+    {
+        SelectedCard.DefaultCard = MainPoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
+        if (SelectedCard.DefaultCard.Health < SelectedCard.DefaultCard.MaxHealth)
+        {
+            if (inventory.wood >= RepairWoodCost)
+            {
+                SelectedCard.DefaultCard.Health = SelectedCard.DefaultCard.MaxHealth;
+                inventory.wood -= RepairWoodCost;
+                Debug.Log("Card repaired");
+            }
+            else
+            {
+                Debug.Log("No enough wood, stranger");
+            }
+        }
+        else
+        {
+            Debug.Log("Card is full HP, stranger");
+        }
+    }
+
+    public void RepairCrew1Card()
+    {
+        SelectedCard.DefaultCard = Crew1PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
+        if (SelectedCard.DefaultCard.Health < SelectedCard.DefaultCard.MaxHealth)
+        {
+            if (inventory.wood >= RepairWoodCost)
+            {
+                SelectedCard.DefaultCard.Health = SelectedCard.DefaultCard.MaxHealth;
+                inventory.wood -= RepairWoodCost;
+                Debug.Log("Card repaired");
+            }
+            else
+            {
+                Debug.Log("No enough wood, stranger");
+            }
+        }
+        else
+        {
+            Debug.Log("Card is full HP, stranger");
+        }
+    }
+
+    public void RepairCrew2Card()
+    {
+        SelectedCard.DefaultCard = Crew2PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
+        if (SelectedCard.DefaultCard.Health < SelectedCard.DefaultCard.MaxHealth)
+        {
+            if (inventory.wood >= RepairWoodCost)
+            {
+                SelectedCard.DefaultCard.Health = SelectedCard.DefaultCard.MaxHealth;
+                inventory.wood -= RepairWoodCost;
+                Debug.Log("Card repaired");
+            }
+            else
+            {
+                Debug.Log("No enough wood, stranger");
+            }
+        }
+        else
+        {
+            Debug.Log("Card is full HP, stranger");
+        }
+    }
+
+    public void RepairCrew3Card()
+    {
+        SelectedCard.DefaultCard = Crew3PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
+        if (SelectedCard.DefaultCard.Health < SelectedCard.DefaultCard.MaxHealth)
+        {
+            if (inventory.wood >= RepairWoodCost)
+            {
+                SelectedCard.DefaultCard.Health = SelectedCard.DefaultCard.MaxHealth;
+                inventory.wood -= RepairWoodCost;
+                Debug.Log("Card repaired");
+            }
+            else
+            {
+                Debug.Log("No enough wood, stranger");
+            }
+        }
+        else
+        {
+            Debug.Log("Card is full HP, stranger");
+        }
+    }
+    #endregion
 }
