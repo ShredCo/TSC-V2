@@ -24,4 +24,7 @@ public class CardObject : ScriptableObject
     public int Attack;
 
     public Sprite CardArtwork;
+
+    public DefaultCardObject NextLevelCard;
+    public bool IsUpgradable;
 }

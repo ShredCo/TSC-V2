@@ -52,25 +52,24 @@ public class Player : MonoBehaviour
             }
         }
         
-        if (item.card)
+        if (item.defaultCard)
         {
-            switch (item.card.Type)
+            switch (item.defaultCard.Type)
             {
                 // Checks which type the new card is and adds it to its inventory
                 case CardType.DefaultCard:
                     Debug.Log("DefaultCard");
-                    inventory.AddDefaultCard(item.card, 1);
+                    inventory.AddDefaultCard(item.defaultCard, 1);
                     Destroy(other.gameObject);
                     break;
                 case CardType.SpecialCard:
                     Debug.Log("SpecialCard");
-                    inventory.AddSpecialCard(item.card, 1);
+                    inventory.AddSpecialCard(item.specialCard, 1);
                     Destroy(other.gameObject);
                     break;
 
             }
         }
-
     }
 
     private void Update()

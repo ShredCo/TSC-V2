@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb26e27ad839f740bbfaeb5ee1f851b, type: 3}
+  m_Name: PC_TillyBlackbird_Lv_2
+  m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 192002, guid: a4e0a18cfd7b29940b5bceec4383a73f, type: 3}
+  Type: 0
+  Ability: {fileID: 0}
+  Name: Tilly Blackbird
+  Level: 2
+  Health: 200
+  Attack: 110
+  CardArtwork: {fileID: 21300000, guid: b7a63a9376d2e974fa9d311e6a3c6e77, type: 3}
+  NextLevelCard: {fileID: 0}
+  IsUpgradable: 0
