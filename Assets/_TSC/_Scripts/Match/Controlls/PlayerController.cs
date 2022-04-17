@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private PolesPlayer[] polesPlayer;
     private SpecialCharacter[] specialCharacter;
-    
+
     // Ability
     public Ability ability;
     private float cooldownTime;
@@ -28,21 +28,22 @@ public class PlayerController : MonoBehaviour
 
     protected int currentPoleIndex;
     public int powerpointsCount = 0;
-    
+
     // Special Cards move speed;
     public float characterVelocity = 750f;
-    
-    
+
+
     public BallManager ball;
-    
+
     enum AbilityState
     {
         ready,
         active,
         cooldown
     }
+
     AbilityState state = AbilityState.ready;
-    
+
     private void Awake()
     {
         if (Instance == null)
@@ -51,10 +52,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(PlayerSpawnAbility());
-
+        //StartCoroutine(PlayerSpawnAbility());
         
-
         //switch (state)
         //{
         //    case AbilityState.ready:
@@ -144,7 +143,7 @@ public class PlayerController : MonoBehaviour
     {
         this.polesPlayer = poles;
     }
-    
+
     internal void ReceiveAbility(SpecialCharacter[] character)
     {
         this.specialCharacter = character;
@@ -156,8 +155,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
     #region Input System -> Gets the movement values from controller
+
     public void MoveMainPole(InputAction.CallbackContext context)
     {
         // x as rotation, y as movement
@@ -170,6 +169,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Input System -> Gets the input for switching  poles and switches special card spawns
+
     public void PolesMinus(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
@@ -199,9 +199,11 @@ public class PlayerController : MonoBehaviour
                 arrow.transform.position = offsetPosition;
             }
     }
+
     #endregion
 
     #region Input System -> Gets Input to reset current pole rotation
+
     public void LockPoleDown(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -216,10 +218,11 @@ public class PlayerController : MonoBehaviour
             polesPlayer[currentPoleIndex].lockedDownPressed = false;
         }
     }
+
     #endregion
 
     #region Input System -> Special Cards
-    
+
     // Button North
     //public void InstantiateAbility1(InputAction.CallbackContext context)
     //{
@@ -230,7 +233,7 @@ public class PlayerController : MonoBehaviour
     //            case AbilityState.ready:
     //                Debug.Log("Special Ability North is activated");
     //                ability.Activate(gameObject);
-                    
+
     //                // Sets the ability on active and sets the timer for how long it is active
     //                state = AbilityState.active;
     //                activeTime = ability.activeTime;
@@ -238,7 +241,7 @@ public class PlayerController : MonoBehaviour
     //        }
     //    }
     //}
-    
+
     //// Button East
     //public void InstantiateAbility2(InputAction.CallbackContext context)
     //{
@@ -249,14 +252,14 @@ public class PlayerController : MonoBehaviour
     //            case AbilityState.ready:
     //                Debug.Log("Special Ability East is activated");
 
-                    
+
     //                state = AbilityState.active;
     //                activeTime = ability.activeTime;
     //                break;
     //        }
     //    }
     //}
-    
+
     // Button South
     //public void InstantiateAbility3(InputAction.CallbackContext context)
     //{
@@ -267,14 +270,14 @@ public class PlayerController : MonoBehaviour
     //            case AbilityState.ready:
     //                Debug.Log("Special Ability South is activated");
 
-                    
+
     //                state = AbilityState.active;
     //                activeTime = ability.activeTime;
     //                break;
     //        }
     //    }
     //}
-    
+
     // Button West
     //public void InstantiateAbility4(InputAction.CallbackContext context)
     //{
@@ -285,23 +288,20 @@ public class PlayerController : MonoBehaviour
     //            case AbilityState.ready:
     //                Debug.Log("Special Ability West is activated");
 
-                    
+
     //                state = AbilityState.active;
     //                activeTime = ability.activeTime;
     //                break;
     //        }
     //    }
     //}
-    
-    #endregion
-    
-    public void MoveAbility(InputAction.CallbackContext context)
-    {
-        movementAbilityInput = context.ReadValue<Vector2>();
-        movementAbilityInput.y *= SpecialCharacter.Instance.moveSpeed;
-    }
 
-    #region SpawnAbility
+    #endregion
+
+
+
+    #region Special Cards System
+
     public GameObject SpawnPointAbility;
 
     public PolesPlayer PoleMain;
@@ -324,80 +324,172 @@ public class PlayerController : MonoBehaviour
     bool crew2Ability = false;
     bool crew3Ability = false;
 
+    GameObject poleMainAbilityPrefabVFX;
+    GameObject crewPole1AbilityPrefabVFX;
+    GameObject crewPole2AbilityPrefabVFX;
+    GameObject crewPole3AbilityPrefabVFX;
+
     Vector3 abilitySize = new Vector3(0.07f, 0.07f, 0.07f);
     
-    IEnumerator PlayerSpawnAbility()
+    public void MoveAbility(InputAction.CallbackContext context)
     {
-        var gamepad = Gamepad.current;
-        if (gamepad.buttonNorth.wasPressedThisFrame)
+        movementAbilityInput = context.ReadValue<Vector2>();
+        movementAbilityInput.y *= SpecialCharacter.Instance.moveSpeed;
+    }
+    
+    #region Input System -> Special Cards
+    // Spawn the Special Cards
+    public void SpecialCard_MainPole(InputAction.CallbackContext context)
+    {
+        StartCoroutine(MainPole_AbilityCharacter());
+    }
+    public void SpecialCard_CrewPole1(InputAction.CallbackContext context)
+    {
+        StartCoroutine(CrewPole1_AbilityCharacter());
+    }
+    public void SpecialCard_CrewPole2(InputAction.CallbackContext context)
+    {
+        StartCoroutine(CrewPole2_AbilityCharacter());
+    }
+    public void SpecialCard_CrewPole3(InputAction.CallbackContext context)
+    {
+        StartCoroutine(CrewPole3_AbilityCharacter());
+    }
+    #endregion
+    
+    #region Input System -> Abilitys
+    // Activate abilitys from the Special Cards
+    public void Ability_MainPole(InputAction.CallbackContext context)
+    {
+        MainPole_Ability();
+    }
+    public void Ability_CrewPole1(InputAction.CallbackContext context)
+    {
+        CrewPole1_Ability();
+    }
+    public void Ability_CrewPole2(InputAction.CallbackContext context)
+    {
+        CrewPole2_Ability();
+    }
+    public void Ability_CrewPole3(InputAction.CallbackContext context)
+    {
+        CrewPole3_Ability();
+    }
+    #endregion
+    
+    #region Methods Special Cards -> Characters
+    // Main Pole
+    IEnumerator MainPole_AbilityCharacter()
+    {
+        if (currentPoleIndex == 0 && mainAbility == false)
         {
-            if (currentPoleIndex == 0 && mainAbility == false)
+            if (powerpointsCount >= PoleMain.Ability.PowerpointsCost)
             {
-                if (powerpointsCount >= PoleMain.Ability.powerpointsCost)
-                {
-                    // Instantiates ability on main pole
-                    powerpointsCount -= PoleMain.Ability.powerpointsCost;
-                    poleMainAbilityPrefab = Instantiate(PoleMain.Ability.characterPrefab, SpawnPointAbility.transform);
-                    poleMainAbilityPrefab.transform.parent = null;
-                    poleMainAbilityPrefab.transform.localScale = abilitySize;
-                    poleMainAbility = poleMainAbilityPrefab.GetComponent<SpecialCharacter>();
-                    mainAbility = true;
-                    yield return new WaitForSeconds(PoleMain.Ability.activeTime);
-                    mainAbility = false;
-                    Destroy(poleMainAbilityPrefab);
-                }
-                
-            }
-            else if (currentPoleIndex == 1 && crew1Ability == false)
-            {
-                if (powerpointsCount >= PoleMain.Ability.powerpointsCost)
-                {
-                    // Instantiates ability on crew pole 1
-                    powerpointsCount -= PoleMain.Ability.powerpointsCost;
-                    poleCrew1AbilityPrefab = Instantiate(PoleCrew1.Ability.characterPrefab, SpawnPointAbility.transform);
-                    poleCrew1AbilityPrefab.transform.parent = null;
-                    poleCrew1AbilityPrefab.transform.localScale = abilitySize;
-                    poleCrew1Ability = poleCrew1AbilityPrefab.GetComponent<SpecialCharacter>();
-                    crew1Ability = true;
-                    yield return new WaitForSeconds(PoleCrew1.Ability.activeTime);
-                    crew1Ability = false;
-                    Destroy(poleCrew1AbilityPrefab);
-                }
-            }
-            else if (currentPoleIndex == 2 && crew2Ability == false)
-            {
-                if (powerpointsCount >= PoleMain.Ability.powerpointsCost)
-                {
-                    // Instantiates ability on crew pole 2
-                    powerpointsCount -= PoleMain.Ability.powerpointsCost;
-                    poleCrew2AbilityPrefab = Instantiate(PoleCrew2.Ability.characterPrefab, SpawnPointAbility.transform);
-                    poleCrew2AbilityPrefab.transform.parent = null;
-                    poleCrew2AbilityPrefab.transform.localScale = abilitySize;
-                    poleCrew2Ability = poleCrew2AbilityPrefab.GetComponent<SpecialCharacter>();
-                    crew2Ability = true;
-                    yield return new WaitForSeconds(PoleCrew2.Ability.activeTime);
-                    crew2Ability = false;
-                    Destroy(poleCrew2AbilityPrefab);
-                }
-            }
-            else if (currentPoleIndex == 3 && crew3Ability == false)
-            {
-                if (powerpointsCount >= PoleMain.Ability.powerpointsCost)
-                {
-                    // Instantiates ability on crew pole 3
-                    powerpointsCount -= PoleMain.Ability.powerpointsCost;
-                    poleCrew3AbilityPrefab = Instantiate(PoleCrew3.Ability.characterPrefab, SpawnPointAbility.transform);
-                    poleCrew3AbilityPrefab.transform.parent = null;
-                    poleCrew3AbilityPrefab.transform.localScale = abilitySize;
-                    poleCrew3Ability = poleCrew3AbilityPrefab.GetComponent<SpecialCharacter>();
-                    crew3Ability = true;
-                    yield return new WaitForSeconds(PoleCrew3.Ability.activeTime);
-                    crew3Ability = false;
-                    Destroy(poleCrew3AbilityPrefab);
-                }
+                // Instantiates special card character on main pole
+                powerpointsCount -= PoleMain.Ability.PowerpointsCost;
+                poleMainAbilityPrefab = Instantiate(PoleMain.Ability.CharacterPrefab, SpawnPointAbility.transform);
+                poleMainAbilityPrefab.transform.parent = null;
+                poleMainAbilityPrefab.transform.localScale = abilitySize;
+                poleMainAbility = poleMainAbilityPrefab.GetComponent<SpecialCharacter>();
+                mainAbility = true;
+                yield return new WaitForSeconds(PoleMain.Ability.ActiveTime);
+                mainAbility = false;
+                Destroy(poleMainAbilityPrefab);
             }
         }
     }
-
+    // Pole 1
+    IEnumerator CrewPole1_AbilityCharacter()
+    {
+        if (currentPoleIndex == 1 && crew1Ability == false)
+        {
+            if (powerpointsCount >= PoleMain.Ability.PowerpointsCost)
+            {
+                // Instantiates special card character on crew pole 1
+                powerpointsCount -= PoleMain.Ability.PowerpointsCost;
+                poleCrew1AbilityPrefab = Instantiate(PoleCrew1.Ability.CharacterPrefab, SpawnPointAbility.transform);
+                poleCrew1AbilityPrefab.transform.parent = null;
+                poleCrew1AbilityPrefab.transform.localScale = abilitySize;
+                poleCrew1Ability = poleCrew1AbilityPrefab.GetComponent<SpecialCharacter>();
+                crew1Ability = true;
+                yield return new WaitForSeconds(PoleCrew1.Ability.ActiveTime);
+                crew1Ability = false;
+                Destroy(poleCrew1AbilityPrefab);
+            }
+        }
+    }
+    IEnumerator CrewPole2_AbilityCharacter()
+    {
+        if (currentPoleIndex == 2 && crew2Ability == false)
+        {
+            if (powerpointsCount >= PoleMain.Ability.PowerpointsCost)
+            {
+                // Instantiates special card character on crew pole 2
+                powerpointsCount -= PoleMain.Ability.PowerpointsCost;
+                poleCrew2AbilityPrefab = Instantiate(PoleCrew2.Ability.CharacterPrefab, SpawnPointAbility.transform);
+                poleCrew2AbilityPrefab.transform.parent = null;
+                poleCrew2AbilityPrefab.transform.localScale = abilitySize;
+                poleCrew2Ability = poleCrew2AbilityPrefab.GetComponent<SpecialCharacter>();
+                crew2Ability = true;
+                yield return new WaitForSeconds(PoleCrew2.Ability.ActiveTime);
+                crew2Ability = false;
+                Destroy(poleCrew2AbilityPrefab);
+            }
+        }
+    }
+    IEnumerator CrewPole3_AbilityCharacter()
+    {
+        if (currentPoleIndex == 3 && crew3Ability == false)
+        {
+            if (powerpointsCount >= PoleMain.Ability.PowerpointsCost)
+            {
+                // Instantiates special card character on crew pole 3
+                powerpointsCount -= PoleMain.Ability.PowerpointsCost;
+                poleCrew3AbilityPrefab = Instantiate(PoleCrew3.Ability.CharacterPrefab, SpawnPointAbility.transform);
+                poleCrew3AbilityPrefab.transform.parent = null;
+                poleCrew3AbilityPrefab.transform.localScale = abilitySize;
+                poleCrew3Ability = poleCrew3AbilityPrefab.GetComponent<SpecialCharacter>();
+                crew3Ability = true;
+                yield return new WaitForSeconds(PoleCrew3.Ability.ActiveTime);
+                crew3Ability = false;
+                Destroy(poleCrew3AbilityPrefab);
+            }
+        }
+    }
+    #endregion
+    
+    #region Methods Special Cards -> Abilitys
+    void MainPole_Ability()
+    {
+        if (mainAbility == true)
+        {
+            poleMainAbilityPrefabVFX = Instantiate(PoleMain.Ability.AbilityPrefab, poleMainAbilityPrefab.transform);
+        }
+    }
+    void CrewPole1_Ability()
+    {
+        if (crew1Ability == true)
+        {
+            crewPole1AbilityPrefabVFX = Instantiate(PoleCrew1.Ability.AbilityPrefab, poleCrew1AbilityPrefab.transform);
+        }
+    }
+    void CrewPole2_Ability()
+    {
+        if (crew2Ability == true)
+        {
+            poleMainAbilityPrefabVFX = Instantiate(PoleCrew2.Ability.AbilityPrefab, poleCrew2AbilityPrefab.transform);
+        }
+    }
+    void CrewPole3_Ability()
+    {
+        if (crew3Ability == true)
+        {
+            poleMainAbilityPrefabVFX = Instantiate(PoleCrew3.Ability.AbilityPrefab, poleCrew3AbilityPrefab.transform);
+        }
+    }
+    #endregion
+    
     #endregion
 }
+    
+   

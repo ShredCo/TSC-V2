@@ -51,45 +51,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability1",
-                    "type": "Button",
-                    "id": "c98e0dcb-e008-4b0c-be9f-e35c26dd30ea",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Ability2",
-                    "type": "Button",
-                    "id": "c9dd70b4-9ad7-416f-8a5a-b15a37ad03d8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Ability3",
-                    "type": "Button",
-                    "id": "e4e80d05-fab6-43f3-8fb4-0595cdf9bb45",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Ability4",
-                    "type": "Button",
-                    "id": "7e24055d-0150-4c6e-be6c-dcd00620e3ab",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "ffebbe06-3052-433e-8648-803da08fa104",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SpecialCard",
+                    "type": "Button",
+                    "id": "93cf15aa-935a-4cad-a63d-740374ccc579",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability",
+                    "type": "Button",
+                    "id": "b53e2f05-3856-4668-98e7-26f4b020e1af",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -220,56 +202,34 @@
                 },
                 {
                     "name": "",
-                    "id": "bd4e903a-bec1-4731-a3c2-4678aa48936e",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "Ability1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ff3ea976-b9a1-4c9e-b854-1859e04a8208",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "Ability2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a7cb745c-7c9e-433b-b649-4ac6b2554bd0",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "Ability3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e9faa7cd-0fd2-4721-a058-92d4e9841349",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "Ability4",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f2c9e42f-453e-4a66-9756-7557ed2e0478",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8094b813-6d6a-4bc0-8ab3-3a3e1d234d3c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "SpecialCard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55587b59-d870-489a-8d5c-4ccabd01eb86",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
