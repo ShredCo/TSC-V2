@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7348075288225975994}
   - component: {fileID: 2448217223973909368}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Windbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000006, y: 1, z: 1.0000006}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 12.341258, y: 19.842546, z: 16.136889}
+  m_Center: {x: 0.4778552, y: -0.7102521, z: 7.5683627}
 --- !u!114 &2448217223973909368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca57565a9a71cc4d89237480e9984c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ballRb: {fileID: 0}
+  speed: 0.005
 --- !u!1001 &270680206861329031
 PrefabInstance:
   m_ObjectHideFlags: 0
