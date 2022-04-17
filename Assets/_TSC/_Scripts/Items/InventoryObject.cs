@@ -10,7 +10,6 @@ using UnityEngine.EventSystems;
 [CreateAssetMenu(fileName = "new inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 {
-
     [Header("Currency")]
     public int money;
 
@@ -44,17 +43,46 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     // methods to add cards to Line Up
     public void AddDefaultCardtoLineUp()
     {
+        bool cardEquiped = false;
         if (LineUpController.CardType)
         {
             LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
-            PlayerDefaultCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.DefaultCardSlot; // Save the selected Card to the local Line Up Array (to display in inv)
-            InventoryUI.Instance.UpdateLineUpCards();
+            foreach (DefaultCardObject card in PlayerDefaultCardLineUp)
+            {
+                if (card == LineUpController.ActiveCard.DefaultCardSlot)
+                {
+                    cardEquiped = true;
+                }
+            }
+            if (cardEquiped == false)
+            {
+                PlayerDefaultCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.DefaultCardSlot; // Save the selected Card to the local Line Up Array (to display in inv)
+                InventoryUI.Instance.UpdateLineUpCards();
+            }
+            else
+            {
+                Debug.Log("Card already equiped");
+            }
         }
         else
         {
-            LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
-            PlayerAbilityCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.SpecialCardSlot;
-            InventoryUI.Instance.UpdateLineUpCards();
+            foreach (SpecialCardObject card in PlayerAbilityCardLineUp)
+            {
+                if (card == LineUpController.ActiveCard.SpecialCardSlot)
+                {
+                    cardEquiped = true;
+                }
+            }
+            if (cardEquiped == false)
+            {
+                LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
+                PlayerAbilityCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.SpecialCardSlot;
+                InventoryUI.Instance.UpdateLineUpCards();
+            }
+            else
+            {
+                Debug.Log("Card already equiped");
+            }
         }
     }  
     public void AddDefaultCardtoLineUp(DefaultCardObject defaultCard)

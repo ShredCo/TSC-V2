@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9c2c88650917a4eac4a900b9d7d173, type: 3}
   m_Name: playerInventory
   m_EditorClassIdentifier: 
-  money: 1270
-  wood: 3
+  money: 4270
+  wood: 18
   savePath: /Inventory.Save
   ItemContainer: []
   DefaultCardContainer:
@@ -48,7 +48,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bf26ef2f1b5fb64469ff7e45b711591f, type: 2}
   - {fileID: 11400000, guid: 590bbb8d9a4c4064f8af0c8f58f9d070, type: 2}
   PlayerAbilityCardLineUp:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
   - {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
