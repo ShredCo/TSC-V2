@@ -17,6 +17,7 @@ MonoBehaviour:
   Ability: {fileID: 0}
   Name: Pirat Jimmy
   Level: 1
+  MaxHealth: 150
   Health: 150
   Attack: 50
   CardArtwork: {fileID: 21300000, guid: 3e71ed7903dd62542a5fe5259362a540, type: 3}
