@@ -54,3 +54,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: inFront
+    uniqueID: 1140033045
+    locked: 0

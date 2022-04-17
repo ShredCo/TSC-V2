@@ -73,45 +73,27 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ability1"",
-                    ""type"": ""Button"",
-                    ""id"": ""c98e0dcb-e008-4b0c-be9f-e35c26dd30ea"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ability2"",
-                    ""type"": ""Button"",
-                    ""id"": ""c9dd70b4-9ad7-416f-8a5a-b15a37ad03d8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ability3"",
-                    ""type"": ""Button"",
-                    ""id"": ""e4e80d05-fab6-43f3-8fb4-0595cdf9bb45"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ability4"",
-                    ""type"": ""Button"",
-                    ""id"": ""7e24055d-0150-4c6e-be6c-dcd00620e3ab"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""ffebbe06-3052-433e-8648-803da08fa104"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpecialCard"",
+                    ""type"": ""Button"",
+                    ""id"": ""93cf15aa-935a-4cad-a63d-740374ccc579"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability"",
+                    ""type"": ""Button"",
+                    ""id"": ""b53e2f05-3856-4668-98e7-26f4b020e1af"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -242,56 +224,34 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bd4e903a-bec1-4731-a3c2-4678aa48936e"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""Ability1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ff3ea976-b9a1-4c9e-b854-1859e04a8208"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""Ability2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a7cb745c-7c9e-433b-b649-4ac6b2554bd0"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""Ability3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e9faa7cd-0fd2-4721-a058-92d4e9841349"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""Ability4"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""f2c9e42f-453e-4a66-9756-7557ed2e0478"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8094b813-6d6a-4bc0-8ab3-3a3e1d234d3c"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""SpecialCard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55587b59-d870-489a-8d5c-4ccabd01eb86"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""Ability"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -985,11 +945,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_SoccerMatchControlls_PolesUp = m_SoccerMatchControlls.FindAction("PolesUp", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesDown = m_SoccerMatchControlls.FindAction("PolesDown", throwIfNotFound: true);
         m_SoccerMatchControlls_L3 = m_SoccerMatchControlls.FindAction("L3", throwIfNotFound: true);
-        m_SoccerMatchControlls_Ability1 = m_SoccerMatchControlls.FindAction("Ability1", throwIfNotFound: true);
-        m_SoccerMatchControlls_Ability2 = m_SoccerMatchControlls.FindAction("Ability2", throwIfNotFound: true);
-        m_SoccerMatchControlls_Ability3 = m_SoccerMatchControlls.FindAction("Ability3", throwIfNotFound: true);
-        m_SoccerMatchControlls_Ability4 = m_SoccerMatchControlls.FindAction("Ability4", throwIfNotFound: true);
         m_SoccerMatchControlls_Pause = m_SoccerMatchControlls.FindAction("Pause", throwIfNotFound: true);
+        m_SoccerMatchControlls_SpecialCard = m_SoccerMatchControlls.FindAction("SpecialCard", throwIfNotFound: true);
+        m_SoccerMatchControlls_Ability = m_SoccerMatchControlls.FindAction("Ability", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1071,11 +1029,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_SoccerMatchControlls_PolesUp;
     private readonly InputAction m_SoccerMatchControlls_PolesDown;
     private readonly InputAction m_SoccerMatchControlls_L3;
-    private readonly InputAction m_SoccerMatchControlls_Ability1;
-    private readonly InputAction m_SoccerMatchControlls_Ability2;
-    private readonly InputAction m_SoccerMatchControlls_Ability3;
-    private readonly InputAction m_SoccerMatchControlls_Ability4;
     private readonly InputAction m_SoccerMatchControlls_Pause;
+    private readonly InputAction m_SoccerMatchControlls_SpecialCard;
+    private readonly InputAction m_SoccerMatchControlls_Ability;
     public struct SoccerMatchControllsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1085,11 +1041,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @PolesUp => m_Wrapper.m_SoccerMatchControlls_PolesUp;
         public InputAction @PolesDown => m_Wrapper.m_SoccerMatchControlls_PolesDown;
         public InputAction @L3 => m_Wrapper.m_SoccerMatchControlls_L3;
-        public InputAction @Ability1 => m_Wrapper.m_SoccerMatchControlls_Ability1;
-        public InputAction @Ability2 => m_Wrapper.m_SoccerMatchControlls_Ability2;
-        public InputAction @Ability3 => m_Wrapper.m_SoccerMatchControlls_Ability3;
-        public InputAction @Ability4 => m_Wrapper.m_SoccerMatchControlls_Ability4;
         public InputAction @Pause => m_Wrapper.m_SoccerMatchControlls_Pause;
+        public InputAction @SpecialCard => m_Wrapper.m_SoccerMatchControlls_SpecialCard;
+        public InputAction @Ability => m_Wrapper.m_SoccerMatchControlls_Ability;
         public InputActionMap Get() { return m_Wrapper.m_SoccerMatchControlls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1114,21 +1068,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @L3.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
                 @L3.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
                 @L3.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
-                @Ability1.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility1;
-                @Ability1.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility1;
-                @Ability1.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility1;
-                @Ability2.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility2;
-                @Ability2.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility2;
-                @Ability2.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility2;
-                @Ability3.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility3;
-                @Ability3.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility3;
-                @Ability3.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility3;
-                @Ability4.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
-                @Ability4.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
-                @Ability4.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility4;
                 @Pause.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
+                @SpecialCard.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSpecialCard;
+                @SpecialCard.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSpecialCard;
+                @SpecialCard.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSpecialCard;
+                @Ability.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility;
+                @Ability.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility;
+                @Ability.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility;
             }
             m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1148,21 +1096,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @L3.started += instance.OnL3;
                 @L3.performed += instance.OnL3;
                 @L3.canceled += instance.OnL3;
-                @Ability1.started += instance.OnAbility1;
-                @Ability1.performed += instance.OnAbility1;
-                @Ability1.canceled += instance.OnAbility1;
-                @Ability2.started += instance.OnAbility2;
-                @Ability2.performed += instance.OnAbility2;
-                @Ability2.canceled += instance.OnAbility2;
-                @Ability3.started += instance.OnAbility3;
-                @Ability3.performed += instance.OnAbility3;
-                @Ability3.canceled += instance.OnAbility3;
-                @Ability4.started += instance.OnAbility4;
-                @Ability4.performed += instance.OnAbility4;
-                @Ability4.canceled += instance.OnAbility4;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @SpecialCard.started += instance.OnSpecialCard;
+                @SpecialCard.performed += instance.OnSpecialCard;
+                @SpecialCard.canceled += instance.OnSpecialCard;
+                @Ability.started += instance.OnAbility;
+                @Ability.performed += instance.OnAbility;
+                @Ability.canceled += instance.OnAbility;
             }
         }
     }
@@ -1346,11 +1288,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnPolesUp(InputAction.CallbackContext context);
         void OnPolesDown(InputAction.CallbackContext context);
         void OnL3(InputAction.CallbackContext context);
-        void OnAbility1(InputAction.CallbackContext context);
-        void OnAbility2(InputAction.CallbackContext context);
-        void OnAbility3(InputAction.CallbackContext context);
-        void OnAbility4(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnSpecialCard(InputAction.CallbackContext context);
+        void OnAbility(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
