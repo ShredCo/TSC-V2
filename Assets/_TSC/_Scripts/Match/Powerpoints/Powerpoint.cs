@@ -13,7 +13,7 @@ public class Powerpoint : MonoBehaviour
             if (gameObject.CompareTag("Powerfield Blue"))
             {
                 Destroy(gameObject);
-                SpawnPowerfields.instance.powerfieldsCountRed -= 1;
+                SpawnPowerfields.instance.powerfieldsCountBlue -= 1;
                 if (GameManagerOneVsOne.Instance.powerpointsCountBlue < 5)
                 {
                     GameManagerOneVsOne.Instance.powerpointsCountBlue += 1;
