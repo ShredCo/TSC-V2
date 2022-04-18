@@ -60,6 +60,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             x_Text.SetActive(false);
+            IsTalking = false;
         }
     }
     public void TriggerDialogue()
