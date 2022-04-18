@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3182346236999390662
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1859378600736347443, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac84441168a3048c48d3421c72ed08f4, type: 2}
+    - target: {fileID: 3902131097239230701, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 900b645f57452472e8d2aec7e87dc2dd, type: 2}
+    - target: {fileID: 4737295377022435409, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc225840f461342308f71d6f695d8b20, type: 2}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0028
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.33303612
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058941471424320195, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584226981426055289, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_Name
+      value: Powerpoint Blue Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584226981426055289, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
+      propertyPath: m_TagString
+      value: Powerfield Blue
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68fd9d39f14873144819c5a1c3c28b97, type: 3}
