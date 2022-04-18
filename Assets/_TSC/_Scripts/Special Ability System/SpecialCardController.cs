@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu] 
-public class SpecialCardWind : Ability
+public class SpecialCardController : Ability
 {
     [Header("movement variables")]
     [SerializeField] public float moveSpeed = 2.0f;
     
     public override void Activate(GameObject parent)
     {
-        GameObject fireMan = GameObject.Instantiate(CharacterPrefab, SpawnPointSpecialCards.instance.specialCardSpawnPos.transform.position, Quaternion.identity);
-        rb = fireMan.GetComponent<Rigidbody>();
+        GameObject specialCharacter = GameObject.Instantiate(CharacterPrefab, SpawnPointSpecialCards.instance.specialCardSpawnPos.transform.position, Quaternion.identity);
+        rb = specialCharacter.GetComponent<Rigidbody>();
     }
     
     public void MoveAndRotate(Vector2 movement)
