@@ -23,6 +23,9 @@ public class GameManagerOneVsOne : MonoBehaviour
 
     public int ScorePlayer1;
     public int ScorePlayer2;
+    
+    public int powerpointsCountRed = 0;
+    public int powerpointsCountBlue = 0;
 
     private void Awake()
     {

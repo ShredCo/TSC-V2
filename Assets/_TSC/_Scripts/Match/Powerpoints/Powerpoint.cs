@@ -10,12 +10,25 @@ public class Powerpoint : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            Destroy(gameObject);
-            SpawnPowerpoints.instance.powerpointCount -= 1;
-            if (PlayerController.Instance.powerpointsCount < 5)
+            if (gameObject.CompareTag("Powerfield Blue"))
             {
-                PlayerController.Instance.powerpointsCount += 1;
+                Destroy(gameObject);
+                SpawnPowerfields.instance.powerfieldsCountRed -= 1;
+                if (GameManagerOneVsOne.Instance.powerpointsCountBlue < 5)
+                {
+                    GameManagerOneVsOne.Instance.powerpointsCountBlue += 1;
+                }
             }
+            if (gameObject.CompareTag("Powerfield Red"))
+            {
+                Destroy(gameObject);
+                SpawnPowerfields.instance.powerfieldsCountRed -= 1;
+                if (GameManagerOneVsOne.Instance.powerpointsCountRed < 5)
+                {
+                    GameManagerOneVsOne.Instance.powerpointsCountRed += 1;
+                }
+            }
+            
         }
     }
 }

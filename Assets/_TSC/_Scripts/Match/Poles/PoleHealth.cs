@@ -133,7 +133,8 @@ public class PoleHealth : MonoBehaviour
     #region UI
     void UpdatePowerpointText()
     {
-        TextPowerpointsPlayer.text = PlayerController.Instance.powerpointsCount.ToString();
+        TextPowerpointsPlayer.text = GameManagerOneVsOne.Instance.powerpointsCountRed.ToString();
+        TextPowerpointsEnemy.text = GameManagerOneVsOne.Instance.powerpointsCountBlue.ToString();
     }
     
     void UpdateHealthText()

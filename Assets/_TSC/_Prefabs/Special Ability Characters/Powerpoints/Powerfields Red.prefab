@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4922659033416720293, guid: e3f2adf95423d494fb1bff5a380480f4, type: 3}
       propertyPath: m_Name
-      value: Powerpoint Variant
+      value: Powerpoint Red
       objectReference: {fileID: 0}
     - target: {fileID: 4922659033416720293, guid: e3f2adf95423d494fb1bff5a380480f4, type: 3}
       propertyPath: m_TagString
-      value: Powerpoint
+      value: Powerfield Red
       objectReference: {fileID: 0}
     - target: {fileID: 5700181517462635807, guid: e3f2adf95423d494fb1bff5a380480f4, type: 3}
       propertyPath: m_RootOrder
