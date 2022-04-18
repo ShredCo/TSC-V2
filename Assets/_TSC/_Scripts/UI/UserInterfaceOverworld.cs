@@ -164,12 +164,20 @@ public class UserInterfaceOverworld : MonoBehaviour
 
     public void Resume()
     {
+        // unpause the game
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Gameplay
+            ? GameState.Paused
+            : GameState.Gameplay;
+            
+        GameStateManager.Instance.SetState(newGameState);
+        
+        // close UI
         canvasPauseMenu.SetActive(false);
         canvasInventory.SetActive(false);
         canvasDialoge.SetActive(false);
         gamePaused = false;
         Time.timeScale = 1f;
-        //EventSystem.current.SetSelectedGameObject(firstButtonPauseMenu);
     }
     #endregion
 

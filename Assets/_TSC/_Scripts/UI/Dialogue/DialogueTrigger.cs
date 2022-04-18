@@ -43,6 +43,14 @@ public class DialogueTrigger : MonoBehaviour
             {
                 TriggerDialogue();
                 x_Text.SetActive(false);
+                
+                // pause the game
+                GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+                GameState newGameState = currentGameState == GameState.Gameplay
+                    ? GameState.Paused
+                    : GameState.Gameplay;
+            
+                GameStateManager.Instance.SetState(newGameState);
             }
         }
     }

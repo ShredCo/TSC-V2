@@ -29,6 +29,14 @@ public class ThirdPersonController : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         playerActionsAsset = new ThirdPersonActionsAsset();
         animator = this.GetComponent<Animator>();
+        
+        // Pause logic
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
     }
 
     private void OnEnable()
@@ -110,5 +118,10 @@ public class ThirdPersonController : MonoBehaviour
     private void DoAttack(InputAction.CallbackContext obj)
     {
         animator.SetTrigger("attack");
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
     }
 }
