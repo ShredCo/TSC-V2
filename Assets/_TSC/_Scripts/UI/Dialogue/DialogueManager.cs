@@ -98,6 +98,5 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         DialogueTrigger.instance.IsTalking = false;
-        Debug.Log("Coroutine");
     }
 }

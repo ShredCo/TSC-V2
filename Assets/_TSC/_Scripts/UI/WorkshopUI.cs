@@ -15,6 +15,14 @@ public class WorkshopUI : MonoBehaviour
 
     public void OpenWorkshopUI()
     {
+        // pause the game
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Gameplay
+            ? GameState.Paused
+            : GameState.Gameplay;
+            
+        GameStateManager.Instance.SetState(newGameState);
+        
         Canvas_WorkshopUI.SetActive(true);
         EventSystem.current.SetSelectedGameObject(firstSelected_MainPole);
     }

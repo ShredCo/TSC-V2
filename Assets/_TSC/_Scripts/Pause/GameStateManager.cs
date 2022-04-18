@@ -12,8 +12,7 @@ public class GameStateManager
             return _instance;
         }
     }
-
-
+    
     public GameState CurrentGameState { get; private set; }
 
     public delegate void GameStateChangeHandler(GameState newGameState);
