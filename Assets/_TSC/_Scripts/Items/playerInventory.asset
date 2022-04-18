@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9c2c88650917a4eac4a900b9d7d173, type: 3}
   m_Name: playerInventory
   m_EditorClassIdentifier: 
-  money: 4270
+  money: 4300
   wood: 18
   savePath: /Inventory.Save
   ItemContainer: []
