@@ -20,6 +20,15 @@ public class WorkshopUI : MonoBehaviour
     }
     public void CloseWorkshopUI()
     {
+        // unpause the game
+        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        GameState newGameState = currentGameState == GameState.Gameplay
+            ? GameState.Paused
+            : GameState.Gameplay;
+            
+        GameStateManager.Instance.SetState(newGameState);
+        
+        // close UI
         Canvas_WorkshopUI.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
     }
