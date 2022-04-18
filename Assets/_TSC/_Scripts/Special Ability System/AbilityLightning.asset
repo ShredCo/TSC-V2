@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440ceed8def57b948a512a8451ca2b59, type: 3}
   m_Name: AbilityLightning
   m_EditorClassIdentifier: 
-  Name: Wind
+  Name: Lightning
   CooldownTime: 0
   ActiveTime: 6
   PowerpointsCost: 1
   CharacterPrefab: {fileID: 1947145488696995822, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
-  AbilityPrefab: {fileID: 272340965714621035, guid: ae407b0e0d7e12b4083eea3d66c0eb30, type: 3}
+  AbilityPrefab: {fileID: 4495905609583978782, guid: ac26b4c9562720045a98d880b97eb844, type: 3}
   moveSpeed: 2

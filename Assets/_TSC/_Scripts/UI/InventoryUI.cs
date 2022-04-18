@@ -55,6 +55,7 @@ public class InventoryUI : MonoBehaviour
         activeAbilityPage = cardPage.Page1;
         UpdatePoleCardList();
         UpdateAbilityCardList();
+        UpdateLineUpCards();
     }
 
     void UpdatePoleCardList()
@@ -96,7 +97,7 @@ public class InventoryUI : MonoBehaviour
             {
                 case cardPage.Page1:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPolePage1.transform);
-                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.SetData(cardSlot.DefaultCard);
                     if (indexPole == 1)
                     {
                         FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1 = slotUIobj.gameObject;
@@ -104,11 +105,11 @@ public class InventoryUI : MonoBehaviour
                     break;
                 case cardPage.Page2:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPolePage2.transform);
-                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.SetData(cardSlot.DefaultCard);
                     break;
                 case cardPage.Page3:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardPolePage3.transform);
-                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.SetData(cardSlot.DefaultCard);
                     break;
                 default:
                     break;
@@ -293,7 +294,7 @@ public class InventoryUI : MonoBehaviour
             {
                 case cardPage.Page1:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardAbilityPage1.transform);
-                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.SetData(cardSlot.SpecialCard);
                     if (indexAbility == 1)
                     {
                         FirstButtonCardSelection.FirstButtonLineUpAbilityCardPage1 = slotUIobj.gameObject;
@@ -301,11 +302,11 @@ public class InventoryUI : MonoBehaviour
                     break;
                 case cardPage.Page2:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardAbilityPage2.transform);
-                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.SetData(cardSlot.SpecialCard);
                     break;
                 case cardPage.Page3:
                     slotUIobj = Instantiate(cardSlotUIPrefab, cardAbilityPage3.transform);
-                    slotUIobj.SetData(cardSlot);
+                    slotUIobj.SetData(cardSlot.SpecialCard);
                     break;
                 default:
                     break;

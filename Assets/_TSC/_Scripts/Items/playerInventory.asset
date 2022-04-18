@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9c2c88650917a4eac4a900b9d7d173, type: 3}
   m_Name: playerInventory
   m_EditorClassIdentifier: 
-  money: 5170
-  wood: 1
+  money: 4270
+  wood: 18
   savePath: /Inventory.Save
   ItemContainer: []
   DefaultCardContainer:
@@ -21,37 +21,37 @@ MonoBehaviour:
     DefaultCard: {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
     Amount: 1
   - ID: 1
-    DefaultCard: {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
+    DefaultCard: {fileID: 11400000, guid: 9d337eb2b2be42040b3d60cfb1cca9e6, type: 2}
     Amount: 1
   - ID: 1
-    DefaultCard: {fileID: 11400000, guid: 9d337eb2b2be42040b3d60cfb1cca9e6, type: 2}
+    DefaultCard: {fileID: 11400000, guid: bf26ef2f1b5fb64469ff7e45b711591f, type: 2}
     Amount: 1
   - ID: 1
     DefaultCard: {fileID: 11400000, guid: 590bbb8d9a4c4064f8af0c8f58f9d070, type: 2}
     Amount: 1
   AbilityCardContainer:
   - ID: 0
-    SpecialCard: {fileID: 11400000, guid: ec2c9165d8375674886a161cf0508a0c, type: 2}
+    SpecialCard: {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
     Amount: 0
   - ID: 0
-    SpecialCard: {fileID: 11400000, guid: 7a3c0e11ca277be40b1f307f9ce89b5e, type: 2}
+    SpecialCard: {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
     Amount: 0
   - ID: 0
-    SpecialCard: {fileID: 11400000, guid: ec2c9165d8375674886a161cf0508a0c, type: 2}
+    SpecialCard: {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
     Amount: 0
   - ID: 0
-    SpecialCard: {fileID: 11400000, guid: 7a3c0e11ca277be40b1f307f9ce89b5e, type: 2}
+    SpecialCard: {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
     Amount: 0
   PlayerDefaultCardLineUp:
-  - {fileID: 194832, guid: 35dd43ae5c2e10a4abb1ec8f5ecb5c11, type: 3}
-  - {fileID: 9100000, guid: 4e55934894c0bd0478ad9f9906bf200e, type: 2}
-  - {fileID: 194832, guid: 35dd43ae5c2e10a4abb1ec8f5ecb5c11, type: 3}
-  - {fileID: 194832, guid: 35dd43ae5c2e10a4abb1ec8f5ecb5c11, type: 3}
-  PlayerSpecialCardLineUp:
-  - {fileID: 433654, guid: c973e4fa41dd2394cba85c1ece6cc9cf, type: 3}
-  - {fileID: 173370, guid: 475b0e29ccc50924a851f3fc5b3eb659, type: 3}
-  - {fileID: 433654, guid: c973e4fa41dd2394cba85c1ece6cc9cf, type: 3}
-  - {fileID: 173370, guid: 475b0e29ccc50924a851f3fc5b3eb659, type: 3}
+  - {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
+  - {fileID: 11400000, guid: 9d337eb2b2be42040b3d60cfb1cca9e6, type: 2}
+  - {fileID: 11400000, guid: bf26ef2f1b5fb64469ff7e45b711591f, type: 2}
+  - {fileID: 11400000, guid: 590bbb8d9a4c4064f8af0c8f58f9d070, type: 2}
+  PlayerAbilityCardLineUp:
+  - {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
+  - {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
   AIDefaultCardLineUp:
   - {fileID: 0}
   - {fileID: 0}
