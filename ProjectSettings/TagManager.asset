@@ -17,6 +17,8 @@ TagManager:
   - AiTriggerbox2
   - AiTriggerbox3
   - Item
+  - Powerfield Blue
+  - Powerfield Red
   layers:
   - Default
   - TransparentFX
