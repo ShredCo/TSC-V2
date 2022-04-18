@@ -43,10 +43,10 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     // methods to add cards to Line Up
     public void AddDefaultCardtoLineUp()
     {
+        LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
         bool cardEquiped = false;
         if (LineUpController.CardType)
         {
-            LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
             foreach (DefaultCardObject card in PlayerDefaultCardLineUp)
             {
                 if (card == LineUpController.ActiveCard.DefaultCardSlot)
