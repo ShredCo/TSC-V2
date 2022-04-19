@@ -84,6 +84,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     private bool gamePaused = false;
     private bool inventoryActive = false;
 
+    
     [SerializeField] public Text textMoney;
     [SerializeField] public Text textWood;
 
