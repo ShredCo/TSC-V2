@@ -268,7 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0372aaf98e13a84f86c5d55d85936eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardSlot: {fileID: 0}
+  DefaultCardSlot: {fileID: 0}
+  SpecialCardSlot: {fileID: 0}
   countText: {fileID: 5473993210426852957}
   nameText: {fileID: 8442811277029367184}
   levelText: {fileID: 8442811277064514515}
@@ -321,7 +322,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 93450d04aa3e9bc418a87be9fa407fca, type: 2}
         m_TargetAssemblyTypeName: InventoryObject, Assembly-CSharp
-        m_MethodName: AddDefaultCardtoLineUp
+        m_MethodName: AddCardtoLineUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
