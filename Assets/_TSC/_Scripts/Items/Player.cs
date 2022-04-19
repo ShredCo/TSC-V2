@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public enum DialogueState
 {
@@ -25,6 +26,9 @@ public class Player : MonoBehaviour
     // gives the player an inventory
     public InventoryObject inventory;
     public DialogueState DialogueState;
+
+    [SerializeField] public GameObject pickedUpMoney;
+    [SerializeField] public Text textPickedUpMoney;
     
     private void OnTriggerStay(Collider other)
     {
@@ -38,6 +42,11 @@ public class Player : MonoBehaviour
                 case ItemType.Money:
                     // Adds money to the inventory
                     inventory.AddMoney(item.item.MoneyValue);
+                    
+                    // Displays the picked up amount in the UI
+                    textPickedUpMoney.text = "+ " + item.item.MoneyValue.ToString();
+                    StartCoroutine(PickUpMoney());
+                    
                     Destroy(other.gameObject);
                     break;
                 case ItemType.Resource:
@@ -97,6 +106,14 @@ public class Player : MonoBehaviour
         wood.SetActive(false);
         yield return new WaitForSeconds(10f);
         wood.SetActive(true);
+
+    }
+    
+    IEnumerator PickUpMoney()
+    {
+        pickedUpMoney.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        pickedUpMoney.SetActive(false);
 
     }
 }
