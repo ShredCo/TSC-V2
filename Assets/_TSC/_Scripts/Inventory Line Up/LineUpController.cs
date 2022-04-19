@@ -27,4 +27,6 @@ public class LineUpController : MonoBehaviour
     public static bool CardType = true;
 
     public static CardSlotUI ActiveCard;
+
+    public static bool CantEquip = false;
 }

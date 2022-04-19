@@ -41,7 +41,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     public SpecialCardObject[] AISpecialCardLineUp = new SpecialCardObject[4]; //may not be needed
 
     // methods to add cards to Line Up
-    public void AddDefaultCardtoLineUp()
+    public void AddCardtoLineUp()
     {
         LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
         bool cardEquiped = false;
@@ -56,11 +56,13 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             }
             if (cardEquiped == false)
             {
+                LineUpController.CantEquip = false;
                 PlayerDefaultCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.DefaultCardSlot; // Save the selected Card to the local Line Up Array (to display in inv)
                 InventoryUI.Instance.UpdateLineUpCards();
             }
             else
             {
+                LineUpController.CantEquip = true;
                 Debug.Log("Card already equiped");
             }
         }
@@ -81,6 +83,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             }
             else
             {
+                LineUpController.CantEquip = true;
                 Debug.Log("Card already equiped");
             }
         }

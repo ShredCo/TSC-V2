@@ -20,6 +20,13 @@ public class CardSlotUI : MonoBehaviour
 
     [SerializeField] Image cardArtwork; 
 
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public void SetData(DefaultCardObject cardSlot)
     {
         DefaultCardSlot = cardSlot;
@@ -39,13 +46,17 @@ public class CardSlotUI : MonoBehaviour
         cardArtwork.sprite = cardSlot.CardArtwork;
     }
 
-    //public void SetData(CardObject cardSlot)
-    //{
-    //    CardSlot = cardSlot;
-    //    nameText.text = cardSlot.Name;
-    //    levelText.text = "Lv. " + cardSlot.Level.ToString();
-    //    attackText.text = cardSlot.Attack.ToString();
-    //    healthText.text = cardSlot.Health.ToString();
-    //    cardArtwork.sprite = cardSlot.CardArtwork;
-    //}
+    private void Update()
+    {
+        if (LineUpController.CantEquip && LineUpController.ActiveCard == this)
+        {
+            LineUpController.CantEquip = false;
+            CantEquipAnimation();
+        }
+    }
+
+    public void CantEquipAnimation()
+    {
+        animator.SetTrigger("CantEquip");
+    }
 }
