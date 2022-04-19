@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] GameObject spawnPointPoleCard1;
     [SerializeField] GameObject spawnPointPoleCard2;
     [SerializeField] GameObject spawnPointPoleCard3;
+
+    [SerializeField] Slider sliderMainCard;
+    [SerializeField] Slider sliderCrew1Card;
+    [SerializeField] Slider sliderCrew2Card;
+    [SerializeField] Slider sliderCrew3Card;
 
     [SerializeField] GameObject spawnPointAbilityCardMain;
     [SerializeField] GameObject spawnPointAbilityCard1;
@@ -56,6 +62,18 @@ public class InventoryUI : MonoBehaviour
         UpdatePoleCardList();
         UpdateAbilityCardList();
         UpdateLineUpCards();
+    }
+
+    private void Update()
+    {
+        if(inventory.PlayerDefaultCardLineUp[0] != null)
+            sliderMainCard.value = inventory.PlayerDefaultCardLineUp[0].Health / inventory.PlayerDefaultCardLineUp[0].MaxHealth;
+        if(inventory.PlayerDefaultCardLineUp[1] != null)
+            sliderCrew1Card.value = inventory.PlayerDefaultCardLineUp[1].Health / inventory.PlayerDefaultCardLineUp[1].MaxHealth;
+        if (inventory.PlayerDefaultCardLineUp[2] != null)
+            sliderCrew2Card.value = inventory.PlayerDefaultCardLineUp[2].Health / inventory.PlayerDefaultCardLineUp[2].MaxHealth;
+        if (inventory.PlayerDefaultCardLineUp[3] != null)
+            sliderCrew3Card.value = inventory.PlayerDefaultCardLineUp[3].Health / inventory.PlayerDefaultCardLineUp[3].MaxHealth;
     }
 
     void UpdatePoleCardList()
