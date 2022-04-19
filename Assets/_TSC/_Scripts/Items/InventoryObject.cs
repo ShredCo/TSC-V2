@@ -83,6 +83,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             }
             else
             {
+                LineUpController.CantEquip = true;
                 Debug.Log("Card already equiped");
             }
         }
