@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 public class Ability : ScriptableObject
 {
-    public new string Name;
+    public string Name;
     public float CooldownTime;
     public float ActiveTime;
     public int PowerpointsCost;
