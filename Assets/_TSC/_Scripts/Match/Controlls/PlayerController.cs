@@ -402,10 +402,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPoleIndex == 1 && crew1Ability == false)
         {
-            if (GameManagerOneVsOne.Instance.powerpointsCountRed >= PoleMain.Ability.PowerpointsCost)
+            if (GameManagerOneVsOne.Instance.powerpointsCountRed >= PoleCrew1.Ability.PowerpointsCost)
             {
                 // Instantiates special card character on crew pole 1
-                GameManagerOneVsOne.Instance.powerpointsCountRed -= PoleMain.Ability.PowerpointsCost;
+                GameManagerOneVsOne.Instance.powerpointsCountRed -= PoleCrew1.Ability.PowerpointsCost;
                 poleCrew1AbilityPrefab = Instantiate(PoleCrew1.Ability.CharacterPrefab, SpawnPointAbility.transform);
                 poleCrew1AbilityPrefab.transform.parent = null;
                 poleCrew1AbilityPrefab.transform.localScale = abilitySize;
@@ -421,10 +421,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPoleIndex == 2 && crew2Ability == false)
         {
-            if (GameManagerOneVsOne.Instance.powerpointsCountRed >= PoleMain.Ability.PowerpointsCost)
+            if (GameManagerOneVsOne.Instance.powerpointsCountRed >= PoleCrew2.Ability.PowerpointsCost)
             {
                 // Instantiates special card character on crew pole 2
-                GameManagerOneVsOne.Instance.powerpointsCountRed -= PoleMain.Ability.PowerpointsCost;
+                GameManagerOneVsOne.Instance.powerpointsCountRed -= PoleCrew2.Ability.PowerpointsCost;
                 poleCrew2AbilityPrefab = Instantiate(PoleCrew2.Ability.CharacterPrefab, SpawnPointAbility.transform);
                 poleCrew2AbilityPrefab.transform.parent = null;
                 poleCrew2AbilityPrefab.transform.localScale = abilitySize;
@@ -440,10 +440,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPoleIndex == 3 && crew3Ability == false)
         {
-            if (GameManagerOneVsOne.Instance.powerpointsCountRed >= PoleMain.Ability.PowerpointsCost)
+            if (GameManagerOneVsOne.Instance.powerpointsCountRed >= PoleCrew3.Ability.PowerpointsCost)
             {
                 // Instantiates special card character on crew pole 3
-                GameManagerOneVsOne.Instance.powerpointsCountRed -= PoleMain.Ability.PowerpointsCost;
+                GameManagerOneVsOne.Instance.powerpointsCountRed -= PoleCrew3.Ability.PowerpointsCost;
                 poleCrew3AbilityPrefab = Instantiate(PoleCrew3.Ability.CharacterPrefab, SpawnPointAbility.transform);
                 poleCrew3AbilityPrefab.transform.parent = null;
                 poleCrew3AbilityPrefab.transform.localScale = abilitySize;

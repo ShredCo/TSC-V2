@@ -99,13 +99,6 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         LineUpController.PlayerDefaultCardLineUP = PlayerDefaultCardLineUp;
         LineUpController.PlayerAbilityCardLineUP = PlayerAbilityCardLineUp;
     }
-
-    // save the Line Ups to he static Arrays from the LineUpController script (has to be called from the NPC with its Line Ups)
-    //public void SaveAILineUp(CardObject[] defaultCardObjects, CardObject[] specialCardObjects)
-    //{
-    //    LineUpController.PlayerDefaultCardLineUP = defaultCardObjects;
-    //    LineUpController.PlayerAbilityCardLineUP = specialCardObjects;
-    //}
     #endregion
 
     // checks if unity editor is runned. 
