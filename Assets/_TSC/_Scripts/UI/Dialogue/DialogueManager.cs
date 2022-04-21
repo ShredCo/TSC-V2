@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
             dialogueStarted = true;
             EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
             Time.timeScale = 1;
-            userInterfaceOverworld.canvasDialoge.SetActive(true);
+            userInterfaceOverworld.CanvasDialoge.SetActive(true);
             animator.SetBool("IsOpen", true);
             nameText.text = dialogue.name;
             sentences.Clear();

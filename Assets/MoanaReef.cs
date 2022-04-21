@@ -7,12 +7,20 @@ public class MoanaReef : MonoBehaviour
 {
     public GameObject TextLocationGameObject;
     public TextMeshProUGUI TextLocationName;
-
+    
+    // Background Music
+    public AudioClip NewTrack;
+    public AudioManager audioManager;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && TextLocationName.text != "Moana Reefs")
         {
             StartCoroutine(ShowLocationName());
+            
+            // Change Music
+            if(NewTrack != null)
+                audioManager.ChangeSoundtrack(NewTrack);
         }
     }
 

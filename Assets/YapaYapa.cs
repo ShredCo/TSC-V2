@@ -7,12 +7,21 @@ public class YapaYapa : MonoBehaviour
 {
     public GameObject TextLocationGameObject;
     public TextMeshProUGUI TextLocationName;
+    
+    // Background Music
+    public AudioClip NewTrack;
+    private AudioManager audioManager;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && TextLocationName.text != "Yapa Yapa")
+        if (other.CompareTag("Player") && TextLocationName.text != "Route 1")
         {
+            
             StartCoroutine(ShowLocationName());
+            
+            // Change Music
+            if(NewTrack != null)
+                audioManager.ChangeSoundtrack(NewTrack);
         }
     }
 

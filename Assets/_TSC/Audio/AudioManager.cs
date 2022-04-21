@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
+    
     // Singleton
     public static AudioManager Instance;
     private void Awake()
@@ -12,49 +12,63 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
-
-    // Place to add Background-Music
+    
+    public CurrentArea CurrentArea;
+    
+    // Background-Music
+    public AudioClip newTrack;
     private AudioManager audioManager;
-    public AudioSource backgroundMusic;
+    public AudioSource BackgroundMusic;
 
-    public AudioClip track1;
-    public AudioClip track2;
+    
+    [Header("Villages/City Music")]
+    public AudioClip OkinaShores;
+    public AudioClip YapaYapa;
+    public AudioClip MoanaReefs;
 
-    int currentTrack = 1;
-
-
+    [Header("Routes Music")]
+    public AudioClip Route1;
+    public AudioClip Route2;
+    
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
     }
 
-    public void nextTrack()
+    private void Update()
     {
-        currentTrack += 1;
+        ChangeLocatiionMusic();
+    }
 
-        if (currentTrack > 2)
+    public void ChangeLocatiionMusic()
+    {
+        switch (CurrentArea)
         {
-            currentTrack = 1;
-        }
-
-        switch (currentTrack)
-        {
-            case 1:
-                audioManager.ChangeSoundtrack(track1);
+            // Citys
+            case CurrentArea.OkinaShores: 
+                audioManager.ChangeSoundtrack(OkinaShores);
                 break;
-            case 2:
-                audioManager.ChangeSoundtrack(track2);
+            case CurrentArea.YapaYapa: 
+                audioManager.ChangeSoundtrack(YapaYapa);
+                break;
+            case CurrentArea.MoanaReefs:
+                audioManager.ChangeSoundtrack(MoanaReefs);
+                break;
+            
+            // Routes
+            case CurrentArea.Route1:
+                audioManager.ChangeSoundtrack(Route1);
                 break;
         }
     }
-
+    
     public void ChangeSoundtrack(AudioClip music)
     {
-        if (backgroundMusic.clip.name == music.name)
+        if (BackgroundMusic.clip.name == music.name)
             return;
 
-        backgroundMusic.Stop();
-        backgroundMusic.clip = music;
-        backgroundMusic.Play();
+        BackgroundMusic.Stop();
+        BackgroundMusic.clip = music;
+        BackgroundMusic.Play();
     }
 }

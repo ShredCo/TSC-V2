@@ -16183,7 +16183,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1965230158}
         m_TargetAssemblyTypeName: UserInterfaceOverworld, Assembly-CSharp
-        m_MethodName: openInventory
+        m_MethodName: OpenInventory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
