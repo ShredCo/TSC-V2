@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
                     textPickedUpMoney.text = "+ " + item.item.MoneyValue.ToString();
                     StartCoroutine(PickUpMoney());
                     
-                    Destroy(other.gameObject);
+                    other.gameObject.SetActive(false);
                     break;
                 case ItemType.Resource:
                     var gamepad = Gamepad.current;
@@ -69,12 +69,12 @@ public class Player : MonoBehaviour
                 case CardType.DefaultCard:
                     Debug.Log("DefaultCard");
                     inventory.AddDefaultCard(item.defaultCard, 1);
-                    Destroy(other.gameObject);
+                    other.gameObject.SetActive(false);
                     break;
                 case CardType.SpecialCard:
                     Debug.Log("SpecialCard");
                     inventory.AddSpecialCard(item.specialCard, 1);
-                    Destroy(other.gameObject);
+                    other.gameObject.SetActive(false);
                     break;
 
             }

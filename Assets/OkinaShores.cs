@@ -24,15 +24,12 @@ public class OkinaShores : MonoBehaviour
         {
             // Change Location Text
             StartCoroutine(ShowLocationName());
-
             audioManager.CurrentArea = CurrentArea.OkinaShores;
         }
     }
 
     IEnumerator ShowLocationName()
     {
-        
-        
         // Change Text
         TextLocationGameObject.SetActive(true);
         TextLocationName.text = "Okina Shores";

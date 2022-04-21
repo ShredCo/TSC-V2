@@ -61,7 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: d27b5513fed0e1049bdb8a523c0e7103, type: 2}
-  card: {fileID: 0}
+  defaultCard: {fileID: 0}
+  specialCard: {fileID: 0}
 --- !u!1001 &3139288041239702648
 PrefabInstance:
   m_ObjectHideFlags: 0
