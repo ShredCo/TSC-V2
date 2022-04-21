@@ -18,6 +18,7 @@ public enum ActivePage
 public class UserInterfaceOverworld : MonoBehaviour
 {
     private bool gamePaused = false;
+    int currentPanel = 2;
     
     [Header("Script References")]
     public InventoryObject Inventory;
@@ -108,7 +109,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     #region subRegion | Inventory L1/R1 Navigation System
     void SwitchInventoryPanels()
     {
-        int currentPanel = 1;
+        
     
         var gamepad = Gamepad.current;
         if (gamepad.rightShoulder.wasPressedThisFrame)
@@ -275,7 +276,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             PanelBackpack.SetActive(true);
 
             inventoryActive = true;
-            EventSystem.current.SetSelectedGameObject(ButtonInventory);
+            EventSystem.current.SetSelectedGameObject(FirstButtonDefaultCards);
         }
     
         // Close Inventory Method is in Update

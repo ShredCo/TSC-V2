@@ -12,15 +12,17 @@ public class MoanaReef : MonoBehaviour
     public AudioClip NewTrack;
     public AudioManager audioManager;
     
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && TextLocationName.text != "Moana Reefs")
+        if (other.CompareTag("Player") && audioManager.CurrentArea != CurrentArea.Route1)
         {
             StartCoroutine(ShowLocationName());
-            
-            // Change Music
-            if(NewTrack != null)
-                audioManager.ChangeSoundtrack(NewTrack);
+            audioManager.CurrentArea = CurrentArea.MoanaReefs;
         }
     }
 

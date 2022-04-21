@@ -12,16 +12,19 @@ public class YapaYapa : MonoBehaviour
     public AudioClip NewTrack;
     private AudioManager audioManager;
 
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && TextLocationName.text != "Route 1")
+        if (other.CompareTag("Player") && audioManager.CurrentArea != CurrentArea.YapaYapa)
         {
             
             StartCoroutine(ShowLocationName());
             
             // Change Music
-            if(NewTrack != null)
-                audioManager.ChangeSoundtrack(NewTrack);
+            audioManager.CurrentArea = CurrentArea.OkinaShores;
         }
     }
 

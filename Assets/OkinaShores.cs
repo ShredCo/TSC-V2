@@ -8,25 +8,32 @@ public class OkinaShores : MonoBehaviour
 {
     public GameObject TextLocationGameObject;
     public TextMeshProUGUI TextLocationName;
-    
+
     // Background Music
     public AudioClip NewTrack;
     private AudioManager audioManager;
-    
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && TextLocationName.text != "Okina Shores")
+        if (other.CompareTag("Player") && audioManager.CurrentArea != CurrentArea.OkinaShores)
         {
+            // Change Location Text
             StartCoroutine(ShowLocationName());
-            
-            // Change Music
-            if(NewTrack != null)
-                audioManager.ChangeSoundtrack(NewTrack);
+
+            audioManager.CurrentArea = CurrentArea.OkinaShores;
         }
     }
 
     IEnumerator ShowLocationName()
     {
+        
+        
+        // Change Text
         TextLocationGameObject.SetActive(true);
         TextLocationName.text = "Okina Shores";
         yield return new WaitForSeconds(4f);

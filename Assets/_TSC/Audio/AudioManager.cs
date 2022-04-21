@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
-    
+
     public CurrentArea CurrentArea;
     
     // Background-Music
@@ -28,11 +28,12 @@ public class AudioManager : MonoBehaviour
 
     [Header("Routes Music")]
     public AudioClip Route1;
-    public AudioClip Route2;
+
     
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        CurrentArea = CurrentArea.Route1;
     }
 
     private void Update()
@@ -42,24 +43,24 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeLocatiionMusic()
     {
-        switch (CurrentArea)
-        {
-            // Citys
-            case CurrentArea.OkinaShores: 
-                audioManager.ChangeSoundtrack(OkinaShores);
-                break;
-            case CurrentArea.YapaYapa: 
-                audioManager.ChangeSoundtrack(YapaYapa);
-                break;
-            case CurrentArea.MoanaReefs:
-                audioManager.ChangeSoundtrack(MoanaReefs);
-                break;
-            
-            // Routes
-            case CurrentArea.Route1:
-                audioManager.ChangeSoundtrack(Route1);
-                break;
-        }
+       switch (CurrentArea)
+       {
+           // Citys
+           case CurrentArea.OkinaShores: 
+               audioManager.ChangeSoundtrack(OkinaShores);
+               break;
+           case CurrentArea.YapaYapa: 
+               audioManager.ChangeSoundtrack(YapaYapa);
+               break;
+           case CurrentArea.MoanaReefs:
+               audioManager.ChangeSoundtrack(MoanaReefs);
+               break;
+           
+           // Routes
+           case CurrentArea.Route1:
+               audioManager.ChangeSoundtrack(Route1);
+               break;
+       }
     }
     
     public void ChangeSoundtrack(AudioClip music)
