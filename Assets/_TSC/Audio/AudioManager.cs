@@ -38,10 +38,10 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        ChangeLocatiionMusic();
+        ChangeLocationMusic();
     }
 
-    public void ChangeLocatiionMusic()
+    public void ChangeLocationMusic()
     {
        switch (CurrentArea)
        {

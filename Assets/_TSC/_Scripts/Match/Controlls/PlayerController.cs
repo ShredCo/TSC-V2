@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour
     // Singleton
     public static PlayerController Instance;
 
-    private Pole1 pole1;
-
     // Input System -> Input Values
     private Vector2 movementPoleInput;
     private Vector2 movementAbilityInput;

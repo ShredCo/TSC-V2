@@ -31,6 +31,7 @@ public class GameManagerOneVsOne : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
+        ES3AutoSaveMgr.Current.Load();
     }
 
     private void Start()
@@ -49,6 +50,7 @@ public class GameManagerOneVsOne : MonoBehaviour
         if (ScorePlayer1 == 5 || ScorePlayer2 == 5)
         {
             Time.timeScale = 1f;
+            ES3AutoSaveMgr.Current.Save();
             SceneManager.LoadScene(1);
         }
     }
