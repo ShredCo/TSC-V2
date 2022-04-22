@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MapType { Route1, OkinaShores, YapaYapa, MoanaReef}
+
 public class LineUpController : MonoBehaviour
 {
     // Arrays to save Player Line Up
@@ -29,4 +31,6 @@ public class LineUpController : MonoBehaviour
     public static CardSlotUI ActiveCard;
 
     public static bool CantEquip = false;
+
+    public static MapType MapType;
 }

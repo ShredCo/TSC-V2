@@ -30,6 +30,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     
     public NpcType NpcType;
+    public MapType MapType;
 
     public DialogueState dialogueState;
     public bool IsTalking;
@@ -79,6 +80,7 @@ public class DialogueTrigger : MonoBehaviour
             PlayerInventory.SavePlayerLineUp();
         }
         IsTalking = true;
+        LineUpController.MapType = MapType;
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         FindObjectOfType<DialogueManager>().npcType = NpcType;
     }

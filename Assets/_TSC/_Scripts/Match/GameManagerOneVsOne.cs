@@ -31,11 +31,26 @@ public class GameManagerOneVsOne : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-        ES3AutoSaveMgr.Current.Load();
     }
 
     private void Start()
     {
+        switch (LineUpController.MapType)
+        {
+            case MapType.Route1:
+                SceneManager.LoadScene(3, LoadSceneMode.Additive);
+                break;
+            case MapType.OkinaShores:
+                SceneManager.LoadScene(4, LoadSceneMode.Additive);
+                break;
+            case MapType.YapaYapa:
+                break;
+            case MapType.MoanaReef:
+                break;
+            default:
+                break;
+        }
+
         Cursor.visible = false;
         ScorePlayer1 = 0;
         ScorePlayer2 = 0;
@@ -50,7 +65,6 @@ public class GameManagerOneVsOne : MonoBehaviour
         if (ScorePlayer1 == 5 || ScorePlayer2 == 5)
         {
             Time.timeScale = 1f;
-            ES3AutoSaveMgr.Current.Save();
             SceneManager.LoadScene(1);
         }
     }
