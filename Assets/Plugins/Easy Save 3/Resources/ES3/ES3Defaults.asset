@@ -30,11 +30,11 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp
+    - Assembly-CSharp-firstpass
     - Cinemachine
     - AllIn1VfxDemoScriptAssemblies
     - AllIn1VfxAssmebly
     - AllIn1VfxTexDemoAssembly
-    - Assembly-CSharp-firstpass
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
