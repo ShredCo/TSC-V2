@@ -99,7 +99,8 @@ public class DialogueManager : MonoBehaviour
         else
         {
             PlayerInventory.AddMoney(LineUpController.MoneyReward);
-            PlayerInventory.AddDefaultCard(LineUpController.DefaultCardReward, 1);
+            LineUpController.DidWin = false;
+            //PlayerInventory.AddDefaultCard(LineUpController.DefaultCardReward, 1);
         }
     }
 
