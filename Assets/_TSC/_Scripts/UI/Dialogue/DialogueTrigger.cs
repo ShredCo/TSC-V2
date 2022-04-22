@@ -28,9 +28,13 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] public GameObject x_Text;
     
     public Dialogue dialogue;
+    public Dialogue AfterMatchDialogue;
     
     public NpcType NpcType;
     public MapType MapType;
+
+    public int MoneyReward;
+    public DefaultCardObject DefaultCardReward;
 
     public DialogueState dialogueState;
     public bool IsTalking;
@@ -81,6 +85,9 @@ public class DialogueTrigger : MonoBehaviour
         }
         IsTalking = true;
         LineUpController.MapType = MapType;
+        LineUpController.AfterMatchDialogue = AfterMatchDialogue;
+        LineUpController.MoneyReward = MoneyReward;
+        LineUpController.DefaultCardReward = DefaultCardReward;
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         FindObjectOfType<DialogueManager>().npcType = NpcType;
     }

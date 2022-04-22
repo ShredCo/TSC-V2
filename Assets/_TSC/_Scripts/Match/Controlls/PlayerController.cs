@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour
 
     // Ability
     public Ability ability;
-    private float cooldownTime;
-    private float activeTime;
 
     private GameObject arrow;
 
@@ -41,43 +39,10 @@ public class PlayerController : MonoBehaviour
         cooldown
     }
 
-    AbilityState state = AbilityState.ready;
-
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
-    }
-
-    private void Update()
-    {
-        //StartCoroutine(PlayerSpawnAbility());
-        
-        //switch (state)
-        //{
-        //    case AbilityState.ready:
-        //        activeTime = ability.activeTime;
-        //        break;
-        //    case AbilityState.active:
-        //        if (activeTime > 0)
-        //            cooldownTime -= Time.deltaTime;
-        //        else
-        //        {
-        //            ability.BeginnCooldown(gameObject);
-        //            state = AbilityState.ready;
-        //            cooldownTime = ability.cooldownTime;
-        //        }
-        //        break;
-        //    case AbilityState.cooldown:
-        //        if (cooldownTime > 0)
-        //            cooldownTime -= Time.deltaTime;
-        //        else
-        //        {
-        //
-        //            state = AbilityState.ready;
-        //        }
-        //        break;
-        //}
     }
 
     private void FixedUpdate()

@@ -9,7 +9,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    
+    public InventoryObject PlayerInventory;
+
     public Text nameText;
     public Text dialogueText;
     public GameObject firstSelectedButtonDialoge;
@@ -30,7 +31,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-
+        //PlayerInventory = FindObjectOfType<InventoryObject>();
     }
     public void StartDialogue(Dialogue dialogue)
     {
@@ -80,17 +81,25 @@ public class DialogueManager : MonoBehaviour
         dialogueStarted = false;
         animator.SetBool("IsOpen", false);
         userInterfaceOverworld.Resume();
-        if (npcType == NpcType.Agressive)
+        if (LineUpController.DidWin == false)
         {
-            SceneManager.LoadScene(2);
+            if (npcType == NpcType.Agressive)
+            {
+                SceneManager.LoadScene(2);
+            }
+            if (npcType == NpcType.Neutral)
+            {
+                StartCoroutine(CooldownDialogue());
+            }
+            if (npcType == NpcType.Workshop)
+            {
+                workshopUI.OpenWorkshopUI();
+            }
         }
-        if (npcType == NpcType.Neutral)
+        else
         {
-            StartCoroutine(CooldownDialogue());
-        }
-        if (npcType == NpcType.Workshop)
-        {
-            workshopUI.OpenWorkshopUI();
+            PlayerInventory.AddMoney(LineUpController.MoneyReward);
+            PlayerInventory.AddDefaultCard(LineUpController.DefaultCardReward, 1);
         }
     }
 

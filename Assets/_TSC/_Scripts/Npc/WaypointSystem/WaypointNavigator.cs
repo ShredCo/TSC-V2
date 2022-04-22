@@ -83,17 +83,4 @@ public class WaypointNavigator : MonoBehaviour
         var position = waypoint.transform.position;
         return new Vector3(position.x, position.y, position.z);
     }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
