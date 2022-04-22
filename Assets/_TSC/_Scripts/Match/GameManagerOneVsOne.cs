@@ -44,8 +44,10 @@ public class GameManagerOneVsOne : MonoBehaviour
                 SceneManager.LoadScene(4, LoadSceneMode.Additive);
                 break;
             case MapType.YapaYapa:
+                SceneManager.LoadScene(5, LoadSceneMode.Additive);
                 break;
             case MapType.MoanaReef:
+                //SceneManager.LoadScene(6, LoadSceneMode.Additive);
                 break;
             default:
                 break;
