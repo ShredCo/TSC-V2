@@ -11,6 +11,8 @@ public class SaveManager : MonoBehaviour
         {
             GameObject.Find(LineUpController.NPCName).transform.position = LineUpController.NPCPosition;
             GameObject.Find(LineUpController.NPCName).GetComponent<DialogueTrigger>().IsTalking = true;
+            GameObject.Find(LineUpController.NPCName).GetComponent<DialogueTrigger>().DidLoose = true;
+            GameObject.Find(LineUpController.NPCName).GetComponent<DialogueTrigger>().NpcType = NpcType.Neutral;
 
             GameObject.FindGameObjectWithTag("Player").transform.position = LineUpController.PlayerPosition;
         }
