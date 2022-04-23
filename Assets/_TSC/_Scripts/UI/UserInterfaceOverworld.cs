@@ -37,6 +37,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject CanvasInventory;
     public GameObject CanvasDialoge;
     public GameObject CanvasSettings;
+    public GameObject CanvasHelpMenu;
     
     // Buttons
     public GameObject ButtonResume;
@@ -54,6 +55,8 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject Button_Quit_No;
     #endregion
     #endregion
+    
+    
     
     #region Inventory
     [Header("Inventory")]
@@ -170,6 +173,12 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject FirstSelectedButtonDialoge;
     #endregion
     
+    #region Help
+    [Header("Help")]
+    // Buttons
+    public GameObject FirstSelectedButtonHelpMenu;
+    #endregion
+    
     void Update()
     {
         // Resource texts
@@ -281,7 +290,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     
         // Close Inventory Method is in Update
         #endregion
-        #region subRegion | open/close SetingsCanvas
+        #region subRegion | open/close Setings
         public void OpenSettingsCanvas()
         {
             CanvasPauseMenu.SetActive(false);
@@ -299,16 +308,32 @@ public class UserInterfaceOverworld : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(ButtonResume);
         }
         #endregion
-        #region subRegion | open/close DialogueCanvas
+        #region subRegion | open/close Dialogue
         public void OpenDialogueCanvas()
         {
             CanvasPauseMenu.SetActive(false);
             CanvasDialoge.SetActive(true);
-        
-            EventSystem.current.SetSelectedGameObject(null);
+            
             EventSystem.current.SetSelectedGameObject(FirstSelectedButtonDialoge);
         
             // Close Dialogue Canvas is in dialogue manager script
+        }
+        #endregion 
+        #region subRegion | open/close Help
+        public void OpenHelpCanvas()
+        {
+            CanvasPauseMenu.SetActive(false);
+            CanvasHelpMenu.SetActive(true);
+            
+            EventSystem.current.SetSelectedGameObject(FirstSelectedButtonHelpMenu);
+        }
+        
+        public void CloseHelpCanvas()
+        {
+            CanvasPauseMenu.SetActive(true);
+            CanvasHelpMenu.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(ButtonResume);
         }
         #endregion
         
