@@ -49,5 +49,5 @@ public class LineUpController : MonoBehaviour
     public static string NPCName;
     #endregion
 
-    public static Transform PlayerTransform;
+    public static Vector3 PlayerPosition;
 }
