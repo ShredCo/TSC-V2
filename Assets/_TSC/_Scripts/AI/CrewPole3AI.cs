@@ -29,7 +29,7 @@ public class CrewPole3AI : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Calbulates if the ball is in front ir behind the pole
+        // Calculates if the ball is in front ir behind the pole
         Vector3 poleForward = PoleTransform.right;
         Vector3 ballToPole = BallTransform.position - PoleTransform.position;
         float dotPro = Vector3.Dot(poleForward, ballToPole);
@@ -37,6 +37,14 @@ public class CrewPole3AI : MonoBehaviour
         if (dotPro >= 0)
         {
             Debug.Log("ball is in front pole");
+            if (sense.closestPlayer.name == "pos9" || sense.closestPlayer.name == "pos10" || sense.closestPlayer.name == "pos11")
+            {
+                // Calculate the difference between the ball and the closest enemy player
+                poleMovement = sense.closestPlayer.transform.position.z - BallTransform.transform.position.z;
+                // Calculate new position of pole and interpolate player on pole with ball
+                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
+                Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+            }
         }
         else
         {
@@ -49,14 +57,7 @@ public class CrewPole3AI : MonoBehaviour
             Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
         }
         
-        if (sense.closestPlayer.name == "pos9" || sense.closestPlayer.name == "pos10" || sense.closestPlayer.name == "pos11")
-        {
-            // Calculate the difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z - BallTransform.transform.position.z;
-            // Calculate new position of pole and interpolate player on pole with ball
-            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
-        }
+       
         Rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0.3f, 0.3f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.15f, 0.15f));
     }
 }

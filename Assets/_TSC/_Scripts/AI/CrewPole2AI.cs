@@ -37,6 +37,14 @@ public class CrewPole2AI : MonoBehaviour
         if (dotPro >= 0)
         {
             Debug.Log("ball is in front pole");
+            if (sense.closestPlayer.name == "pos4" || sense.closestPlayer.name == "pos5" || sense.closestPlayer.name == "pos6" || sense.closestPlayer.name == "pos7" || sense.closestPlayer.name == "pos8")
+            {
+                // Calculate the difference between the ball and the closest enemy player
+                poleMovement = sense.closestPlayer.transform.position.z - BallTransform.transform.position.z;
+                // Calculate new position of pole and interpolate player on pole with ball
+                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
+                Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+            }
         }
         else
         {
@@ -49,14 +57,7 @@ public class CrewPole2AI : MonoBehaviour
             Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
         }
         
-        if (sense.closestPlayer.name == "pos4" || sense.closestPlayer.name == "pos5" || sense.closestPlayer.name == "pos6" || sense.closestPlayer.name == "pos7" || sense.closestPlayer.name == "pos8")
-        {
-            // Calculate the difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z - BallTransform.transform.position.z;
-            // Calculate new position of pole and interpolate player on pole with ball
-            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
-        }
+        
 
         Rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.1f, -0.1f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.1f, 0.1f));
     }
