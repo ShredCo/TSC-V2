@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public InventoryObject PlayerInventory;
+    public GameObject PlayerGameObject;
 
     public Text nameText;
     public Text dialogueText;
@@ -30,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     
     void Start()
     {
+        PlayerGameObject = GameObject.FindGameObjectWithTag("Player");
         sentences = new Queue<string>();
         //PlayerInventory = FindObjectOfType<InventoryObject>();
     }
@@ -85,6 +87,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (npcType == NpcType.Agressive)
             {
+                LineUpController.PlayerPosition = PlayerGameObject.transform.position;
                 SceneManager.LoadScene(2);
             }
             if (npcType == NpcType.Neutral)
@@ -98,8 +101,8 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            PlayerInventory.AddMoney(LineUpController.MoneyReward);
             LineUpController.DidWin = false;
+            PlayerInventory.AddMoney(LineUpController.MoneyReward);
             //PlayerInventory.AddDefaultCard(LineUpController.DefaultCardReward, 1);
         }
     }

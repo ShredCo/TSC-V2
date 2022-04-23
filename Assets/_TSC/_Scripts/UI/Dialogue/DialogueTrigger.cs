@@ -29,6 +29,7 @@ public class DialogueTrigger : MonoBehaviour
     
     public Dialogue dialogue;
     public Dialogue AfterMatchDialogue;
+    public Dialogue LostDialogue;
     
     public NpcType NpcType;
     public MapType MapType;
@@ -38,6 +39,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public DialogueState dialogueState;
     public bool IsTalking;
+    public bool DidLoose = false;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -78,17 +80,27 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void TriggerDialogue()
     {
+        LineUpController.NPCPosition = transform.position;
+        LineUpController.NPCName = name;
         if (NPCInventory != null)
         {
             NPCInventory.SetNPCLineUp();
             PlayerInventory.SavePlayerLineUp();
         }
         IsTalking = true;
-        LineUpController.MapType = MapType;
-        LineUpController.AfterMatchDialogue = AfterMatchDialogue;
-        LineUpController.MoneyReward = MoneyReward;
-        LineUpController.DefaultCardReward = DefaultCardReward;
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        FindObjectOfType<DialogueManager>().npcType = NpcType;
+        if (DidLoose == true)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(LostDialogue);
+            FindObjectOfType<DialogueManager>().npcType = NpcType;
+        }
+        else
+        {
+            LineUpController.MapType = MapType;
+            LineUpController.AfterMatchDialogue = AfterMatchDialogue;
+            LineUpController.MoneyReward = MoneyReward;
+            LineUpController.DefaultCardReward = DefaultCardReward;
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            FindObjectOfType<DialogueManager>().npcType = NpcType;
+        }
     }
 }

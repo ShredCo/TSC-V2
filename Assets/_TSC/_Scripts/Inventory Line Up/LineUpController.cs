@@ -45,5 +45,9 @@ public class LineUpController : MonoBehaviour
     public static DefaultCardObject DefaultCardReward;
 
     public static Dialogue AfterMatchDialogue;
+    public static Vector3 NPCPosition;
+    public static string NPCName;
     #endregion
+
+    public static Vector3 PlayerPosition;
 }
