@@ -78,6 +78,8 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void TriggerDialogue()
     {
+        LineUpController.NPCPosition = transform.position;
+        LineUpController.NPCName = name;
         if (NPCInventory != null)
         {
             NPCInventory.SetNPCLineUp();

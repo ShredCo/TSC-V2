@@ -19,6 +19,7 @@ TagManager:
   - Item
   - Powerfield Blue
   - Powerfield Red
+  - NPC
   layers:
   - Default
   - TransparentFX
