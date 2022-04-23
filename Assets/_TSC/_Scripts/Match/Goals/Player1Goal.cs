@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Player1Goal : MonoBehaviour
 {
-    public AudioSource playSound1;
-    public AudioSource playSound2;
-    public AudioSource playSound3;
-    public AudioSource playSound4;
-    
+    public AudioSource PlaySound1;
+    public AudioSource PlaySound2;
+    public AudioSource PlaySound3;
+    public AudioSource PlaySound4;
+
+    public GameObject ExplosionGoal1;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
@@ -20,10 +21,10 @@ public class Player1Goal : MonoBehaviour
                 BallManager.Instance.ballInGame = false;
 
                 // Plays goals cheering sounds
-                playSound1.Play(4);
-                playSound2.Play(1);
-                playSound3.Play(2);
-                playSound4.Play(1);
+                PlaySound1.Play(4);
+                PlaySound2.Play(1);
+                PlaySound3.Play(2);
+                PlaySound4.Play(1);
 
                 StartCoroutine(SpawnNewBall());
             }
@@ -32,7 +33,13 @@ public class Player1Goal : MonoBehaviour
     
     IEnumerator SpawnNewBall()
     {
+        ExplosionGoal1.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        ExplosionGoal1.SetActive(false);
         yield return new WaitForSeconds(5f);
-        BallManager.Instance.SpawnSoccerBall();
+        if (BallManager.Instance.ballInGame == false)
+        {
+            BallManager.Instance.SpawnSoccerBall();
+        }
     }
 }

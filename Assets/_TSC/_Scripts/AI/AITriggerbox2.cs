@@ -56,21 +56,21 @@ public class AITriggerbox2 : MonoBehaviour
     public IEnumerator ResetPole()
     {
         yield return new WaitForSeconds(1.5f);
-        crewPole2AI.rb.transform.rotation = Quaternion.Lerp(crewPole2AI.rb.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
+        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
     }
     public IEnumerator LoadShot()
     {
         
         yield return new WaitForSeconds(1);
         //crewPole2AI.rb.transform.Rotate(rotationLoading * loadingSpeed * Time.deltaTime);
-        crewPole2AI.rb.transform.rotation = Quaternion.Lerp(crewPole2AI.rb.transform.rotation, currentAngle, LoadingSpeed);
+        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, currentAngle, LoadingSpeed);
         yield return new WaitForSeconds(0.5f);
         shootingState = ShootingState.Shooting;
     }
     
     public IEnumerator ShootShot()
     {
-        crewPole2AI.rb.transform.rotation = Quaternion.Lerp(crewPole2AI.rb.transform.rotation, currentAngle, ShotSpeed);
+        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, currentAngle, ShotSpeed);
         yield return new WaitForSeconds(1f);
         shootingState = ShootingState.Default;
     }
