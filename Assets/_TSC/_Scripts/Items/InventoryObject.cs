@@ -82,11 +82,13 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
                 LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
                 PlayerAbilityCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.SpecialCardSlot;
                 InventoryUI.Instance.UpdateLineUpCards();
+                UISoundeffects.Instance.CardSelectSound();
             }
             else
             {
                 LineUpController.CantEquip = true;
                 Debug.Log("Card already equiped");
+                UISoundeffects.Instance.SelectionFailedSound();
             }
         }
     }  
