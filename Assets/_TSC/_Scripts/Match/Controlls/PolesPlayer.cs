@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = System.Random;
 
 public class PolesPlayer : MonoBehaviour
 {
     // Singleton
     public static PolesPlayer Instance;
-
+    
     Rigidbody rb;
 
     [Header("movement variables")]
@@ -42,7 +43,11 @@ public class PolesPlayer : MonoBehaviour
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
 
         // Sets the default limit for the movement
-        rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+        //rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+        
+       //RbCrewPole2.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.12f, 0.12f));
+       //RbCrewPole3.position = new Vector3(Mathf.Clamp(transform.position.x, -0.3f, -0.3f), transform.position.y, Mathf.Clamp(transform.position.z, -0.2f, 0.2f));
+       
     }
     
     public void PoleLockedDown()
