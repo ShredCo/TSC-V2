@@ -6,8 +6,9 @@ public class MainPoleAI : MonoBehaviour
 {
     [SerializeField] public Sense sense;
  
-    public Transform ball;
-    public Rigidbody rb;
+    public Transform BallTransform;
+    
+    public Rigidbody Rb;
 
     [SerializeField]
     [Range(0f, 1f)]
@@ -22,7 +23,7 @@ public class MainPoleAI : MonoBehaviour
     private void Start()
     {
         newPolePosition = transform;
-        rb = GetComponent<Rigidbody>();
+        Rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -31,8 +32,8 @@ public class MainPoleAI : MonoBehaviour
             //poleMovement = sense.closestPlayer.transform.position.z - ball.transform.position.z;
             // Calculate new position of pole and interpolate player on pole with ball
             //Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            rb.transform.position = Vector3.SmoothDamp(transform.position, ball.position, ref velocity, smoothSpeed);
+            Rb.transform.position = Vector3.SmoothDamp(transform.position, BallTransform.position, ref velocity, smoothSpeed);
         
-        rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.7f, -0.7f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+        Rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.7f, -0.7f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
     }
 }
