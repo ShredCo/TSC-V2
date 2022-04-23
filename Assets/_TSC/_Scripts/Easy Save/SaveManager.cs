@@ -15,6 +15,9 @@ public class SaveManager : MonoBehaviour
             GameObject.Find(LineUpController.NPCName).GetComponent<DialogueTrigger>().NpcType = NpcType.Neutral;
 
             GameObject.FindGameObjectWithTag("Player").transform.position = LineUpController.PlayerPosition;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().DialogueState = DialogueState.Talking;
+
+            GameStateManager.Instance.SetState(GameState.Paused);
         }
         LineUpController.NPCName = null;
     }
