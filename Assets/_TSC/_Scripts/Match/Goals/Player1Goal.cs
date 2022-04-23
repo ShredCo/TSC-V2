@@ -18,8 +18,7 @@ public class Player1Goal : MonoBehaviour
             {
                 GameManagerOneVsOne.Instance.ScorePlayer2 += 1;
                 BallManager.Instance.ballInGame = false;
-                print("ball in game:");
-                
+
                 // Plays goals cheering sounds
                 playSound1.Play(4);
                 playSound2.Play(1);
@@ -34,6 +33,6 @@ public class Player1Goal : MonoBehaviour
     IEnumerator SpawnNewBall()
     {
         yield return new WaitForSeconds(5f);
-        SpawnBallManager.Instance.SpawnBall();
+        BallManager.Instance.SpawnSoccerBall();
     }
 }

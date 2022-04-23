@@ -35,7 +35,6 @@ public class SpawnPowerfields : MonoBehaviour
     {
         while (powerfieldsCountRed < 100)
         {
-            
             if (powerfieldsCountRed < 3)
             {
                 yield return new WaitForSeconds(10f);
@@ -47,7 +46,6 @@ public class SpawnPowerfields : MonoBehaviour
             if (powerfieldsCountRed == 3)
             {
                 yield return new WaitForSeconds(5);
-                Debug.Log("Max Powerfields Count reched red");
             }
            
         }
@@ -56,7 +54,6 @@ public class SpawnPowerfields : MonoBehaviour
     {
         while (powerfieldsCountBlue < 100)
         {
-            
             if (powerfieldsCountBlue < 3)
             {
                 yield return new WaitForSeconds(10f);
@@ -68,7 +65,6 @@ public class SpawnPowerfields : MonoBehaviour
             if (powerfieldsCountBlue == 3)
             {
                 yield return new WaitForSeconds(5);
-                Debug.Log("Max Powerfields Count reched blue");
             }
         }
     }

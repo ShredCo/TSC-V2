@@ -26,6 +26,7 @@ public class SpawnBallManager : MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Ball"));
         }
+        else 
         ballInGame = true;
         Instantiate(ballPrefab, transform.position, transform.rotation);
     }
