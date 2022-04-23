@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private GameObject arrow;
 
-    protected int currentPoleIndex;
+    public int currentPoleIndex;
 
 
     // Special Cards move speed;
