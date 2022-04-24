@@ -23,8 +23,7 @@ public class UISoundeffects : MonoBehaviour
 
     public void CardSelectSound()
     {
-        int i = Random.Range(0, CardSelection.Length);
-        AudioSource.clip = CardSelection[i];
+        AudioSource.clip = CardSelection[Random.Range(0, CardSelection.Length)];
         AudioSource.Play();
     }
     public void SelectionFailedSound()

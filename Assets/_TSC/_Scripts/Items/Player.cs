@@ -32,51 +32,57 @@ public class Player : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        var item = other.GetComponent<Item>();
-
-        if (item.item)
+        if (other.GetComponent<Item>())
         {
-            switch (item.item.Type)
+            var item = other.GetComponent<Item>();
+
+            if (item.item)
             {
-                // Checks which type the new item is and adds it to its inventory
-                case ItemType.Money:
-                    // Adds money to the inventory
-                    inventory.AddMoney(item.item.MoneyValue);
+                switch (item.item.Type)
+                {
+                    // Checks which type the new item is and adds it to its inventory
+                    case ItemType.Money:
+                        // Adds money to the inventory
+                        inventory.AddMoney(item.item.MoneyValue);
                     
-                    // Displays the picked up amount in the UI
-                    textPickedUpMoney.text = "+ " + item.item.MoneyValue.ToString();
-                    StartCoroutine(PickUpMoney());
+                        // Displays the picked up amount in the UI
+                        textPickedUpMoney.text = "+ " + item.item.MoneyValue.ToString();
+                        StartCoroutine(PickUpMoney());
                     
-                    other.gameObject.SetActive(false);
-                    break;
-                case ItemType.Resource:
-                    var gamepad = Gamepad.current;
-                    if (gamepad.buttonWest.wasPressedThisFrame)
-                    {
-                        // Adds the resource to the inventory
-                        inventory.AddResource(item.item.ResourceValue);
-                        StartCoroutine(HarvestWood(other.gameObject));
-                    }
-                    break;
+                        other.gameObject.SetActive(false);
+                        PickUpSoundeffects.Instance.MoneySound();
+                        break;
+                    case ItemType.Resource:
+                        var gamepad = Gamepad.current;
+                        if (gamepad.buttonWest.wasPressedThisFrame)
+                        {
+                            // Adds the resource to the inventory
+                            inventory.AddResource(item.item.ResourceValue);
+                            StartCoroutine(HarvestWood(other.gameObject));
+                            PickUpSoundeffects.Instance.WoodSound();
+                        }
+                        break;
+                }
             }
-        }
         
-        if (item.defaultCard)
-        {
-            switch (item.defaultCard.Type)
+            if (item.defaultCard)
             {
-                // Checks which type the new card is and adds it to its inventory
-                case CardType.DefaultCard:
-                    Debug.Log("DefaultCard");
-                    inventory.AddDefaultCard(item.defaultCard, 1);
-                    other.gameObject.SetActive(false);
-                    break;
-                case CardType.SpecialCard:
-                    Debug.Log("SpecialCard");
-                    inventory.AddSpecialCard(item.specialCard, 1);
-                    other.gameObject.SetActive(false);
-                    break;
+                switch (item.defaultCard.Type)
+                {
+                    // Checks which type the new card is and adds it to its inventory
+                    case CardType.DefaultCard:
+                        Debug.Log("DefaultCard");
+                        inventory.AddDefaultCard(item.defaultCard, 1);
+                        other.gameObject.SetActive(false);
+                        break;
+                    case CardType.SpecialCard:
+                        Debug.Log("SpecialCard");
+                        inventory.AddSpecialCard(item.specialCard, 1);
+                        other.gameObject.SetActive(false);
+                        break;
 
+                }
+                PickUpSoundeffects.Instance.CardSound();
             }
         }
     }
@@ -106,7 +112,6 @@ public class Player : MonoBehaviour
         wood.SetActive(false);
         yield return new WaitForSeconds(10f);
         wood.SetActive(true);
-
     }
     
     IEnumerator PickUpMoney()
@@ -114,6 +119,5 @@ public class Player : MonoBehaviour
         pickedUpMoney.SetActive(true);
         yield return new WaitForSeconds(3f);
         pickedUpMoney.SetActive(false);
-
     }
 }
