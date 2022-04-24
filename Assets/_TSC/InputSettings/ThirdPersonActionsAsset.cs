@@ -37,15 +37,6 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Look"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""0f345447-d0d3-44cd-b3d2-78b801675c32"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""16429d54-7cbe-4097-82a1-762d64d413dc"",
@@ -62,6 +53,15 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""1a0127c1-405c-41d5-9ab2-8aaef54671af"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -133,28 +133,6 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8e2fa3ff-dcca-4635-9aca-6907b2c0a061"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""gamepad"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0a7bdc0b-27f3-4dd9-b373-327345029e31"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""gamepad"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b7e3e527-80b2-4fcf-a7a5-d08e52bbf11f"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -185,6 +163,61 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""fcbbb9d0-320e-42d8-8806-dd92878245e0"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""793befe9-f45c-42f1-9179-8c62a1fc4b0e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""48cfadcc-47d3-4be6-aa00-60e5d336ee92"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""357c2701-727c-4ad7-9a61-58d203911939"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""a71d7092-6df7-49ff-a22b-1cbf7606d205"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -200,9 +233,9 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
         // OverWorldPlayer
         m_OverWorldPlayer = asset.FindActionMap("OverWorldPlayer", throwIfNotFound: true);
         m_OverWorldPlayer_Move = m_OverWorldPlayer.FindAction("Move", throwIfNotFound: true);
-        m_OverWorldPlayer_Look = m_OverWorldPlayer.FindAction("Look", throwIfNotFound: true);
         m_OverWorldPlayer_Attack = m_OverWorldPlayer.FindAction("Attack", throwIfNotFound: true);
         m_OverWorldPlayer_Interact = m_OverWorldPlayer.FindAction("Interact", throwIfNotFound: true);
+        m_OverWorldPlayer_Look = m_OverWorldPlayer.FindAction("Look", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -263,17 +296,17 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
     private readonly InputActionMap m_OverWorldPlayer;
     private IOverWorldPlayerActions m_OverWorldPlayerActionsCallbackInterface;
     private readonly InputAction m_OverWorldPlayer_Move;
-    private readonly InputAction m_OverWorldPlayer_Look;
     private readonly InputAction m_OverWorldPlayer_Attack;
     private readonly InputAction m_OverWorldPlayer_Interact;
+    private readonly InputAction m_OverWorldPlayer_Look;
     public struct OverWorldPlayerActions
     {
         private @ThirdPersonActionsAsset m_Wrapper;
         public OverWorldPlayerActions(@ThirdPersonActionsAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_OverWorldPlayer_Move;
-        public InputAction @Look => m_Wrapper.m_OverWorldPlayer_Look;
         public InputAction @Attack => m_Wrapper.m_OverWorldPlayer_Attack;
         public InputAction @Interact => m_Wrapper.m_OverWorldPlayer_Interact;
+        public InputAction @Look => m_Wrapper.m_OverWorldPlayer_Look;
         public InputActionMap Get() { return m_Wrapper.m_OverWorldPlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -286,15 +319,15 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                 @Move.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnMove;
-                @Look.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
                 @Attack.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnAttack;
                 @Interact.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnInteract;
+                @Look.started -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_OverWorldPlayerActionsCallbackInterface.OnLook;
             }
             m_Wrapper.m_OverWorldPlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -302,15 +335,15 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
             }
         }
     }
@@ -327,8 +360,8 @@ public partial class @ThirdPersonActionsAsset : IInputActionCollection2, IDispos
     public interface IOverWorldPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
     }
 }
