@@ -1219,13 +1219,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 927563856}
   m_HandleRect: {fileID: 819039444}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 437777367}
+        m_TargetAssemblyTypeName: PauseMenuUI, Assembly-CSharp
+        m_MethodName: SetMusicAudioLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &157271555
 GameObject:
   m_ObjectHideFlags: 0
@@ -4566,6 +4578,7 @@ MonoBehaviour:
   ButtonCloseSettings: {fileID: 622483082}
   DayLight: {fileID: 1012955394}
   NightLight: {fileID: 2092863633}
+  MusicMixer: {fileID: 24100000, guid: 58508bb29cbed2544962683c6139baab, type: 2}
 --- !u!114 &437777368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8007,7 +8020,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
+  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21064,7 +21077,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
+  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

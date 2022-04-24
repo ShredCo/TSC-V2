@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 public class PauseMenuUI : MonoBehaviour
 {
@@ -107,10 +108,12 @@ public class PauseMenuUI : MonoBehaviour
     #endregion
     
     #region SettingsMenu -> Button Methods
-
+    
     [Header("Lights")]
     public GameObject DayLight;
     public GameObject NightLight;
+    
+    public AudioMixer MusicMixer;
     public void CloseSettingsMenu()
     {
         Panel_PauseMenu.SetActive(true);
@@ -127,7 +130,10 @@ public class PauseMenuUI : MonoBehaviour
     {
         PolesPlayer.Instance.rotationSpeed = sliderValue;
     }
-    
+    public void SetMusicAudioLevel(float sliderValue)
+    {
+        MusicMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 50);
+    }
     // Light settings
     public void SetDayLight()
     {

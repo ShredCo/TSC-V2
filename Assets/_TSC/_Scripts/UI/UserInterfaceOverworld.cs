@@ -163,8 +163,8 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject FirstSelectedButtonSettings;
     
     // Audio
-    public AudioMixer musicMixer;
-    public AudioMixer ballMixer;
+    public AudioMixer MusicMixer;
+    public AudioMixer BallMixer;
     #endregion
     
     #region Dialogue
@@ -383,13 +383,13 @@ public class UserInterfaceOverworld : MonoBehaviour
     // changes the volume of the music
     public void SetMusicAudioLevel(float sliderValue)
     {
-        musicMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 50);
+        MusicMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 50);
     }
 
     // changes the volume of the music
     public void SetBallAudioLevel(float sliderValue)
     {
-        ballMixer.SetFloat("BallVolume", Mathf.Log10(sliderValue) * 50);
+        BallMixer.SetFloat("BallVolume", Mathf.Log10(sliderValue) * 50);
     }
        
     #endregion
