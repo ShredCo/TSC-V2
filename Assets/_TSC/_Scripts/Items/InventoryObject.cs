@@ -44,52 +44,36 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     public void AddCardtoLineUp()
     {
         LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
-        bool cardEquiped = false;
+        //bool cardEquiped = false;
         if (LineUpController.CardType)
         {
+            int i = 0;
             foreach (DefaultCardObject card in PlayerDefaultCardLineUp)
             {
                 if (card == LineUpController.ActiveCard.DefaultCardSlot)
                 {
-                    cardEquiped = true;
+                    PlayerDefaultCardLineUp[i] = null;
                 }
+                i++;
             }
-            if (cardEquiped == false)
-            {
-                LineUpController.CantEquip = false;
-                PlayerDefaultCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.DefaultCardSlot; // Save the selected Card to the local Line Up Array (to display in inv)
+                PlayerDefaultCardLineUp[LineUpController.ActivePole]=LineUpController.ActiveCard.DefaultCardSlot; //     Save the selected Card to the local Line UpArray(to display in inv)
                 InventoryUI.Instance.UpdateLineUpCards();
                 UISoundeffects.Instance.CardSelectSound();
-            }
-            else
-            {
-                LineUpController.CantEquip = true;
-                Debug.Log("Card already equiped");
-                UISoundeffects.Instance.SelectionFailedSound();
-            }
         }
         else
         {
+            int j = 0;
             foreach (SpecialCardObject card in PlayerAbilityCardLineUp)
             {
                 if (card == LineUpController.ActiveCard.SpecialCardSlot)
                 {
-                    cardEquiped = true;
+                    PlayerAbilityCardLineUp[j] = null;
                 }
+                j++;
             }
-            if (cardEquiped == false)
-            {
-                LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>();
-                PlayerAbilityCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.SpecialCardSlot;
-                InventoryUI.Instance.UpdateLineUpCards();
-                UISoundeffects.Instance.CardSelectSound();
-            }
-            else
-            {
-                LineUpController.CantEquip = true;
-                Debug.Log("Card already equiped");
-                UISoundeffects.Instance.SelectionFailedSound();
-            }
+            PlayerAbilityCardLineUp[LineUpController.ActivePole] = LineUpController.ActiveCard.SpecialCardSlot;
+            InventoryUI.Instance.UpdateLineUpCards();
+            UISoundeffects.Instance.CardSelectSound();
         }
     }  
     public void AddDefaultCardtoLineUp(DefaultCardObject defaultCard)
