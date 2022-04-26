@@ -6,7 +6,7 @@ using UnityEngine;
 public class AITriggerbox2 : MonoBehaviour
 {
     public CrewPole2AI crewPole2AI;
-    public ShootingState shootingState;
+    //public ShootingState shootingState;
 
     // Gives the value how much we want it to rotate
     private Quaternion loadingAngle = Quaternion.Euler(0f, 0f, -45f);
@@ -18,78 +18,53 @@ public class AITriggerbox2 : MonoBehaviour
     public float ShotSpeed = 0.3f;
     
     private bool isInZone = false;
-    
+    private float timeToShoot = 1f;
+    private float timeInTrigger = 0f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {
-            shootingState = ShootingState.Loading;
+            timeInTrigger = 0;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Ball"))
+        if(other.CompareTag("Ball"))
         {
-            isInZone = true;
-            if (shootingState == ShootingState.Default)
+            timeInTrigger += Time.deltaTime;
+            if (timeInTrigger >= timeToShoot)
             {
-                StartCoroutine(CheckForShot());
+                StartCoroutine(Shoot());
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        shootingState = ShootingState.Default;
-        isInZone = false;
-    }
-
-    // Coroutines
-    public IEnumerator CheckForShot()
-    {
-        if (isInZone == true)
-        {
-            yield return new WaitForSeconds(1f);
-            shootingState = ShootingState.Loading;
-        }
-    }
-    public IEnumerator ResetPole()
-    {
-        yield return new WaitForSeconds(1.5f);
-        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
-    }
-    public IEnumerator LoadShot()
-    {
-        
-        yield return new WaitForSeconds(1);
-        //crewPole2AI.rb.transform.Rotate(rotationLoading * loadingSpeed * Time.deltaTime);
-        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, currentAngle, LoadingSpeed);
-        yield return new WaitForSeconds(0.5f);
-        shootingState = ShootingState.Shooting;
+        timeInTrigger = 0;
     }
     
-    public IEnumerator ShootShot()
+    IEnumerator Shoot()
     {
+        // loads shot
+        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, currentAngle, LoadingSpeed);
+        yield return new WaitForSeconds(0.5f);
+        
+        // shoots shot
         crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, currentAngle, ShotSpeed);
-        yield return new WaitForSeconds(1f);
-        shootingState = ShootingState.Default;
+        
+        // Sets default values
+        yield return new WaitForSeconds(1.5f);
+        timeInTrigger = 0;
+        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
     }
 
-    void FixedUpdate()
-    {
-        switch (shootingState)
-        {
-            case ShootingState.Default:
-                StartCoroutine(ResetPole());
-                break;
-            case ShootingState.Loading:
-                currentAngle = loadingAngle;
-                StartCoroutine(LoadShot());
-                break;
-            case ShootingState.Shooting:
-                currentAngle = shotAngle;
-                StartCoroutine(ShootShot());
-                break;
-        }
-    }
+  // void FixedUpdate()
+  // {
+  //     switch (shootingState)
+  //     {
+  //         case ShootingState.Default:
+  //             break;
+  //     }
+  // }
 }
