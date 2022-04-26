@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AITriggerbox2 : MonoBehaviour
 {
-    public CrewPole2AI crewPole2AI;
+    [SerializeField] private Rigidbody rigidbody;
     //public ShootingState shootingState;
 
     // Gives the value how much we want it to rotate
@@ -17,9 +17,10 @@ public class AITriggerbox2 : MonoBehaviour
     public float LoadingSpeed = 0.5f;
     public float ShotSpeed = 0.3f;
     
-    private bool isInZone = false;
-    private float timeToShoot = 1f;
+    private bool isShooting = false;
+    private float timeToShoot = 0.5f;
     private float timeInTrigger = 0f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
@@ -30,11 +31,12 @@ public class AITriggerbox2 : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Ball"))
+        if(other.CompareTag("Ball") && !isShooting)
         {
-            timeInTrigger += Time.deltaTime;
+            timeInTrigger += 1 * Time.deltaTime;
             if (timeInTrigger >= timeToShoot)
             {
+                isShooting = true;
                 StartCoroutine(Shoot());
             }
         }
@@ -47,16 +49,17 @@ public class AITriggerbox2 : MonoBehaviour
     IEnumerator Shoot()
     {
         // loads shot
-        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, currentAngle, LoadingSpeed);
+        rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, loadingAngle, LoadingSpeed);
         yield return new WaitForSeconds(0.5f);
         
         // shoots shot
-        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, currentAngle, ShotSpeed);
-        
-        // Sets default values
+        rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, shotAngle, ShotSpeed);
         yield return new WaitForSeconds(1.5f);
+
+        // Sets default values
         timeInTrigger = 0;
-        crewPole2AI.Rb.transform.rotation = Quaternion.Lerp(crewPole2AI.Rb.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
+        rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
+        isShooting = false;
     }
 
   // void FixedUpdate()

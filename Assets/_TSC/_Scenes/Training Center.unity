@@ -818,8 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole2AI: {fileID: 857028770}
-  shootingState: 0
+  rigidbody: {fileID: 857028771}
   currentAngle: {x: 0, y: 0, z: 0, w: 0}
   LoadingSpeed: 0.5
   ShotSpeed: 0.3
@@ -1245,8 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole2AI: {fileID: 857028770}
-  shootingState: 0
+  rigidbody: {fileID: 857028771}
   currentAngle: {x: 0, y: 0, z: 0, w: 0}
   LoadingSpeed: 0.5
   ShotSpeed: 0.3
@@ -1959,11 +1957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12977d6c172304882be7f4bb2ee56255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole1AI: {fileID: 0}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!1 &196076207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,11 +2004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce33fb1f10e84555ba0840ec374c816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole3AI: {fileID: 0}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!65 &196076210
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4786,11 +4774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce33fb1f10e84555ba0840ec374c816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole3AI: {fileID: 0}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!65 &408293457
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7852,11 +7835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12977d6c172304882be7f4bb2ee56255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole1AI: {fileID: 0}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!1 &602034844
 GameObject:
   m_ObjectHideFlags: 0
@@ -8564,8 +8542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole2AI: {fileID: 857028770}
-  shootingState: 0
+  rigidbody: {fileID: 857028771}
   currentAngle: {x: 0, y: 0, z: 0, w: 0}
   LoadingSpeed: 0.5
   ShotSpeed: 0.3
@@ -9023,7 +9000,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
+  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12191,11 +12168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001dd5ad1ef884e27960d530db505063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPoleAI: {fileID: 0}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!65 &968896113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12306,11 +12278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001dd5ad1ef884e27960d530db505063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPoleAI: {fileID: 716181478}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!65 &972910064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13388,8 +13355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole2AI: {fileID: 857028770}
-  shootingState: 0
+  rigidbody: {fileID: 857028771}
   currentAngle: {x: 0, y: 0, z: 0, w: 0}
   LoadingSpeed: 0.5
   ShotSpeed: 0.3
@@ -15555,11 +15521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce33fb1f10e84555ba0840ec374c816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole3AI: {fileID: 0}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!65 &1231699875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16011,11 +15972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001dd5ad1ef884e27960d530db505063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPoleAI: {fileID: 716181478}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!1 &1306125258
 GameObject:
   m_ObjectHideFlags: 0
@@ -18354,11 +18310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12977d6c172304882be7f4bb2ee56255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole1AI: {fileID: 1137467381}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!1 &1472053471
 GameObject:
   m_ObjectHideFlags: 0
@@ -19559,11 +19510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce33fb1f10e84555ba0840ec374c816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole3AI: {fileID: 709125708}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!1 &1547958465 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 891858366, guid: e86166695177abd409f6906a89cfdecb, type: 3}
@@ -20704,8 +20650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole2AI: {fileID: 857028770}
-  shootingState: 0
+  rigidbody: {fileID: 857028771}
   currentAngle: {x: 0, y: 0, z: 0, w: 0}
   LoadingSpeed: 0.5
   ShotSpeed: 0.3
@@ -22996,7 +22941,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9921976, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -23012,7 +22957,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
+  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26450,11 +26395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12977d6c172304882be7f4bb2ee56255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewPole1AI: {fileID: 1137467381}
-  shootingState: 0
-  currentAngle: {x: 0, y: 0, z: 0, w: 0}
-  LoadingSpeed: 0.5
-  ShotSpeed: 0.3
 --- !u!65 &2072801106
 BoxCollider:
   m_ObjectHideFlags: 0
