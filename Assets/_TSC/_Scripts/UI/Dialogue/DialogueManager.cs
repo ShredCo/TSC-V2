@@ -88,7 +88,7 @@ public class DialogueManager : MonoBehaviour
             if (npcType == NpcType.Agressive)
             {
                 LineUpController.PlayerPosition = PlayerGameObject.transform.position;
-                SceneManager.LoadScene(2);
+                StartCoroutine(LevelTransitionManager.Instance.StartTransition());
             }
             if (npcType == NpcType.Neutral)
             {

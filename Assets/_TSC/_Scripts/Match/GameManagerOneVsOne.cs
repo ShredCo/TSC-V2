@@ -35,6 +35,7 @@ public class GameManagerOneVsOne : MonoBehaviour
 
     private void Start()
     {
+        LevelTransitionManager.Instance.EndTransition();
         switch (LineUpController.MapType)
         {
             case MapType.Route1:
