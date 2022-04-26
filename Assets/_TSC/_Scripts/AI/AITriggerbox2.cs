@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ShootingState
+{
+    OutOfRange,
+    InFrontRange,
+    InBackRange,
+    Loading,
+    Shooting
+}
 public class AITriggerbox2 : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidbody;
@@ -21,6 +29,8 @@ public class AITriggerbox2 : MonoBehaviour
     private float timeToShoot = 0.5f;
     private float timeInTrigger = 0f;
 
+    ShootingState shootingState;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
@@ -31,43 +41,42 @@ public class AITriggerbox2 : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Ball") && !isShooting)
+        if(other.CompareTag("Ball"))
         {
+            shootingState = ShootingState.InFrontRange;
             timeInTrigger += 1 * Time.deltaTime;
-            if (timeInTrigger >= timeToShoot)
+            
+            if (timeInTrigger >= timeToShoot && shootingState == ShootingState.InFrontRange)
             {
-                isShooting = true;
+                Debug.Log("Ball is long enough in front range");
                 StartCoroutine(Shoot());
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
+        shootingState = ShootingState.OutOfRange;
         timeInTrigger = 0;
     }
     
     IEnumerator Shoot()
     {
-        // loads shot
-        rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, loadingAngle, LoadingSpeed);
-        yield return new WaitForSeconds(0.5f);
-        
-        // shoots shot
-        rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, shotAngle, ShotSpeed);
-        yield return new WaitForSeconds(1.5f);
-
-        // Sets default values
-        timeInTrigger = 0;
-        rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
-        isShooting = false;
+        shootingState = ShootingState.Shooting;
+        if (shootingState == ShootingState.Shooting)
+        {
+            // loads shot
+            currentAngle = loadingAngle;
+            rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, currentAngle, LoadingSpeed);
+            yield return new WaitForSeconds(0.5f);
+            
+            // shoots shot
+            currentAngle = shotAngle;
+            rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, currentAngle, ShotSpeed);
+            yield return new WaitForSeconds(1.5f);
+            
+            // Sets default values
+            timeInTrigger = 0;
+            rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
+        }
     }
-
-  // void FixedUpdate()
-  // {
-  //     switch (shootingState)
-  //     {
-  //         case ShootingState.Default:
-  //             break;
-  //     }
-  // }
 }
