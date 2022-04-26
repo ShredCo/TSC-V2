@@ -9,10 +9,12 @@ public enum ShootingState
     InFrontRange,
     InBackRange,
     Loading,
-    Shooting
+    Shooting,
+    Backflip
 }
 public class FrontTriggerboxAI : MonoBehaviour
 {
+    public static FrontTriggerboxAI Instance;
     [SerializeField] private Rigidbody rigidbody;
     
     // Difficulty
@@ -24,7 +26,13 @@ public class FrontTriggerboxAI : MonoBehaviour
     private Quaternion shotAngle = Quaternion.Euler(0f, 0f, 45f);
     private float timeToShoot = 0.5f;
     private float timeCounter = 0f;
-    ShootingState shootingState;
+    public ShootingState shootingState;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,7 +44,7 @@ public class FrontTriggerboxAI : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Ball"))
+        if(other.CompareTag("Ball") && shootingState != ShootingState.InBackRange)
         {
             shootingState = ShootingState.InFrontRange;
             timeCounter += 1 * Time.deltaTime;
