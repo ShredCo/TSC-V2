@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameManagerOneVsOne : MonoBehaviour
 {
@@ -67,15 +68,17 @@ public class GameManagerOneVsOne : MonoBehaviour
     {
         if (ScorePlayer1 == 5)
         {
+            WinLoseText.text = "YOU WIN";
             LineUpController.DidWin = true;
             Time.timeScale = 1f;
-            SceneManager.LoadScene(1);
+            StartCoroutine(EndGame());
         }
         else if (ScorePlayer2 == 5)
         {
+            WinLoseText.text = "YOU LOSE";
             LineUpController.DidWin = false;
             Time.timeScale = 1f;
-            SceneManager.LoadScene(1);
+            StartCoroutine(EndGame());
         }
     }
 
@@ -124,6 +127,17 @@ public class GameManagerOneVsOne : MonoBehaviour
             BallManager.Instance.ballInGame = false;
             print("ball in game:");
         }
+    }
+
+    // Win/Lose Display
+    public TextMeshProUGUI WinLoseText;
+    public GameObject WinLosePanel;
+
+    public IEnumerator EndGame()
+    {
+        WinLosePanel.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(1);
     }
 
     #region Line Up
