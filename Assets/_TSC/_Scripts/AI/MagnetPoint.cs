@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MagnetPoint : MonoBehaviour
 {
-    public float forceFactor = 0.1f;
+    private float forceFactor = 20;
 
     List<Rigidbody> rgdBalls = new List<Rigidbody>();
 
