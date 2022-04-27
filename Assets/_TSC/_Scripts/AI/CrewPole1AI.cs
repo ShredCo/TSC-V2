@@ -35,38 +35,33 @@ public class CrewPole1AI : MonoBehaviour
         Vector3 ballToPole = BallTransform.position - PoleTransform.position;
         float dotPro = Vector3.Dot(poleForward, ballToPole);
 
-        if (sense.closestPlayer.name == "pos2" || sense.closestPlayer.name == "pos3")
+        if (dotPro >= 0)
         {
-            // Calculate the z difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z - BallTransform.transform.position.z;
+            if (sense.closestPlayer.name == "pos2" || sense.closestPlayer.name == "pos3")
+            {
+                // if ball is in front of pole it lerps towards the ball position
+                // Calculate the z difference between the ball and the closest enemy player
+                poleMovement = sense.closestPlayer.transform.position.z - BallTransform.transform.position.z;
             
-            
-            // Calculate new position of pole and interpolate player on pole with ball
-            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
-        }
-        else if (dotPro >= 0 && dotPro <= 1)
-        {
-            // Calculate the z difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z - BallTransform.transform.position.z;
-            
-            
-            // Calculate new position of pole and interpolate player on pole with ball
-            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
-            
+                // Calculate new position of pole and interpolate player on pole with ball
+                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
+                Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+                Rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+            } 
         }
         else
         {
+            // If ball is behind pole it should interpolate away 
             // Calculate the z difference between the ball and the closest enemy player
             poleMovement = sense.closestPlayer.transform.position.z + BallTransform.transform.position.z;
             
             // Calculate new position of pole and interpolate player on pole with ball
             Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
             Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+            Rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.05f, 0.05f));
         }
         
         
-        Rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+        
     }
 }
