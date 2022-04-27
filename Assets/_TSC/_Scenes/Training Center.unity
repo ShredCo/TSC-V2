@@ -821,6 +821,9 @@ MonoBehaviour:
   rigidbody: {fileID: 857028771}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 5
 --- !u!65 &80693008
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1246,6 +1249,9 @@ MonoBehaviour:
   rigidbody: {fileID: 857028771}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 5
 --- !u!1 &140041413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,6 +1964,9 @@ MonoBehaviour:
   rigidbody: {fileID: 1137467382}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 2
 --- !u!1 &196076207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,6 +2080,9 @@ MonoBehaviour:
   rigidbody: {fileID: 709125709}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 3
 --- !u!1 &196652818
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,8 +3449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 857028771}
-  shotSpeed: 0.7
 --- !u!65 &310505460
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4956,6 +4966,9 @@ MonoBehaviour:
   rigidbody: {fileID: 709125709}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 3
 --- !u!1 &409282865
 GameObject:
   m_ObjectHideFlags: 0
@@ -7957,6 +7970,9 @@ MonoBehaviour:
   rigidbody: {fileID: 1137467382}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 2
 --- !u!1 &602034844
 GameObject:
   m_ObjectHideFlags: 0
@@ -8667,6 +8683,9 @@ MonoBehaviour:
   rigidbody: {fileID: 857028771}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 5
 --- !u!65 &618528712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9121,7 +9140,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
+  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11995,8 +12014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 716181479}
-  shotSpeed: 0.7
 --- !u!65 &922705650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12462,6 +12479,9 @@ MonoBehaviour:
   rigidbody: {fileID: 716181479}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 1
 --- !u!1 &978754199
 GameObject:
   m_ObjectHideFlags: 0
@@ -13476,8 +13496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 857028771}
-  shotSpeed: 0.7
 --- !u!65 &1053015205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13591,6 +13609,9 @@ MonoBehaviour:
   rigidbody: {fileID: 857028771}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 5
 --- !u!65 &1068351279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14235,8 +14256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 857028771}
-  shotSpeed: 0.7
 --- !u!65 &1100672136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15931,6 +15950,9 @@ MonoBehaviour:
   rigidbody: {fileID: 709125709}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 3
 --- !u!1 &1238921256
 GameObject:
   m_ObjectHideFlags: 0
@@ -16147,8 +16169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 1137467382}
-  shotSpeed: 0.7
 --- !u!65 &1262867638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17982,8 +18002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 709125709}
-  shotSpeed: 0.7
 --- !u!65 &1434399284
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18308,8 +18326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 857028771}
-  shotSpeed: 0.7
 --- !u!65 &1445353444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20022,8 +20038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 1137467382}
-  shotSpeed: 0.7
 --- !u!65 &1563289501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21118,6 +21132,9 @@ MonoBehaviour:
   rigidbody: {fileID: 857028771}
   loadingSpeed: 0.5
   shotSpeed: 0.3
+  shootingState: 0
+  RotateAmount: 1
+  PlayerAmount: 5
 --- !u!65 &1666277492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22244,8 +22261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 709125709}
-  shotSpeed: 0.7
 --- !u!65 &1755026138
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22678,8 +22693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 709125709}
-  shotSpeed: 0.7
 --- !u!65 &1783050752
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23629,7 +23642,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1960785, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -23645,7 +23658,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
+  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25741,8 +25754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 857028771}
-  shotSpeed: 0.7
 --- !u!65 &1965278030
 BoxCollider:
   m_ObjectHideFlags: 0

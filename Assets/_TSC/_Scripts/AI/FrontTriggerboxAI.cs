@@ -26,8 +26,15 @@ public class FrontTriggerboxAI : MonoBehaviour
     private Quaternion shotAngle = Quaternion.Euler(0f, 0f, 45f);
     private float timeToShoot = 0.5f;
     private float timeCounter = 0f;
+
+    private float rotationSpeed = 1500f;
+    private Vector3 backflip = new Vector3(0f, 0f, 360f);
+
     public ShootingState shootingState;
 
+
+    public float RotateAmount = 1f;
+    public int PlayerAmount;
     private void Awake()
     {
         if (Instance == null)
@@ -78,5 +85,22 @@ public class FrontTriggerboxAI : MonoBehaviour
             timeCounter = 0;
             rigidbody.transform.rotation = Quaternion.Lerp(rigidbody.transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
         }
+    }
+
+    IEnumerator Backflip()
+    {
+        if (shootingState == ShootingState.Backflip)
+        {
+            rigidbody.transform.Rotate(Vector3.forward * RotateAmount / PlayerAmount);
+            yield return new WaitForSeconds(3f);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (shootingState == ShootingState.Backflip)
+        {
+            StartCoroutine(Backflip());
+        } 
     }
 }
