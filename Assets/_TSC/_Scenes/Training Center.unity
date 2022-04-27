@@ -9351,7 +9351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingSpeed: 0.5
   shotSpeed: 0.3
-  shootingState: 0
+  AIState: 0
+  ShootingState: 0
   RotationLeft: 360
 --- !u!1001 &712738701
 PrefabInstance:
@@ -9565,7 +9566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingSpeed: 0.5
   shotSpeed: 0.3
-  shootingState: 0
+  AIState: 0
+  ShootingState: 0
   RotationLeft: 360
 --- !u!1 &729400862
 GameObject:
@@ -11018,7 +11020,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingSpeed: 0.5
   shotSpeed: 0.3
-  shootingState: 0
+  AIState: 0
+  ShootingState: 0
   RotationLeft: 360
 --- !u!1 &884231446
 GameObject:
@@ -14700,7 +14703,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingSpeed: 0.5
   shotSpeed: 0.3
-  shootingState: 0
+  AIState: 0
+  ShootingState: 0
   RotationLeft: 360
 --- !u!1 &1141798067
 GameObject:
@@ -16309,6 +16313,10 @@ PrefabInstance:
     - target: {fileID: 2204713485860717507, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204713485860717507, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.065
       objectReference: {fileID: 0}
     - target: {fileID: 2204713485860717507, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23661,7 +23669,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
