@@ -18,6 +18,7 @@ public class FrontTriggerboxAI : MonoBehaviour
             timeCounter = 0;
         }
     }
+    
 
     private void OnTriggerStay(Collider other)
     {
@@ -35,11 +36,12 @@ public class FrontTriggerboxAI : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        timeCounter = 0;
         if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
         {
             poleShooting.AIState = AIState.OutOfRange;
             poleShooting.ShootingState = ShootingState.Reset;
-            timeCounter = 0;
+            
         }
     }
 }
