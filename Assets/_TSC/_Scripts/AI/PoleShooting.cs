@@ -1,6 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum AIState
+{
+    OutOfRange,
+    InFrontRange,
+    InBackRange,
+    Loading,
+    Shooting,
+    Backflip
+}
+
+public enum ShootingState
+{
+    Default,
+    Load,
+    Shot,
+    Reset
+}
 
 public class PoleShooting : MonoBehaviour
 {
@@ -12,26 +29,37 @@ public class PoleShooting : MonoBehaviour
     private Quaternion loadingAngle = Quaternion.Euler(0f, 0f, -45f);
     private Quaternion shotAngle = Quaternion.Euler(0f, 0f, 45f);
 
-    public ShootingState shootingState;
+    public AIState AIState;
+    public ShootingState ShootingState;
 
     float RotateAmount = 5f;
     IEnumerator Shoot()
     {
-        shootingState = ShootingState.Shooting;
-        if (shootingState == ShootingState.Shooting)
+        AIState = AIState.Shooting;
+        if (AIState == AIState.Shooting)
         {
-            // loads shot
-            transform.rotation = Quaternion.Lerp(transform.rotation, loadingAngle, loadingSpeed);
-            yield return new WaitForSeconds(0.5f);
-
-            // shoots shot
-            transform.rotation = Quaternion.Lerp(transform.rotation, shotAngle, shotSpeed);
-            yield return new WaitForSeconds(1.5f);
-
-            // Sets default values
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
-
-            shootingState = ShootingState.OutOfRange;
+            switch (ShootingState)
+            {
+                case ShootingState.Load:
+                    // loads shot
+                    transform.rotation = Quaternion.Lerp(transform.rotation, loadingAngle, loadingSpeed);
+                    yield return new WaitForSeconds(0.5f);
+                    ShootingState = ShootingState.Shot;
+                    break;
+                case ShootingState.Shot:
+                    // shoots shot
+                    transform.rotation = Quaternion.Lerp(transform.rotation, shotAngle, shotSpeed);
+                    yield return new WaitForSeconds(1.5f);
+                    ShootingState = ShootingState.Reset;
+                    break;
+                case ShootingState.Reset:
+                    // Sets default values
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
+                    AIState = AIState.OutOfRange;
+                    yield return new WaitForSeconds(1.5f);
+                    ShootingState = ShootingState.Default;
+                    break;
+            }
         }
     }
 
@@ -39,7 +67,7 @@ public class PoleShooting : MonoBehaviour
     float rotationspeed = 1600;
     IEnumerator Backflip()
     {
-        if (shootingState == ShootingState.Backflip)
+        if (AIState == AIState.Backflip)
         {
             float rotation = rotationspeed * Time.deltaTime;
             if (RotationLeft > rotation)
@@ -53,7 +81,7 @@ public class PoleShooting : MonoBehaviour
             }
             transform.Rotate(0, 0, rotation);
             yield return new WaitForSeconds(1f);
-            shootingState = ShootingState.OutOfRange;
+            AIState = AIState.OutOfRange;
             yield return null;
         }
     }
@@ -61,20 +89,20 @@ public class PoleShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (shootingState)
+        switch (AIState)
         {
-            case ShootingState.OutOfRange:
+            case AIState.OutOfRange:
                 break;
-            case ShootingState.InFrontRange:
+            case AIState.InFrontRange:
                 break;
-            case ShootingState.InBackRange:
+            case AIState.InBackRange:
                 break;
-            case ShootingState.Loading:
+            case AIState.Loading:
                 break;
-            case ShootingState.Shooting:
+            case AIState.Shooting:
                 StartCoroutine(Shoot());
                 break;
-            case ShootingState.Backflip:
+            case AIState.Backflip:
                 StartCoroutine(Backflip());
                 break;
             default:

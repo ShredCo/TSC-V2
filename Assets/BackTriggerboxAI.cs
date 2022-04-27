@@ -12,33 +12,33 @@ public class BackTriggerboxAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball") && poleShooting.shootingState != ShootingState.Backflip)
+        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
         {
             timeCounter = 0;
-            poleShooting.shootingState = ShootingState.InBackRange;
+            poleShooting.AIState = AIState.InBackRange;
             poleShooting.RotationLeft = 360;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Ball") && poleShooting.shootingState != ShootingState.InFrontRange)
+        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.InFrontRange)
         {
-            poleShooting.shootingState = ShootingState.InBackRange;
+            poleShooting.AIState = AIState.InBackRange;
             timeCounter += 1 * Time.deltaTime;
 
-            if (timeCounter >= timeToShoot && poleShooting.shootingState == ShootingState.InBackRange)
+            if (timeCounter >= timeToShoot && poleShooting.AIState == AIState.InBackRange)
             {
-                poleShooting.shootingState = ShootingState.Backflip;
+                poleShooting.AIState = AIState.Backflip;
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Ball") && poleShooting.shootingState != ShootingState.Backflip)
+        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
         {
-            poleShooting.shootingState = ShootingState.OutOfRange;
+            poleShooting.AIState = AIState.OutOfRange;
         }
     }
 }

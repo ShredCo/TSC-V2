@@ -3,15 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ShootingState
-{
-    OutOfRange,
-    InFrontRange,
-    InBackRange,
-    Loading,
-    Shooting,
-    Backflip
-}
+
 public class FrontTriggerboxAI : MonoBehaviour
 {
     public PoleShooting poleShooting;
@@ -29,22 +21,24 @@ public class FrontTriggerboxAI : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Ball") && poleShooting.shootingState != ShootingState.InBackRange && poleShooting.shootingState != ShootingState.Backflip)
+        if(other.CompareTag("Ball") && poleShooting.AIState != AIState.InBackRange && poleShooting.AIState != AIState.Backflip)
         {
-            poleShooting.shootingState = ShootingState.InFrontRange;
+            poleShooting.AIState = AIState.InFrontRange;
             timeCounter += 1 * Time.deltaTime;
             
-            if (timeCounter >= timeToShoot && poleShooting.shootingState == ShootingState.InFrontRange)
+            if (timeCounter >= timeToShoot && poleShooting.AIState == AIState.InFrontRange)
             {
-                poleShooting.shootingState = ShootingState.Shooting;
+                poleShooting.AIState = AIState.Shooting;
+                poleShooting.ShootingState = ShootingState.Load;
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Ball") && poleShooting.shootingState != ShootingState.Backflip)
+        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
         {
-            poleShooting.shootingState = ShootingState.OutOfRange;
+            poleShooting.AIState = AIState.OutOfRange;
+            poleShooting.ShootingState = ShootingState.Reset;
             timeCounter = 0;
         }
     }
