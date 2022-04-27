@@ -24,8 +24,7 @@ public class MagnetPoint : MonoBehaviour
         foreach(Rigidbody rgdBal in rgdBalls)
         {
             rgdBal.AddForce((magnetPoint.position - rgdBal.position) * forceFactor * Time.fixedDeltaTime);
-        } 
-        
+        }
     }
 
     private void OnTriggerEnter(Collider other)
