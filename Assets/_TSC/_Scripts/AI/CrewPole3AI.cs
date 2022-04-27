@@ -36,7 +36,6 @@ public class CrewPole3AI : MonoBehaviour
 
         if (dotPro >= 0)
         {
-            Debug.Log("ball is in front pole");
             if (sense.closestPlayer.name == "pos9" || sense.closestPlayer.name == "pos10" || sense.closestPlayer.name == "pos11")
             {
                 // Calculate the difference between the ball and the closest enemy player
@@ -48,7 +47,6 @@ public class CrewPole3AI : MonoBehaviour
         }
         else
         {
-            Debug.Log("Ball is behind pole");
             // Calculate the z difference between the ball and the closest enemy player
             poleMovement = sense.closestPlayer.transform.position.z + BallTransform.transform.position.z;
             
