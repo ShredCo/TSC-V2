@@ -16,6 +16,7 @@ public class FrontTriggerboxAI : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             timeCounter = 0;
+
         }
     }
     
@@ -27,7 +28,12 @@ public class FrontTriggerboxAI : MonoBehaviour
             poleShooting.AIState = AIState.InFrontRange;
             timeCounter += 1 * Time.deltaTime;
             
-            if (timeCounter >= timeToShoot && poleShooting.AIState == AIState.InFrontRange)
+           //if (timeCounter >= timeToShoot && poleShooting.AIState == AIState.InFrontRange)
+           //{
+           //    poleShooting.AIState = AIState.Shooting;
+           //    poleShooting.ShootingState = ShootingState.Load;
+           //}
+            if (poleShooting.AIState == AIState.InFrontRange)
             {
                 poleShooting.AIState = AIState.Shooting;
                 poleShooting.ShootingState = ShootingState.Load;
