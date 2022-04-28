@@ -18,10 +18,6 @@ public class AbilityAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //animator.SetFloat("speed", rb.velocity.magnitude / maxSpeed);
-
         animator.SetFloat("speed", rb.velocity.magnitude / maxSpeed);
-        Debug.Log("Rb Velocity = " + rb.velocity.magnitude / maxSpeed);
-
     }
 }

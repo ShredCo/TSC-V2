@@ -25876,7 +25876,7 @@ MonoBehaviour:
   arrowTwo: {fileID: 451708527}
   ScorePlayer1: 0
   ScorePlayer2: 0
-  powerpointsCountRed: 0
+  powerpointsCountRed: 5
   powerpointsCountBlue: 0
   WinLoseText: {fileID: 459416232}
   WinLosePanel: {fileID: 1734624422}
