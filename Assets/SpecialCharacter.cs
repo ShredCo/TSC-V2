@@ -29,8 +29,6 @@ public class SpecialCharacter : MonoBehaviour
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
         rb.velocity = new Vector3(0f,0f,-movement.y);
 
-        Debug.Log("Movement Input: " + movement.y);
-
         if (movement.y >= 0)
         {
             rb.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
@@ -40,6 +38,6 @@ public class SpecialCharacter : MonoBehaviour
             rb.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         // Sets the default limit for the movement
-        //rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.6f, 0.6f));
+        rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.6f, 0.6f));
     }
 }
