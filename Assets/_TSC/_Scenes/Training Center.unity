@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 5032560044491430724, guid: ab93c1269de866f429874ef62f48d642, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 13400000, guid: 6bbb71b2b40f81a42a072d3598f22d26, type: 2}
     - target: {fileID: 8720448787681085519, guid: ab93c1269de866f429874ef62f48d642, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.146908
@@ -9338,7 +9338,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
+  m_LocalRotation: {x: -0.000000008024796, y: 0.971712, z: 0.2361692, w: 0.00000003301782}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16977,7 +16977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2204713485860717511, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: m_Mass
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2204713485860717511, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: m_UseGravity
@@ -24206,7 +24206,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
+  m_LocalRotation: {x: -0.000000008024796, y: 0.971712, z: 0.2361692, w: 0.00000003301782}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24227,8 +24227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edc459fcb3b1b048be7c730701ffa55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1110746730}
-  lerpSpeed: 25
+  Ball: {fileID: 1110746730}
 --- !u!1 &1843390917
 GameObject:
   m_ObjectHideFlags: 0
@@ -25221,8 +25220,8 @@ MonoBehaviour:
   m_VerticalDamping: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
+  m_DeadZoneWidth: 0.15
+  m_DeadZoneHeight: 0.15
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
