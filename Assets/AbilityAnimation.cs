@@ -6,7 +6,7 @@ public class AbilityAnimation : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody rb;
-    private float maxSpeed = 0.5f;
+    private float maxSpeed = 0.004999847f;
     
     // Start is called before the first frame update
     void Start()

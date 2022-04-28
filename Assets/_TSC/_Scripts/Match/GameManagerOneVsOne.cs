@@ -43,7 +43,7 @@ public class GameManagerOneVsOne : MonoBehaviour
                 SceneManager.LoadScene(3, LoadSceneMode.Additive);
                 break;
             case MapType.OkinaShores:
-                SceneManager.LoadScene(4, LoadSceneMode.Additive);
+                SceneManager.LoadScene(6, LoadSceneMode.Additive);
                 break;
             case MapType.YapaYapa:
                 SceneManager.LoadScene(5, LoadSceneMode.Additive);

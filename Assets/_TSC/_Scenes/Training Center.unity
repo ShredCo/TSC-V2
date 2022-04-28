@@ -6655,6 +6655,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3404912865613560865, guid: e86166695177abd409f6906a89cfdecb, type: 3}
+      propertyPath: Ability
+      value: 
+      objectReference: {fileID: 11400000, guid: 907df7425dcc05e40ba2fad7b972b202, type: 2}
+    - target: {fileID: 3404912865613560865, guid: e86166695177abd409f6906a89cfdecb, type: 3}
       propertyPath: MainPole
       value: 
       objectReference: {fileID: 513153394}
@@ -6679,6 +6683,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3696297412912786453, guid: e86166695177abd409f6906a89cfdecb, type: 3}
+      propertyPath: Ability
+      value: 
+      objectReference: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
+    - target: {fileID: 3696297412912786453, guid: e86166695177abd409f6906a89cfdecb, type: 3}
       propertyPath: MainPole
       value: 
       objectReference: {fileID: 513153394}
@@ -6698,6 +6706,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3748424725812010731, guid: e86166695177abd409f6906a89cfdecb, type: 3}
+      propertyPath: Ability
+      value: 
+      objectReference: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
     - target: {fileID: 3748424725812010731, guid: e86166695177abd409f6906a89cfdecb, type: 3}
       propertyPath: MainPole
       value: 
@@ -6778,6 +6790,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6117699324028536046, guid: e86166695177abd409f6906a89cfdecb, type: 3}
+      propertyPath: Ability
+      value: 
+      objectReference: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
     - target: {fileID: 6117699324028536046, guid: e86166695177abd409f6906a89cfdecb, type: 3}
       propertyPath: MainPole
       value: 
@@ -11352,7 +11368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &875270073
 Transform:
   m_ObjectHideFlags: 0
@@ -24174,7 +24190,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.0066298, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
