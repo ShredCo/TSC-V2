@@ -110,6 +110,6 @@ public class DialogueManager : MonoBehaviour
     public IEnumerator CooldownDialogue()
     {
         yield return new WaitForSeconds(2f);
-        DialogueTrigger.instance.IsTalking = false;
+        DialogueTrigger.Instance.IsTalking = false;
     }
 }

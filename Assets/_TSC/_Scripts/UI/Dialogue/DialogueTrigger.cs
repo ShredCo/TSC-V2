@@ -14,15 +14,15 @@ public enum NpcType
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public static DialogueTrigger instance;
+    public static DialogueTrigger Instance;
     
-    public NPCInventory NPCInventory;
+    public NPCInventorySO NPCInventory;
     public InventoryObject PlayerInventory;
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
     }
 
     [SerializeField] public GameObject x_Text;

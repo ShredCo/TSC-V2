@@ -21,4 +21,15 @@ public class NPCInventorySO : ScriptableObject
     public MoneyObject moneyPrice;
     // or
     public int _moneyPrice;
+
+    public void SetNPCLineUp()
+    {
+        LineUpController.AIDefaultCardLineUP = AIDefaultCardLineUP;
+        LineUpController.AIAbilityCardLineUP = AIAbilityCardLineUP;
+
+        LineUpController.MainPoleDifficulty = mainPoleDifficulty;
+        LineUpController.Crew1PoleDifficulty = crew1PoleDifficulty;
+        LineUpController.Crew2PoleDifficulty = crew2PoleDifficulty;
+        LineUpController.Crew3PoleDifficulty = crew3PoleDifficulty;
+    }
 }
