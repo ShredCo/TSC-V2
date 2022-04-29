@@ -39,22 +39,20 @@ public class GameManagerOneVsOne : MonoBehaviour
         LevelTransitionManager.Instance.EndTransition();
         switch (LineUpController.MapType)
         {
-            case MapType.Route1:
+            case MapType.Route1_1:
                 SceneManager.LoadScene(3, LoadSceneMode.Additive);
                 break;
-            case MapType.OkinaShores:
+            case MapType.Route1_2:
+                SceneManager.LoadScene(4, LoadSceneMode.Additive);
+                break;
+            case MapType.OkinaShores_Default:
                 SceneManager.LoadScene(6, LoadSceneMode.Additive);
                 break;
-            case MapType.YapaYapa:
+            case MapType.OkinaShores_Arena:
                 SceneManager.LoadScene(5, LoadSceneMode.Additive);
                 break;
-            case MapType.MoanaReef:
-                //SceneManager.LoadScene(6, LoadSceneMode.Additive);
-                break;
-            default:
-                break;
         }
-
+        
         Cursor.visible = false;
         ScorePlayer1 = 0;
         ScorePlayer2 = 0;

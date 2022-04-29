@@ -35,14 +35,13 @@ public class PoleShooting : MonoBehaviour
 
 
     #region New AI version
+
     private float speed = 1f;
-    public Transform BallPosition;
-    
-    
-    
+    public GameObject BallPosition;
+
     #endregion
-    
-    
+
+
     IEnumerator Shoot()
     {
         AIState = AIState.Shooting;
@@ -75,6 +74,7 @@ public class PoleShooting : MonoBehaviour
 
     public float RotationLeft = 360;
     float rotationspeed = 1600;
+
     IEnumerator Backflip()
     {
         if (AIState == AIState.Backflip)
@@ -89,6 +89,7 @@ public class PoleShooting : MonoBehaviour
                 rotation = RotationLeft;
                 RotationLeft = 0;
             }
+
             transform.Rotate(0, 0, rotation);
             yield return new WaitForSeconds(1f);
             AIState = AIState.OutOfRange;
@@ -99,31 +100,32 @@ public class PoleShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-       //switch (AIState)
-       //{
-       //    case AIState.OutOfRange:
-       //        break;
-       //    case AIState.InFrontRange:
-       //        break;
-       //    case AIState.InBackRange:
-       //        break;
-       //    case AIState.Loading:
-       //        break;
-       //    case AIState.Shooting:
-       //        StartCoroutine(Shoot());
-       //        break;
-       //    case AIState.Backflip:
-       //        StartCoroutine(Backflip());
-       //        break;
-       //}
-       
-       
-       // new AI Version
-       LookCoroutine = StartCoroutine(LookAt());
+        //switch (AIState)
+        //{
+        //    case AIState.OutOfRange:
+        //        break;
+        //    case AIState.InFrontRange:
+        //        break;
+        //    case AIState.InBackRange:
+        //        break;
+        //    case AIState.Loading:
+        //        break;
+        //    case AIState.Shooting:
+        //        StartCoroutine(Shoot());
+        //        break;
+        //    case AIState.Backflip:
+        //        StartCoroutine(Backflip());
+        //        break;
+        //}
+
+
+        // new AI Version
+        LookCoroutine = StartCoroutine(LookAt());
     }
 
-    
+
     #region new AI verion
+
     private Coroutine LookCoroutine;
 
     public void StartRotating()
@@ -138,16 +140,27 @@ public class PoleShooting : MonoBehaviour
 
     private IEnumerator LookAt()
     {
-        Quaternion lookRotation = Quaternion.LookRotation(BallPosition.position - transform.position);
+        //Quaternion lookRotation = Quaternion.LookRotation(BallPosition.position - transform.position);
+        //Vector3 targetDirection = BallPosition.position - transform.position;
 
         float time = 0;
         while (time < 1)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
-            time += Time.deltaTime * speed;
+            Vector3 targetPosition = new Vector3(BallPosition.transform.position.x,
+                BallPosition.transform.position.y,
+                transform.position.z);
+
+            transform.LookAt(targetPosition);
+
+
+
+
+
+
 
             yield return null;
+
         }
+        #endregion
     }
-    #endregion
 }

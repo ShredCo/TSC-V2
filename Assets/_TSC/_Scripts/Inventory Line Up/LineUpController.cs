@@ -2,7 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MapType { Route1, OkinaShores, YapaYapa, MoanaReef}
+public enum MapType 
+{ 
+    Route1_1,
+    Route1_2,
+    OkinaShores_Default,
+    OkinaShores_Arena,
+    YapaYapa, 
+    MoanaReef}
 
 public class LineUpController : MonoBehaviour
 {
