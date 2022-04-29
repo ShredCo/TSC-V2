@@ -47,7 +47,12 @@ public class CrewPole1AI : MonoBehaviour
                 Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
                 Rb.transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
                 Rb.transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
-            } 
+            }
+            else
+            {
+                Vector3 defaultPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+                Rb.transform.position = Vector3.SmoothDamp(transform.position, defaultPosition, ref velocity, smoothSpeed);
+            }
         }
         else
         {
