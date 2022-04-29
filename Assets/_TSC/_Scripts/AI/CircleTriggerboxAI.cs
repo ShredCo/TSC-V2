@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class FrontTriggerboxAI : MonoBehaviour
+public class CircleTriggerboxAI : MonoBehaviour
 {
     public PoleShooting poleShooting;
 

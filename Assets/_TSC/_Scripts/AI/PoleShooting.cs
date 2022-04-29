@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public enum AIState
 {
@@ -33,6 +32,17 @@ public class PoleShooting : MonoBehaviour
     public ShootingState ShootingState;
 
     float RotateAmount = 5f;
+
+
+    #region New AI version
+    private float speed = 1f;
+    public Transform BallPosition;
+    
+    
+    
+    #endregion
+    
+    
     IEnumerator Shoot()
     {
         AIState = AIState.Shooting;
@@ -89,24 +99,55 @@ public class PoleShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (AIState)
+       //switch (AIState)
+       //{
+       //    case AIState.OutOfRange:
+       //        break;
+       //    case AIState.InFrontRange:
+       //        break;
+       //    case AIState.InBackRange:
+       //        break;
+       //    case AIState.Loading:
+       //        break;
+       //    case AIState.Shooting:
+       //        StartCoroutine(Shoot());
+       //        break;
+       //    case AIState.Backflip:
+       //        StartCoroutine(Backflip());
+       //        break;
+       //}
+       
+       
+       // new AI Version
+       LookCoroutine = StartCoroutine(LookAt());
+    }
+
+    
+    #region new AI verion
+    private Coroutine LookCoroutine;
+
+    public void StartRotating()
+    {
+        if (LookCoroutine != null)
         {
-            case AIState.OutOfRange:
-                break;
-            case AIState.InFrontRange:
-                break;
-            case AIState.InBackRange:
-                break;
-            case AIState.Loading:
-                break;
-            case AIState.Shooting:
-                StartCoroutine(Shoot());
-                break;
-            case AIState.Backflip:
-                StartCoroutine(Backflip());
-                break;
-            default:
-                break;
+            StopCoroutine(LookCoroutine);
+        }
+
+        LookCoroutine = StartCoroutine(LookAt());
+    }
+
+    private IEnumerator LookAt()
+    {
+        Quaternion lookRotation = Quaternion.LookRotation(BallPosition.position - transform.position);
+
+        float time = 0;
+        while (time < 1)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
+            time += Time.deltaTime * speed;
+
+            yield return null;
         }
     }
+    #endregion
 }
