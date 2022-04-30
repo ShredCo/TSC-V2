@@ -3,12 +3,13 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using TMPro;
 
+public enum LastPlayerHit { Default, Player, AI }
 public class BallManager : MonoBehaviour
 {
     public static BallManager Instance;
     public GameObject ball;
     public AIController aiController;
-    
+
     public bool ballInGame = false;
     private Vector3 startPos;
 
@@ -43,10 +44,12 @@ public class BallManager : MonoBehaviour
                 SpawnSoccerBall();
                 ballInGame = true;
             }
-           
+
             // only for testing reason here. -> Can be deletet
             SpawnSoccerBall();
         }
+
+        UpdateCurrentPoleAI();
     }
 
     public void SpawnSoccerBall()
@@ -74,4 +77,98 @@ public class BallManager : MonoBehaviour
         AudioSourceCheering4.Play();
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
+
+    void UpdateCurrentPoleAI()
+    {
+        // Simple methods to see where the ball is on the field and change AI currentPoleIndex based on position of ball
+        if (ball.transform.position.x <= -0.6)
+        {
+            aiController.currentPoleIndexAI = 0;
+        }
+        if (ball.transform.position.x <= -0.2 && ball.transform.position.x >= -0.6)
+        {
+            aiController.currentPoleIndexAI = 1;
+        }
+        if (ball.transform.position.x <= 0.2 && ball.transform.position.x >= -0.2)
+        {
+            aiController.currentPoleIndexAI = 2;
+        }
+        if (ball.transform.position.x >= 0.2)
+        {
+            aiController.currentPoleIndexAI = 3;
+        }
+    }
+
+    #region Damage to poles
+
+    public PoleHealth PoleHealth;
+
+    public LastPlayerHit LastPlayerHit;
+
+    void DealDamage(GameObject other)
+    {
+        switch (LastPlayerHit)
+        {
+            case LastPlayerHit.Default:
+                break;
+            case LastPlayerHit.Player:
+                if (other.CompareTag("AIMain"))
+                {
+                    PoleHealth.AIHealthMain -= GetComponent<Rigidbody>().velocity.magnitude;
+                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+                }
+                else if (other.CompareTag("AICrew1"))
+                {
+                    PoleHealth.AIHealthCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+                }
+                else if (other.CompareTag("AICrew2"))
+                {
+                    PoleHealth.AIHealthCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+                }
+                else if (other.CompareTag("AICrew3"))
+                {
+                    PoleHealth.AIHealthCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+                }
+                break;
+            case LastPlayerHit.AI:
+                if (other.CompareTag("PlayerMain"))
+                {
+                    PoleHealth.PlayerHealthMain -= GetComponent<Rigidbody>().velocity.magnitude;
+                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+                }
+                else if (other.CompareTag("PlayerCrew1"))
+                {
+                    PoleHealth.PlayerHealthCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+                }
+                else if (other.CompareTag("PlayerCrew2"))
+                {
+                    PoleHealth.PlayerHealthCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+                }
+                else if (other.CompareTag("PlayerCrew3"))
+                {
+                    PoleHealth.PlayerHealthCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+                }
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        DealDamage(collision.gameObject);
+        if (collision.gameObject.CompareTag("PlayerMain") || collision.gameObject.CompareTag("PlayerCrew1") || collision.gameObject.CompareTag("PlayerCrew2") || collision.gameObject.CompareTag("PlayerCrew3"))
+            LastPlayerHit = LastPlayerHit.Player;
+        else if (collision.gameObject.CompareTag("AIMain") || collision.gameObject.CompareTag("AICrew1") || collision.gameObject.CompareTag("AICrew2") || collision.gameObject.CompareTag("AICrew3"))
+            LastPlayerHit = LastPlayerHit.AI;
+    }
+
+    #endregion
 }

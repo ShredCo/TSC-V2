@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 53405363}
   m_Layer: 8
   m_Name: CrewPole2
-  m_TagString: Poles
+  m_TagString: AICrew2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6526,27 +6526,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4d08fc886be15498da6722faec2887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerHealthMain: 0
   HealthBarPlayerMain: {fileID: 318756198}
   TextCurrentHealthPlayerMain: {fileID: 1441763295}
   TextMaxHealthPlayerMain: {fileID: 1337044268}
+  PlayerHealthCrew1: 0
   HealthBarPlayerCrew1: {fileID: 891685375}
   TextCurrentHealthPlayerCrew1: {fileID: 1441763295}
   TextMaxHealthPlayerCrew1: {fileID: 1337044268}
+  PlayerHealthCrew2: 0
   HealthBarPlayerCrew2: {fileID: 2145490610}
   TextCurrentHealthPlayerCrew2: {fileID: 1320393509}
   TextMaxHealthPlayerCrew2: {fileID: 614525183}
+  PlayerHealthCrew3: 0
   HealthBarPlayerCrew3: {fileID: 1761507572}
   TextCurrentHealthPlayerCrew3: {fileID: 1068398497}
   TextMaxHealthPlayerCrew3: {fileID: 1542981717}
+  AIHealthMain: 0
   HealthBarAIMain: {fileID: 451264375}
   TextCurrentHealthAIMain: {fileID: 791404493}
   TextMaxHealthAIMain: {fileID: 884231448}
+  AIHealthCrew1: 0
   HealthBarAICrew1: {fileID: 1926485595}
   TextCurrentHealthAICrew1: {fileID: 1673837731}
   TextMaxHealthAICrew1: {fileID: 235186130}
+  AIHealthCrew2: 0
   HealthBarAICrew2: {fileID: 890776842}
   TextCurrentHealthAICrew2: {fileID: 1459465042}
   TextMaxHealthAICrew2: {fileID: 1195249438}
+  AIHealthCrew3: 0
   HealthBarAICrew3: {fileID: 440349848}
   TextCurrentHealthAICrew3: {fileID: 280607931}
   TextMaxHealthAICrew3: {fileID: 1320989457}
@@ -10562,7 +10570,7 @@ GameObject:
   - component: {fileID: 631305328}
   m_Layer: 8
   m_Name: MainPole
-  m_TagString: Poles
+  m_TagString: AIMain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10834,7 +10842,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
+  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16853,7 +16861,7 @@ GameObject:
   - component: {fileID: 1087741151}
   m_Layer: 8
   m_Name: CrewPole1
-  m_TagString: Poles
+  m_TagString: AICrew1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19236,6 +19244,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 1222df06735cc6d45b71a2b3ab3128f3, type: 3}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: PoleHealth
+      value: 
+      objectReference: {fileID: 437777368}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1001867388}
@@ -20776,7 +20788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 37.199997}
+  m_AnchoredPosition: {x: 0, y: 37.19995}
   m_SizeDelta: {x: 820, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420465357
@@ -24188,7 +24200,7 @@ GameObject:
   - component: {fileID: 1596763137}
   m_Layer: 8
   m_Name: CrewPole3
-  m_TagString: Poles
+  m_TagString: AICrew3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27818,7 +27830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -37.2}
+  m_AnchoredPosition: {x: 0, y: -37.19995}
   m_SizeDelta: {x: 820, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817251005
@@ -28177,7 +28189,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1213872, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -28193,7 +28205,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
+  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36507,7 +36519,7 @@ GameObject:
   - component: {fileID: 3404912865387980111}
   m_Layer: 0
   m_Name: MainPole
-  m_TagString: Poles
+  m_TagString: PlayerMain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36680,7 +36692,7 @@ GameObject:
   - component: {fileID: 3748424725517748101}
   m_Layer: 0
   m_Name: CrewPole1
-  m_TagString: Poles
+  m_TagString: PlayerCrew1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36720,7 +36732,7 @@ GameObject:
   - component: {fileID: 6117699324203261312}
   m_Layer: 0
   m_Name: CrewPole3
-  m_TagString: Poles
+  m_TagString: PlayerCrew3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36741,7 +36753,7 @@ GameObject:
   - component: {fileID: 3696297413138101627}
   m_Layer: 0
   m_Name: CrewPole2
-  m_TagString: Poles
+  m_TagString: PlayerCrew2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
