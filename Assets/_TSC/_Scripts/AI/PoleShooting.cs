@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public enum AIState
 {
     OutOfRange,
-    InFrontRange,
+    InCircleRange,
     InBackRange,
     Loading,
     Shooting,
@@ -36,91 +37,101 @@ public class PoleShooting : MonoBehaviour
 
     #region New AI version
 
-    private float speed = 1f;
+    public float speed = 1500f;
     public GameObject BallPosition;
-
+    public Rigidbody rb;
     #endregion
+    
+    
 
-
-    IEnumerator Shoot()
-    {
-        AIState = AIState.Shooting;
-        if (AIState == AIState.Shooting)
-        {
-            switch (ShootingState)
-            {
-                case ShootingState.Load:
-                    // loads shot
-                    transform.rotation = Quaternion.Lerp(transform.rotation, loadingAngle, loadingSpeed);
-                    yield return new WaitForSeconds(0.5f);
-                    ShootingState = ShootingState.Shot;
-                    break;
-                case ShootingState.Shot:
-                    // shoots shot
-                    transform.rotation = Quaternion.Lerp(transform.rotation, shotAngle, shotSpeed);
-                    yield return new WaitForSeconds(1.5f);
-                    ShootingState = ShootingState.Reset;
-                    break;
-                case ShootingState.Reset:
-                    // Sets default values
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
-                    AIState = AIState.OutOfRange;
-                    yield return new WaitForSeconds(1.5f);
-                    ShootingState = ShootingState.Default;
-                    break;
-            }
-        }
-    }
+   //IEnumerator Shoot()
+   //{
+   //    AIState = AIState.Shooting;
+   //    if (AIState == AIState.Shooting)
+   //    {
+   //        switch (ShootingState)
+   //        {
+   //            case ShootingState.Load:
+   //                // loads shot
+   //                transform.rotation = Quaternion.Lerp(transform.rotation, loadingAngle, loadingSpeed);
+   //                yield return new WaitForSeconds(0.5f);
+   //                ShootingState = ShootingState.Shot;
+   //                break;
+   //            case ShootingState.Shot:
+   //                // shoots shot
+   //                transform.rotation = Quaternion.Lerp(transform.rotation, shotAngle, shotSpeed);
+   //                yield return new WaitForSeconds(1.5f);
+   //                ShootingState = ShootingState.Reset;
+   //                break;
+   //            case ShootingState.Reset:
+   //                // Sets default values
+   //                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 5 * Time.deltaTime);
+   //                AIState = AIState.OutOfRange;
+   //                yield return new WaitForSeconds(1.5f);
+   //                ShootingState = ShootingState.Default;
+   //                break;
+   //        }
+   //    }
+   //}
 
     public float RotationLeft = 360;
-    float rotationspeed = 1600;
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float rotationValue = 0.5f;
 
-    IEnumerator Backflip()
+   //IEnumerator Backflip()
+   //{
+   //    if (AIState == AIState.Backflip)
+   //    {
+   //        float rotation = rotationspeed * Time.deltaTime;
+   //        if (RotationLeft > rotation)
+   //        {
+   //            RotationLeft -= rotation;
+   //        }
+   //        else
+   //        {
+   //            rotation = RotationLeft;
+   //            RotationLeft = 0;
+   //        }
+
+   //        transform.Rotate(0, 0, rotation);
+   //        yield return new WaitForSeconds(1f);
+   //        AIState = AIState.OutOfRange;
+   //        yield return null;
+   //    }
+   //}
+
+
+   private void Awake()
+   {
+       rb = GetComponent<Rigidbody>();
+   }
+
+   private void FixedUpdate()
     {
-        if (AIState == AIState.Backflip)
-        {
-            float rotation = rotationspeed * Time.deltaTime;
-            if (RotationLeft > rotation)
-            {
-                RotationLeft -= rotation;
-            }
-            else
-            {
-                rotation = RotationLeft;
-                RotationLeft = 0;
-            }
-
-            transform.Rotate(0, 0, rotation);
-            yield return new WaitForSeconds(1f);
-            AIState = AIState.OutOfRange;
-            yield return null;
-        }
-    }
-
-
-    private void FixedUpdate()
-    {
-        //switch (AIState)
-        //{
-        //    case AIState.OutOfRange:
-        //        break;
-        //    case AIState.InFrontRange:
-        //        break;
-        //    case AIState.InBackRange:
-        //        break;
-        //    case AIState.Loading:
-        //        break;
-        //    case AIState.Shooting:
-        //        StartCoroutine(Shoot());
-        //        break;
-        //    case AIState.Backflip:
-        //        StartCoroutine(Backflip());
-        //        break;
-        //}
+       //switch (AIState)
+       //{
+       //    case AIState.OutOfRange:
+       //        break;
+       //    case AIState.InCircleRange:
+       //        break;
+       //    case AIState.InBackRange:
+       //        break;
+       //    case AIState.Loading:
+       //        break;
+       //    case AIState.Shooting:
+       //        LookCoroutine = StartCoroutine(LookAt());
+       //        break;
+       //    case AIState.Backflip:
+       //        //StartCoroutine(Backflip());
+       //        break;
+       //}
 
 
         // new AI Version
-        LookCoroutine = StartCoroutine(LookAt());
+        // x as rotation, y as movement
+        
+        
     }
 
 
@@ -134,33 +145,30 @@ public class PoleShooting : MonoBehaviour
         {
             StopCoroutine(LookCoroutine);
         }
-
         LookCoroutine = StartCoroutine(LookAt());
     }
 
     private IEnumerator LookAt()
     {
-        //Quaternion lookRotation = Quaternion.LookRotation(BallPosition.position - transform.position);
-        //Vector3 targetDirection = BallPosition.position - transform.position;
-
-        float time = 0;
-        while (time < 1)
-        {
-            Vector3 targetPosition = new Vector3(BallPosition.transform.position.x,
-                BallPosition.transform.position.y,
-                transform.position.z);
-
-            transform.LookAt(targetPosition);
-
-
-
-
-
-
-
-            yield return null;
-
-        }
-        #endregion
+        var newRotation = Quaternion.LookRotation(transform.position - BallPosition.transform.position, Vector3.back);
+        newRotation.x = 0.0f;
+        newRotation.y = 0.0f;
+        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, speed * Time.deltaTime);
+        yield return new WaitForSeconds(1.5f);
     }
+    
+    public void MoveAndRotate(Vector2 movement)
+    {
+        // rotation
+        Quaternion poleRotation = new Quaternion();
+        poleRotation.eulerAngles = new Vector3(0f, 0f, -movement.x);
+        poleRotation.eulerAngles += transform.rotation.eulerAngles;
+        rb.MoveRotation(poleRotation);
+    }
+    
+    public void MoveMainPole()
+    {
+        
+    }
+    #endregion
 }

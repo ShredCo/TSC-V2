@@ -22,7 +22,7 @@ public class BackTriggerboxAI : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.InFrontRange)
+        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.InCircleRange)
         {
             poleShooting.AIState = AIState.InBackRange;
             timeCounter += 1 * Time.deltaTime;
