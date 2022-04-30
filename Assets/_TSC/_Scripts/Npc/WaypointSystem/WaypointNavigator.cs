@@ -22,6 +22,13 @@ public class WaypointNavigator : MonoBehaviour
     private bool shouldNavigate;
     private float Threshold => Time.fixedDeltaTime * speed;
 
+    UserInterfaceOverworld userInterfaceOverworld;
+
+    private void Awake()
+    {
+        userInterfaceOverworld = FindObjectOfType<UserInterfaceOverworld>();
+    }
+
     public void StartAt(Waypoint startWaypoint)
     {
         waypoint = startWaypoint;
@@ -31,8 +38,9 @@ public class WaypointNavigator : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!dialogueTrigger.IsWalking)
+        if (!dialogueTrigger.IsWalking && !userInterfaceOverworld.CanvasDialoge.activeSelf)
         {
+            GetComponent<Animator>().SetBool("IsWalking", true);
             if (!shouldNavigate ||HasReachedEnd())
             {
                 shouldNavigate = false;
@@ -46,6 +54,10 @@ public class WaypointNavigator : MonoBehaviour
             {
                 waypoint = waypoint.nextWaypoint;
             }
+        }
+        else
+        {
+            
         }
     }
 

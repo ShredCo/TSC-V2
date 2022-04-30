@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public enum NpcType
 {
     Neutral,
     Agressive,
     Workshop
+}
+
+public enum TalkState
+{
+    TalkWithX,
+    SelfTrigger
 }
 
 public class DialogueTrigger : MonoBehaviour
@@ -37,7 +42,8 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public Dialogue AfterMatchDialogue;
     public Dialogue LostDialogue;
-    
+
+    public TalkState TalkState;
     public NpcType NpcType;
     public MapType MapType;
 
@@ -55,18 +61,47 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
-            if (NpcType == NpcType.Agressive && IsTalking == false && IsWalking == true)
+            switch (TalkState)
             {
-                if (distanceToPlayer > 1f)
-                {
-                    WalkTowardsPlayer(other.transform.position);
-                }
-                else
-                {
-                    TriggerDialogue();
-                    //x_Text.SetActive(false);
-                }
+                case TalkState.TalkWithX:
+                    x_Text.SetActive(true);
+                    // Interact with a NPC
+                    var gamepad = Gamepad.current;
+                    if (gamepad.buttonSouth.wasPressedThisFrame && IsTalking == false)
+                    {
+                        GetComponent<Animator>().SetBool("IsWalking", false);
+                        RotatePlayerTowardsNPC();
+                        RotateNPCTowardsPlayer(other.transform.position);
+                        TriggerDialogue();
+                        x_Text.SetActive(false);
+                    
+                        // pause the game
+                        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+                        GameState newGameState = currentGameState == GameState.Gameplay
+                            ? GameState.Paused
+                            : GameState.Gameplay;
+                    
+                        GameStateManager.Instance.SetState(newGameState);
+                    }
+                    break;
+                case TalkState.SelfTrigger:
+                    if (NpcType == NpcType.Agressive && IsTalking == false && IsWalking == true)
+                    {
+                        if (distanceToPlayer > 1f)
+                        {
+                            WalkTowardsPlayer(other.transform.position);
+                            RotatePlayerTowardsNPC();
+                        }
+                        else
+                        {
+                            GetComponent<Animator>().SetBool("IsWalking", false);
+                            TriggerDialogue();
+                            //x_Text.SetActive(false);
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -78,37 +113,28 @@ public class DialogueTrigger : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, playerPosition, 0.01f);
     }
 
+    public void RotateNPCTowardsPlayer(Vector3 playerPosition)
+    {
+        Vector3 direction = playerPosition - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = rotation;
+    }
+
+    void RotatePlayerTowardsNPC()
+    {
+        Vector3 direction =  transform.position - player.transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.1f);
+    }
+
     private void Update()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
     }
 
-    // OLD INTERACTING WITH NPC
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        // Interact with a NPC
-    //        var gamepad = Gamepad.current;
-    //        if (gamepad.buttonSouth.wasPressedThisFrame && IsTalking == false)
-    //        {
-    //            TriggerDialogue();
-    //            x_Text.SetActive(false);
-    //
-    //            // pause the game
-    //            GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-    //            GameState newGameState = currentGameState == GameState.Gameplay
-    //                ? GameState.Paused
-    //                : GameState.Gameplay;
-    //
-    //            GameStateManager.Instance.SetState(newGameState);
-    //        }
-    //    }
-    //}
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && NpcType == NpcType.Agressive)
+        if (other.CompareTag("Player") && NpcType == NpcType.Agressive && TalkState == TalkState.SelfTrigger)
         {
             // pause game
             GameState currentGameState = GameStateManager.Instance.CurrentGameState;
