@@ -19,10 +19,17 @@ public class DialogueTrigger : MonoBehaviour
     public NPCInventorySO NPCInventory;
     public InventoryObject PlayerInventory;
 
+    public WaypointNavigator WaypointNavigator;
+    GameObject player;
+
+    Rigidbody rigidbody;
+
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
+        rigidbody = GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     [SerializeField] public GameObject x_Text;
@@ -38,35 +45,80 @@ public class DialogueTrigger : MonoBehaviour
     public DefaultCardObject DefaultCardReward;
 
     public DialogueState dialogueState;
-    public bool IsTalking;
+    public bool IsTalking = false;
+    public bool IsWalking = false;
     public bool DidLoose = false;
+
+    private float distanceToPlayer;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Interact with a NPC
-            var gamepad = Gamepad.current;
-            if (gamepad.buttonSouth.wasPressedThisFrame && IsTalking == false)
+
+            if (NpcType == NpcType.Agressive && IsTalking == false && IsWalking == true)
             {
-                TriggerDialogue();
-                x_Text.SetActive(false);
-                
-                // pause the game
-                GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-                GameState newGameState = currentGameState == GameState.Gameplay
-                    ? GameState.Paused
-                    : GameState.Gameplay;
-            
-                GameStateManager.Instance.SetState(newGameState);
+                if (distanceToPlayer > 1f)
+                {
+                    WalkTowardsPlayer(other.transform.position);
+                }
+                else
+                {
+                    TriggerDialogue();
+                    //x_Text.SetActive(false);
+                }
             }
         }
     }
+    public void WalkTowardsPlayer(Vector3 playerPosition)
+    {
+        Vector3 direction = playerPosition - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = rotation;
+        transform.position = Vector3.Lerp(transform.position, playerPosition, 0.01f);
+    }
+
+    private void Update()
+    {
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+    }
+
+    // OLD INTERACTING WITH NPC
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        // Interact with a NPC
+    //        var gamepad = Gamepad.current;
+    //        if (gamepad.buttonSouth.wasPressedThisFrame && IsTalking == false)
+    //        {
+    //            TriggerDialogue();
+    //            x_Text.SetActive(false);
+    //
+    //            // pause the game
+    //            GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+    //            GameState newGameState = currentGameState == GameState.Gameplay
+    //                ? GameState.Paused
+    //                : GameState.Gameplay;
+    //
+    //            GameStateManager.Instance.SetState(newGameState);
+    //        }
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && NpcType == NpcType.Agressive)
         {
-            x_Text.SetActive(true);
+            // pause game
+            GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+            GameState newGameState = currentGameState == GameState.Gameplay
+                ? GameState.Paused
+                : GameState.Gameplay;
+            GameStateManager.Instance.SetState(newGameState);
+
+            IsWalking = true;
+            //x_Text.SetActive(true);
         }
     }
 
@@ -80,6 +132,7 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void TriggerDialogue()
     {
+        IsTalking = true;
         LineUpController.NPCPosition = transform.position;
         LineUpController.NPCName = name;
         if (NPCInventory != null)
@@ -87,7 +140,6 @@ public class DialogueTrigger : MonoBehaviour
             NPCInventory.SetNPCLineUp();
             PlayerInventory.SavePlayerLineUp();
         }
-        IsTalking = true;
         if (DidLoose == true)
         {
             FindObjectOfType<DialogueManager>().StartDialogue(LostDialogue);

@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 4516542277175511490}
   - component: {fileID: 6719310729231487366}
   - component: {fileID: 2159669002811400026}
+  - component: {fileID: 4510523676928216398}
   m_Layer: 0
   m_Name: Character_English_Captain_01
   m_TagString: Untagged
@@ -787,7 +788,7 @@ SphereCollider:
   m_GameObject: {fileID: 111782}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 2.2
   m_Center: {x: 0, y: 0, z: 0}
@@ -803,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f8fabb377891e4793703cf54d14594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCInventory: {fileID: 6719310729231487366}
+  NPCInventory: {fileID: 0}
   PlayerInventory: {fileID: 11400000, guid: 93450d04aa3e9bc418a87be9fa407fca, type: 2}
   x_Text: {fileID: 1002813276}
   dialogue:
@@ -811,9 +812,20 @@ MonoBehaviour:
     sentences:
     - This man is really lost.
     - He makes me rich without realising it.
+  AfterMatchDialogue:
+    name: 
+    sentences: []
+  LostDialogue:
+    name: 
+    sentences: []
   NpcType: 0
+  MapType: 0
+  MoneyReward: 0
+  DefaultCardReward: {fileID: 0}
   dialogueState: 0
   IsTalking: 0
+  IsWalking: 0
+  DidLoose: 0
 --- !u!136 &3592509115747274343
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -854,6 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd43dfce14c2444788c4515cb4b9ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 2022661700}
   speed: 1
   rigidbody: {fileID: 2022661699}
 --- !u!114 &6719310729231487366
@@ -890,6 +903,19 @@ MonoBehaviour:
   componentsToSave:
   - {fileID: 411188}
   - {fileID: 2022661700}
+--- !u!65 &4510523676928216398
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.42664093, y: 0.481318, z: 4.022698}
+  m_Center: {x: 0, y: 1.5, z: 2}
 --- !u!1 &111866
 GameObject:
   m_ObjectHideFlags: 0

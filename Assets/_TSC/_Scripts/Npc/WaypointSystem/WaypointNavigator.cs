@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaypointNavigator : MonoBehaviour
 {
+    public DialogueTrigger dialogueTrigger;
+
     //made with Boundfox Studios Tutorial
     private class Predictedmovement 
     {
@@ -29,21 +31,24 @@ public class WaypointNavigator : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!shouldNavigate ||HasReachedEnd())
+        if (!dialogueTrigger.IsWalking)
         {
-            shouldNavigate = false;
-            return;
-        }
-        var predictedMovement = PredictMove(waypoint.nextWaypoint, Time.deltaTime);
-        rigidbody.MovePosition(predictedMovement.position);
-        rigidbody.MoveRotation(predictedMovement.LookRotation);
+            if (!shouldNavigate ||HasReachedEnd())
+            {
+                shouldNavigate = false;
+                return;
+            }
+            var predictedMovement = PredictMove(waypoint.nextWaypoint, Time.deltaTime);
+            rigidbody.MovePosition(predictedMovement.position);
+            rigidbody.MoveRotation(predictedMovement.LookRotation);
 
-        if (HasReachedWaypoint(waypoint.nextWaypoint, rigidbody.position))
-        {
-            waypoint = waypoint.nextWaypoint;
-
+            if (HasReachedWaypoint(waypoint.nextWaypoint, rigidbody.position))
+            {
+                waypoint = waypoint.nextWaypoint;
+            }
         }
     }
+
     private Predictedmovement PredictMove(Waypoint waypointPos, float time) 
     {
         var finalPosition = rigidbody.position;
