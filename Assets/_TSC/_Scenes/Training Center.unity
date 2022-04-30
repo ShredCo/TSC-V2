@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 50991780}
   - component: {fileID: 50991782}
   - component: {fileID: 50991781}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 53405359}
   - component: {fileID: 53405358}
   - component: {fileID: 53405363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrewPole2
   m_TagString: Poles
   m_Icon: {fileID: 0}
@@ -828,7 +828,10 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
-  Pole: 0
+  smoothSpeed: 0.5
+  PoleTransform: {fileID: 53405357}
+  sense: {fileID: 1766185139}
+  Pole: 2
   Ability: {fileID: 0}
 --- !u!114 &53405359
 MonoBehaviour:
@@ -1114,7 +1117,7 @@ GameObject:
   - component: {fileID: 71423551}
   - component: {fileID: 71423550}
   - component: {fileID: 71423549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos7
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -3798,7 +3801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 293654527}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4354,7 +4357,7 @@ GameObject:
   - component: {fileID: 329394681}
   - component: {fileID: 329394680}
   - component: {fileID: 329394679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos3
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -4552,7 +4555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332891979}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4787,7 +4790,7 @@ GameObject:
   - component: {fileID: 372495791}
   - component: {fileID: 372495793}
   - component: {fileID: 372495792}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6746,7 +6749,7 @@ GameObject:
   - component: {fileID: 442623275}
   - component: {fileID: 442623274}
   - component: {fileID: 442623273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos4
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -9033,7 +9036,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 561967562}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10557,7 +10560,7 @@ GameObject:
   - component: {fileID: 631305324}
   - component: {fileID: 631305323}
   - component: {fileID: 631305328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MainPole
   m_TagString: Poles
   m_Icon: {fileID: 0}
@@ -10596,6 +10599,9 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
+  smoothSpeed: 0.5
+  PoleTransform: {fileID: 631305322}
+  sense: {fileID: 1766185139}
   Pole: 0
   Ability: {fileID: 0}
 --- !u!114 &631305324
@@ -10683,7 +10689,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631305321}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db8bc5b7a6abab24aa9ab41b7e0ec303, type: 3}
   m_Name: 
@@ -10828,7 +10834,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
+  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11021,7 +11027,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 694400822}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11054,7 +11060,7 @@ GameObject:
   - component: {fileID: 698256523}
   - component: {fileID: 698256525}
   - component: {fileID: 698256524}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12230,7 +12236,7 @@ GameObject:
   - component: {fileID: 778915227}
   - component: {fileID: 778915226}
   - component: {fileID: 778915225}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos8
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -12526,7 +12532,7 @@ GameObject:
   - component: {fileID: 793019810}
   - component: {fileID: 793019812}
   - component: {fileID: 793019811}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12782,7 +12788,7 @@ GameObject:
   - component: {fileID: 813096769}
   - component: {fileID: 813096768}
   - component: {fileID: 813096767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos9
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -13965,7 +13971,7 @@ GameObject:
   - component: {fileID: 892774342}
   - component: {fileID: 892774341}
   - component: {fileID: 892774340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos1
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -15269,7 +15275,7 @@ GameObject:
   - component: {fileID: 990168997}
   - component: {fileID: 990168999}
   - component: {fileID: 990168998}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15373,7 +15379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 999710619}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15407,7 +15413,7 @@ GameObject:
   - component: {fileID: 1001695008}
   - component: {fileID: 1001695007}
   - component: {fileID: 1001695006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos5
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -16350,7 +16356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1066973109}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16845,7 +16851,7 @@ GameObject:
   - component: {fileID: 1087741147}
   - component: {fileID: 1087741146}
   - component: {fileID: 1087741151}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrewPole1
   m_TagString: Poles
   m_Icon: {fileID: 0}
@@ -16885,7 +16891,10 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
-  Pole: 0
+  smoothSpeed: 0.5
+  PoleTransform: {fileID: 1087741145}
+  sense: {fileID: 1766185139}
+  Pole: 1
   Ability: {fileID: 0}
 --- !u!114 &1087741147
 MonoBehaviour:
@@ -17638,7 +17647,7 @@ GameObject:
   - component: {fileID: 1156430206}
   - component: {fileID: 1156430208}
   - component: {fileID: 1156430207}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20095,7 +20104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339723847}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22770,7 +22779,7 @@ GameObject:
   - component: {fileID: 1503645763}
   - component: {fileID: 1503645762}
   - component: {fileID: 1503645761}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos2
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -24177,7 +24186,7 @@ GameObject:
   - component: {fileID: 1596763133}
   - component: {fileID: 1596763132}
   - component: {fileID: 1596763137}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrewPole3
   m_TagString: Poles
   m_Icon: {fileID: 0}
@@ -24218,7 +24227,10 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
-  Pole: 0
+  smoothSpeed: 0.5
+  PoleTransform: {fileID: 1596763131}
+  sense: {fileID: 1766185139}
+  Pole: 3
   Ability: {fileID: 0}
 --- !u!114 &1596763133
 MonoBehaviour:
@@ -25062,7 +25074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1666579044}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25095,7 +25107,7 @@ GameObject:
   - component: {fileID: 1668367839}
   - component: {fileID: 1668367841}
   - component: {fileID: 1668367840}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27716,7 +27728,7 @@ GameObject:
   - component: {fileID: 1816379396}
   - component: {fileID: 1816379398}
   - component: {fileID: 1816379397}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28069,7 +28081,7 @@ GameObject:
   - component: {fileID: 1841616794}
   - component: {fileID: 1841616796}
   - component: {fileID: 1841616795}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28165,7 +28177,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8805395, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -28181,7 +28193,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
+  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28673,7 +28685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1873088160}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28707,7 +28719,7 @@ GameObject:
   - component: {fileID: 1883878624}
   - component: {fileID: 1883878623}
   - component: {fileID: 1883878622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos11
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -31945,7 +31957,7 @@ GameObject:
   - component: {fileID: 2016778071}
   - component: {fileID: 2016778073}
   - component: {fileID: 2016778072}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32753,7 +32765,7 @@ GameObject:
   - component: {fileID: 2103337908}
   - component: {fileID: 2103337907}
   - component: {fileID: 2103337906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos6
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -32900,7 +32912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2108213802}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32934,7 +32946,7 @@ GameObject:
   - component: {fileID: 2108386394}
   - component: {fileID: 2108386393}
   - component: {fileID: 2108386392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pos10
   m_TagString: SoccerPlayer
   m_Icon: {fileID: 0}
@@ -33315,7 +33327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2124492430}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33764,7 +33776,7 @@ GameObject:
   - component: {fileID: 2144314852}
   - component: {fileID: 2144314854}
   - component: {fileID: 2144314853}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AI_TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36318,6 +36330,9 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
+  smoothSpeed: 0.5
+  PoleTransform: {fileID: 0}
+  sense: {fileID: 0}
   Pole: 0
   Ability: {fileID: 0}
 --- !u!33 &3469287836986065028
@@ -38613,6 +38628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIState: 0
   ShootingState: 0
+  BallTransform: {fileID: 1110746730}
   steeringWheelPoleAI: {fileID: 451708527}
   polesAI:
   - {fileID: 631305323}
@@ -38622,6 +38638,7 @@ MonoBehaviour:
   movementInputValue: 0
   rotationInputValue: 0.3
   currentPoleIndexAI: 0
+  smoothSpeed: 0.5
 --- !u!64 &7525578558336090750
 MeshCollider:
   m_ObjectHideFlags: 0

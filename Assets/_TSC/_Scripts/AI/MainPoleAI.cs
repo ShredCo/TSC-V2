@@ -5,8 +5,7 @@ using UnityEngine;
 public class MainPoleAI : MonoBehaviour
 {
     [SerializeField] public Sense sense;
- 
-    public Transform BallTransform;
+    [SerializeField] private Transform BallTransform;
     
     public Rigidbody Rb;
 

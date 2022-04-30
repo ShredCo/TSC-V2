@@ -25,8 +25,10 @@ public class AIController : MonoBehaviour
     public AIState AIState;
     public ShootingState ShootingState;
     
+    [SerializeField] private Transform BallTransform;
     [SerializeField] private GameObject steeringWheelPoleAI;
     [SerializeField] public PolesAI[] polesAI;
+
     [SerializeField]
     [Range(-1f, 1f)]
     private float movementInputValue = 0f;
@@ -38,13 +40,26 @@ public class AIController : MonoBehaviour
     public int currentPoleIndexAI = 0;
     
     private Vector2 movementPoleInput;
+
+    // Movement stuff
+    private Transform newPolePositionPoleMain;
+    private Vector3 velocity = Vector3.zero;
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float smoothSpeed = 0.5f;
     
-    private void Update()
+    
+    private void Start()
     {
-        UpdateSteeringWheelPosition();
+
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        UpdateCurrentPoleAI();
+        UpdateSteeringWheelPosition();
+    }
+    
     void FixedUpdate()
     {
         switch (AIState)
@@ -58,32 +73,39 @@ public class AIController : MonoBehaviour
             case AIState.Loading:
                 break;
             case AIState.Shooting:
-                StartCoroutine(MoveAndRotatePoles());
+                //StartCoroutine(RotatePolesInput());
                 break;
             case AIState.Backflip:
                 break;
         }
+        
+        // movement goalkeeper
+        polesAI[0].MovementGoalkeeper(BallTransform);
+        polesAI[1].MovementCrewPole1(BallTransform);
+        polesAI[2].MovementCrewPole2(BallTransform);
+        polesAI[3].MovementCrewPole3(BallTransform);
     }
 
-    IEnumerator MoveAndRotatePoles()
+    IEnumerator RotatePolesInput()
     {
         movementPoleInput = new Vector2(rotationInputValue, movementInputValue);
         movementPoleInput.x *= PolesAI.Instance.rotationSpeed;
         //movementPoleInput.y *= PolesAI.Instance.moveSpeed;
         
-        polesAI[currentPoleIndexAI].MoveAndRotate(movementPoleInput * Time.deltaTime);
+        polesAI[currentPoleIndexAI].RotatePoles(movementPoleInput * Time.deltaTime);
         yield return new WaitForSeconds(1);
-        
     }
 
     
     IEnumerator FastShot()
     {
         polesAI[currentPoleIndexAI].lockedDownPressed = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         polesAI[currentPoleIndexAI].lockedDownPressed = false;
     }
     
+    
+    #region SteeringWheel + Current Pole Index Methods
     void UpdateSteeringWheelPosition()
     {
         // updates to show the current pole
@@ -92,5 +114,25 @@ public class AIController : MonoBehaviour
         offsetPositionArrow.y = 0f;
         steeringWheelPoleAI.transform.position = offsetPositionArrow;
     }
-    
+    void UpdateCurrentPoleAI()
+    {
+        // Simple methods to see where the ball is on the field and change AI currentPoleIndex based on position of ball
+        if (BallTransform.position.x <= -0.6)
+        {
+            currentPoleIndexAI = 0;
+        }
+        if (BallTransform.position.x <= -0.2 && BallTransform.position.x >= -0.6)
+        {
+            currentPoleIndexAI = 1;
+        }
+        if (BallTransform.position.x <= 0.2 && BallTransform.position.x >= -0.2)
+        {
+            currentPoleIndexAI = 2;
+        }
+        if (BallTransform.position.x >= 0.2)
+        {
+            currentPoleIndexAI = 3;
+        }
+    }
+    #endregion 
 }
