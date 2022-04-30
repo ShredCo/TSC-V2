@@ -784,6 +784,7 @@ GameObject:
   - component: {fileID: 53405360}
   - component: {fileID: 53405359}
   - component: {fileID: 53405358}
+  - component: {fileID: 53405363}
   m_Layer: 0
   m_Name: CrewPole2
   m_TagString: Poles
@@ -907,6 +908,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53405356}
   m_Mesh: {fileID: 3944073510091631902, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
+--- !u!114 &53405363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53405356}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a4cbe5940681947968e1d88aa5fd8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sense: {fileID: 1766185139}
+  BallTransform: {fileID: 1110746730}
+  PoleTransform: {fileID: 53405357}
+  Rb: {fileID: 53405360}
+  smoothSpeed: 0.5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &57888827
 GameObject:
   m_ObjectHideFlags: 0
@@ -10537,6 +10556,7 @@ GameObject:
   - component: {fileID: 631305325}
   - component: {fileID: 631305324}
   - component: {fileID: 631305323}
+  - component: {fileID: 631305328}
   m_Layer: 0
   m_Name: MainPole
   m_TagString: Poles
@@ -10656,6 +10676,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631305321}
   m_Mesh: {fileID: 3944073510091631902, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
+--- !u!114 &631305328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631305321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8bc5b7a6abab24aa9ab41b7e0ec303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sense: {fileID: 1766185139}
+  BallTransform: {fileID: 1110746730}
+  Rb: {fileID: 0}
+  smoothSpeed: 0.5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &642392847
 GameObject:
   m_ObjectHideFlags: 0
@@ -11343,7 +11380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sense: {fileID: 1766185139}
   BallTransform: {fileID: 1110746730}
-  Rb: {fileID: 716181479}
+  Rb: {fileID: 0}
   smoothSpeed: 0.5
   offset: {x: 0, y: 0, z: 0}
 --- !u!54 &716181479
@@ -11466,7 +11503,7 @@ Transform:
   - {fileID: 1799374349}
   - {fileID: 1448899356}
   m_Father: {fileID: 1727475516}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &733918416
 GameObject:
@@ -14902,7 +14939,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1727475516}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &948468808
 MonoBehaviour:
@@ -15770,7 +15807,7 @@ Transform:
   - {fileID: 700215835}
   - {fileID: 451708528}
   m_Father: {fileID: 1727475516}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012955394
 GameObject:
@@ -16807,6 +16844,7 @@ GameObject:
   - component: {fileID: 1087741148}
   - component: {fileID: 1087741147}
   - component: {fileID: 1087741146}
+  - component: {fileID: 1087741151}
   m_Layer: 0
   m_Name: CrewPole1
   m_TagString: Poles
@@ -16927,6 +16965,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087741144}
   m_Mesh: {fileID: 3944073510091631902, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
+--- !u!114 &1087741151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087741144}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9712fa6c645bf644b70c315053a0161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sense: {fileID: 1766185139}
+  BallTransform: {fileID: 1110746730}
+  PoleTransform: {fileID: 1087741145}
+  Rb: {fileID: 1087741148}
+  smoothSpeed: 0.5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1088958210
 GameObject:
   m_ObjectHideFlags: 0
@@ -24120,6 +24176,7 @@ GameObject:
   - component: {fileID: 1596763134}
   - component: {fileID: 1596763133}
   - component: {fileID: 1596763132}
+  - component: {fileID: 1596763137}
   m_Layer: 0
   m_Name: CrewPole3
   m_TagString: Poles
@@ -24241,6 +24298,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596763130}
   m_Mesh: {fileID: 3944073510091631902, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
+--- !u!114 &1596763137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596763130}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228e714a58aba0a4c988fabb109de5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sense: {fileID: 1766185139}
+  BallTransform: {fileID: 1110746730}
+  PoleTransform: {fileID: 1596763131}
+  Rb: {fileID: 1596763134}
+  smoothSpeed: 0.5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1597119578
 GameObject:
   m_ObjectHideFlags: 0
@@ -25863,10 +25938,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 948468807}
   - {fileID: 4402552114209116083}
   - {fileID: 1011046874}
   - {fileID: 729400863}
-  - {fileID: 948468807}
   - {fileID: 586366655}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -26682,22 +26757,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   closestPlayer: {fileID: 1979058432}
---- !u!114 &1766185147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766185138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f0d021373c6c6479dd6fbfc8ed7c75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerfieldPrefabRed: {fileID: 0}
-  powerfieldPrefabBlue: {fileID: 0}
-  powerfieldsCountRed: 0
-  powerfieldsCountBlue: 0
 --- !u!1 &1769805288
 GameObject:
   m_ObjectHideFlags: 0
@@ -28106,7 +28165,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1213872, y: 1}
+    m_SensorSize: {x: 1.8805395, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -38215,7 +38274,7 @@ Transform:
   - {fileID: 4220920339194416022}
   - {fileID: 4220920339673354961}
   m_Father: {fileID: 1727475516}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4798524380834749576
 Transform:
@@ -38554,17 +38613,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIState: 0
   ShootingState: 0
+  steeringWheelPoleAI: {fileID: 451708527}
   polesAI:
   - {fileID: 631305323}
   - {fileID: 1087741146}
   - {fileID: 53405358}
   - {fileID: 1596763132}
-  rotationSpeed: 1500
-  movementSpeed: 2
   movementInputValue: 0
-  rotationInputValue: 0.5
+  rotationInputValue: 0.3
   currentPoleIndexAI: 0
-  steeringWheelPoleAI: {fileID: 451708527}
 --- !u!64 &7525578558336090750
 MeshCollider:
   m_ObjectHideFlags: 0

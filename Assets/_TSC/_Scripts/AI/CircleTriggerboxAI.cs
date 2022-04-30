@@ -9,15 +9,13 @@ public class CircleTriggerboxAI : MonoBehaviour
     public AIController aiController;
 
     float timeCounter = 0f;
-    float timeToShoot = 0.25f;
+    float reactionTimeAI = 1f;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {
             timeCounter = 0;
-            aiController.AIState = AIState.Shooting;
-            Debug.Log("Shoooooooting");
         }
     }
   
@@ -25,7 +23,11 @@ public class CircleTriggerboxAI : MonoBehaviour
     {
        if(other.CompareTag("Ball"))
        {
-           
+           timeCounter += Time.deltaTime;
+           if (timeCounter <= reactionTimeAI)
+           {
+               aiController.AIState = AIState.Shooting;
+           }
        }
     }
     
@@ -36,7 +38,7 @@ public class CircleTriggerboxAI : MonoBehaviour
         {
             aiController.AIState = AIState.OutOfRange;
             aiController.ShootingState = ShootingState.Reset;
-            
+ 
         }
     }
 }

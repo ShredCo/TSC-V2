@@ -52,6 +52,7 @@ public class PolesAI : MonoBehaviour
     
     public void PoleLockedDown()
     {
+        Debug.Log("Fast shot activated");
         if (lockedDownPressed == true)
         {
             var step = speed * Time.deltaTime;

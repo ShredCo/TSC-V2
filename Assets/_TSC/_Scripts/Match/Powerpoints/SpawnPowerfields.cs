@@ -16,8 +16,8 @@ public class SpawnPowerfields : MonoBehaviour
             instance = this;
     }
 
-    public GameObject powerfieldPrefabRed;
-    public GameObject powerfieldPrefabBlue;
+    [SerializeField] private GameObject powerfieldPrefabRed;
+    [SerializeField] private GameObject powerfieldPrefabBlue;
 
     private float xPos;
     private float zPos;

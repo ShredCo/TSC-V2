@@ -13,7 +13,6 @@ public enum AIState
     Shooting,
     Backflip
 }
-
 public enum ShootingState
 {
     Default,
@@ -26,12 +25,8 @@ public class AIController : MonoBehaviour
     public AIState AIState;
     public ShootingState ShootingState;
     
-    [SerializeField] private PolesAI[] polesAI;
-    
-    private Vector2 movementPoleInput;
-    public float rotationSpeed = 1500f;
-    public float movementSpeed = 2f;
-    
+    [SerializeField] private GameObject steeringWheelPoleAI;
+    [SerializeField] public PolesAI[] polesAI;
     [SerializeField]
     [Range(-1f, 1f)]
     private float movementInputValue = 0f;
@@ -41,9 +36,9 @@ public class AIController : MonoBehaviour
     [SerializeField]
     [Range(0, 3)]
     public int currentPoleIndexAI = 0;
-
-    public GameObject steeringWheelPoleAI;
-
+    
+    private Vector2 movementPoleInput;
+    
     private void Update()
     {
         UpdateSteeringWheelPosition();
@@ -63,26 +58,32 @@ public class AIController : MonoBehaviour
             case AIState.Loading:
                 break;
             case AIState.Shooting:
-                Debug.Log("Shoooooooting");
                 StartCoroutine(MoveAndRotatePoles());
                 break;
             case AIState.Backflip:
-                //StartCoroutine(Backflip());
                 break;
         }
     }
 
     IEnumerator MoveAndRotatePoles()
     {
-        Debug.Log("Coroutine for shooting");
         movementPoleInput = new Vector2(rotationInputValue, movementInputValue);
-        movementPoleInput.x *= rotationSpeed;
-        movementPoleInput.y *= movementSpeed;
+        movementPoleInput.x *= PolesAI.Instance.rotationSpeed;
+        //movementPoleInput.y *= PolesAI.Instance.moveSpeed;
         
         polesAI[currentPoleIndexAI].MoveAndRotate(movementPoleInput * Time.deltaTime);
         yield return new WaitForSeconds(1);
+        
     }
 
+    
+    IEnumerator FastShot()
+    {
+        polesAI[currentPoleIndexAI].lockedDownPressed = true;
+        yield return new WaitForSeconds(0.5f);
+        polesAI[currentPoleIndexAI].lockedDownPressed = false;
+    }
+    
     void UpdateSteeringWheelPosition()
     {
         // updates to show the current pole
