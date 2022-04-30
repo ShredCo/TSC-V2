@@ -69,6 +69,7 @@ public class GameManagerOneVsOne : MonoBehaviour
             WinLoseText.text = "YOU WIN";
             LineUpController.DidWin = true;
             Time.timeScale = 1f;
+            FindObjectOfType<PoleHealth>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
         else if (ScorePlayer2 == 5)
@@ -76,6 +77,7 @@ public class GameManagerOneVsOne : MonoBehaviour
             WinLoseText.text = "YOU LOSE";
             LineUpController.DidWin = false;
             Time.timeScale = 1f;
+            FindObjectOfType<PoleHealth>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
     }

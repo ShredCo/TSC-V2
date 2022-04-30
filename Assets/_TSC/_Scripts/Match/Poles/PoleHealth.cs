@@ -111,6 +111,14 @@ public class PoleHealth : MonoBehaviour
         AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
     }
 
+    public void SavePoleHealth()
+    {
+        LineUpController.PlayerDefaultCardLineUP[0].Health = PlayerHealthMain;
+        LineUpController.PlayerDefaultCardLineUP[1].Health = PlayerHealthCrew1;
+        LineUpController.PlayerDefaultCardLineUP[2].Health = PlayerHealthCrew2;
+        LineUpController.PlayerDefaultCardLineUP[3].Health = PlayerHealthCrew3;
+    }
+
     #region Poles GameObjects
 
     void PoleChangeColor()
@@ -122,10 +130,10 @@ public class PoleHealth : MonoBehaviour
         PlayerPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (PlayerHealthCrew3 / playerMaxHealthCrew3));
 
         // AI
-        //AIPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (AIHealthMain / AIMaxHealthMain));
-        //AIPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew1 / AIMaxHealthCrew1));
-        //AIPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew2 / AIMaxHealthCrew2));
-        //AIPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (AIHealthCrew3 / AIMaxHealthCrew3));
+        AIPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.blue, (AIHealthMain / AIMaxHealthMain));
+        AIPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.blue, (AIHealthCrew1 / AIMaxHealthCrew1));
+        AIPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.blue, (AIHealthCrew2 / AIMaxHealthCrew2));
+        AIPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.blue, (AIHealthCrew3 / AIMaxHealthCrew3));
     }
 
     #endregion

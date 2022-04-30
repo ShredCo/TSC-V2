@@ -21,20 +21,19 @@ public class WorkshopLeveling : MonoBehaviour
     #region Upgrade functions
     public void UpgradeMainCard()
     {
-        // Get the card you want to upgrade with GetComponentInChildren
-        SelectedCard.DefaultCard = MainPoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
-        if (SelectedCard.DefaultCard.IsUpgradable) // check if the card can be upgraded
+        if (inventory.PlayerDefaultCardLineUp[0].IsUpgradable) // check if the card can be upgraded
         {
             if (inventory.wood >= UpgradeWoodCost && inventory.money >= UpgradeMoneyCost) // check if player has enough recources
             {
                 LineUpController.ActivePole = 0; // set the active pole, so that the line up knows where to put the upgraded card
                 foreach (ISlotDefaultCard card in inventory.DefaultCardContainer) // loop through the inventory to replace the card with the upgraded card
                 {
-                    if (SelectedCard.DefaultCard == card.DefaultCard)
+                    if (inventory.PlayerDefaultCardLineUp[0] == card.DefaultCard)
                     {
                         card.DefaultCard = card.DefaultCard.NextLevelCard;
                         inventory.AddDefaultCardtoLineUp(card.DefaultCard);
                         InventoryUI.Instance.UpdateLineUpCards();
+                        break;
                     }
                 }
                 inventory.wood -= UpgradeWoodCost;
@@ -60,19 +59,19 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void UpgradeCrew1Card()
     {
-        SelectedCard.DefaultCard = Crew1PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
-        if (SelectedCard.DefaultCard.IsUpgradable)
+        if (inventory.PlayerDefaultCardLineUp[1].IsUpgradable)
         {
             if (inventory.wood >= UpgradeWoodCost && inventory.money >= UpgradeMoneyCost)
             {
                 LineUpController.ActivePole = 1;
                 foreach (ISlotDefaultCard card in inventory.DefaultCardContainer)
                 {
-                    if (SelectedCard.DefaultCard == card.DefaultCard)
+                    if (inventory.PlayerDefaultCardLineUp[1] == card.DefaultCard)
                     {
                         card.DefaultCard = card.DefaultCard.NextLevelCard;
                         inventory.AddDefaultCardtoLineUp(card.DefaultCard);
                         InventoryUI.Instance.UpdateLineUpCards();
+                        break;
                     }
                 }
                 inventory.wood -= UpgradeWoodCost;
@@ -98,19 +97,19 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void UpgradeCrew2Card()
     {
-        SelectedCard.DefaultCard = Crew2PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
-        if (SelectedCard.DefaultCard.IsUpgradable)
+        if (inventory.PlayerDefaultCardLineUp[2].IsUpgradable)
         {
             if (inventory.wood >= UpgradeWoodCost && inventory.money >= UpgradeMoneyCost)
             {
                 LineUpController.ActivePole = 2;
                 foreach (ISlotDefaultCard card in inventory.DefaultCardContainer)
                 {
-                    if (SelectedCard.DefaultCard == card.DefaultCard)
+                    if (inventory.PlayerDefaultCardLineUp[2] == card.DefaultCard)
                     {
                         card.DefaultCard = card.DefaultCard.NextLevelCard;
                         inventory.AddDefaultCardtoLineUp(card.DefaultCard);
                         InventoryUI.Instance.UpdateLineUpCards();
+                        break;
                     }
                 }
                 inventory.wood -= UpgradeWoodCost;
@@ -136,19 +135,19 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void UpgradeCrew3Card()
     {
-        SelectedCard.DefaultCard = Crew3PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
-        if (SelectedCard.DefaultCard.IsUpgradable)
+        if (inventory.PlayerDefaultCardLineUp[3].IsUpgradable)
         {
             if (inventory.wood >= UpgradeWoodCost && inventory.money >= UpgradeMoneyCost)
             {
                 LineUpController.ActivePole = 3;
                 foreach (ISlotDefaultCard card in inventory.DefaultCardContainer)
                 {
-                    if (SelectedCard.DefaultCard == card.DefaultCard)
+                    if (inventory.PlayerDefaultCardLineUp[3] == card.DefaultCard)
                     {
                         card.DefaultCard = card.DefaultCard.NextLevelCard;
                         inventory.AddDefaultCardtoLineUp(card.DefaultCard);
                         InventoryUI.Instance.UpdateLineUpCards();
+                        break;
                     }
                 }
                 inventory.wood -= UpgradeWoodCost;
@@ -176,12 +175,11 @@ public class WorkshopLeveling : MonoBehaviour
     #region Repair functions
     public void RepairMainCard()
     {
-        SelectedCard.DefaultCard = MainPoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
-        if (SelectedCard.DefaultCard.Health < SelectedCard.DefaultCard.MaxHealth)
+        if (inventory.PlayerDefaultCardLineUp[0].Health < inventory.PlayerDefaultCardLineUp[0].MaxHealth)
         {
             if (inventory.wood >= RepairWoodCost)
             {
-                SelectedCard.DefaultCard.Health = SelectedCard.DefaultCard.MaxHealth;
+                inventory.PlayerDefaultCardLineUp[0].Health = inventory.PlayerDefaultCardLineUp[0].MaxHealth;
                 inventory.wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
@@ -198,12 +196,11 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void RepairCrew1Card()
     {
-        SelectedCard.DefaultCard = Crew1PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
-        if (SelectedCard.DefaultCard.Health < SelectedCard.DefaultCard.MaxHealth)
+        if (inventory.PlayerDefaultCardLineUp[1].Health < inventory.PlayerDefaultCardLineUp[1].MaxHealth)
         {
             if (inventory.wood >= RepairWoodCost)
             {
-                SelectedCard.DefaultCard.Health = SelectedCard.DefaultCard.MaxHealth;
+                inventory.PlayerDefaultCardLineUp[1].Health = inventory.PlayerDefaultCardLineUp[1].MaxHealth;
                 inventory.wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
@@ -220,12 +217,11 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void RepairCrew2Card()
     {
-        SelectedCard.DefaultCard = Crew2PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
-        if (SelectedCard.DefaultCard.Health < SelectedCard.DefaultCard.MaxHealth)
+        if (inventory.PlayerDefaultCardLineUp[2].Health < inventory.PlayerDefaultCardLineUp[2].MaxHealth)
         {
             if (inventory.wood >= RepairWoodCost)
             {
-                SelectedCard.DefaultCard.Health = SelectedCard.DefaultCard.MaxHealth;
+                inventory.PlayerDefaultCardLineUp[2].Health = inventory.PlayerDefaultCardLineUp[2].MaxHealth;
                 inventory.wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
@@ -242,12 +238,11 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void RepairCrew3Card()
     {
-        SelectedCard.DefaultCard = Crew3PoleCardObject.GetComponentInChildren<CardSlotUI>().DefaultCardSlot;
-        if (SelectedCard.DefaultCard.Health < SelectedCard.DefaultCard.MaxHealth)
+        if (inventory.PlayerDefaultCardLineUp[3].Health < inventory.PlayerDefaultCardLineUp[3].MaxHealth)
         {
             if (inventory.wood >= RepairWoodCost)
             {
-                SelectedCard.DefaultCard.Health = SelectedCard.DefaultCard.MaxHealth;
+                inventory.PlayerDefaultCardLineUp[3].Health = inventory.PlayerDefaultCardLineUp[3].MaxHealth;
                 inventory.wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
