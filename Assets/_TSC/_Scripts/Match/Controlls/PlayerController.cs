@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Ability
     public Ability ability;
 
-    private GameObject arrow;
+    private GameObject steeringWheelPole;
 
     public int currentPoleIndex;
 
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
     internal void ReceiveArrow(GameObject gO)
     {
-        arrow = gO;
+        steeringWheelPole = gO;
     }
 
 
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 offsetPositionArrow = polesPlayer[currentPoleIndex].transform.position;
                 offsetPositionArrow.z = 0f;
                 offsetPositionArrow.y = 0f;
-                arrow.transform.position = offsetPositionArrow;
+                steeringWheelPole.transform.position = offsetPositionArrow;
             }
     }
 
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
                 Vector3 offsetPosition = polesPlayer[currentPoleIndex].transform.position;
                 offsetPosition.z = 0f;
                 offsetPosition.y = 0f;
-                arrow.transform.position = offsetPosition;
+                steeringWheelPole.transform.position = offsetPosition;
             }
     }
 

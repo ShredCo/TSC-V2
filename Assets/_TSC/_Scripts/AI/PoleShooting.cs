@@ -1,23 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-public enum AIState
-{
-    OutOfRange,
-    InCircleRange,
-    InBackRange,
-    Loading,
-    Shooting,
-    Backflip
-}
 
-public enum ShootingState
-{
-    Default,
-    Load,
-    Shot,
-    Reset
-}
 
 public class PoleShooting : MonoBehaviour
 {
@@ -109,23 +93,23 @@ public class PoleShooting : MonoBehaviour
 
    private void FixedUpdate()
     {
-       //switch (AIState)
-       //{
-       //    case AIState.OutOfRange:
-       //        break;
-       //    case AIState.InCircleRange:
-       //        break;
-       //    case AIState.InBackRange:
-       //        break;
-       //    case AIState.Loading:
-       //        break;
-       //    case AIState.Shooting:
-       //        LookCoroutine = StartCoroutine(LookAt());
-       //        break;
-       //    case AIState.Backflip:
-       //        //StartCoroutine(Backflip());
-       //        break;
-       //}
+       switch (AIState)
+       {
+           case AIState.OutOfRange:
+               break;
+           case AIState.InCircleRange:
+               break;
+           case AIState.InBackRange:
+               break;
+           case AIState.Loading:
+               break;
+           case AIState.Shooting:
+               LookCoroutine = StartCoroutine(LookAt());
+               break;
+           case AIState.Backflip:
+               //StartCoroutine(Backflip());
+               break;
+       }
 
 
         // new AI Version

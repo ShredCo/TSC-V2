@@ -7,7 +7,8 @@ public class BallManager : MonoBehaviour
 {
     public static BallManager Instance;
     public GameObject ball;
-
+    public AIController aiController;
+    
     public bool ballInGame = false;
     private Vector3 startPos;
 
@@ -46,6 +47,8 @@ public class BallManager : MonoBehaviour
             // only for testing reason here. -> Can be deletet
             SpawnSoccerBall();
         }
+        
+        UpdateCurrentPoleAI();
     }
 
     public void SpawnSoccerBall()
@@ -72,5 +75,26 @@ public class BallManager : MonoBehaviour
         AudioSourceCheering3.Play();
         AudioSourceCheering4.Play();
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+    }
+
+    void UpdateCurrentPoleAI()
+    {
+        // Simple methods to see where the ball is on the field and change AI currentPoleIndex based on position of ball
+        if (ball.transform.position.x <= -0.6)
+        {
+            aiController.currentPoleIndexAI = 0;
+        }
+        if (ball.transform.position.x <= -0.2 && ball.transform.position.x >= -0.6)
+        {
+            aiController.currentPoleIndexAI = 1;
+        }
+        if (ball.transform.position.x <= 0.2 && ball.transform.position.x >= -0.2)
+        {
+            aiController.currentPoleIndexAI = 2;
+        }
+        if (ball.transform.position.x >= 0.2)
+        {
+            aiController.currentPoleIndexAI = 3;
+        }
     }
 }

@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &50991782
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 709125712}
+  aiController: {fileID: 0}
 --- !u!1 &106816307
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,7 +3363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 1137467385}
+  aiController: {fileID: 0}
 --- !u!1 &268999235
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,7 +4802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &372495793
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9699,7 +9699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 709125712}
+  aiController: {fileID: 0}
 --- !u!1 &602034844
 GameObject:
   m_ObjectHideFlags: 0
@@ -10791,7 +10791,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.0000000032595138, y: 0.971712, z: 0.23616922, w: 0.00000001341118}
+  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11051,7 +11051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &698256525
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11191,7 +11191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 709125712}
+  aiController: {fileID: 0}
 --- !u!114 &709125708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12523,7 +12523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &793019812
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14290,7 +14290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 857028774}
+  aiController: {fileID: 0}
 --- !u!114 &908269056 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8040446325147259098, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
@@ -15266,7 +15266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &990168999
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15925,7 +15925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 857028774}
+  aiController: {fileID: 0}
 --- !u!4 &1029527044
 Transform:
   m_ObjectHideFlags: 0
@@ -17616,7 +17616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &1156430208
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19174,6 +19174,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1001867388}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: aiController
+      value: 
+      objectReference: {fileID: 7523919988561840312}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: CountdownText
       value: 
@@ -25050,7 +25054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &1668367841
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25445,7 +25449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 857028774}
+  aiController: {fileID: 0}
 --- !u!1 &1692061548
 GameObject:
   m_ObjectHideFlags: 0
@@ -26208,7 +26212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 857028774}
+  aiController: {fileID: 0}
 --- !u!1 &1752853034
 GameObject:
   m_ObjectHideFlags: 0
@@ -26753,7 +26757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 857028774}
+  aiController: {fileID: 0}
 --- !u!1 &1771050486
 GameObject:
   m_ObjectHideFlags: 0
@@ -27558,7 +27562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 1137467385}
+  aiController: {fileID: 0}
 --- !u!4 &1811341336
 Transform:
   m_ObjectHideFlags: 0
@@ -27687,7 +27691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &1816379398
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28040,7 +28044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &1841616796
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28118,7 +28122,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.0000000032595138, y: 0.971712, z: 0.23616922, w: 0.00000001341118}
+  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31916,7 +31920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &2016778073
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32583,7 +32587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 0}
 --- !u!1 &2092863633
 GameObject:
   m_ObjectHideFlags: 0
@@ -33735,7 +33739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c974fe70e19400fbd1d24639051e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poleShooting: {fileID: 716181484}
+  aiController: {fileID: 7523919988561840312}
 --- !u!64 &2144314854
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36177,27 +36181,6 @@ Transform:
   m_Father: {fileID: 4220920337928121586}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
---- !u!114 &3247948030221081948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523919988561840311}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6038e80719aca0242a176f27ab0f4a26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 0}
-  currentPoleIndex: 0
-  characterVelocity: 750
-  ball: {fileID: 0}
-  SpawnPointAbility: {fileID: 609080877}
-  PoleMain: {fileID: 3404912865387980111}
-  PoleCrew1: {fileID: 3748424725517748101}
-  PoleCrew2: {fileID: 3696297413138101627}
-  PoleCrew3: {fileID: 6117699324203261312}
 --- !u!64 &3333653306973688115
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38549,7 +38532,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4055817025502164271}
-  - component: {fileID: 3247948030221081948}
   - component: {fileID: 7523919988561840312}
   m_Layer: 0
   m_Name: AI_Controlls_SoccerMatch
@@ -38570,6 +38552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84f2ce5bfb5443429eda89494628b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AIState: 0
+  ShootingState: 0
   polesAI:
   - {fileID: 631305323}
   - {fileID: 1087741146}
@@ -38578,8 +38562,9 @@ MonoBehaviour:
   rotationSpeed: 1500
   movementSpeed: 2
   movementInputValue: 0
-  rotationInputValue: 0
+  rotationInputValue: 0.5
   currentPoleIndexAI: 0
+  steeringWheelPoleAI: {fileID: 451708527}
 --- !u!64 &7525578558336090750
 MeshCollider:
   m_ObjectHideFlags: 0

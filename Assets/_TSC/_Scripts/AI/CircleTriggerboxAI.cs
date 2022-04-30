@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CircleTriggerboxAI : MonoBehaviour
 {
-    public PoleShooting poleShooting;
+    public AIController aiController;
 
     float timeCounter = 0f;
     float timeToShoot = 0.25f;
@@ -16,31 +16,26 @@ public class CircleTriggerboxAI : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             timeCounter = 0;
-            poleShooting.AIState = AIState.Shooting;
+            aiController.AIState = AIState.Shooting;
+            Debug.Log("Shoooooooting");
         }
     }
   
     private void OnTriggerStay(Collider other)
     {
-       //if(other.CompareTag("Ball") && poleShooting.AIState != AIState.InBackRange && poleShooting.AIState != AIState.Backflip)
-       //{
-       //    poleShooting.AIState = AIState.InCircleRange;
-       //    timeCounter += 1 * Time.deltaTime;
-       //    
-       //   if (timeCounter >= timeToShoot && poleShooting.AIState == AIState.InCircleRange)
-       //   {
-       //       poleShooting.AIState = AIState.Shooting;
-       //       poleShooting.ShootingState = ShootingState.Shot;
-       //   }
-       //}
+       if(other.CompareTag("Ball"))
+       {
+           
+       }
     }
+    
     private void OnTriggerExit(Collider other)
     {
         timeCounter = 0;
-        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
+        if (other.CompareTag("Ball"))
         {
-            poleShooting.AIState = AIState.OutOfRange;
-            poleShooting.ShootingState = ShootingState.Reset;
+            aiController.AIState = AIState.OutOfRange;
+            aiController.ShootingState = ShootingState.Reset;
             
         }
     }
