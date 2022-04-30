@@ -3,7 +3,14 @@ guid: fa42a52497d2f314299edcaeee564633
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Canvas_WorkshopUI: {instanceID: 0}
+  - firstSelected_MainPole: {instanceID: 0}
+  - SliderPoleHealthMain: {instanceID: 0}
+  - SliderPoleHealthCrew1: {instanceID: 0}
+  - SliderPoleHealthCrew2: {instanceID: 0}
+  - SliderPoleHealthCrew3: {instanceID: 0}
+  - Inventory: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
