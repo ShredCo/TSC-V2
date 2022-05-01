@@ -50,8 +50,8 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        UpdateCurrentPoleAI();
-        UpdateSteeringWheelPosition();
+        //UpdateCurrentPoleAI();
+        //UpdateSteeringWheelPosition();
     }
     
     void FixedUpdate()
@@ -61,7 +61,7 @@ public class AIController : MonoBehaviour
             case AIState.OutOfRange:
                 break;
             case AIState.InCircleRange:
-                RotatePolesInput();
+                //RotatePolesInput();
                 break;
             case AIState.InBackRange:
                 break;
@@ -73,6 +73,7 @@ public class AIController : MonoBehaviour
                 break;
         }
         
+        RotatePolesInput();
         // movement goalkeeper
         polesAI[0].MovementGoalkeeper(BallTransform);
         polesAI[1].MovementCrewPole1(BallTransform);
@@ -84,11 +85,11 @@ public class AIController : MonoBehaviour
     {
         rotationPoleInput = new Vector2(rotationInputValue, movementInputValue);
         rotationPoleInput.x *= PolesAI.Instance.rotationSpeed;
-        //rotationPoleInput.y *= PolesAI.Instance.moveSpeed;
-        
-        polesAI[1].RotatePoles(rotationPoleInput * Time.deltaTime);
-    }
 
+        //polesAI[currentPoleIndexAI].RotatePoles(rotationPoleInput * Time.deltaTime);
+        polesAI[1].RotatePoles(rotationPoleInput * Time.deltaTime);
+        
+    }
     
     IEnumerator FastShot()
     {

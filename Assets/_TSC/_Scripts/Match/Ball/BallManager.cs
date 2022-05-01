@@ -49,7 +49,7 @@ public class BallManager : MonoBehaviour
             SpawnSoccerBall();
         }
 
-        UpdateCurrentPoleAI();
+        
     }
 
     public void SpawnSoccerBall()
@@ -78,26 +78,7 @@ public class BallManager : MonoBehaviour
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 
-    void UpdateCurrentPoleAI()
-    {
-        // Simple methods to see where the ball is on the field and change AI currentPoleIndex based on position of ball
-        if (ball.transform.position.x <= -0.6)
-        {
-            aiController.currentPoleIndexAI = 0;
-        }
-        if (ball.transform.position.x <= -0.2 && ball.transform.position.x >= -0.6)
-        {
-            aiController.currentPoleIndexAI = 1;
-        }
-        if (ball.transform.position.x <= 0.2 && ball.transform.position.x >= -0.2)
-        {
-            aiController.currentPoleIndexAI = 2;
-        }
-        if (ball.transform.position.x >= 0.2)
-        {
-            aiController.currentPoleIndexAI = 3;
-        }
-    }
+   
 
     #region Damage to poles
 

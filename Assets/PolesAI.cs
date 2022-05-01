@@ -24,13 +24,10 @@ public class PolesAI : MonoBehaviour
     [Range(0f, 1f)]
     private float smoothSpeed = 0.5f;
     
-   //public Transform Pole1Transform;
-   //public Transform Pole2Transform;
-   //public Transform Pole3Transform;
     public Transform PoleTransform;
     [SerializeField] public Sense sense;
     private float poleMovement;
-
+    
     private void Awake()
     {
         if (Instance == null)
