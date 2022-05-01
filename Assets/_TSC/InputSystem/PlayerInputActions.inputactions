@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "L3",
+                    "name": "PowerShot/ResetPole",
                     "type": "Button",
                     "id": "4bcbe821-795e-4f35-9cc7-f131a7e45630",
                     "expectedControlType": "Button",
@@ -196,7 +196,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "L3",
+                    "action": "PowerShot/ResetPole",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "492cefed-f674-4bfe-ae84-522a5b5464a2",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PowerShot/ResetPole",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

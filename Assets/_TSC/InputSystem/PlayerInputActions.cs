@@ -64,7 +64,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""L3"",
+                    ""name"": ""PowerShot/ResetPole"",
                     ""type"": ""Button"",
                     ""id"": ""4bcbe821-795e-4f35-9cc7-f131a7e45630"",
                     ""expectedControlType"": ""Button"",
@@ -218,7 +218,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""L3"",
+                    ""action"": ""PowerShot/ResetPole"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""492cefed-f674-4bfe-ae84-522a5b5464a2"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PowerShot/ResetPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -944,7 +955,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_SoccerMatchControlls_MoveAbility = m_SoccerMatchControlls.FindAction("MoveAbility", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesUp = m_SoccerMatchControlls.FindAction("PolesUp", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesDown = m_SoccerMatchControlls.FindAction("PolesDown", throwIfNotFound: true);
-        m_SoccerMatchControlls_L3 = m_SoccerMatchControlls.FindAction("L3", throwIfNotFound: true);
+        m_SoccerMatchControlls_PowerShotResetPole = m_SoccerMatchControlls.FindAction("PowerShot/ResetPole", throwIfNotFound: true);
         m_SoccerMatchControlls_Pause = m_SoccerMatchControlls.FindAction("Pause", throwIfNotFound: true);
         m_SoccerMatchControlls_SpecialCard = m_SoccerMatchControlls.FindAction("SpecialCard", throwIfNotFound: true);
         m_SoccerMatchControlls_Ability = m_SoccerMatchControlls.FindAction("Ability", throwIfNotFound: true);
@@ -1028,7 +1039,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_SoccerMatchControlls_MoveAbility;
     private readonly InputAction m_SoccerMatchControlls_PolesUp;
     private readonly InputAction m_SoccerMatchControlls_PolesDown;
-    private readonly InputAction m_SoccerMatchControlls_L3;
+    private readonly InputAction m_SoccerMatchControlls_PowerShotResetPole;
     private readonly InputAction m_SoccerMatchControlls_Pause;
     private readonly InputAction m_SoccerMatchControlls_SpecialCard;
     private readonly InputAction m_SoccerMatchControlls_Ability;
@@ -1040,7 +1051,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @MoveAbility => m_Wrapper.m_SoccerMatchControlls_MoveAbility;
         public InputAction @PolesUp => m_Wrapper.m_SoccerMatchControlls_PolesUp;
         public InputAction @PolesDown => m_Wrapper.m_SoccerMatchControlls_PolesDown;
-        public InputAction @L3 => m_Wrapper.m_SoccerMatchControlls_L3;
+        public InputAction @PowerShotResetPole => m_Wrapper.m_SoccerMatchControlls_PowerShotResetPole;
         public InputAction @Pause => m_Wrapper.m_SoccerMatchControlls_Pause;
         public InputAction @SpecialCard => m_Wrapper.m_SoccerMatchControlls_SpecialCard;
         public InputAction @Ability => m_Wrapper.m_SoccerMatchControlls_Ability;
@@ -1065,9 +1076,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @PolesDown.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
                 @PolesDown.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
                 @PolesDown.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
-                @L3.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
-                @L3.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
-                @L3.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnL3;
+                @PowerShotResetPole.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPowerShotResetPole;
+                @PowerShotResetPole.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPowerShotResetPole;
+                @PowerShotResetPole.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPowerShotResetPole;
                 @Pause.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
@@ -1093,9 +1104,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @PolesDown.started += instance.OnPolesDown;
                 @PolesDown.performed += instance.OnPolesDown;
                 @PolesDown.canceled += instance.OnPolesDown;
-                @L3.started += instance.OnL3;
-                @L3.performed += instance.OnL3;
-                @L3.canceled += instance.OnL3;
+                @PowerShotResetPole.started += instance.OnPowerShotResetPole;
+                @PowerShotResetPole.performed += instance.OnPowerShotResetPole;
+                @PowerShotResetPole.canceled += instance.OnPowerShotResetPole;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -1287,7 +1298,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMoveAbility(InputAction.CallbackContext context);
         void OnPolesUp(InputAction.CallbackContext context);
         void OnPolesDown(InputAction.CallbackContext context);
-        void OnL3(InputAction.CallbackContext context);
+        void OnPowerShotResetPole(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnSpecialCard(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
