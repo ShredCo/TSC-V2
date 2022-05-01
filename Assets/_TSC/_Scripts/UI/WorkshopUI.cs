@@ -58,7 +58,5 @@ public class WorkshopUI : MonoBehaviour
             SliderPoleHealthCrew2.value = Inventory.PlayerDefaultCardLineUp[2].Health / Inventory.PlayerDefaultCardLineUp[2].MaxHealth;
         if (Inventory.PlayerDefaultCardLineUp[3] != null)
             SliderPoleHealthCrew3.value = Inventory.PlayerDefaultCardLineUp[3].Health / Inventory.PlayerDefaultCardLineUp[3].MaxHealth;
-
-        InventoryUI.Instance.UpdateLineUpCards();
     }
 }
