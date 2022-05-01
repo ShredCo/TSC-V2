@@ -50,9 +50,15 @@ public class WorkshopUI : MonoBehaviour
 
     private void Update()
     {
-        SliderPoleHealthMain.value = Inventory.PlayerDefaultCardLineUp[0].Health / Inventory.PlayerDefaultCardLineUp[0].MaxHealth;
-        SliderPoleHealthCrew1.value = Inventory.PlayerDefaultCardLineUp[1].Health / Inventory.PlayerDefaultCardLineUp[1].MaxHealth;
-        SliderPoleHealthCrew2.value = Inventory.PlayerDefaultCardLineUp[2].Health / Inventory.PlayerDefaultCardLineUp[2].MaxHealth;
-        SliderPoleHealthCrew3.value = Inventory.PlayerDefaultCardLineUp[3].Health / Inventory.PlayerDefaultCardLineUp[3].MaxHealth;
+        if(Inventory.PlayerDefaultCardLineUp[0] != null)
+            SliderPoleHealthMain.value = Inventory.PlayerDefaultCardLineUp[0].Health / Inventory.PlayerDefaultCardLineUp[0].MaxHealth;
+        if (Inventory.PlayerDefaultCardLineUp[1] != null)
+            SliderPoleHealthCrew1.value = Inventory.PlayerDefaultCardLineUp[1].Health / Inventory.PlayerDefaultCardLineUp[1].MaxHealth;
+        if (Inventory.PlayerDefaultCardLineUp[2] != null)
+            SliderPoleHealthCrew2.value = Inventory.PlayerDefaultCardLineUp[2].Health / Inventory.PlayerDefaultCardLineUp[2].MaxHealth;
+        if (Inventory.PlayerDefaultCardLineUp[3] != null)
+            SliderPoleHealthCrew3.value = Inventory.PlayerDefaultCardLineUp[3].Health / Inventory.PlayerDefaultCardLineUp[3].MaxHealth;
+
+        InventoryUI.Instance.UpdateLineUpCards();
     }
 }

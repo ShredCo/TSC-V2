@@ -39,7 +39,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueStarted)
         {
-            Player.instance.DialogueState = DialogueState.Talking;
+            Player.Instance.DialogueState = DialogueState.Talking;
             dialogueStarted = true;
             EventSystem.current.SetSelectedGameObject(firstSelectedButtonDialoge);
             Time.timeScale = 1;
@@ -79,7 +79,7 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue() 
     {
-        Player.instance.DialogueState = DialogueState.Avaiable;
+        Player.Instance.DialogueState = DialogueState.Avaiable;
         dialogueStarted = false;
         animator.SetBool("IsOpen", false);
         userInterfaceOverworld.Resume();
@@ -97,6 +97,9 @@ public class DialogueManager : MonoBehaviour
             if (npcType == NpcType.Workshop)
             {
                 workshopUI.OpenWorkshopUI();
+                InventoryUI.Instance.UpdatePoleCardList();
+                InventoryUI.Instance.UpdateAbilityCardList();
+                InventoryUI.Instance.UpdateLineUpCards();
             }
         }
         else

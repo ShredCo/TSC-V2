@@ -14,17 +14,17 @@ public enum DialogueState
 }
 public class Player : MonoBehaviour
 {
-    public static Player instance;
+    public static Player Instance;
     private Rigidbody rb;
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
     }
     
     // gives the player an inventory
-    public InventoryObject inventory;
+    public InventoryObject Inventory;
     public DialogueState DialogueState;
 
     [SerializeField] public GameObject pickedUpMoney;
@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
                     // Checks which type the new item is and adds it to its inventory
                     case ItemType.Money:
                         // Adds money to the inventory
-                        inventory.AddMoney(item.item.MoneyValue);
+                        Inventory.AddMoney(item.item.MoneyValue);
                     
                         // Displays the picked up amount in the UI
                         textPickedUpMoney.text = "+ " + item.item.MoneyValue.ToString();
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
                         if (gamepad.buttonWest.wasPressedThisFrame)
                         {
                             // Adds the resource to the inventory
-                            inventory.AddResource(item.item.ResourceValue);
+                            Inventory.AddResource(item.item.ResourceValue);
                             StartCoroutine(HarvestWood(other.gameObject));
                             PickUpSoundeffects.Instance.WoodSound();
                         }
@@ -72,12 +72,12 @@ public class Player : MonoBehaviour
                     // Checks which type the new card is and adds it to its inventory
                     case CardType.DefaultCard:
                         Debug.Log("DefaultCard");
-                        inventory.AddDefaultCard(item.defaultCard, 1);
+                        Inventory.AddDefaultCard(item.defaultCard, 1);
                         other.gameObject.SetActive(false);
                         break;
                     case CardType.SpecialCard:
                         Debug.Log("SpecialCard");
-                        inventory.AddSpecialCard(item.specialCard, 1);
+                        Inventory.AddSpecialCard(item.specialCard, 1);
                         other.gameObject.SetActive(false);
                         break;
 
@@ -93,18 +93,18 @@ public class Player : MonoBehaviour
         var gamepad = Gamepad.current;
         if (gamepad.dpad.up.wasPressedThisFrame)
         {
-            inventory.Save();
+            Inventory.Save();
         }
         if (gamepad.dpad.down.wasPressedThisFrame)
         {
-            inventory.Load();
+            Inventory.Load();
         }
     }
    
     // Clears the inventory 
     private void OnApplicationQuit()
     {
-        inventory.ItemContainer.Clear();
+        Inventory.ItemContainer.Clear();
     }
 
     IEnumerator HarvestWood(GameObject wood)

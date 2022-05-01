@@ -110,10 +110,13 @@ public class UserInterfaceOverworld : MonoBehaviour
     public GameObject FirstButtonRightArrowAbilitys;
     #endregion
     #region subRegion | Inventory L1/R1 Navigation System
+
+    public Button SwitchButtonBackpack;
+    public Button SwitchButtonPoleCards;
+    public Button SwitchButtonAbilityCards;
+
     void SwitchInventoryPanels()
     {
-        
-    
         var gamepad = Gamepad.current;
         if (gamepad.rightShoulder.wasPressedThisFrame)
         {
@@ -133,26 +136,33 @@ public class UserInterfaceOverworld : MonoBehaviour
         switch (currentPanel)
         {
             case 1:
+                SwitchButtonBackpack.image.color = Color.red;
+                SwitchButtonPoleCards.image.color = Color.white;
+                SwitchButtonAbilityCards.image.color = Color.white;
                 PanelBackpack.SetActive(true);
                 PanelLineUpPoles.SetActive(false);
                 PanelLineUpAbilitys.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(FirstButtonBagpack);
                 break;
             case 2:
+                SwitchButtonBackpack.image.color = Color.white;
+                SwitchButtonPoleCards.image.color = Color.red;
+                SwitchButtonAbilityCards.image.color = Color.white;
                 PanelBackpack.SetActive(false);
                 PanelLineUpPoles.SetActive(true);
                 PanelLineUpAbilitys.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(FirstButtonDefaultCards);
                 break;
             case 3:
+                SwitchButtonBackpack.image.color = Color.white;
+                SwitchButtonPoleCards.image.color = Color.white;
+                SwitchButtonAbilityCards.image.color = Color.red;
                 PanelBackpack.SetActive(false);
                 PanelLineUpPoles.SetActive(false);
                 PanelLineUpAbilitys.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(FirstButtonAbilityCards);
                 break;
-
         }
-
     }
     #endregion
     #endregion
@@ -280,9 +290,14 @@ public class UserInterfaceOverworld : MonoBehaviour
         #region subRegion | open/close Inventory
         public void OpenInventory()
         {
+            PanelBackpack.SetActive(false);
+            PanelLineUpPoles.SetActive(true);
+            PanelLineUpAbilitys.SetActive(false);
             CanvasPauseMenu.SetActive(false);
             CanvasInventory.SetActive(true);
-            PanelBackpack.SetActive(true);
+            SwitchButtonBackpack.image.color = Color.white;
+            SwitchButtonPoleCards.image.color = Color.red;
+            SwitchButtonAbilityCards.image.color = Color.white;
 
             inventoryActive = true;
             EventSystem.current.SetSelectedGameObject(FirstButtonDefaultCards);
@@ -543,12 +558,12 @@ public class UserInterfaceOverworld : MonoBehaviour
             PanelEquipLineUpPoles.SetActive(true);
             EnableFirstPoleCardPage();
             
-            EventSystem.current.SetSelectedGameObject(FirstButtonPoleCardPage1);
+            EventSystem.current.SetSelectedGameObject(FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1);
         }
         public void SetActivePoleFirst()
         {
             LineUpController.CardType = true;
-            EquipPoleText.text = "Equip Crew Pole 1\nCards";
+            EquipPoleText.text = "Equip Crew1 Pole\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 1;
             
@@ -556,12 +571,12 @@ public class UserInterfaceOverworld : MonoBehaviour
             PanelEquipLineUpPoles.SetActive(true);
             EnableFirstPoleCardPage();
             
-            EventSystem.current.SetSelectedGameObject(FirstButtonPoleCardPage1);
+            EventSystem.current.SetSelectedGameObject(FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1);
         }
         public void SetActivePoleSecond()
         {
             LineUpController.CardType = true;
-            EquipPoleText.text = "Equip Crew Pole 2\nCards";
+            EquipPoleText.text = "Equip Crew2 Pole\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 2;
             
@@ -569,12 +584,12 @@ public class UserInterfaceOverworld : MonoBehaviour
             PanelEquipLineUpPoles.SetActive(true);
             EnableFirstPoleCardPage();
     
-            EventSystem.current.SetSelectedGameObject(FirstButtonPoleCardPage1);
+            EventSystem.current.SetSelectedGameObject(FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1);
         }
         public void SetActivePoleThird()
         {
             LineUpController.CardType = true;
-            EquipPoleText.text = "Equip Crew Pole 3\nCards";
+            EquipPoleText.text = "Equip Crew3 Pole\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 3;
             
@@ -582,7 +597,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             PanelEquipLineUpPoles.SetActive(true);
             EnableFirstPoleCardPage();
             
-            EventSystem.current.SetSelectedGameObject(FirstButtonPoleCardPage1);
+            EventSystem.current.SetSelectedGameObject(FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1);
         }
     
         #endregion

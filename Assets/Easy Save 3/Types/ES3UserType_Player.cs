@@ -16,8 +16,8 @@ namespace ES3Types
 		{
 			var instance = (Player)obj;
 			
-			writer.WritePropertyByRef("instance", Player.instance);
-			writer.WritePropertyByRef("inventory", instance.inventory);
+			writer.WritePropertyByRef("instance", Player.Instance);
+			writer.WritePropertyByRef("inventory", instance.Inventory);
 			writer.WritePropertyByRef("pickedUpMoney", instance.pickedUpMoney);
 			writer.WritePropertyByRef("textPickedUpMoney", instance.textPickedUpMoney);
 		}
@@ -31,10 +31,10 @@ namespace ES3Types
 				{
 					
 					case "instance":
-						Player.instance = reader.Read<Player>();
+						Player.Instance = reader.Read<Player>();
 						break;
 					case "inventory":
-						instance.inventory = reader.Read<InventoryObject>();
+						instance.Inventory = reader.Read<InventoryObject>();
 						break;
 					case "pickedUpMoney":
 						instance.pickedUpMoney = reader.Read<UnityEngine.GameObject>(ES3Type_GameObject.Instance);

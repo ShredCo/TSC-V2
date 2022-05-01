@@ -7,6 +7,12 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI Instance;
 
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
+
     [SerializeField] GameObject cardPolePage1;
     [SerializeField] GameObject cardPolePage2;
     [SerializeField] GameObject cardPolePage3;
@@ -76,7 +82,7 @@ public class InventoryUI : MonoBehaviour
             sliderCrew3Card.value = inventory.PlayerDefaultCardLineUp[3].Health / inventory.PlayerDefaultCardLineUp[3].MaxHealth;
     }
 
-    void UpdatePoleCardList()
+    public void UpdatePoleCardList()
     {
         //Clear all existing items
         foreach (Transform child in cardPolePage1.transform)
@@ -273,7 +279,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    void UpdateAbilityCardList()
+    public void UpdateAbilityCardList()
     {
         //Clear all existing items
         foreach (Transform child in cardAbilityPage1.transform)
