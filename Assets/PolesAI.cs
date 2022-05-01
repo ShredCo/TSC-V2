@@ -29,10 +29,8 @@ public class PolesAI : MonoBehaviour
    //public Transform Pole3Transform;
     public Transform PoleTransform;
     [SerializeField] public Sense sense;
-    private float pole1Movement;
-    private float pole2Movement;
-    private float pole3Movement;
-    
+    private float poleMovement;
+
     private void Awake()
     {
         if (Instance == null)
@@ -72,13 +70,13 @@ public class PolesAI : MonoBehaviour
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
             // Calculate the z difference between the ball and the closest enemy player
-            pole1Movement = sense.closestPlayer.transform.position.z - ballTransform.transform.position.z;
+            poleMovement = sense.closestPlayer.transform.position.z - ballTransform.transform.position.z;
             
-            if (sense.closestPlayer.name == "pos2" || sense.closestPlayer.name == "pos3")
+            if (sense.closestPlayer.name is "pos2" or "pos3")
             {
                 // if ball is in front of pole it lerps towards the ball position
                 // Calculate new position of pole and interpolate player on pole with ball
-                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - pole1Movement);
+                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
                 transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f),
                                                  Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f),
@@ -95,7 +93,7 @@ public class PolesAI : MonoBehaviour
         {
             // If ball is behind pole it should interpolate away 
             // Calculate new position of pole and interpolate player on pole with ball
-            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - pole1Movement);
+            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
             transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), 
                                              Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f),
@@ -107,19 +105,19 @@ public class PolesAI : MonoBehaviour
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
             // Calculate the z difference between the ball and the closest enemy player
-            pole2Movement = sense.closestPlayer.transform.position.z + ballTransform.transform.position.z;
+            poleMovement = sense.closestPlayer.transform.position.z - ballTransform.transform.position.z;
             
-            if (sense.closestPlayer.name == "pos4" || sense.closestPlayer.name == "pos5" || sense.closestPlayer.name == "pos6" || sense.closestPlayer.name == "pos7" || sense.closestPlayer.name == "pos8")
+            if (sense.closestPlayer.name is "pos4" or "pos5" or "pos6" or "pos7" or "pos8")
             {
                 // Calculate new position of pole and interpolate player on pole with ball
-                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - pole2Movement);
+                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
                 transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
             }
         }
         else
         {
             // Calculate new position of pole and interpolate player on pole with ball
-            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - pole2Movement);
+            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
             transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
         }
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.1f, -0.1f), 
@@ -131,19 +129,19 @@ public class PolesAI : MonoBehaviour
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
             // Calculate the difference between the ball and the closest enemy player
-            pole3Movement = sense.closestPlayer.transform.position.z - ballTransform.transform.position.z;
+            poleMovement = sense.closestPlayer.transform.position.z - ballTransform.transform.position.z;
             
-            if (sense.closestPlayer.name == "pos9" || sense.closestPlayer.name == "pos10" || sense.closestPlayer.name == "pos11")
+            if (sense.closestPlayer.name is "pos9" or "pos10" or "pos11")
             {
                 // Calculate new position of pole and interpolate player on pole with ball
-                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - pole3Movement);
+                Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
                 transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
             }
         }
         else
         {
             // Calculate new position of pole and interpolate player on pole with ball
-            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - pole3Movement);
+            Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
             transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
         }
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0.3f, 0.3f), 
@@ -154,7 +152,7 @@ public class PolesAI : MonoBehaviour
     
     public void PoleLockedDown()
     {
-        Debug.Log("Fast shot activated");
+        Debug.Log("FastShot/PoleReset activated");
         if (lockedDownPressed == true)
         {
             var step = speed * Time.deltaTime;
@@ -181,6 +179,5 @@ public class PolesAI : MonoBehaviour
         //Ability = LineUpController.PlayerAbilityCardLineUP[Pole].Ability;
     }
     #endregion
-    
     
 }

@@ -26,7 +26,7 @@ public class CircleTriggerboxAI : MonoBehaviour
            timeCounter += Time.deltaTime;
            if (timeCounter <= reactionTimeAI)
            {
-               aiController.AIState = AIState.Shooting;
+               aiController.AIState = AIState.InCircleRange;
            }
        }
     }

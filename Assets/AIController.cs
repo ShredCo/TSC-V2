@@ -39,7 +39,7 @@ public class AIController : MonoBehaviour
     [Range(0, 3)]
     public int currentPoleIndexAI = 0;
     
-    private Vector2 movementPoleInput;
+    private Vector2 rotationPoleInput;
 
     // Movement stuff
     private Transform newPolePositionPoleMain;
@@ -47,12 +47,6 @@ public class AIController : MonoBehaviour
     [SerializeField]
     [Range(0f, 1f)]
     private float smoothSpeed = 0.5f;
-    
-    
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
@@ -67,13 +61,13 @@ public class AIController : MonoBehaviour
             case AIState.OutOfRange:
                 break;
             case AIState.InCircleRange:
+                RotatePolesInput();
                 break;
             case AIState.InBackRange:
                 break;
             case AIState.Loading:
                 break;
             case AIState.Shooting:
-                //StartCoroutine(RotatePolesInput());
                 break;
             case AIState.Backflip:
                 break;
@@ -86,14 +80,13 @@ public class AIController : MonoBehaviour
         polesAI[3].MovementCrewPole3(BallTransform);
     }
 
-    IEnumerator RotatePolesInput()
+    public void RotatePolesInput()
     {
-        movementPoleInput = new Vector2(rotationInputValue, movementInputValue);
-        movementPoleInput.x *= PolesAI.Instance.rotationSpeed;
-        //movementPoleInput.y *= PolesAI.Instance.moveSpeed;
+        rotationPoleInput = new Vector2(rotationInputValue, movementInputValue);
+        rotationPoleInput.x *= PolesAI.Instance.rotationSpeed;
+        //rotationPoleInput.y *= PolesAI.Instance.moveSpeed;
         
-        polesAI[currentPoleIndexAI].RotatePoles(movementPoleInput * Time.deltaTime);
-        yield return new WaitForSeconds(1);
+        polesAI[1].RotatePoles(rotationPoleInput * Time.deltaTime);
     }
 
     
@@ -117,19 +110,19 @@ public class AIController : MonoBehaviour
     void UpdateCurrentPoleAI()
     {
         // Simple methods to see where the ball is on the field and change AI currentPoleIndex based on position of ball
-        if (BallTransform.position.x <= -0.6)
+        if (BallTransform.position.x <= -0.6f)
         {
             currentPoleIndexAI = 0;
         }
-        if (BallTransform.position.x <= -0.2 && BallTransform.position.x >= -0.6)
+        if (BallTransform.position.x is >= -0.6f and <= -0.2f)
         {
             currentPoleIndexAI = 1;
         }
-        if (BallTransform.position.x <= 0.2 && BallTransform.position.x >= -0.2)
+        if (BallTransform.position.x is >= -0.2f and <= 0.2f)
         {
             currentPoleIndexAI = 2;
         }
-        if (BallTransform.position.x >= 0.2)
+        if (BallTransform.position.x >= 0.2f)
         {
             currentPoleIndexAI = 3;
         }
