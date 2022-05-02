@@ -43,6 +43,9 @@ public class AIController : MonoBehaviour
     [Range(0f, 1f)]
     private float smoothSpeed = 0.5f;
 
+    // ShootFront
+    public int FrontShootRotationIndex;
+
     private void Update()
     {
         UpdateCurrentPoleAI();

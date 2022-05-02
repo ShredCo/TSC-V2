@@ -11,8 +11,8 @@ public class PolesAI : MonoBehaviour
     
     Rigidbody rb;
 
-    Vector3[] shootFrontRotations = new Vector3[2] {new Vector3(0f, 0f, 45f), new Vector3(0f, 0f, -45f) };
-    int shootIndex = 0;
+    Vector3[] shootFrontRotations = new Vector3[2] {new Vector3(0f, 180f, 45f), new Vector3(0f, 180f, -45f) };
+    public int ShootIndex = 0;
     float shootTime = 0f;
 
     [Header("movement variables")]
@@ -153,18 +153,18 @@ public class PolesAI : MonoBehaviour
 
     public void ShootFront()
     {
-        Quaternion poleRotationQuaternion = Quaternion.Euler(shootFrontRotations[shootIndex]);
-        rb.MoveRotation(Quaternion.Slerp(transform.rotation, poleRotationQuaternion, 3f * Time.deltaTime));
+        Quaternion poleRotationQuaternion = Quaternion.Euler(shootFrontRotations[ShootIndex]);
+        rb.MoveRotation(Quaternion.Slerp(transform.rotation, poleRotationQuaternion, 10f * Time.deltaTime));
 
-        shootTime = Mathf.Lerp(shootTime, 1f, 3f * Time.deltaTime);
+        shootTime = Mathf.Lerp(shootTime, 1f, 10f * Time.deltaTime);
 
         if (shootTime > 0.9f)
         {
             shootTime = 0f;
-            if (shootIndex == 0)
-                shootIndex++;
+            if (ShootIndex == 0)
+                ShootIndex++;
             else
-                shootIndex = 0;
+                ShootIndex = 0;
         }
     }
     #endregion
