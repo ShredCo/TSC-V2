@@ -38,9 +38,9 @@ public class MagnetPoint : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Ball") && PoleShooting.ShootingState == ShootingState.Shot)
+        if (other.CompareTag("Ball"))
         {
-            forceFactor = -400;
+            forceFactor = 20;
             foreach(Rigidbody rgdBal in rgdBalls)
             {
                 rgdBal.AddForce((magnetPoint.position - rgdBal.position) * forceFactor * Time.fixedDeltaTime);

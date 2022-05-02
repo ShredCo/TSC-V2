@@ -26,7 +26,7 @@ public class CircleTriggerboxAI : MonoBehaviour
            timeCounter += Time.deltaTime;
            if (timeCounter <= reactionTimeAI)
            {
-               aiController.AIState = AIState.Shooting;
+               aiController.AIState = AIState.InCircleRange;
            }
        }
     }
@@ -37,7 +37,7 @@ public class CircleTriggerboxAI : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             aiController.AIState = AIState.OutOfRange;
-            aiController.ShootingState = ShootingState.Reset;
+            //aiController.ShootingState = ShootingState.Reset;
  
         }
     }
