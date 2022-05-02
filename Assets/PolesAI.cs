@@ -38,7 +38,7 @@ public class PolesAI : MonoBehaviour
 
     private void Start()
     {
-        GetAbility();
+        //GetAbility();
     }
 
     
@@ -55,12 +55,18 @@ public class PolesAI : MonoBehaviour
         // movement up & down
         //rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
     }
+    public void ResetRotation()
+    {
+        Quaternion poleRotationQuaternion = new Quaternion();
+        poleRotationQuaternion.eulerAngles = new Vector3(0f, 0f, 0f);
+        rb.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0f, 180f, 0f)), 3f * Time.deltaTime));
+    }
     public void MovementGoalkeeper(Transform ballTransform)
     {
-        transform.position = Vector3.SmoothDamp(transform.position, ballTransform.position, ref velocity, smoothSpeed);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.7f, -0.7f), 
-                                         Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f),
-                                         Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+        //transform.position = Vector3.SmoothDamp(transform.position, ballTransform.position, ref velocity, smoothSpeed);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.7f, -0.7f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+
+        rb.MovePosition(Vector3.SmoothDamp(transform.position, ballTransform.position, ref velocity, smoothSpeed));
     }
     public void MovementCrewPole1(Transform ballTransform)
     {
@@ -74,7 +80,7 @@ public class PolesAI : MonoBehaviour
                 // if ball is in front of pole it lerps towards the ball position
                 // Calculate new position of pole and interpolate player on pole with ball
                 Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-                transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+                rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f),
                                                  Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f),
                                                  Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
@@ -83,7 +89,7 @@ public class PolesAI : MonoBehaviour
             {
                 // When the ball is out of reach from pos2 or pos3 but still infront of pole 1
                 Vector3 defaultPosition = new Vector3(transform.position.x, transform.position.y, 0f);
-                transform.position = Vector3.SmoothDamp(transform.position, defaultPosition, ref velocity, smoothSpeed);
+                rb.MovePosition(Vector3.SmoothDamp(transform.position, defaultPosition, ref velocity, smoothSpeed));
             }
         }
         else
@@ -91,7 +97,7 @@ public class PolesAI : MonoBehaviour
             // If ball is behind pole it should interpolate away 
             // Calculate new position of pole and interpolate player on pole with ball
             Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+            rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), 
                                              Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f),
                                              Mathf.Clamp(transform.position.z, -0.05f, 0.05f));
@@ -108,14 +114,14 @@ public class PolesAI : MonoBehaviour
             {
                 // Calculate new position of pole and interpolate player on pole with ball
                 Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-                transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+                rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
             }
         }
         else
         {
             // Calculate new position of pole and interpolate player on pole with ball
             Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+            rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
         }
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.1f, -0.1f), 
                                          Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), 
@@ -132,14 +138,14 @@ public class PolesAI : MonoBehaviour
             {
                 // Calculate new position of pole and interpolate player on pole with ball
                 Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-                transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+                rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
             }
         }
         else
         {
             // Calculate new position of pole and interpolate player on pole with ball
             Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
-            transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+            rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
         }
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0.3f, 0.3f), 
                                          Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), 

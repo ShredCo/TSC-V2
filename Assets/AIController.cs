@@ -8,10 +8,6 @@ public enum AIState
 {
     OutOfRange,
     InCircleRange,
-    InBackRange,
-    Loading,
-    Shooting,
-    Backflip
 }
 public enum ShootingState
 {
@@ -31,10 +27,10 @@ public class AIController : MonoBehaviour
 
     [SerializeField]
     [Range(-1f, 1f)]
-    private float movementInputValue = 0f;
+    private float movementInputValue = 0.3f;
     [SerializeField]
     [Range(-1f, 1f)]
-    private float rotationInputValue = 0f;
+    private float rotationInputValue = 0.3f;
     [SerializeField]
     [Range(0, 3)]
     public int currentPoleIndexAI = 0;
@@ -50,8 +46,8 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        //UpdateCurrentPoleAI();
-        //UpdateSteeringWheelPosition();
+        UpdateCurrentPoleAI();
+        UpdateSteeringWheelPosition();
     }
     
     void FixedUpdate()
@@ -59,38 +55,74 @@ public class AIController : MonoBehaviour
         switch (AIState)
         {
             case AIState.OutOfRange:
+                MovePolesInput();
+                ResetPoleRotation();
                 break;
             case AIState.InCircleRange:
-                //RotatePolesInput();
-                break;
-            case AIState.InBackRange:
-                break;
-            case AIState.Loading:
-                break;
-            case AIState.Shooting:
-                break;
-            case AIState.Backflip:
+                RotateAndMovePolesInput();
                 break;
         }
-        
-        RotatePolesInput();
+
         // movement goalkeeper
-        polesAI[0].MovementGoalkeeper(BallTransform);
-        polesAI[1].MovementCrewPole1(BallTransform);
-        polesAI[2].MovementCrewPole2(BallTransform);
-        polesAI[3].MovementCrewPole3(BallTransform);
+        if (currentPoleIndexAI != 0)
+            polesAI[0].MovementGoalkeeper(BallTransform);
     }
 
-    public void RotatePolesInput()
+    public void RotateAndMovePolesInput()
     {
         rotationPoleInput = new Vector2(rotationInputValue, movementInputValue);
         rotationPoleInput.x *= PolesAI.Instance.rotationSpeed;
+        polesAI[currentPoleIndexAI].RotatePoles(rotationPoleInput * Time.deltaTime);
 
-        //polesAI[currentPoleIndexAI].RotatePoles(rotationPoleInput * Time.deltaTime);
-        polesAI[1].RotatePoles(rotationPoleInput * Time.deltaTime);
-        
+        if (currentPoleIndexAI == 0)
+        {
+            polesAI[currentPoleIndexAI].MovementGoalkeeper(BallTransform);
+        }
+        else if (currentPoleIndexAI == 1)
+        {
+            polesAI[currentPoleIndexAI].MovementCrewPole1(BallTransform);
+        }
+        else if (currentPoleIndexAI == 2)
+        {
+            polesAI[currentPoleIndexAI].MovementCrewPole2(BallTransform);
+        }
+        else if (currentPoleIndexAI == 3)
+        {
+            polesAI[currentPoleIndexAI].MovementCrewPole3(BallTransform);
+        }
+        Debug.Log("Rotate AND Move");
     }
-    
+
+    public void MovePolesInput()
+    {
+        if (currentPoleIndexAI == 0)
+        {
+            polesAI[currentPoleIndexAI].MovementGoalkeeper(BallTransform);
+        }
+        else if (currentPoleIndexAI == 1)
+        {
+            polesAI[currentPoleIndexAI].MovementCrewPole1(BallTransform);
+        }
+        else if (currentPoleIndexAI == 2)
+        {
+            polesAI[currentPoleIndexAI].MovementCrewPole2(BallTransform);
+        }
+        else if (currentPoleIndexAI == 3)
+        {
+            polesAI[currentPoleIndexAI].MovementCrewPole3(BallTransform);
+        }
+        Debug.Log("Move");
+    }
+
+    public void ResetPoleRotation()
+    {
+        polesAI[0].ResetRotation();
+        polesAI[1].ResetRotation();
+        polesAI[2].ResetRotation();
+        polesAI[3].ResetRotation();
+    }
+
+
     IEnumerator FastShot()
     {
         polesAI[currentPoleIndexAI].lockedDownPressed = true;
@@ -111,19 +143,19 @@ public class AIController : MonoBehaviour
     void UpdateCurrentPoleAI()
     {
         // Simple methods to see where the ball is on the field and change AI currentPoleIndex based on position of ball
-        if (BallTransform.position.x <= -0.6f)
+        if (BallTransform.position.x < -0.6f)
         {
             currentPoleIndexAI = 0;
         }
-        if (BallTransform.position.x is >= -0.6f and <= -0.2f)
+        if (BallTransform.position.x is > -0.6f and < -0.3f)
         {
             currentPoleIndexAI = 1;
         }
-        if (BallTransform.position.x is >= -0.2f and <= 0.2f)
+        if (BallTransform.position.x is > -0.3f and < 0.1f)
         {
             currentPoleIndexAI = 2;
         }
-        if (BallTransform.position.x >= 0.2f)
+        if (BallTransform.position.x > 0.1f)
         {
             currentPoleIndexAI = 3;
         }

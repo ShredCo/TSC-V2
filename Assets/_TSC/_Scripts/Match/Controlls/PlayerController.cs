@@ -295,11 +295,11 @@ public class PlayerController : MonoBehaviour
 
     Vector3 abilitySize = new Vector3(0.07f, 0.07f, 0.07f);
     
-    public void MoveAbility(InputAction.CallbackContext context)
-    {
-        movementAbilityInput = context.ReadValue<Vector2>();
-        movementAbilityInput.y *= SpecialCharacter.Instance.moveSpeed;
-    }
+    //public void MoveAbility(InputAction.CallbackContext context)
+    //{
+    //    movementAbilityInput = context.ReadValue<Vector2>();
+    //    movementAbilityInput.y *= SpecialCharacter.Instance.moveSpeed;
+    //}
     
     #region Input System -> Special Cards
     // Spawn the Special Cards

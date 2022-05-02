@@ -782,9 +782,7 @@ GameObject:
   - component: {fileID: 53405362}
   - component: {fileID: 53405361}
   - component: {fileID: 53405360}
-  - component: {fileID: 53405359}
   - component: {fileID: 53405358}
-  - component: {fileID: 53405363}
   m_Layer: 8
   m_Name: CrewPole2
   m_TagString: AICrew2
@@ -833,18 +831,6 @@ MonoBehaviour:
   sense: {fileID: 1766185139}
   Pole: 2
   Ability: {fileID: 0}
---- !u!114 &53405359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53405356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &53405360
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -911,24 +897,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53405356}
   m_Mesh: {fileID: 3944073510091631902, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
---- !u!114 &53405363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53405356}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a4cbe5940681947968e1d88aa5fd8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sense: {fileID: 1766185139}
-  BallTransform: {fileID: 1110746730}
-  PoleTransform: {fileID: 53405357}
-  Rb: {fileID: 53405360}
-  smoothSpeed: 0.5
-  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &57888827
 GameObject:
   m_ObjectHideFlags: 0
@@ -10565,9 +10533,7 @@ GameObject:
   - component: {fileID: 631305327}
   - component: {fileID: 631305326}
   - component: {fileID: 631305325}
-  - component: {fileID: 631305324}
   - component: {fileID: 631305323}
-  - component: {fileID: 631305328}
   m_Layer: 8
   m_Name: MainPole
   m_TagString: AIMain
@@ -10612,18 +10578,6 @@ MonoBehaviour:
   sense: {fileID: 1766185139}
   Pole: 0
   Ability: {fileID: 0}
---- !u!114 &631305324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631305321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &631305325
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10690,23 +10644,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631305321}
   m_Mesh: {fileID: 3944073510091631902, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
---- !u!114 &631305328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631305321}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db8bc5b7a6abab24aa9ab41b7e0ec303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sense: {fileID: 1766185139}
-  BallTransform: {fileID: 1110746730}
-  Rb: {fileID: 0}
-  smoothSpeed: 0.5
-  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &642392847
 GameObject:
   m_ObjectHideFlags: 0
@@ -10842,7 +10779,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
+  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16856,9 +16793,7 @@ GameObject:
   - component: {fileID: 1087741150}
   - component: {fileID: 1087741149}
   - component: {fileID: 1087741148}
-  - component: {fileID: 1087741147}
   - component: {fileID: 1087741146}
-  - component: {fileID: 1087741151}
   m_Layer: 8
   m_Name: CrewPole1
   m_TagString: AICrew1
@@ -16904,18 +16839,6 @@ MonoBehaviour:
   sense: {fileID: 1766185139}
   Pole: 1
   Ability: {fileID: 0}
---- !u!114 &1087741147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087741144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1087741148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16982,24 +16905,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087741144}
   m_Mesh: {fileID: 3944073510091631902, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
---- !u!114 &1087741151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087741144}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9712fa6c645bf644b70c315053a0161, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sense: {fileID: 1766185139}
-  BallTransform: {fileID: 1110746730}
-  PoleTransform: {fileID: 1087741145}
-  Rb: {fileID: 1087741148}
-  smoothSpeed: 0.5
-  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1088958210
 GameObject:
   m_ObjectHideFlags: 0
@@ -24195,9 +24100,7 @@ GameObject:
   - component: {fileID: 1596763136}
   - component: {fileID: 1596763135}
   - component: {fileID: 1596763134}
-  - component: {fileID: 1596763133}
   - component: {fileID: 1596763132}
-  - component: {fileID: 1596763137}
   m_Layer: 8
   m_Name: CrewPole3
   m_TagString: AICrew3
@@ -24244,18 +24147,6 @@ MonoBehaviour:
   sense: {fileID: 1766185139}
   Pole: 3
   Ability: {fileID: 0}
---- !u!114 &1596763133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596763130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1596763134
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24322,24 +24213,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596763130}
   m_Mesh: {fileID: 3944073510091631902, guid: 9a5e56ef0b7cc4949ba3f4dcade538ac, type: 3}
---- !u!114 &1596763137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596763130}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 228e714a58aba0a4c988fabb109de5b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sense: {fileID: 1766185139}
-  BallTransform: {fileID: 1110746730}
-  PoleTransform: {fileID: 1596763131}
-  Rb: {fileID: 1596763134}
-  smoothSpeed: 0.5
-  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1597119578
 GameObject:
   m_ObjectHideFlags: 0
@@ -28205,7 +28078,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -1.8718162e-16, y: 0.971712, z: 0.2361692, w: -4.478011e-16}
+  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38647,8 +38520,8 @@ MonoBehaviour:
   - {fileID: 1087741146}
   - {fileID: 53405358}
   - {fileID: 1596763132}
-  movementInputValue: 0
-  rotationInputValue: 0.3
+  movementInputValue: 0.1
+  rotationInputValue: 0.1
   currentPoleIndexAI: 0
   smoothSpeed: 0.5
 --- !u!64 &7525578558336090750

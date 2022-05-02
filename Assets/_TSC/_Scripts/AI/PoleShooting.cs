@@ -91,32 +91,32 @@ public class PoleShooting : MonoBehaviour
        rb = GetComponent<Rigidbody>();
    }
 
-   private void FixedUpdate()
-    {
-       switch (AIState)
-       {
-           case AIState.OutOfRange:
-               break;
-           case AIState.InCircleRange:
-               break;
-           case AIState.InBackRange:
-               break;
-           case AIState.Loading:
-               break;
-           case AIState.Shooting:
-               LookCoroutine = StartCoroutine(LookAt());
-               break;
-           case AIState.Backflip:
-               //StartCoroutine(Backflip());
-               break;
-       }
-
-
-        // new AI Version
-        // x as rotation, y as movement
-        
-        
-    }
+   //private void FixedUpdate()
+   // {
+   //    switch (AIState)
+   //    {
+   //        case AIState.OutOfRange:
+   //            break;
+   //        case AIState.InCircleRange:
+   //            break;
+   //        case AIState.InBackRange:
+   //            break;
+   //        case AIState.Loading:
+   //            break;
+   //        case AIState.Shooting:
+   //            LookCoroutine = StartCoroutine(LookAt());
+   //            break;
+   //        case AIState.Backflip:
+   //            //StartCoroutine(Backflip());
+   //            break;
+   //    }
+   //
+   //
+   //     // new AI Version
+   //     // x as rotation, y as movement
+   //     
+   //     
+   // }
 
 
     #region new AI verion

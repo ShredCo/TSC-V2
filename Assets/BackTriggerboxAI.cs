@@ -10,35 +10,35 @@ public class BackTriggerboxAI : MonoBehaviour
     float timeCounter = 0f;
     float timeToShoot = 0.5f;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
-        {
-            timeCounter = 0;
-            poleShooting.AIState = AIState.InBackRange;
-            poleShooting.RotationLeft = 360;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
+    //    {
+    //        timeCounter = 0;
+    //        poleShooting.AIState = AIState.InBackRange;
+    //        poleShooting.RotationLeft = 360;
+    //    }
+    //}
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.InCircleRange)
-        {
-            poleShooting.AIState = AIState.InBackRange;
-            timeCounter += 1 * Time.deltaTime;
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Ball") && poleShooting.AIState != AIState.InCircleRange)
+    //    {
+    //        poleShooting.AIState = AIState.InBackRange;
+    //        timeCounter += 1 * Time.deltaTime;
+    //
+    //        if (timeCounter >= timeToShoot && poleShooting.AIState == AIState.InBackRange)
+    //        {
+    //            poleShooting.AIState = AIState.Backflip;
+    //        }
+    //    }
+    //}
 
-            if (timeCounter >= timeToShoot && poleShooting.AIState == AIState.InBackRange)
-            {
-                poleShooting.AIState = AIState.Backflip;
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
-        {
-            poleShooting.AIState = AIState.OutOfRange;
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
+    //    {
+    //        poleShooting.AIState = AIState.OutOfRange;
+    //    }
+    //}
 }
