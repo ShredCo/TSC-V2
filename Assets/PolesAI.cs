@@ -11,6 +11,10 @@ public class PolesAI : MonoBehaviour
     
     Rigidbody rb;
 
+    Vector3[] shootFrontRotations = new Vector3[2] {new Vector3(0f, 0f, 45f), new Vector3(0f, 0f, -45f) };
+    int shootIndex = 0;
+    float shootTime = 0f;
+
     [Header("movement variables")]
     [SerializeField] public float rotationSpeed = 1500.0f;
     [SerializeField] public float moveSpeed = 2.0f;
@@ -51,14 +55,9 @@ public class PolesAI : MonoBehaviour
         poleRotationQuaternion.eulerAngles = new Vector3(0f, 0f, -movement.x);
         poleRotationQuaternion.eulerAngles += transform.rotation.eulerAngles;
         rb.MoveRotation(poleRotationQuaternion);
-
-        // movement up & down
-        //rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
     }
     public void ResetRotation()
     {
-        Quaternion poleRotationQuaternion = new Quaternion();
-        poleRotationQuaternion.eulerAngles = new Vector3(0f, 0f, 0f);
         rb.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0f, 180f, 0f)), 3f * Time.deltaTime));
     }
     public void MovementGoalkeeper(Transform ballTransform)
@@ -150,6 +149,23 @@ public class PolesAI : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0.3f, 0.3f), 
                                          Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), 
                                          Mathf.Clamp(transform.position.z, -0.15f, 0.15f));
+    }
+
+    public void ShootFront()
+    {
+        Quaternion poleRotationQuaternion = Quaternion.Euler(shootFrontRotations[shootIndex]);
+        rb.MoveRotation(Quaternion.Slerp(transform.rotation, poleRotationQuaternion, 3f * Time.deltaTime));
+
+        shootTime = Mathf.Lerp(shootTime, 1f, 3f * Time.deltaTime);
+
+        if (shootTime > 0.9f)
+        {
+            shootTime = 0f;
+            if (shootIndex == 0)
+                shootIndex++;
+            else
+                shootIndex = 0;
+        }
     }
     #endregion
     

@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2696045
 Transform:
   m_ObjectHideFlags: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &2696047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1073,6 +1074,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65691196}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &65959972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65959973}
+  - component: {fileID: 65959976}
+  - component: {fileID: 65959975}
+  - component: {fileID: 65959974}
+  m_Layer: 0
+  m_Name: AI_Triggerbox2_Back_Pos6
+  m_TagString: AiTriggerbox2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &65959973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65959972}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.119, y: 0.07022004, z: 0}
+  m_LocalScale: {x: 0.02725, y: 0.124809995, z: 0.049869996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586366655}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &65959974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65959972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27793d953492c2b4b9e0aa6e88a59f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pole: {fileID: 53405356}
+  PlayerToFollow: {fileID: 2103337904}
+  Front: 1
+--- !u!114 &65959975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65959972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
+--- !u!65 &65959976
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65959972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &71423547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1254,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71423547}
   m_Mesh: {fileID: 4636860336688308701, guid: 1e19a7158ab5b744a98f20b3cd6dd96f, type: 3}
+--- !u!1 &80083568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80083569}
+  - component: {fileID: 80083572}
+  - component: {fileID: 80083571}
+  - component: {fileID: 80083570}
+  m_Layer: 0
+  m_Name: AI_Triggerbox2_Back_Pos7
+  m_TagString: AiTriggerbox2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &80083569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80083568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.119, y: 0.07022004, z: 0}
+  m_LocalScale: {x: 0.02725, y: 0.124809995, z: 0.049869996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586366655}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &80083570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80083568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27793d953492c2b4b9e0aa6e88a59f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pole: {fileID: 53405356}
+  PlayerToFollow: {fileID: 71423547}
+  Front: 1
+--- !u!114 &80083571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80083568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
+--- !u!65 &80083572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80083568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!64 &81922932
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1253,6 +1406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 709125712}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &84526936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1297,6 +1451,82 @@ Transform:
   m_Father: {fileID: 4220920339553501617}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &86504640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86504641}
+  - component: {fileID: 86504644}
+  - component: {fileID: 86504643}
+  - component: {fileID: 86504642}
+  m_Layer: 0
+  m_Name: AI_Triggerbox2_Back_Pos4
+  m_TagString: AiTriggerbox2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86504641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86504640}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.119, y: 0.07022004, z: 0}
+  m_LocalScale: {x: 0.02725, y: 0.124809995, z: 0.049869996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586366655}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &86504642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86504640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27793d953492c2b4b9e0aa6e88a59f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pole: {fileID: 53405356}
+  PlayerToFollow: {fileID: 442623271}
+  Front: 1
+--- !u!114 &86504643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86504640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
+--- !u!65 &86504644
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86504640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &96456065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,6 +1633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &106816310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1552,6 +1783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &122012897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3062,6 +3294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 1137467385}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &248839980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4203,6 +4436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 857028774}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &323115240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4562,7 +4796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &336356261
 Transform:
   m_ObjectHideFlags: 0
@@ -4591,6 +4825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &336356263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5391,7 +5626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &391799308
 Transform:
   m_ObjectHideFlags: 0
@@ -5420,6 +5655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &391799310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6191,6 +6427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 857028774}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &425833156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6198,6 +6435,82 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425833153}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &428518240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 428518241}
+  - component: {fileID: 428518244}
+  - component: {fileID: 428518243}
+  - component: {fileID: 428518242}
+  m_Layer: 0
+  m_Name: AI_Triggerbox2_Back_Pos8
+  m_TagString: AiTriggerbox2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &428518241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428518240}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.119, y: 0.07022004, z: 0}
+  m_LocalScale: {x: 0.02725, y: 0.124809995, z: 0.049869996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586366655}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428518242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428518240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27793d953492c2b4b9e0aa6e88a59f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pole: {fileID: 53405356}
+  PlayerToFollow: {fileID: 778915223}
+  Front: 1
+--- !u!114 &428518243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428518240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
+--- !u!65 &428518244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428518240}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -7757,6 +8070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 857028774}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &488677634
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8809,6 +9123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &547623866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9358,6 +9673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &576439994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9461,6 +9777,11 @@ Transform:
   - {fileID: 1087741145}
   - {fileID: 53405357}
   - {fileID: 1596763131}
+  - {fileID: 86504641}
+  - {fileID: 1462777931}
+  - {fileID: 65959973}
+  - {fileID: 80083569}
+  - {fileID: 428518241}
   m_Father: {fileID: 1727475516}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10779,7 +11100,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
+  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12156,6 +12477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &770182272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12572,6 +12894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 857028774}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &795946035
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14611,6 +14934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 709125712}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &919052453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15624,6 +15948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 709125712}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &1004955458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19430,7 +19755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1314101970
 Transform:
   m_ObjectHideFlags: 0
@@ -19459,6 +19784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &1314101972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21070,6 +21396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &1435331911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21853,6 +22180,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459465040}
   m_CullTransparentMesh: 1
+--- !u!1 &1462777930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1462777931}
+  - component: {fileID: 1462777934}
+  - component: {fileID: 1462777933}
+  - component: {fileID: 1462777932}
+  m_Layer: 0
+  m_Name: AI_Triggerbox2_Back_Pos5
+  m_TagString: AiTriggerbox2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1462777931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462777930}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.119, y: 0.07022004, z: 0}
+  m_LocalScale: {x: 0.02725, y: 0.124809995, z: 0.049869996}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586366655}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1462777932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462777930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27793d953492c2b4b9e0aa6e88a59f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pole: {fileID: 53405356}
+  PlayerToFollow: {fileID: 1001695004}
+  Front: 1
+--- !u!114 &1462777933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462777930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cab81ce50a70f44ab35124ec5d4f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
+--- !u!65 &1462777934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462777930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1465905599
 GameObject:
   m_ObjectHideFlags: 0
@@ -28078,7 +28481,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: 0.0000000032595138, y: 0.971712, z: 0.23616922, w: -0.00000001341118}
+  m_LocalRotation: {x: -0.0000000078691595, y: 0.971712, z: 0.23616919, w: 0.000000032377454}
   m_LocalPosition: {x: -0.3456396, y: -0.71089655, z: -0.60442114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29011,6 +29414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 857028774}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &1894392849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29747,6 +30151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 1137467385}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &1930221530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30627,7 +31032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1955249847
 Transform:
   m_ObjectHideFlags: 0
@@ -30656,6 +31061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &1955249849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31548,6 +31954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poleShooting: {fileID: 716181484}
+  AIController: {fileID: 7523919988561840312}
 --- !u!65 &2013087534
 BoxCollider:
   m_ObjectHideFlags: 0

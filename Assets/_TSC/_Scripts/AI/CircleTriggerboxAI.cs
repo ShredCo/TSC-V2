@@ -37,7 +37,7 @@ public class CircleTriggerboxAI : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             aiController.AIState = AIState.OutOfRange;
-            aiController.ShootingState = ShootingState.Reset;
+            //aiController.ShootingState = ShootingState.Reset;
  
         }
     }

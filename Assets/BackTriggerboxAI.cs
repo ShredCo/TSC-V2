@@ -6,19 +6,20 @@ using UnityEngine;
 public class BackTriggerboxAI : MonoBehaviour
 {
     public PoleShooting poleShooting;
+    public AIController AIController;
 
     float timeCounter = 0f;
     float timeToShoot = 0.5f;
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
-    //    {
-    //        timeCounter = 0;
-    //        poleShooting.AIState = AIState.InBackRange;
-    //        poleShooting.RotationLeft = 360;
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            //timeCounter = 0;
+            AIController.ShootingState = ShootingState.ShootBack;
+            //poleShooting.RotationLeft = 360;
+        }
+    }
 
     //private void OnTriggerStay(Collider other)
     //{
@@ -34,11 +35,11 @@ public class BackTriggerboxAI : MonoBehaviour
     //    }
     //}
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Ball") && poleShooting.AIState != AIState.Backflip)
-    //    {
-    //        poleShooting.AIState = AIState.OutOfRange;
-    //    }
-    //}
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            AIController.ShootingState = ShootingState.Default;
+        }
+    }
 }

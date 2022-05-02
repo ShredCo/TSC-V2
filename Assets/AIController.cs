@@ -12,9 +12,8 @@ public enum AIState
 public enum ShootingState
 {
     Default,
-    Load,
-    Shot,
-    Reset
+    ShootFront,
+    ShootBack,
 }
 public class AIController : MonoBehaviour
 {
@@ -59,7 +58,23 @@ public class AIController : MonoBehaviour
                 ResetPoleRotation();
                 break;
             case AIState.InCircleRange:
-                RotateAndMovePolesInput();
+
+                switch (ShootingState)
+                {
+                    case ShootingState.Default:
+                        
+                        break;
+                    case ShootingState.ShootFront:
+                        ShootFront();
+                        break;
+                    case ShootingState.ShootBack:
+                        RotateAndMovePolesInput();
+                        break;
+                    default:
+                        break;
+                }
+
+                //RotateAndMovePolesInput();
                 break;
         }
 
@@ -90,7 +105,13 @@ public class AIController : MonoBehaviour
         {
             polesAI[currentPoleIndexAI].MovementCrewPole3(BallTransform);
         }
-        Debug.Log("Rotate AND Move");
+    }
+
+    public void RotatePolesInput()
+    {
+        rotationPoleInput = new Vector2(rotationInputValue, movementInputValue);
+        rotationPoleInput.x *= PolesAI.Instance.rotationSpeed;
+        polesAI[currentPoleIndexAI].RotatePoles(rotationPoleInput * Time.deltaTime);
     }
 
     public void MovePolesInput()
@@ -111,7 +132,6 @@ public class AIController : MonoBehaviour
         {
             polesAI[currentPoleIndexAI].MovementCrewPole3(BallTransform);
         }
-        Debug.Log("Move");
     }
 
     public void ResetPoleRotation()
@@ -122,6 +142,10 @@ public class AIController : MonoBehaviour
         polesAI[3].ResetRotation();
     }
 
+    public void ShootFront()
+    {
+        polesAI[currentPoleIndexAI].ShootFront();
+    }
 
     IEnumerator FastShot()
     {
