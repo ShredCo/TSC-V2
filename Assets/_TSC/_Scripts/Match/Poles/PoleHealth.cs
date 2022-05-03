@@ -76,7 +76,6 @@ public class PoleHealth : MonoBehaviour
     void Start()
     {
         GetPoleHealth();
-        SetMaxHealth();
     }
 
     void Update()
@@ -92,23 +91,23 @@ public class PoleHealth : MonoBehaviour
     {
         // Player poles
         PlayerHealthMain = LineUpController.PlayerDefaultCardLineUP[0].Health;
-        playerMaxHealthMain = LineUpController.PlayerDefaultCardLineUP[0].Health;
+        playerMaxHealthMain = LineUpController.PlayerDefaultCardLineUP[0].MaxHealth;
         PlayerHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].Health;
-        playerMaxHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].Health;
+        playerMaxHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].MaxHealth;
         PlayerHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].Health;
-        playerMaxHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].Health;
+        playerMaxHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].MaxHealth;
         PlayerHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].Health;
-        playerMaxHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].Health;
+        playerMaxHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].MaxHealth;
 
         // AI poles
         AIHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
-        AIMaxHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
+        AIMaxHealthMain = LineUpController.AIDefaultCardLineUP[0].MaxHealth;
         AIHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
-        AIMaxHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
+        AIMaxHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].MaxHealth;
         AIHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
-        AIMaxHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
+        AIMaxHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].MaxHealth;
         AIHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
-        AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
+        AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].MaxHealth;
     }
 
     public void SavePoleHealth()
@@ -158,21 +157,6 @@ public class PoleHealth : MonoBehaviour
         TextCurrentHealthAICrew1.text = Mathf.Clamp(Mathf.Round(AIHealthCrew1), 0f, AIMaxHealthCrew1).ToString();
         TextCurrentHealthAICrew2.text = Mathf.Clamp(Mathf.Round(AIHealthCrew2), 0f, AIMaxHealthCrew2).ToString();
         TextCurrentHealthAICrew3.text = Mathf.Clamp(Mathf.Round(AIHealthCrew3), 0f, AIMaxHealthCrew3).ToString();
-    }
-
-    void SetMaxHealth()
-    {
-        // Player
-        TextMaxHealthPlayerMain.text = playerMaxHealthMain.ToString();
-        TextMaxHealthPlayerCrew1.text = playerMaxHealthCrew1.ToString();
-        TextMaxHealthPlayerCrew2.text = playerMaxHealthCrew2.ToString();
-        TextMaxHealthPlayerCrew3.text = playerMaxHealthCrew3.ToString();
-
-        // AI
-        TextMaxHealthAIMain.text = AIMaxHealthMain.ToString();
-        TextMaxHealthAICrew1.text = AIMaxHealthCrew1.ToString();
-        TextMaxHealthAICrew2.text = AIMaxHealthCrew2.ToString();
-        TextMaxHealthAICrew3.text = AIMaxHealthCrew3.ToString();
     }
 
     void UpdateHealth()
