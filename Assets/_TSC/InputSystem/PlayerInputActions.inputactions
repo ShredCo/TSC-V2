@@ -84,7 +84,7 @@
                     "id": "3499a5d8-6b67-4e44-a5d0-950124737163",
                     "path": "2DVector(mode=2)",
                     "interactions": "",
-                    "processors": "StickDeadzone(min=0.01)",
+                    "processors": "StickDeadzone(min=0.07)",
                     "groups": "",
                     "action": "MoveMainPole",
                     "isComposite": true,
