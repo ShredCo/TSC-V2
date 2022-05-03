@@ -16,7 +16,6 @@ public class BetweenPlayerTriggerboxAI : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             timeCounter = 0;
-            
         } 
     }
 
