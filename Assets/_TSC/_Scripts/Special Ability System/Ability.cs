@@ -21,5 +21,4 @@ public class Ability : ScriptableObject
     {
         
     }
-
 }

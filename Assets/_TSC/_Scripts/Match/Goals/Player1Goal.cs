@@ -15,7 +15,7 @@ public class Player1Goal : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            if (GameManagerOneVsOne.Instance.ScorePlayer2 < 10)
+            if (GameManagerOneVsOne.Instance.ScorePlayer2 < 5)
             {
                 GameManagerOneVsOne.Instance.ScorePlayer2 += 1;
                 BallManager.Instance.ballInGame = false;

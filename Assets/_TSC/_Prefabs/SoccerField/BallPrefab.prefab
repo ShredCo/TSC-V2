@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 2204713485860717510}
+  aiController: {fileID: 0}
   ballInGame: 0
   CountdownText: {fileID: 0}
   CountdownPanel: {fileID: 0}
@@ -139,6 +140,8 @@ MonoBehaviour:
   AudioSourceCheering2: {fileID: 0}
   AudioSourceCheering3: {fileID: 0}
   AudioSourceCheering4: {fileID: 0}
+  PoleHealth: {fileID: 0}
+  LastPlayerHit: 0
 --- !u!82 &-829069779385028828
 AudioSource:
   m_ObjectHideFlags: 0

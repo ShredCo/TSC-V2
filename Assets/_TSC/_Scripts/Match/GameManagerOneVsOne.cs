@@ -64,7 +64,7 @@ public class GameManagerOneVsOne : MonoBehaviour
     }
     private void Update()
     {
-        if (ScorePlayer1 == 5)
+        if (ScorePlayer1 >= 5)
         {
             WinLoseText.text = "YOU WIN";
             LineUpController.DidWin = true;
@@ -72,7 +72,7 @@ public class GameManagerOneVsOne : MonoBehaviour
             FindObjectOfType<PoleHealth>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
-        else if (ScorePlayer2 == 5)
+        else if (ScorePlayer2 >= 5)
         {
             WinLoseText.text = "YOU LOSE";
             LineUpController.DidWin = false;
@@ -135,6 +135,7 @@ public class GameManagerOneVsOne : MonoBehaviour
 
     public IEnumerator EndGame()
     {
+        
         WinLosePanel.SetActive(true);
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(1);
