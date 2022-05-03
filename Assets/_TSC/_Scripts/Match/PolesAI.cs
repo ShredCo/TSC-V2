@@ -63,7 +63,9 @@ public class PolesAI : MonoBehaviour
     public void MovementGoalkeeper(Transform ballTransform)
     {
         //transform.position = Vector3.SmoothDamp(transform.position, ballTransform.position, ref velocity, smoothSpeed);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.7f, -0.7f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.7f, -0.7f),
+                                         Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), 
+                                         Mathf.Clamp(transform.position.z, -0.3f, 0.3f));
 
         rb.MovePosition(Vector3.SmoothDamp(transform.position, ballTransform.position, ref velocity, smoothSpeed));
     }
@@ -82,7 +84,7 @@ public class PolesAI : MonoBehaviour
                 rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f),
                                                  Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f),
-                                                 Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+                                                 Mathf.Clamp(transform.position.z, -0.3f, 0.3f));
             }
             else
             {
@@ -166,6 +168,23 @@ public class PolesAI : MonoBehaviour
             else
                 ShootIndex = 0;
         }
+    }
+
+    public void BallBetweenPlayers()
+    {
+        Quaternion poleRotationQuaternion = Quaternion.Euler(shootFrontRotations[ShootIndex]);
+        rb.MoveRotation(Quaternion.Slerp(transform.rotation, poleRotationQuaternion, 10f * Time.deltaTime));
+
+        shootTime = Mathf.Lerp(shootTime, 1f, 10f * Time.deltaTime);
+
+        if (shootTime > 0.9f)
+        {
+            shootTime = 0f;
+            if (ShootIndex == 0)
+                ShootIndex++;
+            else
+                ShootIndex = 0;
+        } 
     }
     #endregion
     

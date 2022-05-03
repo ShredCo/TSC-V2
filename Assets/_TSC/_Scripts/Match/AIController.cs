@@ -8,10 +8,12 @@ public enum AIState
 {
     OutOfRange,
     InCircleRange,
+    BetweenPlayerPositions
 }
 public enum ShootingState
 {
     Default,
+    LoadShot,
     ShootFront,
     ShootBack,
 }
@@ -60,8 +62,8 @@ public class AIController : MonoBehaviour
                 MovePolesInput();
                 ResetPoleRotation();
                 break;
+            
             case AIState.InCircleRange:
-
                 switch (ShootingState)
                 {
                     case ShootingState.Default:
@@ -76,8 +78,14 @@ public class AIController : MonoBehaviour
                     default:
                         break;
                 }
-
                 //RotateAndMovePolesInput();
+                break;
+            
+            case AIState.BetweenPlayerPositions:
+                if (ShootingState == ShootingState.LoadShot)
+                {
+                    BallBetweenPlayers();
+                }
                 break;
         }
 
@@ -148,6 +156,11 @@ public class AIController : MonoBehaviour
     public void ShootFront()
     {
         polesAI[currentPoleIndexAI].ShootFront();
+    }
+    
+    public void BallBetweenPlayers()
+    {
+        polesAI[currentPoleIndexAI].BallBetweenPlayers();
     }
 
     IEnumerator FastShot()

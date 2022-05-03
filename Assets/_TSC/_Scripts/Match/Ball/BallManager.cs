@@ -96,44 +96,36 @@ public class BallManager : MonoBehaviour
                 if (other.CompareTag("AIMain"))
                 {
                     PoleHealth.AIHealthMain -= GetComponent<Rigidbody>().velocity.magnitude;
-                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
                 }
                 else if (other.CompareTag("AICrew1"))
                 {
                     PoleHealth.AIHealthCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
-                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
                 }
                 else if (other.CompareTag("AICrew2"))
                 {
                     PoleHealth.AIHealthCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
-                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
                 }
                 else if (other.CompareTag("AICrew3"))
                 {
                     PoleHealth.AIHealthCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
-                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
                 }
                 break;
             case LastPlayerHit.AI:
                 if (other.CompareTag("PlayerMain"))
                 {
                     PoleHealth.PlayerHealthMain -= GetComponent<Rigidbody>().velocity.magnitude;
-                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
                 }
                 else if (other.CompareTag("PlayerCrew1"))
                 {
                     PoleHealth.PlayerHealthCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
-                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
                 }
                 else if (other.CompareTag("PlayerCrew2"))
                 {
                     PoleHealth.PlayerHealthCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
-                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
                 }
                 else if (other.CompareTag("PlayerCrew3"))
                 {
                     PoleHealth.PlayerHealthCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
-                    Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
                 }
                 break;
             default:
