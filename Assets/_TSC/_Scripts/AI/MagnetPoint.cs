@@ -6,7 +6,7 @@ using UnityEngine;
 public class MagnetPoint : MonoBehaviour
 {
     private PoleShooting PoleShooting;
-    private float forceFactor = 20;
+    private float forceFactor = 70;
 
     // A list because maybe we will add multiple balls during one game in the future.
     List<Rigidbody> rgdBalls = new List<Rigidbody>();
@@ -31,7 +31,6 @@ public class MagnetPoint : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            forceFactor = 20;
             rgdBalls.Add(other.GetComponent<Rigidbody>());
         }
     }
@@ -40,7 +39,6 @@ public class MagnetPoint : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            forceFactor = 20;
             foreach(Rigidbody rgdBal in rgdBalls)
             {
                 rgdBal.AddForce((magnetPoint.position - rgdBal.position) * forceFactor * Time.fixedDeltaTime);
@@ -52,6 +50,5 @@ public class MagnetPoint : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         rgdBalls.Remove(other.GetComponent<Rigidbody>());
-        forceFactor = 20;
     }
 }
