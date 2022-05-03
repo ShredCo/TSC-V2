@@ -28,6 +28,7 @@ TagManager:
   - AICrew1
   - AICrew2
   - AICrew3
+  - DialogueManager
   layers:
   - Default
   - TransparentFX

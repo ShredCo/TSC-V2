@@ -20,6 +20,8 @@ public enum TalkState
 public class DialogueTrigger : MonoBehaviour
 {
     public static DialogueTrigger Instance;
+
+    DialogueManager dialogueManager;
     
     public NPCInventorySO NPCInventory;
     public InventoryObject PlayerInventory;
@@ -35,6 +37,7 @@ public class DialogueTrigger : MonoBehaviour
             Instance = this;
         rigidbody = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
+        dialogueManager = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
     }
 
     [SerializeField] public GameObject x_Text;
@@ -67,7 +70,7 @@ public class DialogueTrigger : MonoBehaviour
                     x_Text.SetActive(true);
                     // Interact with a NPC
                     var gamepad = Gamepad.current;
-                    if (gamepad.buttonSouth.wasPressedThisFrame && IsTalking == false)
+                    if (gamepad.buttonSouth.wasPressedThisFrame && IsTalking == false && !dialogueManager.dialogueStarted)
                     {
                         GetComponent<Animator>().SetBool("IsWalking", false);
                         RotatePlayerTowardsNPC();
@@ -85,7 +88,7 @@ public class DialogueTrigger : MonoBehaviour
                     }
                     break;
                 case TalkState.SelfTrigger:
-                    if (NpcType == NpcType.Agressive && IsTalking == false && IsWalking == true)
+                    if (NpcType == NpcType.Agressive && IsTalking == false && IsWalking == true && !dialogueManager.dialogueStarted)
                     {
                         if (distanceToPlayer > 1f)
                         {

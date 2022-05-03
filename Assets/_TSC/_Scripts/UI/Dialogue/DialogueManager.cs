@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public UserInterfaceOverworld userInterfaceOverworld;
     public DialogueTrigger dialogueTrigger;
-    bool dialogueStarted = false;
+    public bool dialogueStarted = false;
     
     public NpcType npcType;
     public WorkshopUI workshopUI;
@@ -80,7 +80,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue() 
     {
         Player.Instance.DialogueState = DialogueState.Avaiable;
-        dialogueStarted = false;
         animator.SetBool("IsOpen", false);
         userInterfaceOverworld.Resume();
         if (LineUpController.DidWin == false)
@@ -112,7 +111,8 @@ public class DialogueManager : MonoBehaviour
 
     public IEnumerator CooldownDialogue()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        dialogueStarted = false;
         DialogueTrigger.Instance.IsTalking = false;
     }
 }
