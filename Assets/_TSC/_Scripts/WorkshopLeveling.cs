@@ -23,7 +23,7 @@ public class WorkshopLeveling : MonoBehaviour
     {
         if (inventory.PlayerDefaultCardLineUp[0].IsUpgradable) // check if the card can be upgraded
         {
-            if (inventory.wood >= UpgradeWoodCost && inventory.money >= UpgradeMoneyCost) // check if player has enough recources
+            if (inventory.Wood >= UpgradeWoodCost && inventory.Money >= UpgradeMoneyCost) // check if player has enough recources
             {
                 LineUpController.ActivePole = 0; // set the active pole, so that the line up knows where to put the upgraded card
                 foreach (ISlotDefaultCard card in inventory.DefaultCardContainer) // loop through the inventory to replace the card with the upgraded card
@@ -31,21 +31,21 @@ public class WorkshopLeveling : MonoBehaviour
                     if (inventory.PlayerDefaultCardLineUp[0] == card.DefaultCard)
                     {
                         card.DefaultCard = card.DefaultCard.NextLevelCard;
-                        inventory.AddDefaultCardtoLineUp(card.DefaultCard);
+                        inventory.AddDefaultCardToLineUp(card.DefaultCard);
                         InventoryUI.Instance.UpdateLineUpCards();
                         break;
                     }
                 }
-                inventory.wood -= UpgradeWoodCost;
-                inventory.money -= UpgradeMoneyCost;
+                inventory.Wood -= UpgradeWoodCost;
+                inventory.Money -= UpgradeMoneyCost;
             }
             else
             {
-                if (inventory.wood < UpgradeWoodCost)
+                if (inventory.Wood < UpgradeWoodCost)
                 {
                     Debug.Log("No enough wood, stranger");
                 }
-                if (inventory.money < UpgradeMoneyCost)
+                if (inventory.Money < UpgradeMoneyCost)
                 {
                     Debug.Log("No enough cash, stranger");
                 }
@@ -61,7 +61,7 @@ public class WorkshopLeveling : MonoBehaviour
     {
         if (inventory.PlayerDefaultCardLineUp[1].IsUpgradable)
         {
-            if (inventory.wood >= UpgradeWoodCost && inventory.money >= UpgradeMoneyCost)
+            if (inventory.Wood >= UpgradeWoodCost && inventory.Money >= UpgradeMoneyCost)
             {
                 LineUpController.ActivePole = 1;
                 foreach (ISlotDefaultCard card in inventory.DefaultCardContainer)
@@ -69,21 +69,21 @@ public class WorkshopLeveling : MonoBehaviour
                     if (inventory.PlayerDefaultCardLineUp[1] == card.DefaultCard)
                     {
                         card.DefaultCard = card.DefaultCard.NextLevelCard;
-                        inventory.AddDefaultCardtoLineUp(card.DefaultCard);
+                        inventory.AddDefaultCardToLineUp(card.DefaultCard);
                         InventoryUI.Instance.UpdateLineUpCards();
                         break;
                     }
                 }
-                inventory.wood -= UpgradeWoodCost;
-                inventory.money -= UpgradeMoneyCost;
+                inventory.Wood -= UpgradeWoodCost;
+                inventory.Money -= UpgradeMoneyCost;
             }
             else
             {
-                if (inventory.wood < UpgradeWoodCost)
+                if (inventory.Wood < UpgradeWoodCost)
                 {
                     Debug.Log("No enough wood, stranger");
                 }
-                if (inventory.money < UpgradeMoneyCost)
+                if (inventory.Money < UpgradeMoneyCost)
                 {
                     Debug.Log("No enough cash, stranger");
                 }
@@ -99,7 +99,7 @@ public class WorkshopLeveling : MonoBehaviour
     {
         if (inventory.PlayerDefaultCardLineUp[2].IsUpgradable)
         {
-            if (inventory.wood >= UpgradeWoodCost && inventory.money >= UpgradeMoneyCost)
+            if (inventory.Wood >= UpgradeWoodCost && inventory.Money >= UpgradeMoneyCost)
             {
                 LineUpController.ActivePole = 2;
                 foreach (ISlotDefaultCard card in inventory.DefaultCardContainer)
@@ -107,21 +107,21 @@ public class WorkshopLeveling : MonoBehaviour
                     if (inventory.PlayerDefaultCardLineUp[2] == card.DefaultCard)
                     {
                         card.DefaultCard = card.DefaultCard.NextLevelCard;
-                        inventory.AddDefaultCardtoLineUp(card.DefaultCard);
+                        inventory.AddDefaultCardToLineUp(card.DefaultCard);
                         InventoryUI.Instance.UpdateLineUpCards();
                         break;
                     }
                 }
-                inventory.wood -= UpgradeWoodCost;
-                inventory.money -= UpgradeMoneyCost;
+                inventory.Wood -= UpgradeWoodCost;
+                inventory.Money -= UpgradeMoneyCost;
             }
             else
             {
-                if (inventory.wood < UpgradeWoodCost)
+                if (inventory.Wood < UpgradeWoodCost)
                 {
                     Debug.Log("No enough wood, stranger");
                 }
-                if (inventory.money < UpgradeMoneyCost)
+                if (inventory.Money < UpgradeMoneyCost)
                 {
                     Debug.Log("No enough cash, stranger");
                 }
@@ -137,7 +137,7 @@ public class WorkshopLeveling : MonoBehaviour
     {
         if (inventory.PlayerDefaultCardLineUp[3].IsUpgradable)
         {
-            if (inventory.wood >= UpgradeWoodCost && inventory.money >= UpgradeMoneyCost)
+            if (inventory.Wood >= UpgradeWoodCost && inventory.Money >= UpgradeMoneyCost)
             {
                 LineUpController.ActivePole = 3;
                 foreach (ISlotDefaultCard card in inventory.DefaultCardContainer)
@@ -145,21 +145,21 @@ public class WorkshopLeveling : MonoBehaviour
                     if (inventory.PlayerDefaultCardLineUp[3] == card.DefaultCard)
                     {
                         card.DefaultCard = card.DefaultCard.NextLevelCard;
-                        inventory.AddDefaultCardtoLineUp(card.DefaultCard);
+                        inventory.AddDefaultCardToLineUp(card.DefaultCard);
                         InventoryUI.Instance.UpdateLineUpCards();
                         break;
                     }
                 }
-                inventory.wood -= UpgradeWoodCost;
-                inventory.money -= UpgradeMoneyCost;
+                inventory.Wood -= UpgradeWoodCost;
+                inventory.Money -= UpgradeMoneyCost;
             }
             else
             {
-                if (inventory.wood < UpgradeWoodCost)
+                if (inventory.Wood < UpgradeWoodCost)
                 {
                     Debug.Log("No enough wood, stranger");
                 }
-                if (inventory.money < UpgradeMoneyCost)
+                if (inventory.Money < UpgradeMoneyCost)
                 {
                     Debug.Log("No enough cash, stranger");
                 }
@@ -177,10 +177,10 @@ public class WorkshopLeveling : MonoBehaviour
     {
         if (inventory.PlayerDefaultCardLineUp[0].Condition < inventory.PlayerDefaultCardLineUp[0].MaxCondition)
         {
-            if (inventory.wood >= RepairWoodCost)
+            if (inventory.Wood >= RepairWoodCost)
             {
                 inventory.PlayerDefaultCardLineUp[0].Condition = inventory.PlayerDefaultCardLineUp[0].MaxCondition;
-                inventory.wood -= RepairWoodCost;
+                inventory.Wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
             else
@@ -198,10 +198,10 @@ public class WorkshopLeveling : MonoBehaviour
     {
         if (inventory.PlayerDefaultCardLineUp[1].Condition < inventory.PlayerDefaultCardLineUp[1].MaxCondition)
         {
-            if (inventory.wood >= RepairWoodCost)
+            if (inventory.Wood >= RepairWoodCost)
             {
                 inventory.PlayerDefaultCardLineUp[1].Condition = inventory.PlayerDefaultCardLineUp[1].MaxCondition;
-                inventory.wood -= RepairWoodCost;
+                inventory.Wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
             else
@@ -219,10 +219,10 @@ public class WorkshopLeveling : MonoBehaviour
     {
         if (inventory.PlayerDefaultCardLineUp[2].Condition < inventory.PlayerDefaultCardLineUp[2].MaxCondition)
         {
-            if (inventory.wood >= RepairWoodCost)
+            if (inventory.Wood >= RepairWoodCost)
             {
                 inventory.PlayerDefaultCardLineUp[2].Condition = inventory.PlayerDefaultCardLineUp[2].MaxCondition;
-                inventory.wood -= RepairWoodCost;
+                inventory.Wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
             else
@@ -240,10 +240,10 @@ public class WorkshopLeveling : MonoBehaviour
     {
         if (inventory.PlayerDefaultCardLineUp[3].Condition < inventory.PlayerDefaultCardLineUp[3].MaxCondition)
         {
-            if (inventory.wood >= RepairWoodCost)
+            if (inventory.Wood >= RepairWoodCost)
             {
                 inventory.PlayerDefaultCardLineUp[3].Condition = inventory.PlayerDefaultCardLineUp[3].MaxCondition;
-                inventory.wood -= RepairWoodCost;
+                inventory.Wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
             else

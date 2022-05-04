@@ -189,8 +189,8 @@ public class UserInterfaceOverworld : MonoBehaviour
     void Update()
     {
         // Resource texts
-        TextMoney.text = Inventory.money.ToString();
-        TextWood.text = Inventory.wood.ToString();
+        TextMoney.text = Inventory.Money.ToString();
+        TextWood.text = Inventory.Wood.ToString();
         
         // Get first selected buttons for pole and ability card equipping
         FirstButtonPoleCardPage1 = FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1;
