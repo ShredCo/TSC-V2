@@ -12,16 +12,12 @@ public class CameraFollow : MonoBehaviour
     private Vector3 offsetPosition;
     #endregion
 
-    private void Start()
-    {
-        offsetPosition.y = 1.2f;
-        offsetPosition.z = 0.7f;
-    }
-
     void Update()
     {
         offsetPosition = Ball.transform.position;
-        
+        offsetPosition.y = 1.2f;
+        offsetPosition.z = 0.7f;
+
         transform.position = Vector3.Lerp(transform.position, offsetPosition, cameraFollowSpeed * Time.deltaTime);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, 0.5f),transform.position.y, transform.position.z);
     }

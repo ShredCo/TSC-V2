@@ -73,7 +73,8 @@ public class PolesPlayer : MonoBehaviour
     public Ability Ability;
     void GetAbility()
     {
-        Ability = LineUpController.PlayerAbilityCardLineUP[Pole].Ability;
+        if(LineUpController.PlayerAbilityCardLineUP[Pole].Ability != null)
+            Ability = LineUpController.PlayerAbilityCardLineUP[Pole].Ability;
     }
     #endregion
 }

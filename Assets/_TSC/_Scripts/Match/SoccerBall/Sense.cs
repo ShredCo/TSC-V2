@@ -15,7 +15,8 @@ public class Sense : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, checkRadius, checkLayers);
         Array.Sort(colliders, new DistanceComparer(transform));
 
-        closestPlayer = colliders[0];
+        if(colliders.Length > 0)
+            closestPlayer = colliders[0];
         //Debug.Log("Closest Enemy = " + closestPlayer);
 
         //foreach (Collider item in colliders)

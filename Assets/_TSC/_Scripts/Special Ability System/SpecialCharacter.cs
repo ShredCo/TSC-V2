@@ -25,6 +25,7 @@ public class SpecialCharacter : MonoBehaviour
 
     public void MoveAbilityUpAndDown(Vector2 movement)
     {
+        movement *= moveSpeed;
         // movement up & down
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
         rb.velocity = new Vector3(0f,0f,-movement.y);

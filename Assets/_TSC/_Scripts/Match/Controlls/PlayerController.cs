@@ -6,11 +6,26 @@ using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
+enum AbilityState
+{
+    ready,
+    active,
+    cooldown
+}
+
 public class PlayerController : MonoBehaviour
 {
-    // Singleton
+    #region Singleton
     public static PlayerController Instance;
 
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
+    #endregion
+
+    #region Variables / References
     // Input System -> Input Values
     private Vector2 movementPoleInput;
     private Vector2 movementAbilityInput;
@@ -18,38 +33,21 @@ public class PlayerController : MonoBehaviour
     private PolesPlayer[] polesPlayer;
     private SpecialCharacter[] specialCharacter;
 
-    // Ability
-    public Ability ability;
-
     private GameObject steeringWheelPole;
 
     public int currentPoleIndex;
 
-
-    // Special Cards move speed;
+    // Ability Cards move speed;
     public float characterVelocity = 750f;
 
-
     public BallManager ball;
-
-    enum AbilityState
-    {
-        ready,
-        active,
-        cooldown
-    }
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-    }
+    #endregion
 
     private void FixedUpdate()
     {
-        if (currentPoleIndex == 0)
+        if (currentPoleIndex == 0) // check for active pole
         {
-            if (mainAbility)
+            if (mainAbility) // check if ability is active, move ability instead of pole
             {
                 polesPlayer[0].PoleFreeze();
                 poleMainAbility.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
@@ -101,8 +99,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #region Player Set Up
     // NOTE: Do some more research about this topic
     // when a new player joins he receives an array of poles + an arrow to see which pole is selected
+    // for future 1v1 and 2v2 gamemodes
     internal void ReceivePolesPlayer(PolesPlayer[] poles)
     {
         this.polesPlayer = poles;
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         steeringWheelPole = gO;
     }
-
+    #endregion
 
     #region Input System -> Gets the movement values from controller
 
@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    #region Special Cards System
+    #region Ability Cards System
 
     public GameObject SpawnPointAbility;
 
@@ -219,7 +219,6 @@ public class PlayerController : MonoBehaviour
     public void MoveAbility(InputAction.CallbackContext context)
     {
         movementAbilityInput = context.ReadValue<Vector2>();
-        movementAbilityInput.y *= SpecialCharacter.Instance.moveSpeed;
     }
     
     #region Input System -> Special Cards
