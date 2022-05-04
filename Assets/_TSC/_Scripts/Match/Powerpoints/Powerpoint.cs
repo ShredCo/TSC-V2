@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class Powerpoint : MonoBehaviour
@@ -12,8 +8,9 @@ public class Powerpoint : MonoBehaviour
         {
             if (gameObject.CompareTag("Powerfield Blue"))
             {
+                // Blue player picks up a powerpoint from powerfield
                 Destroy(gameObject);
-                SpawnPowerfields.instance.powerfieldsCountBlue -= 1;
+                SpawnPowerfields.instance.PowerfieldsCountBlue -= 1;
                 if (GameManagerOneVsOne.Instance.powerpointsCountBlue < 5)
                 {
                     GameManagerOneVsOne.Instance.powerpointsCountBlue += 1;
@@ -21,14 +18,14 @@ public class Powerpoint : MonoBehaviour
             }
             if (gameObject.CompareTag("Powerfield Red"))
             {
+                // Red player picks up a powerpoint from powerfield
                 Destroy(gameObject);
-                SpawnPowerfields.instance.powerfieldsCountRed -= 1;
+                SpawnPowerfields.instance.PowerfieldsCountRed -= 1;
                 if (GameManagerOneVsOne.Instance.powerpointsCountRed < 5)
                 {
                     GameManagerOneVsOne.Instance.powerpointsCountRed += 1;
                 }
             }
-            
         }
     }
 }
