@@ -6,23 +6,8 @@ using TMPro;
 public enum LastPlayerHit { Default, Player, AI }
 public class BallManager : MonoBehaviour
 {
+    #region Singleton
     public static BallManager Instance;
-    public GameObject ball;
-    public AIController aiController;
-
-    public bool ballInGame = false;
-    private Vector3 startPos;
-
-    public TextMeshProUGUI CountdownText;
-    public GameObject CountdownPanel;
-
-    public AudioSource audioSource;
-    public AudioClip Countdown;
-    public AudioSource AudioSourceCheering1;
-    public AudioSource AudioSourceCheering2;
-    public AudioSource AudioSourceCheering3;
-    public AudioSource AudioSourceCheering4;
-
     private void Awake()
     {
         if (Instance == null)
@@ -31,101 +16,114 @@ public class BallManager : MonoBehaviour
         startPos = new Vector3(0f, 0.42f, -0.837f); // position of the GameObject the script is placed on
         StartCoroutine(SpawnFirstBall());
     }
+    #endregion
+    
+    // References
+    [SerializeField] GameObject ball;
+    //[SerializeField] AIController aiController;
+    [SerializeField] TextMeshProUGUI countdownText;
+    [SerializeField] GameObject countdownPanel;
+    
+    // Audio
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip countdown;
+    [SerializeField] AudioSource audioSourceCheering1;
+    [SerializeField] AudioSource audioSourceCheering2;
+    [SerializeField] AudioSource audioSourceCheering3;
+    [SerializeField] AudioSource audioSourceCheering4;
+
+    public bool BallInGame = false;
+    private Vector3 startPos;
 
     private void Update()
     {
         var gamepad = Gamepad.current;
 
-        //Spawns a new Ball or Respawns
+        //Spawns a new ball or Respawns
         if (gamepad.dpad.up.wasPressedThisFrame)
         {
-            if (ballInGame == false)
+            if (BallInGame == false)
             {
                 SpawnSoccerBall();
-                ballInGame = true;
+                BallInGame = true;
             }
 
-            // only for testing reason here. -> Can be deletet
+            // TODO: Can be deleted when publishing the game.
             SpawnSoccerBall();
         }
-
-        
     }
 
+    #region Methods -> Spawn Ball
     public void SpawnSoccerBall()
     {
         ball.transform.position = startPos;
-        ballInGame = true;
+        BallInGame = true;
     }
-
     public IEnumerator SpawnFirstBall()
     {
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-        CountdownPanel.SetActive(true);
-        audioSource.clip = Countdown;
+        countdownPanel.SetActive(true);
+        audioSource.clip = countdown;
         audioSource.Play();
-        CountdownText.text = "3";
+        countdownText.text = "3";
         yield return new WaitForSeconds(1f);
-        CountdownText.text = "2";
+        countdownText.text = "2";
         yield return new WaitForSeconds(1f);
-        CountdownText.text = "1";
+        countdownText.text = "1";
         yield return new WaitForSeconds(1f);
-        CountdownPanel.SetActive(false);
-        AudioSourceCheering1.Play();
-        AudioSourceCheering2.Play();
-        AudioSourceCheering3.Play();
-        AudioSourceCheering4.Play();
+        countdownPanel.SetActive(false);
+        audioSourceCheering1.Play();
+        audioSourceCheering2.Play();
+        audioSourceCheering3.Play();
+        audioSourceCheering4.Play();
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
-
-   
-
+    #endregion
+    
     #region Damage to poles
-
-    public PoleHealth PoleHealth;
-
-    public LastPlayerHit LastPlayerHit;
+    [SerializeField] PoleHealth poleHealth;
+    [SerializeField] LastPlayerHit lastPlayerHit;
 
     void DealDamage(GameObject other)
     {
-        switch (LastPlayerHit)
+        switch (lastPlayerHit)
         {
             case LastPlayerHit.Default:
                 break;
             case LastPlayerHit.Player:
                 if (other.CompareTag("AIMain"))
                 {
-                    PoleHealth.AIHealthMain -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.AIHealthMain -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("AICrew1"))
                 {
-                    PoleHealth.AIHealthCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.AIHealthCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("AICrew2"))
                 {
-                    PoleHealth.AIHealthCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.AIHealthCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("AICrew3"))
                 {
-                    PoleHealth.AIHealthCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.AIHealthCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 break;
             case LastPlayerHit.AI:
                 if (other.CompareTag("PlayerMain"))
                 {
-                    PoleHealth.PlayerHealthMain -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.PlayerHealthMain -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("PlayerCrew1"))
                 {
-                    PoleHealth.PlayerHealthCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.PlayerHealthCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("PlayerCrew2"))
                 {
-                    PoleHealth.PlayerHealthCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.PlayerHealthCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("PlayerCrew3"))
                 {
-                    PoleHealth.PlayerHealthCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.PlayerHealthCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 break;
             default:
@@ -138,10 +136,9 @@ public class BallManager : MonoBehaviour
     {
         DealDamage(collision.gameObject);
         if (collision.gameObject.CompareTag("PlayerMain") || collision.gameObject.CompareTag("PlayerCrew1") || collision.gameObject.CompareTag("PlayerCrew2") || collision.gameObject.CompareTag("PlayerCrew3"))
-            LastPlayerHit = LastPlayerHit.Player;
+            lastPlayerHit = LastPlayerHit.Player;
         else if (collision.gameObject.CompareTag("AIMain") || collision.gameObject.CompareTag("AICrew1") || collision.gameObject.CompareTag("AICrew2") || collision.gameObject.CompareTag("AICrew3"))
-            LastPlayerHit = LastPlayerHit.AI;
+            lastPlayerHit = LastPlayerHit.AI;
     }
-
     #endregion
 }

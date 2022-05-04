@@ -18,7 +18,7 @@ public class Player1Goal : MonoBehaviour
             if (GameManagerOneVsOne.Instance.ScorePlayer2 < 5)
             {
                 GameManagerOneVsOne.Instance.ScorePlayer2 += 1;
-                BallManager.Instance.ballInGame = false;
+                BallManager.Instance.BallInGame = false;
 
                 // Plays goals cheering sounds
                 PlaySound1.Play(4);
@@ -37,7 +37,7 @@ public class Player1Goal : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ExplosionGoal1.SetActive(false);
         yield return new WaitForSeconds(5f);
-        if (BallManager.Instance.ballInGame == false)
+        if (BallManager.Instance.BallInGame == false)
         {
             BallManager.Instance.SpawnSoccerBall();
         }
