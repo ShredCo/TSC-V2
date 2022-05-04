@@ -1,35 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickUpSoundeffects : MonoBehaviour
 {
+    #region Singleton
     public static PickUpSoundeffects Instance;
-
     private void Awake()
     {
         Instance = this;
     }
+    #endregion
+    
+    // References
+    [SerializeField] AudioSource audioSource;
 
-    public AudioSource AudioSource;
+    [SerializeField] AudioClip[] moneyPickUp;
+    [SerializeField] AudioClip[] cardPickUp;
+    [SerializeField] AudioClip[] woodPickUp;
 
-    public AudioClip[] MoneyPickUp;
-    public AudioClip[] CardPickUp;
-    public AudioClip[] WoodPickUp;
-
+    // Methods
     public void MoneySound()
     {
-        AudioSource.clip = MoneyPickUp[Random.Range(0, MoneyPickUp.Length)];
-        AudioSource.Play();
+        audioSource.clip = moneyPickUp[Random.Range(0, moneyPickUp.Length)];
+        audioSource.Play();
     }
     public void CardSound()
     {
-        AudioSource.clip = CardPickUp[Random.Range(0, CardPickUp.Length)];
-        AudioSource.Play();
+        audioSource.clip = cardPickUp[Random.Range(0, cardPickUp.Length)];
+        audioSource.Play();
     }
     public void WoodSound()
     {
-        AudioSource.clip = WoodPickUp[Random.Range(0, WoodPickUp.Length)];
-        AudioSource.Play();
+        audioSource.clip = woodPickUp[Random.Range(0, woodPickUp.Length)];
+        audioSource.Play();
     }
 }
