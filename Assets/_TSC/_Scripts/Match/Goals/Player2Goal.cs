@@ -1,17 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 
 public class Player2Goal : MonoBehaviour
 {
-    public AudioSource PlaySound1;
-    public AudioSource PlaySound2;
-    public AudioSource PlaySound3;
-    public AudioSource PlaySound4;
+    // Cheering sounds
+    [SerializeField] AudioSource playSound1;
+    [SerializeField] AudioSource playSound2;
+    [SerializeField] AudioSource playSound3;
+    [SerializeField] AudioSource playSound4;
 
-    public GameObject ExplosionGoal2;
+    // VFX
+    [SerializeField] GameObject explosionGoal2;
    
     private void OnTriggerEnter(Collider other)
     {
@@ -19,15 +18,6 @@ public class Player2Goal : MonoBehaviour
         {
             if (GameManagerOneVsOne.Instance.ScorePlayer1 < 5)
             {
-                GameManagerOneVsOne.Instance.ScorePlayer1 += 1;
-                BallManager.Instance.BallInGame = false;
-
-                // Plays goals cheering sounds
-                PlaySound1.Play(4);
-                PlaySound2.Play(1);
-                PlaySound3.Play(2);
-                PlaySound4.Play(1);
-
                 StartCoroutine(SpawnNewBall());
             }
         }
@@ -35,10 +25,23 @@ public class Player2Goal : MonoBehaviour
 
     IEnumerator SpawnNewBall()
     {
-        ExplosionGoal2.SetActive(true);
+        // Give the opponent a point
+        GameManagerOneVsOne.Instance.ScorePlayer1 += 1;
+        BallManager.Instance.BallInGame = false;
+
+        // Plays goals cheering sounds
+        playSound1.Play(4);
+        playSound2.Play(1);
+        playSound3.Play(2);
+        playSound4.Play(1);
+        
+        // Plays the goal VFX
+        explosionGoal2.SetActive(true);
         yield return new WaitForSeconds(2f);
-        ExplosionGoal2.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        explosionGoal2.SetActive(false);
+        
+        // Spawns a new ball
+        yield return new WaitForSeconds(1f);
         if (BallManager.Instance.BallInGame == false)
         {
             BallManager.Instance.SpawnSoccerBall();
