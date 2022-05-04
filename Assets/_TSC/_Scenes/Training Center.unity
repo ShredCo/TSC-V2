@@ -838,7 +838,7 @@ Transform:
   - {fileID: 1168905119}
   - {fileID: 844313060}
   m_Father: {fileID: 1727475516}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &58368546
 GameObject:
@@ -14210,7 +14210,7 @@ Transform:
   - {fileID: 700215835}
   - {fileID: 451708528}
   m_Father: {fileID: 1727475516}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012955394
 GameObject:
@@ -14786,7 +14786,7 @@ Transform:
   m_Children:
   - {fileID: 1110746730}
   m_Father: {fileID: 1727475516}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1079444674
 PrefabInstance:
@@ -19592,7 +19592,7 @@ Transform:
   - {fileID: 1788705595}
   - {fileID: 1531774572}
   m_Father: {fileID: 1727475516}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1470048893
 GameObject:
@@ -23621,10 +23621,10 @@ Transform:
   - {fileID: 4402552114209116083}
   - {fileID: 586366655}
   - {fileID: 2088148604}
+  - {fileID: 1078799477}
   - {fileID: 1465905600}
   - {fileID: 1011046874}
   - {fileID: 57888828}
-  - {fileID: 1078799477}
   - {fileID: 948468807}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -24225,11 +24225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6edabcf08d5a54f9a60febdadff89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkRadius: 0.4
   checkLayers:
     serializedVersion: 2
     m_Bits: 256
-  closestPlayer: {fileID: 0}
+  checkRadius: 0.4
+  ClosestPlayer: {fileID: 0}
 --- !u!1 &1778748650
 GameObject:
   m_ObjectHideFlags: 0
@@ -34422,7 +34422,7 @@ MonoBehaviour:
   movementInputValue: 0.5
   rotationInputValue: 0.5
   currentPoleIndexAI: 0
-  smoothSpeed: 0.5
+  smoothSpeed: 0.25
   FrontShootRotationIndex: 0
 --- !u!64 &7525578558336090750
 MeshCollider:

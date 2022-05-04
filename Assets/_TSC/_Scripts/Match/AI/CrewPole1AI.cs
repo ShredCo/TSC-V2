@@ -37,11 +37,11 @@ public class CrewPole1AI : MonoBehaviour
 
         if (dotPro >= 0)
         {
-            if (sense.closestPlayer.name == "pos2" || sense.closestPlayer.name == "pos3")
+            if (sense.ClosestPlayer.name == "pos2" || sense.ClosestPlayer.name == "pos3")
             {
                 // if ball is in front of pole it lerps towards the ball position
                 // Calculate the z difference between the ball and the closest enemy player
-                poleMovement = sense.closestPlayer.transform.position.z - BallTransform.transform.position.z;
+                poleMovement = sense.ClosestPlayer.transform.position.z - BallTransform.transform.position.z;
             
                 // Calculate new position of pole and interpolate player on pole with ball
                 Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
@@ -59,7 +59,7 @@ public class CrewPole1AI : MonoBehaviour
         {
             // If ball is behind pole it should interpolate away 
             // Calculate the z difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z + BallTransform.transform.position.z;
+            poleMovement = sense.ClosestPlayer.transform.position.z + BallTransform.transform.position.z;
             
             // Calculate new position of pole and interpolate player on pole with ball
             Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);

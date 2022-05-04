@@ -74,9 +74,9 @@ public class PolesAI : MonoBehaviour
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
             // Calculate the z difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z - ballTransform.transform.position.z;
+            poleMovement = sense.ClosestPlayer.transform.position.z - ballTransform.transform.position.z;
             
-            if (sense.closestPlayer.name is "pos2" or "pos3")
+            if (sense.ClosestPlayer.name is "pos2" or "pos3")
             {
                 // if ball is in front of pole it lerps towards the ball position
                 // Calculate new position of pole and interpolate player on pole with ball
@@ -109,9 +109,9 @@ public class PolesAI : MonoBehaviour
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
             // Calculate the z difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z - ballTransform.transform.position.z;
+            poleMovement = sense.ClosestPlayer.transform.position.z - ballTransform.transform.position.z;
             
-            if (sense.closestPlayer.name is "pos4" or "pos5" or "pos6" or "pos7" or "pos8")
+            if (sense.ClosestPlayer.name is "pos4" or "pos5" or "pos6" or "pos7" or "pos8")
             {
                 // Calculate new position of pole and interpolate player on pole with ball
                 Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
@@ -133,9 +133,9 @@ public class PolesAI : MonoBehaviour
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
             // Calculate the difference between the ball and the closest enemy player
-            poleMovement = sense.closestPlayer.transform.position.z - ballTransform.transform.position.z;
+            poleMovement = sense.ClosestPlayer.transform.position.z - ballTransform.transform.position.z;
             
-            if (sense.closestPlayer.name is "pos9" or "pos10" or "pos11")
+            if (sense.ClosestPlayer.name is "pos9" or "pos10" or "pos11")
             {
                 // Calculate new position of pole and interpolate player on pole with ball
                 Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
