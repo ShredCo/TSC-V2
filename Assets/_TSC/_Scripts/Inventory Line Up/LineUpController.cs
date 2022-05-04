@@ -9,7 +9,8 @@ public enum MapType
     OkinaShores_Default,
     OkinaShores_Arena,
     YapaYapa, 
-    MoanaReef}
+    MoanaReef
+}
 
 public class LineUpController : MonoBehaviour
 {
