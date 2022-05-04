@@ -5,57 +5,60 @@ using UnityEngine.Audio;
 
 public class UISoundeffects : MonoBehaviour
 {
+    #region Singleton
     public static UISoundeffects Instance;
-
     private void Awake()
     {
         Instance = this;
     }
+    #endregion
+    
+    // References
+    [SerializeField] AudioSource audioSource;
 
-    public AudioSource AudioSource;
+    [SerializeField] AudioClip buttonPressMenu;
+    [SerializeField] AudioClip buttonPressCard;
+    [SerializeField] AudioClip openCardSelectionSound;
+    [SerializeField] AudioClip userInterfaceNavigation;
 
-    public AudioClip ButtonPressMenu;
-    public AudioClip ButtonPressCard;
-    public AudioClip OpenCardSelectionSound;
-    public AudioClip UINavigation;
+    [SerializeField] AudioClip selectionFailed;
+    [SerializeField] AudioClip[] cardSelection;
 
-    public AudioClip SelectionFailed;
-    public AudioClip[] CardSelection;
-
+    // Methods
     public void CardSelectSound()
     {
-        AudioSource.volume = 1f;
-        AudioSource.clip = CardSelection[Random.Range(0, CardSelection.Length)];
-        AudioSource.Play();
+        audioSource.volume = 1f;
+        audioSource.clip = cardSelection[Random.Range(0, cardSelection.Length)];
+        audioSource.Play();
     }
     public void SelectionFailedSound()
     {
-        AudioSource.volume = 1f;
-        AudioSource.clip = SelectionFailed;
-        AudioSource.Play();
+        audioSource.volume = 1f;
+        audioSource.clip = selectionFailed;
+        audioSource.Play();
     }
     public void ButtonClick()
     {
-        AudioSource.volume = 1f;
-        AudioSource.clip = ButtonPressMenu;
-        AudioSource.Play();
+        audioSource.volume = 1f;
+        audioSource.clip = buttonPressMenu;
+        audioSource.Play();
     }
     public void CardClick()
     {
-        AudioSource.volume = 1f;
-        AudioSource.clip = ButtonPressCard;
-        AudioSource.Play();
+        audioSource.volume = 1f;
+        audioSource.clip = buttonPressCard;
+        audioSource.Play();
     }
     public void OpenCardSelection()
     {
-        AudioSource.volume = 1f;
-        AudioSource.clip = OpenCardSelectionSound;
-        AudioSource.Play();
+        audioSource.volume = 1f;
+        audioSource.clip = openCardSelectionSound;
+        audioSource.Play();
     }
     public void UINavigationSound()
     {
-        AudioSource.volume = 0.5f;
-        AudioSource.clip = UINavigation;
-        AudioSource.Play();
+        audioSource.volume = 0.5f;
+        audioSource.clip = userInterfaceNavigation;
+        audioSource.Play();
     }
 }
