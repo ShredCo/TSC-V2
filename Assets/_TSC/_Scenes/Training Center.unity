@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9970,7 +9970,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: 0.000000005796526, y: 0.94154674, z: -0.33688235, w: 0.00000001620061}
+  m_LocalRotation: {x: -0.000000005796528, y: 0.94154674, z: -0.33688235, w: -0.000000016200616}
   m_LocalPosition: {x: -0.3456396, y: 1.2191033, z: 0.4225788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17051,7 +17051,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 1222df06735cc6d45b71a2b3ab3128f3, type: 3}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: countdown
+      value: 
+      objectReference: {fileID: 8300000, guid: 1222df06735cc6d45b71a2b3ab3128f3, type: 3}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: PoleHealth
+      value: 
+      objectReference: {fileID: 437777368}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: poleHealth
       value: 
       objectReference: {fileID: 437777368}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
@@ -17064,6 +17072,10 @@ PrefabInstance:
       objectReference: {fileID: 7523919988561840312}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: CountdownText
+      value: 
+      objectReference: {fileID: 1984424386}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: countdownText
       value: 
       objectReference: {fileID: 1984424386}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
@@ -17087,6 +17099,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 296254926}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: countdownPanel
+      value: 
+      objectReference: {fileID: 296254926}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: AudioSourceCheering1
       value: 
       objectReference: {fileID: 1203105177}
@@ -17100,6 +17116,22 @@ PrefabInstance:
       objectReference: {fileID: 1200712649}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: AudioSourceCheering4
+      value: 
+      objectReference: {fileID: 1577616317}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: audioSourceCheering1
+      value: 
+      objectReference: {fileID: 1203105177}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: audioSourceCheering2
+      value: 
+      objectReference: {fileID: 1711930054}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: audioSourceCheering3
+      value: 
+      objectReference: {fileID: 1200712649}
+    - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
+      propertyPath: audioSourceCheering4
       value: 
       objectReference: {fileID: 1577616317}
     - target: {fileID: 2204713485860717504, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
@@ -25413,7 +25445,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: 0.000000005796526, y: 0.94154674, z: -0.33688235, w: 0.00000001620061}
+  m_LocalRotation: {x: -0.000000005796528, y: 0.94154674, z: -0.33688235, w: -0.000000016200616}
   m_LocalPosition: {x: -0.3456396, y: 1.2191033, z: 0.4225788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

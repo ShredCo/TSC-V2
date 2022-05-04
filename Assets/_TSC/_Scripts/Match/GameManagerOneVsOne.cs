@@ -134,7 +134,7 @@ public class GameManagerOneVsOne : MonoBehaviour
         if (ScorePlayer1 < 10)
         {
             ScorePlayer1 += 1;
-            BallManager.Instance.ballInGame = false;
+            BallManager.Instance.BallInGame = false;
             print("ball in game:");
         }
     }
@@ -143,7 +143,7 @@ public class GameManagerOneVsOne : MonoBehaviour
         if (ScorePlayer2 < 10)
         {
             ScorePlayer2 += 1;
-            BallManager.Instance.ballInGame = false;
+            BallManager.Instance.BallInGame = false;
             print("ball in game:");
         }
     }
