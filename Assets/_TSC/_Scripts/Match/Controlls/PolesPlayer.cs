@@ -1,36 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using Random = System.Random;
 
 public class PolesPlayer : MonoBehaviour
 {
-    // Singleton
+    #region Singleton
     public static PolesPlayer Instance;
-    
-    Rigidbody rb;
-
-    [Header("movement variables")]
-    [SerializeField] public float rotationSpeed = 1500.0f;
-    [SerializeField] public float moveSpeed = 2.0f;
-    // speed of go back to normal rotation when resetet back
-    float speed = 5000f;
-    public bool lockedDownPressed = false;
-
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
-
-        rb = GetComponent<Rigidbody>();
     }
+    #endregion
 
+    [Header("Movement")]
+    public float rotationSpeed = 1500.0f;
+    public float moveSpeed = 2.0f;
+    
+    [Header("Ability")]
+    [SerializeField] int Pole;
+    public Ability Ability;
+    
+    Rigidbody rb;
+    
+    // reset rotation
+    float speed = 5000f;
+    public bool lockedDownPressed = false;
+    
     private void Start()
     {
         GetAbility();
+        rb = GetComponent<Rigidbody>();
     }
 
+    #region Methods -> Movement Poles
     public void MoveAndRotate(Vector2 movement)
     {
         // rotation
@@ -41,15 +42,7 @@ public class PolesPlayer : MonoBehaviour
 
         // movement up & down
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
-
-        // Sets the default limit for the movement
-        //rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
-        
-       //RbCrewPole2.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.12f, 0.12f));
-       //RbCrewPole3.position = new Vector3(Mathf.Clamp(transform.position.x, -0.3f, -0.3f), transform.position.y, Mathf.Clamp(transform.position.z, -0.2f, 0.2f));
-       
     }
-    
     public void PoleLockedDown()
     {
         if (lockedDownPressed == true)
@@ -67,10 +60,9 @@ public class PolesPlayer : MonoBehaviour
         Quaternion lockedUpQuaternion = Quaternion.RotateTowards(transform.rotation, normalQuaternion, step);
         rb.MoveRotation(lockedUpQuaternion);
     }
+    #endregion
 
-    #region Ability
-    public int Pole;
-    public Ability Ability;
+    #region Methods -> Ability
     void GetAbility()
     {
         if(LineUpController.PlayerAbilityCardLineUP[Pole].Ability != null)
