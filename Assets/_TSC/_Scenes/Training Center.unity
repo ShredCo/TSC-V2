@@ -9745,6 +9745,7 @@ Transform:
   m_Children:
   - {fileID: 892774339}
   - {fileID: 704481881}
+  - {fileID: 948556588}
   m_Father: {fileID: 586366655}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -9970,7 +9971,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.000000005796528, y: 0.94154674, z: -0.33688235, w: -0.000000016200616}
+  m_LocalRotation: {x: 0.000000005796526, y: 0.94154674, z: -0.33688235, w: 0.00000001620061}
   m_LocalPosition: {x: -0.3456396, y: 1.2191033, z: 0.4225788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10468,7 +10469,7 @@ Transform:
   m_GameObject: {fileID: 731366118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.058, z: 0}
-  m_LocalScale: {x: 0.023531197, y: 0.1, z: 0.009118194}
+  m_LocalScale: {x: 0.025, y: 0.099999994, z: 0.015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 53405357}
@@ -10486,8 +10487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34fac2973f42c74d9a6a698b65a44de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIController: {fileID: 7523919988561840312}
-  PolesAI: {fileID: 53405358}
+  aiController: {fileID: 7523919988561840312}
+  polesAI: {fileID: 53405358}
 --- !u!65 &731366121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13577,6 +13578,118 @@ MonoBehaviour:
   powerfieldPrefabBlue: {fileID: 7014039557707079103, guid: 428cbfa24b5fe4794bcee75e22004830, type: 3}
   powerfieldsCountRed: 0
   powerfieldsCountBlue: 0
+--- !u!1 &948556587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948556588}
+  - component: {fileID: 948556592}
+  - component: {fileID: 948556591}
+  - component: {fileID: 948556590}
+  - component: {fileID: 948556589}
+  m_Layer: 8
+  m_Name: BetweenPlayersZoneMain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &948556588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948556587}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.058, z: 0}
+  m_LocalScale: {x: 0.025, y: 0.099999994, z: 0.015}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 631305322}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948556589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948556587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34fac2973f42c74d9a6a698b65a44de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiController: {fileID: 7523919988561840312}
+  polesAI: {fileID: 631305323}
+--- !u!65 &948556590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948556587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &948556591
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948556587}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 946747ffe7f152c42963157b128280a9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &948556592
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948556587}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &987980490
 GameObject:
   m_ObjectHideFlags: 0
@@ -23392,9 +23505,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717449703}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.058, z: 0}
-  m_LocalScale: {x: 0.023531197, y: 0.1, z: 0.004093808}
+  m_LocalScale: {x: 0.025, y: 0.099999994, z: 0.015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1087741145}
@@ -23412,8 +23525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34fac2973f42c74d9a6a698b65a44de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIController: {fileID: 7523919988561840312}
-  PolesAI: {fileID: 1087741146}
+  aiController: {fileID: 7523919988561840312}
+  polesAI: {fileID: 1087741146}
 --- !u!65 &1717449706
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24533,7 +24646,7 @@ Transform:
   m_GameObject: {fileID: 1792855043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.058, z: 0}
-  m_LocalScale: {x: 0.023531197, y: 0.1, z: 0.0066062226}
+  m_LocalScale: {x: 0.025, y: 0.099999994, z: 0.015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1596763131}
@@ -24551,8 +24664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34fac2973f42c74d9a6a698b65a44de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIController: {fileID: 7523919988561840312}
-  PolesAI: {fileID: 1596763132}
+  aiController: {fileID: 7523919988561840312}
+  polesAI: {fileID: 1596763132}
 --- !u!65 &1792855046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25445,7 +25558,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.000000005796528, y: 0.94154674, z: -0.33688235, w: -0.000000016200616}
+  m_LocalRotation: {x: 0.000000005796526, y: 0.94154674, z: -0.33688235, w: 0.00000001620061}
   m_LocalPosition: {x: -0.3456396, y: 1.2191033, z: 0.4225788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
