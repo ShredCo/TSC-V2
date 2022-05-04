@@ -12,5 +12,4 @@ public class Item : MonoBehaviour
     public ItemObject item;
     public DefaultCardObject defaultCard;
     public SpecialCardObject specialCard;
-
 }

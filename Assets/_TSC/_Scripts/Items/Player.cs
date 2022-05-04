@@ -14,24 +14,28 @@ public enum DialogueState
 }
 public class Player : MonoBehaviour
 {
+    #region Singleton
     public static Player Instance;
-    
-    // gives the player an inventory
-    public InventoryObject Inventory;
-    
-    public DialogueState DialogueState;
-    [SerializeField] public GameObject pickedUpMoneyTextGameObject;
-    [SerializeField] public GameObject pickedUpWoodTextGameObject;
-    [SerializeField] public Text textPickedUpMoney;
-    [SerializeField] public Text textPickedUpWood;
-    
-    private Rigidbody rb;
-    
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
     }
+    #endregion
+    
+    // gives the player an inventory Scriptable Object
+    public InventoryObject Inventory;
+    
+    public DialogueState DialogueState;
+    
+    // Player HUD
+    public GameObject pickedUpMoneyTextGameObject;
+    public GameObject pickedUpWoodTextGameObject;
+    public Text textPickedUpMoney;
+    public Text textPickedUpWood;
+    
+    private Rigidbody rb;
+
     
     private void OnTriggerStay(Collider other)
     {
@@ -73,8 +77,7 @@ public class Player : MonoBehaviour
                         break;
                 }
             }
-        
-            if (item.defaultCard)
+            else if(item.defaultCard)
             {
                 switch (item.defaultCard.Type)
                 {
@@ -89,51 +92,30 @@ public class Player : MonoBehaviour
                         Inventory.AddSpecialCard(item.specialCard, 1);
                         other.gameObject.SetActive(false);
                         break;
-
                 }
                 PickUpSoundeffects.Instance.CardSound();
             }
         }
     }
 
-    private void Update()
-    {
-        // TODO: Only for testing purposes
-        var gamepad = Gamepad.current;
-        if (gamepad.dpad.up.wasPressedThisFrame)
-        {
-            Inventory.Save();
-        }
-        if (gamepad.dpad.down.wasPressedThisFrame)
-        {
-            Inventory.Load();
-        }
-    }
-   
-    // Clears the inventory 
-    private void OnApplicationQuit()
-    {
-        Inventory.ItemContainer.Clear();
-    }
-    
+    #region Item interaction -> Methods
     IEnumerator PickUpMoney()
     {
         pickedUpMoneyTextGameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         pickedUpMoneyTextGameObject.SetActive(false);
     }
-    
     IEnumerator PickUpWood()
     {
         pickedUpWoodTextGameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         pickedUpWoodTextGameObject.SetActive(false);
     }
-    
     IEnumerator HarvestWood(GameObject wood)
-        {
-            wood.SetActive(false);
-            yield return new WaitForSeconds(1500f);
-            wood.SetActive(true);
-        }
+    {
+        wood.SetActive(false);
+        yield return new WaitForSeconds(1500f);
+        wood.SetActive(true);
+    }
+    #endregion
 }
