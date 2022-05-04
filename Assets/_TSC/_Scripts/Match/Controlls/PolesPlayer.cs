@@ -8,6 +8,8 @@ public class PolesPlayer : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
+        
+        rb = GetComponent<Rigidbody>();
     }
     #endregion
 
@@ -28,7 +30,7 @@ public class PolesPlayer : MonoBehaviour
     private void Start()
     {
         GetAbility();
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     #region Methods -> Movement Poles

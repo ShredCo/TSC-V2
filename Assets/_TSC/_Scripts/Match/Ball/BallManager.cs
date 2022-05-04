@@ -20,7 +20,6 @@ public class BallManager : MonoBehaviour
     
     // References
     [SerializeField] GameObject ball;
-    //[SerializeField] AIController aiController;
     [SerializeField] TextMeshProUGUI countdownText;
     [SerializeField] GameObject countdownPanel;
     
