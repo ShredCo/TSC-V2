@@ -1,39 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class Route1 : MonoBehaviour
 {
-    public GameObject TextLocationGameObject;
-    public TextMeshProUGUI TextLocationName;
+    // Text for HUD
+    [SerializeField] GameObject textLocationGameObject;
+    [SerializeField] TextMeshProUGUI textLocationName;
 
     // Background Music
-    public AudioClip NewTrack;
-    private AudioManager audioManager;
+    AudioManager audioManager;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
     }
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && audioManager.CurrentArea != CurrentArea.Route1)
         {
-            // Change Location Text
+            // Change location text & change the background music
             StartCoroutine(ShowLocationName());
-        
-            // Change Music
             audioManager.CurrentArea = CurrentArea.Route1;
         }
     }
 
+    // Shows the current location name 4 sec. in the HUD
     IEnumerator ShowLocationName()
     {
-        TextLocationGameObject.SetActive(true);
-        TextLocationName.text = "Route 1";
+        textLocationGameObject.SetActive(true);
+        textLocationName.text = "Route 1";
         yield return new WaitForSeconds(4f);
-        TextLocationGameObject.SetActive(false);
+        textLocationGameObject.SetActive(false);
     }
 }

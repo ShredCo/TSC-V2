@@ -1,39 +1,37 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class MoanaReef : MonoBehaviour
 {
-    public GameObject TextLocationGameObject;
-    public TextMeshProUGUI TextLocationName;
+    // Text for HUD
+    [SerializeField] GameObject textLocationGameObject;
+    [SerializeField] TextMeshProUGUI textLocationName;
     
-    // Background Music
-    public AudioClip NewTrack;
-    private AudioManager audioManager;
+    // Background music
+    AudioManager audioManager;
     
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
     }
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && audioManager.CurrentArea != CurrentArea.MoanaReefs)
         {
-            // Change Location Text
+            // Change location text & change the background music
             StartCoroutine(ShowLocationName());
             audioManager.CurrentArea = CurrentArea.MoanaReefs;
         }
     }
 
+    // Shows the current location name 4 sec. in the HUD
     IEnumerator ShowLocationName()
     {
         // Change Text
-        TextLocationGameObject.SetActive(true);
-        TextLocationName.text = "Moana Reefs";
+        textLocationGameObject.SetActive(true);
+        textLocationName.text = "Moana Reefs";
         yield return new WaitForSeconds(4f);
-        TextLocationGameObject.SetActive(false);
+        textLocationGameObject.SetActive(false);
     }
 }
