@@ -119,14 +119,14 @@ public class Player : MonoBehaviour
     IEnumerator PickUpMoney()
     {
         pickedUpMoneyTextGameObject.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         pickedUpMoneyTextGameObject.SetActive(false);
     }
     
     IEnumerator PickUpWood()
     {
         pickedUpWoodTextGameObject.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         pickedUpWoodTextGameObject.SetActive(false);
     }
     
