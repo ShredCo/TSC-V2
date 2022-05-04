@@ -15,7 +15,6 @@ public class MoanaReef : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
     }
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && audioManager.CurrentArea != CurrentArea.MoanaReefs)
