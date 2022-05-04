@@ -10,22 +10,19 @@ public enum CardType
 
 public class CardObject : ScriptableObject
 {
-    public GameObject PlayerPrefab;
-
     public CardType Type;
-
-    public Ability Ability;
-
-    [Header("Default Card")]
+    
+    // Card Stats
     public string Name;
     public int Level = 1;
-
-    public float MaxHealth;
-    public float Health;
+    public float MaxCondition;
+    public float Condition;
     public float Attack;
 
+    // References
+    public GameObject PlayerPrefab;
     public Sprite CardArtwork;
-
+    public Ability Ability;
     public DefaultCardObject NextLevelCard;
     public bool IsUpgradable;
 }

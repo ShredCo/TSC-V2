@@ -33,7 +33,7 @@ public class CardSlotUI : MonoBehaviour
         nameText.text = cardSlot.Name;
         levelText.text = "Lv. " + cardSlot.Level.ToString();
         attackText.text = cardSlot.Attack.ToString();
-        healthText.text = cardSlot.Health.ToString();
+        healthText.text = cardSlot.Condition.ToString();
         cardArtwork.sprite = cardSlot.CardArtwork;
     }
     public void SetData(SpecialCardObject cardSlot)
@@ -42,7 +42,7 @@ public class CardSlotUI : MonoBehaviour
         nameText.text = cardSlot.Name;
         levelText.text = "Lv. " + cardSlot.Level.ToString();
         attackText.text = cardSlot.Attack.ToString();
-        healthText.text = cardSlot.Health.ToString();
+        healthText.text = cardSlot.Condition.ToString();
         cardArtwork.sprite = cardSlot.CardArtwork;
     }
 

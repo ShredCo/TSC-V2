@@ -29,10 +29,10 @@ public class Player : MonoBehaviour
     public DialogueState DialogueState;
     
     // Player HUD
-    public GameObject pickedUpMoneyTextGameObject;
-    public GameObject pickedUpWoodTextGameObject;
-    public Text textPickedUpMoney;
-    public Text textPickedUpWood;
+    public GameObject PickedUpMoneyTextGameObject;
+    public GameObject PickedUpWoodTextGameObject;
+    public Text TextPickedUpMoney;
+    public Text TextPickedUpWood;
     
     private Rigidbody rb;
 
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
                         Inventory.AddMoney(item.item.MoneyValue);
                     
                         // Displays the picked up amount in the UI
-                        textPickedUpMoney.text = "+ " + item.item.MoneyValue.ToString();
+                        TextPickedUpMoney.text = "+ " + item.item.MoneyValue.ToString();
                         StartCoroutine(PickUpMoney());
                     
                         other.gameObject.SetActive(false);
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
                             Inventory.AddResource(item.item.ResourceValue);
                             
                             // Displays the picked up amount in the UI
-                            textPickedUpWood.text = "+ " + item.item.ResourceValue.ToString();
+                            TextPickedUpWood.text = "+ " + item.item.ResourceValue.ToString();
                             StartCoroutine(PickUpWood());
                             
                             // Sets the wood object inactive for a certain time
@@ -101,15 +101,15 @@ public class Player : MonoBehaviour
     #region Item interaction -> Methods
     IEnumerator PickUpMoney()
     {
-        pickedUpMoneyTextGameObject.SetActive(true);
+        PickedUpMoneyTextGameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
-        pickedUpMoneyTextGameObject.SetActive(false);
+        PickedUpMoneyTextGameObject.SetActive(false);
     }
     IEnumerator PickUpWood()
     {
-        pickedUpWoodTextGameObject.SetActive(true);
+        PickedUpWoodTextGameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
-        pickedUpWoodTextGameObject.SetActive(false);
+        PickedUpWoodTextGameObject.SetActive(false);
     }
     IEnumerator HarvestWood(GameObject wood)
     {

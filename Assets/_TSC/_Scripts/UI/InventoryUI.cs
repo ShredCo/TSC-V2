@@ -73,13 +73,13 @@ public class InventoryUI : MonoBehaviour
     private void Update()
     {
         if(inventory.PlayerDefaultCardLineUp[0] != null)
-            sliderMainCard.value = inventory.PlayerDefaultCardLineUp[0].Health / inventory.PlayerDefaultCardLineUp[0].MaxHealth;
+            sliderMainCard.value = inventory.PlayerDefaultCardLineUp[0].Condition / inventory.PlayerDefaultCardLineUp[0].MaxCondition;
         if(inventory.PlayerDefaultCardLineUp[1] != null)
-            sliderCrew1Card.value = inventory.PlayerDefaultCardLineUp[1].Health / inventory.PlayerDefaultCardLineUp[1].MaxHealth;
+            sliderCrew1Card.value = inventory.PlayerDefaultCardLineUp[1].Condition / inventory.PlayerDefaultCardLineUp[1].MaxCondition;
         if (inventory.PlayerDefaultCardLineUp[2] != null)
-            sliderCrew2Card.value = inventory.PlayerDefaultCardLineUp[2].Health / inventory.PlayerDefaultCardLineUp[2].MaxHealth;
+            sliderCrew2Card.value = inventory.PlayerDefaultCardLineUp[2].Condition / inventory.PlayerDefaultCardLineUp[2].MaxCondition;
         if (inventory.PlayerDefaultCardLineUp[3] != null)
-            sliderCrew3Card.value = inventory.PlayerDefaultCardLineUp[3].Health / inventory.PlayerDefaultCardLineUp[3].MaxHealth;
+            sliderCrew3Card.value = inventory.PlayerDefaultCardLineUp[3].Condition / inventory.PlayerDefaultCardLineUp[3].MaxCondition;
     }
 
     public void UpdatePoleCardList()

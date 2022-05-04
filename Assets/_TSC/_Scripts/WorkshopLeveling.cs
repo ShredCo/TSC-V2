@@ -175,11 +175,11 @@ public class WorkshopLeveling : MonoBehaviour
     #region Repair functions
     public void RepairMainCard()
     {
-        if (inventory.PlayerDefaultCardLineUp[0].Health < inventory.PlayerDefaultCardLineUp[0].MaxHealth)
+        if (inventory.PlayerDefaultCardLineUp[0].Condition < inventory.PlayerDefaultCardLineUp[0].MaxCondition)
         {
             if (inventory.wood >= RepairWoodCost)
             {
-                inventory.PlayerDefaultCardLineUp[0].Health = inventory.PlayerDefaultCardLineUp[0].MaxHealth;
+                inventory.PlayerDefaultCardLineUp[0].Condition = inventory.PlayerDefaultCardLineUp[0].MaxCondition;
                 inventory.wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
@@ -196,11 +196,11 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void RepairCrew1Card()
     {
-        if (inventory.PlayerDefaultCardLineUp[1].Health < inventory.PlayerDefaultCardLineUp[1].MaxHealth)
+        if (inventory.PlayerDefaultCardLineUp[1].Condition < inventory.PlayerDefaultCardLineUp[1].MaxCondition)
         {
             if (inventory.wood >= RepairWoodCost)
             {
-                inventory.PlayerDefaultCardLineUp[1].Health = inventory.PlayerDefaultCardLineUp[1].MaxHealth;
+                inventory.PlayerDefaultCardLineUp[1].Condition = inventory.PlayerDefaultCardLineUp[1].MaxCondition;
                 inventory.wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
@@ -217,11 +217,11 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void RepairCrew2Card()
     {
-        if (inventory.PlayerDefaultCardLineUp[2].Health < inventory.PlayerDefaultCardLineUp[2].MaxHealth)
+        if (inventory.PlayerDefaultCardLineUp[2].Condition < inventory.PlayerDefaultCardLineUp[2].MaxCondition)
         {
             if (inventory.wood >= RepairWoodCost)
             {
-                inventory.PlayerDefaultCardLineUp[2].Health = inventory.PlayerDefaultCardLineUp[2].MaxHealth;
+                inventory.PlayerDefaultCardLineUp[2].Condition = inventory.PlayerDefaultCardLineUp[2].MaxCondition;
                 inventory.wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }
@@ -238,11 +238,11 @@ public class WorkshopLeveling : MonoBehaviour
 
     public void RepairCrew3Card()
     {
-        if (inventory.PlayerDefaultCardLineUp[3].Health < inventory.PlayerDefaultCardLineUp[3].MaxHealth)
+        if (inventory.PlayerDefaultCardLineUp[3].Condition < inventory.PlayerDefaultCardLineUp[3].MaxCondition)
         {
             if (inventory.wood >= RepairWoodCost)
             {
-                inventory.PlayerDefaultCardLineUp[3].Health = inventory.PlayerDefaultCardLineUp[3].MaxHealth;
+                inventory.PlayerDefaultCardLineUp[3].Condition = inventory.PlayerDefaultCardLineUp[3].MaxCondition;
                 inventory.wood -= RepairWoodCost;
                 Debug.Log("Card repaired");
             }

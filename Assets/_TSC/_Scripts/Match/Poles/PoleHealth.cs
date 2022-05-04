@@ -90,32 +90,32 @@ public class PoleHealth : MonoBehaviour
     void GetPoleHealth()
     {
         // Player poles
-        PlayerHealthMain = LineUpController.PlayerDefaultCardLineUP[0].Health;
-        playerMaxHealthMain = LineUpController.PlayerDefaultCardLineUP[0].MaxHealth;
-        PlayerHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].Health;
-        playerMaxHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].MaxHealth;
-        PlayerHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].Health;
-        playerMaxHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].MaxHealth;
-        PlayerHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].Health;
-        playerMaxHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].MaxHealth;
+        PlayerHealthMain = LineUpController.PlayerDefaultCardLineUP[0].Condition;
+        playerMaxHealthMain = LineUpController.PlayerDefaultCardLineUP[0].MaxCondition;
+        PlayerHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].Condition;
+        playerMaxHealthCrew1 = LineUpController.PlayerDefaultCardLineUP[1].MaxCondition;
+        PlayerHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].Condition;
+        playerMaxHealthCrew2 = LineUpController.PlayerDefaultCardLineUP[2].MaxCondition;
+        PlayerHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].Condition;
+        playerMaxHealthCrew3 = LineUpController.PlayerDefaultCardLineUP[3].MaxCondition;
 
         // AI poles
-        AIHealthMain = LineUpController.AIDefaultCardLineUP[0].Health;
-        AIMaxHealthMain = LineUpController.AIDefaultCardLineUP[0].MaxHealth;
-        AIHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Health;
-        AIMaxHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].MaxHealth;
-        AIHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Health;
-        AIMaxHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].MaxHealth;
-        AIHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Health;
-        AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].MaxHealth;
+        AIHealthMain = LineUpController.AIDefaultCardLineUP[0].Condition;
+        AIMaxHealthMain = LineUpController.AIDefaultCardLineUP[0].MaxCondition;
+        AIHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].Condition;
+        AIMaxHealthCrew1 = LineUpController.AIDefaultCardLineUP[1].MaxCondition;
+        AIHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].Condition;
+        AIMaxHealthCrew2 = LineUpController.AIDefaultCardLineUP[2].MaxCondition;
+        AIHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].Condition;
+        AIMaxHealthCrew3 = LineUpController.AIDefaultCardLineUP[3].MaxCondition;
     }
 
     public void SavePoleHealth()
     {
-        LineUpController.PlayerDefaultCardLineUP[0].Health = PlayerHealthMain;
-        LineUpController.PlayerDefaultCardLineUP[1].Health = PlayerHealthCrew1;
-        LineUpController.PlayerDefaultCardLineUP[2].Health = PlayerHealthCrew2;
-        LineUpController.PlayerDefaultCardLineUP[3].Health = PlayerHealthCrew3;
+        LineUpController.PlayerDefaultCardLineUP[0].Condition = PlayerHealthMain;
+        LineUpController.PlayerDefaultCardLineUP[1].Condition = PlayerHealthCrew1;
+        LineUpController.PlayerDefaultCardLineUP[2].Condition = PlayerHealthCrew2;
+        LineUpController.PlayerDefaultCardLineUP[3].Condition = PlayerHealthCrew3;
     }
 
     #region Poles GameObjects

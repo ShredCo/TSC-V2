@@ -18,8 +18,8 @@ namespace ES3Types
 			
 			writer.WritePropertyByRef("instance", Player.Instance);
 			writer.WritePropertyByRef("inventory", instance.Inventory);
-			writer.WritePropertyByRef("pickedUpMoney", instance.pickedUpMoneyTextGameObject);
-			writer.WritePropertyByRef("textPickedUpMoney", instance.textPickedUpMoney);
+			writer.WritePropertyByRef("pickedUpMoney", instance.PickedUpMoneyTextGameObject);
+			writer.WritePropertyByRef("textPickedUpMoney", instance.TextPickedUpMoney);
 		}
 
 		protected override void ReadComponent<T>(ES3Reader reader, object obj)
@@ -37,10 +37,10 @@ namespace ES3Types
 						instance.Inventory = reader.Read<InventoryObject>();
 						break;
 					case "pickedUpMoney":
-						instance.pickedUpMoneyTextGameObject = reader.Read<UnityEngine.GameObject>(ES3Type_GameObject.Instance);
+						instance.PickedUpMoneyTextGameObject = reader.Read<UnityEngine.GameObject>(ES3Type_GameObject.Instance);
 						break;
 					case "textPickedUpMoney":
-						instance.textPickedUpMoney = reader.Read<UnityEngine.UI.Text>(ES3Type_Text.Instance);
+						instance.TextPickedUpMoney = reader.Read<UnityEngine.UI.Text>(ES3Type_Text.Instance);
 						break;
 					default:
 						reader.Skip();
