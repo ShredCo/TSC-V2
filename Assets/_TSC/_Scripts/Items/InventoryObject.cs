@@ -11,40 +11,33 @@ using UnityEngine.EventSystems;
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 {
     [Header("Currency")]
-    public int money;
+    public int Money;
 
     [Header("Resources")] 
-    public int wood;
+    public int Wood;
 
     [Header("References")]
-    public string savePath;
-    private ItemDatabaseObject database;
+    public string SavePath;
     
+    ItemDatabaseObject database;
     
+    #region Inventory -> Containers
     // creates a List with slots for the inventory
     // adds an item to it
     public List<ISlotItem> ItemContainer = new List<ISlotItem>();
-
     public List<ISlotDefaultCard> DefaultCardContainer = new List<ISlotDefaultCard>();
-
     public List<ISlotSpecialCard> AbilityCardContainer = new List<ISlotSpecialCard>();
-
-    #region Line Up
-    // arrays to store the Player Line Up
+    #endregion
+    
+    #region Line up
+    // arrays to store the player line up
     public DefaultCardObject[] PlayerDefaultCardLineUp = new DefaultCardObject[4];
-
     public SpecialCardObject[] PlayerAbilityCardLineUp = new SpecialCardObject[4];
 
-    // arrays to store the AI Line Up
-    public DefaultCardObject[] AIDefaultCardLineUp = new DefaultCardObject[4]; //may not be needed
-
-    public SpecialCardObject[] AISpecialCardLineUp = new SpecialCardObject[4]; //may not be needed
-
-    // methods to add cards to Line Up
+    // methods to add cards to line up
     public void AddCardtoLineUp()
     {
         LineUpController.ActiveCard = EventSystem.current.currentSelectedGameObject.GetComponent<CardSlotUI>(); // Get a reference to the selected Button (Card)
-        //bool cardEquiped = false;
         if (LineUpController.CardType)
         {
             int i = 0;
@@ -56,9 +49,9 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
                 }
                 i++;
             }
-                PlayerDefaultCardLineUp[LineUpController.ActivePole]=LineUpController.ActiveCard.DefaultCardSlot; //     Save the selected Card to the local Line UpArray(to display in inv)
-                InventoryUI.Instance.UpdateLineUpCards();
-                UISoundeffects.Instance.CardSelectSound();
+            PlayerDefaultCardLineUp[LineUpController.ActivePole]=LineUpController.ActiveCard.DefaultCardSlot; // Save the selected Card to the local Line UpArray(to display in inv)
+            InventoryUI.Instance.UpdateLineUpCards();
+            UISoundeffects.Instance.CardSelectSound();
         }
         else
         {
@@ -76,12 +69,12 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             UISoundeffects.Instance.CardSelectSound();
         }
     }  
-    public void AddDefaultCardtoLineUp(DefaultCardObject defaultCard)
+    public void AddDefaultCardToLineUp(DefaultCardObject defaultCard)
     {
         PlayerDefaultCardLineUp[LineUpController.ActivePole] = defaultCard;
     }
 
-    // save the Line Ups to he static Arrays from the LineUpController script
+    // save the line Ups to the static arrays from the LineUpController script
     public void SavePlayerLineUp()
     {
         LineUpController.PlayerDefaultCardLineUP = PlayerDefaultCardLineUp;
@@ -89,91 +82,79 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     }
     #endregion
 
-    // checks if unity editor is runned. 
-    // when the project is built the "else" part will take over.
-    private void OnEnable()
-    {
-    #if UNITY_EDITOR
-        database = (ItemDatabaseObject) AssetDatabase.LoadAssetAtPath("Assets/Resources/Database.asset", typeof(ItemDatabaseObject));
-    #else 
-        database = Resources.Load<ItemDatabaseObject>("Database");
-    #endif
-    }
-
-
+    
     #region Methods -> Add items, cards and currency to inventory
     // Items
-    public void AddItem(ItemObject _item, int _amount)
+    public void AddItem(ItemObject item, int amount)
     {
         for (int i = 0; i < ItemContainer.Count; i++)
         {
-            if (ItemContainer[i].Item == _item)
+            if (ItemContainer[i].Item == item)
             {
-                ItemContainer[i].AddAmount(_amount);
+                ItemContainer[i].AddAmount(amount);
                 return;
             }
         }
-        ItemContainer.Add(new ISlotItem(database.GetItemID[_item], _item, _amount));
+        ItemContainer.Add(new ISlotItem(database.GetItemID[item], item, amount));
     }
     // Default Cards
-    public void AddDefaultCard(DefaultCardObject _item, int _amount)
+    public void AddDefaultCard(DefaultCardObject item, int amount)
     {
         for (int i = 0; i < DefaultCardContainer.Count; i++)
         {
-            if (DefaultCardContainer[i].DefaultCard == _item)
+            if (DefaultCardContainer[i].DefaultCard == item)
             {
-                DefaultCardContainer[i].AddAmount(_amount);
+                DefaultCardContainer[i].AddAmount(amount);
                 return;
             }
         }
-        DefaultCardContainer.Add(new ISlotDefaultCard(database.GetDefaultCardID[_item], _item, _amount));
+        DefaultCardContainer.Add(new ISlotDefaultCard(database.GetDefaultCardID[item], item, amount));
     }
 
     // Special Cards
-    public void AddSpecialCard(SpecialCardObject _item, int _amount)
+    public void AddSpecialCard(SpecialCardObject item, int amount)
     {
         for (int i = 0; i < AbilityCardContainer.Count; i++)
         {
-            if (AbilityCardContainer[i].SpecialCard == _item)
+            if (AbilityCardContainer[i].SpecialCard == item)
             {
-                AbilityCardContainer[i].AddAmount(_amount);
+                AbilityCardContainer[i].AddAmount(amount);
                 return;
             }
         }
-        AbilityCardContainer.Add(new ISlotSpecialCard(database.GetSpecialCardID[_item], _item, _amount));
+        AbilityCardContainer.Add(new ISlotSpecialCard(database.GetSpecialCardID[item], item, amount));
     }
 
-    public void AddResource(int _woodValue)
+    public void AddResource(int woodValue)
     {
-        wood += _woodValue;
+        Wood += woodValue;
     }
-    public void AddMoney(int _moneyValue)
+    public void AddMoney(int moneyValue)
     {
-        money += _moneyValue;
+        Money += moneyValue;
     }
     #endregion
-
-
-    // Methods to save the inventory
+    
+    #region Methods -> Save the inventory
     public void Save()
     {
         string saveData = JsonUtility.ToJson(this, true);
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        FileStream file = File.Create(string.Concat(Application.persistentDataPath, SavePath));
         bf.Serialize(file, saveData);
         file.Close();
     }
     public void Load()
     {
-        if(File.Exists(String.Concat(Application.persistentDataPath, savePath)))
+        if(File.Exists(String.Concat(Application.persistentDataPath, SavePath)))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(String.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+            FileStream file = File.Open(String.Concat(Application.persistentDataPath, SavePath), FileMode.Open);
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
             file.Close();
         }
     }
-    
+    #endregion
     
     public void OnBeforeSerialize()
     {
@@ -186,8 +167,20 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             ItemContainer[i].Item = database.GetItem[ItemContainer[i].ID];
         }
     }
+    // checks if unity editor is runned. 
+    // when the project is built the "else" part will take over.
+    private void OnEnable()
+    {
+#if UNITY_EDITOR
+        database = (ItemDatabaseObject) AssetDatabase.LoadAssetAtPath("Assets/Resources/Database.asset", typeof(ItemDatabaseObject));
+#else 
+        database = Resources.Load<ItemDatabaseObject>("Database");
+#endif
+    }
 }
 
+
+#region Inventory Slots
     [System.Serializable]
     public class ISlotItem // Inventory slot for items
     {
@@ -209,44 +202,46 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         }
     }
 
-[System.Serializable]
-public class ISlotDefaultCard // Inventory slot for default cards
-{
-    public int ID;
-    public DefaultCardObject DefaultCard;
-    public int Amount;
-
-    // defines a space for an object in the inventory
-    public ISlotDefaultCard(int _id, DefaultCardObject _item, int _amount)
+    
+    [System.Serializable]
+    public class ISlotDefaultCard // Inventory slot for default cards
     {
-        ID = _id;
-        DefaultCard = _item;
-        Amount = _amount;
+        public int ID;
+        public DefaultCardObject DefaultCard;
+        public int Amount;
+    
+        // defines a space for an object in the inventory
+        public ISlotDefaultCard(int _id, DefaultCardObject _item, int _amount)
+        {
+            ID = _id;
+            DefaultCard = _item;
+            Amount = _amount;
+        }
+    
+        public void AddAmount(int value)
+        {
+            Amount += value;
+        }
     }
-
-    public void AddAmount(int value)
+    
+    [System.Serializable]
+    public class ISlotSpecialCard // Inventory slot for special cards
     {
-        Amount += value;
+        public int ID;
+        public SpecialCardObject SpecialCard;
+        public int Amount;
+    
+        // defines a space for an object in the inventory
+        public ISlotSpecialCard(int _id, SpecialCardObject _item, int _amount)
+        {
+            ID = _id;
+            SpecialCard = _item;
+            Amount = _amount;
+        }
+    
+        public void AddAmount(int value)
+        {
+            Amount += value;
+        }
     }
-}
-
-[System.Serializable]
-public class ISlotSpecialCard // Inventory slot for default cards
-{
-    public int ID;
-    public SpecialCardObject SpecialCard;
-    public int Amount;
-
-    // defines a space for an object in the inventory
-    public ISlotSpecialCard(int _id, SpecialCardObject _item, int _amount)
-    {
-        ID = _id;
-        SpecialCard = _item;
-        Amount = _amount;
-    }
-
-    public void AddAmount(int value)
-    {
-        Amount += value;
-    }
-}
+#endregion
