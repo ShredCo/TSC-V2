@@ -30,8 +30,8 @@ public class CardSlotUI : MonoBehaviour
         DefaultCardSlot = cardSlot;
         nameText.text = cardSlot.Name;
         levelText.text = "Lv. " + cardSlot.Level.ToString();
-        maxConditionText.text = cardSlot.MaxCondition.ToString();
-        conditionText.text = cardSlot.Condition.ToString();
+        maxConditionText.text = Mathf.Round(cardSlot.MaxCondition).ToString();
+        conditionText.text = Mathf.Round(cardSlot.Condition).ToString();
         cardArtwork.sprite = cardSlot.CardArtwork;
     }
     public void SetData(SpecialCardObject cardSlot)
