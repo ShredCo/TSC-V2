@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        CurrentArea = CurrentArea.Route1;
+        CurrentArea = CurrentArea.OkinaShores;
     }
 
     private void Update()
