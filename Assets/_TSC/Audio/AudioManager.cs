@@ -4,30 +4,29 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    
-    // Singleton
+    #region Singleton
     public static AudioManager Instance;
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
     }
-
+    #endregion
+    
     public CurrentArea CurrentArea;
     
     // Background-Music
-    public AudioClip newTrack;
-    private AudioManager audioManager;
-    public AudioSource BackgroundMusic;
-
+    [SerializeField] AudioClip newTrack;
+    [SerializeField] AudioSource backgroundMusicAudioSource;
+    [SerializeField] AudioManager audioManager;
     
     [Header("Villages/City Music")]
-    public AudioClip OkinaShores;
-    public AudioClip YapaYapa;
-    public AudioClip MoanaReefs;
+    [SerializeField] AudioClip okinaShores;
+    [SerializeField] AudioClip yapaYapa;
+    [SerializeField] AudioClip moanaReefs;
 
     [Header("Routes Music")]
-    public AudioClip Route1;
+    [SerializeField] AudioClip route1;
 
     
     private void Start()
@@ -47,29 +46,29 @@ public class AudioManager : MonoBehaviour
        {
            // Citys
            case CurrentArea.OkinaShores: 
-               audioManager.ChangeSoundtrack(OkinaShores);
+               audioManager.ChangeSoundtrack(okinaShores);
                break;
            case CurrentArea.YapaYapa: 
-               audioManager.ChangeSoundtrack(YapaYapa);
+               audioManager.ChangeSoundtrack(yapaYapa);
                break;
            case CurrentArea.MoanaReefs:
-               audioManager.ChangeSoundtrack(MoanaReefs);
+               audioManager.ChangeSoundtrack(moanaReefs);
                break;
            
            // Routes
            case CurrentArea.Route1:
-               audioManager.ChangeSoundtrack(Route1);
+               audioManager.ChangeSoundtrack(route1);
                break;
        }
     }
     
     public void ChangeSoundtrack(AudioClip music)
     {
-        if (BackgroundMusic.clip.name == music.name)
+        if (backgroundMusicAudioSource.clip.name == music.name)
             return;
 
-        BackgroundMusic.Stop();
-        BackgroundMusic.clip = music;
-        BackgroundMusic.Play();
+        backgroundMusicAudioSource.Stop();
+        backgroundMusicAudioSource.clip = music;
+        backgroundMusicAudioSource.Play();
     }
 }
