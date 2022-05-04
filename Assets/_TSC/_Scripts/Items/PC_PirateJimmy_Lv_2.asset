@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb26e27ad839f740bbfaeb5ee1f851b, type: 3}
   m_Name: PC_PirateJimmy_Lv_2
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 178864, guid: d120be29d7ad25541a52e49603bae45a, type: 3}
   Type: 0
-  Ability: {fileID: 0}
   Name: Pirat Jimmy
   Level: 2
-  MaxHealth: 180
-  Health: 180
-  Attack: 60
+  MaxCondition: 110
+  Condition: 110
+  PlayerPrefab: {fileID: 178864, guid: d120be29d7ad25541a52e49603bae45a, type: 3}
   CardArtwork: {fileID: 21300000, guid: 3e71ed7903dd62542a5fe5259362a540, type: 3}
+  Ability: {fileID: 0}
   NextLevelCard: {fileID: 0}
   IsUpgradable: 0

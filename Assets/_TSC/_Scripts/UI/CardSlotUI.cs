@@ -6,17 +6,14 @@ using UnityEngine.UI;
 public class CardSlotUI : MonoBehaviour
 {
     [Header("Variables")]
-    //[SerializeField] public CardObject CardSlot;
     [SerializeField] public DefaultCardObject DefaultCardSlot;
     [SerializeField] public SpecialCardObject SpecialCardSlot;
-
-    [SerializeField] Text countText;
-
+    
     [SerializeField] Text nameText;
     [SerializeField] Text levelText;
 
-    [SerializeField] Text attackText;
-    [SerializeField] Text healthText;
+    [SerializeField] Text maxConditionText;
+    [SerializeField] Text conditionText;
 
     [SerializeField] Image cardArtwork; 
 
@@ -27,13 +24,14 @@ public class CardSlotUI : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    // Sets data to display values from Cards to UI
     public void SetData(DefaultCardObject cardSlot)
     {
         DefaultCardSlot = cardSlot;
         nameText.text = cardSlot.Name;
         levelText.text = "Lv. " + cardSlot.Level.ToString();
-        attackText.text = cardSlot.Attack.ToString();
-        healthText.text = cardSlot.Condition.ToString();
+        maxConditionText.text = cardSlot.MaxCondition.ToString();
+        conditionText.text = cardSlot.Condition.ToString();
         cardArtwork.sprite = cardSlot.CardArtwork;
     }
     public void SetData(SpecialCardObject cardSlot)
@@ -41,20 +39,13 @@ public class CardSlotUI : MonoBehaviour
         SpecialCardSlot = cardSlot;
         nameText.text = cardSlot.Name;
         levelText.text = "Lv. " + cardSlot.Level.ToString();
-        attackText.text = cardSlot.Attack.ToString();
-        healthText.text = cardSlot.Condition.ToString();
         cardArtwork.sprite = cardSlot.CardArtwork;
+        
+        maxConditionText.gameObject.SetActive(false);
+        conditionText.gameObject.SetActive(false);
     }
-
-    private void Update()
-    {
-        if (LineUpController.CantEquip && LineUpController.ActiveCard == this)
-        {
-            LineUpController.CantEquip = false;
-            CantEquipAnimation();
-        }
-    }
-
+    
+    // Triggers an animation when card is not equippable
     public void CantEquipAnimation()
     {
         animator.SetTrigger("CantEquip");

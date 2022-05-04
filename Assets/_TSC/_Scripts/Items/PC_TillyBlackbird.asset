@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb26e27ad839f740bbfaeb5ee1f851b, type: 3}
   m_Name: PC_TillyBlackbird
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 192002, guid: a4e0a18cfd7b29940b5bceec4383a73f, type: 3}
   Type: 0
-  Ability: {fileID: 0}
   Name: Tilly Blackbird
   Level: 1
-  MaxHealth: 125
-  Health: 125
-  Attack: 80
+  MaxCondition: 100
+  Condition: 100
+  PlayerPrefab: {fileID: 192002, guid: a4e0a18cfd7b29940b5bceec4383a73f, type: 3}
   CardArtwork: {fileID: 21300000, guid: b7a63a9376d2e974fa9d311e6a3c6e77, type: 3}
+  Ability: {fileID: 0}
   NextLevelCard: {fileID: 11400000, guid: e223d1aff641df54c91a8e25ee2995dd, type: 2}
   IsUpgradable: 1

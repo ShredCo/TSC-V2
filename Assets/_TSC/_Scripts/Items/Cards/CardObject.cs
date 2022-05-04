@@ -17,8 +17,7 @@ public class CardObject : ScriptableObject
     public int Level = 1;
     public float MaxCondition;
     public float Condition;
-    public float Attack;
-
+    
     // References
     public GameObject PlayerPrefab;
     public Sprite CardArtwork;
