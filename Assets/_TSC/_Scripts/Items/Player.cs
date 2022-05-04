@@ -15,20 +15,23 @@ public enum DialogueState
 public class Player : MonoBehaviour
 {
     public static Player Instance;
+    
+    // gives the player an inventory
+    public InventoryObject Inventory;
+    
+    public DialogueState DialogueState;
+    [SerializeField] public GameObject pickedUpMoneyTextGameObject;
+    [SerializeField] public GameObject pickedUpWoodTextGameObject;
+    [SerializeField] public Text textPickedUpMoney;
+    [SerializeField] public Text textPickedUpWood;
+    
     private Rigidbody rb;
-
+    
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
     }
-    
-    // gives the player an inventory
-    public InventoryObject Inventory;
-    public DialogueState DialogueState;
-
-    [SerializeField] public GameObject pickedUpMoney;
-    [SerializeField] public Text textPickedUpMoney;
     
     private void OnTriggerStay(Collider other)
     {
@@ -58,6 +61,12 @@ public class Player : MonoBehaviour
                         {
                             // Adds the resource to the inventory
                             Inventory.AddResource(item.item.ResourceValue);
+                            
+                            // Displays the picked up amount in the UI
+                            textPickedUpWood.text = "+ " + item.item.ResourceValue.ToString();
+                            StartCoroutine(PickUpWood());
+                            
+                            // Sets the wood object inactive for a certain time
                             StartCoroutine(HarvestWood(other.gameObject));
                             PickUpSoundeffects.Instance.WoodSound();
                         }
@@ -106,18 +115,25 @@ public class Player : MonoBehaviour
     {
         Inventory.ItemContainer.Clear();
     }
-
-    IEnumerator HarvestWood(GameObject wood)
-    {
-        wood.SetActive(false);
-        yield return new WaitForSeconds(10f);
-        wood.SetActive(true);
-    }
     
     IEnumerator PickUpMoney()
     {
-        pickedUpMoney.SetActive(true);
+        pickedUpMoneyTextGameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
-        pickedUpMoney.SetActive(false);
+        pickedUpMoneyTextGameObject.SetActive(false);
     }
+    
+    IEnumerator PickUpWood()
+    {
+        pickedUpWoodTextGameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        pickedUpWoodTextGameObject.SetActive(false);
+    }
+    
+    IEnumerator HarvestWood(GameObject wood)
+        {
+            wood.SetActive(false);
+            yield return new WaitForSeconds(1500f);
+            wood.SetActive(true);
+        }
 }
