@@ -5,16 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransitionManager : MonoBehaviour
 {
+    #region Singleton
     public static LevelTransitionManager Instance;
 
     private void Awake()
     {
         Instance = this;
     }
+    #endregion
 
+    #region Variables / References
     public Animator Animator;
     public float TransitionTime = 2.5f;
+    #endregion
 
+    #region Functions
     public IEnumerator StartTransition()
     {
         Animator.SetTrigger("Start");
@@ -26,4 +31,5 @@ public class LevelTransitionManager : MonoBehaviour
     {
         Animator.SetTrigger("End");
     }
+    #endregion
 }
