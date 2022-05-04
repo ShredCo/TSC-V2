@@ -7,9 +7,16 @@ using TMPro;
 
 public class GameManagerOneVsOne : MonoBehaviour
 {
-    // Singleton
+    #region Singleton
     public static GameManagerOneVsOne Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
+    #endregion
 
+    #region References
     // creates an array of poles for the players
     [SerializeField] private PolesPlayer[] polesPlayer = new PolesPlayer[4];
     [SerializeField] private SpecialCharacter[] specialCharacter = new SpecialCharacter[4];
@@ -24,19 +31,22 @@ public class GameManagerOneVsOne : MonoBehaviour
 
     public int ScorePlayer1;
     public int ScorePlayer2;
+
+    private int ScoreToWin = 5;
     
     public int powerpointsCountRed = 0;
     public int powerpointsCountBlue = 0;
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-    }
+    // Win / Lose Display
+    public TextMeshProUGUI WinLoseText;
+    public GameObject WinLosePanel;
+    #endregion
 
     private void Start()
     {
         LevelTransitionManager.Instance.EndTransition();
+
+        // Load Map depending on NPC
         switch (LineUpController.MapType)
         {
             case MapType.Route1_1:
@@ -57,14 +67,14 @@ public class GameManagerOneVsOne : MonoBehaviour
         ScorePlayer1 = 0;
         ScorePlayer2 = 0;
 
-        // Line Up
+        // Get and spawn Line Ups
         GetLineUps();
         SpawnPlayerLineUp();
         SpawnAILineUp();
     }
     private void Update()
     {
-        if (ScorePlayer1 >= 5)
+        if (ScorePlayer1 >= ScoreToWin)
         {
             WinLoseText.text = "YOU WIN";
             LineUpController.DidWin = true;
@@ -72,7 +82,7 @@ public class GameManagerOneVsOne : MonoBehaviour
             FindObjectOfType<PoleHealth>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
-        else if (ScorePlayer2 >= 5)
+        else if (ScorePlayer2 >= ScoreToWin)
         {
             WinLoseText.text = "YOU LOSE";
             LineUpController.DidWin = false;
@@ -82,7 +92,14 @@ public class GameManagerOneVsOne : MonoBehaviour
         }
     }
 
-    // Event for Player Input Manager 
+    public IEnumerator EndGame()
+    {
+        WinLosePanel.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(1);
+    }
+
+    #region Event for Player Input Manager
     public void OnPlayerJoin(PlayerInput player)
     {
         if (!players.TryGetValue(player, out int value)) // if player doesn't exist
@@ -109,7 +126,9 @@ public class GameManagerOneVsOne : MonoBehaviour
     {
         players.Remove(player);
     }
+    #endregion
 
+    #region Scores
     public void ScorePlayer()
     {
         if (ScorePlayer1 < 10)
@@ -128,18 +147,7 @@ public class GameManagerOneVsOne : MonoBehaviour
             print("ball in game:");
         }
     }
-
-    // Win/Lose Display
-    public TextMeshProUGUI WinLoseText;
-    public GameObject WinLosePanel;
-
-    public IEnumerator EndGame()
-    {
-        
-        WinLosePanel.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(1);
-    }
+    #endregion
 
     #region Line Up
     // Arrays to store the Line Ups
