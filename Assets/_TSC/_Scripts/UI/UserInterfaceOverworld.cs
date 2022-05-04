@@ -136,7 +136,7 @@ public class UserInterfaceOverworld : MonoBehaviour
         switch (currentPanel)
         {
             case 1:
-                SwitchButtonBackpack.image.color = Color.red;
+                SwitchButtonBackpack.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
                 SwitchButtonPoleCards.image.color = Color.white;
                 SwitchButtonAbilityCards.image.color = Color.white;
                 PanelBackpack.SetActive(true);
@@ -146,7 +146,7 @@ public class UserInterfaceOverworld : MonoBehaviour
                 break;
             case 2:
                 SwitchButtonBackpack.image.color = Color.white;
-                SwitchButtonPoleCards.image.color = Color.red;
+                SwitchButtonPoleCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
                 SwitchButtonAbilityCards.image.color = Color.white;
                 PanelBackpack.SetActive(false);
                 PanelLineUpPoles.SetActive(true);
@@ -156,7 +156,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             case 3:
                 SwitchButtonBackpack.image.color = Color.white;
                 SwitchButtonPoleCards.image.color = Color.white;
-                SwitchButtonAbilityCards.image.color = Color.red;
+                SwitchButtonAbilityCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
                 PanelBackpack.SetActive(false);
                 PanelLineUpPoles.SetActive(false);
                 PanelLineUpAbilitys.SetActive(true);
@@ -296,7 +296,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             CanvasPauseMenu.SetActive(false);
             CanvasInventory.SetActive(true);
             SwitchButtonBackpack.image.color = Color.white;
-            SwitchButtonPoleCards.image.color = Color.red;
+            SwitchButtonPoleCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
             SwitchButtonAbilityCards.image.color = Color.white;
 
             inventoryActive = true;
