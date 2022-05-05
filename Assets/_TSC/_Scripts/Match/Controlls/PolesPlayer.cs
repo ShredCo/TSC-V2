@@ -18,7 +18,7 @@ public class PolesPlayer : MonoBehaviour
     public float moveSpeed = 2.0f;
     
     [Header("Ability")]
-    [SerializeField] int Pole;
+    public int Pole;
     public Ability Ability;
     
     Rigidbody rb;

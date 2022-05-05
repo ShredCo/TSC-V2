@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         {
             if (mainAbility) // check if ability is active, move ability instead of pole
             {
+                
                 polesPlayer[0].PoleFreeze();
                 poleMainAbility.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
             }
@@ -258,6 +259,7 @@ public class PlayerController : MonoBehaviour
     // Main Pole
     IEnumerator MainPole_AbilityCharacter()
     {
+        Debug.Log("main ability = " + mainAbility);
         if (currentPoleIndex == 0 && mainAbility == false)
         {
             if (GameManagerSoccermatch.Instance.powerpointsCountRed >= PoleMain.Ability.PowerpointsCost)
