@@ -17,10 +17,13 @@ public class PauseMenuUI : MonoBehaviour
     public GameObject Panel_PauseMenu;
     public GameObject Panel_HelpMenu;
     public GameObject Panel_SettingsMenu;
-    // Confirm Images
+    public GameObject Panel_Controlls;
+    public GameObject Panel_Tipps;
+    
+    [Header("Images")]
     public GameObject Image_ConfirmMenu;
     public GameObject Image_ConfirmQuit;
-    
+
     [Header("Buttons/Panel Pause")]
     public GameObject ButtonResume;
     // Confirm Images button
@@ -28,16 +31,21 @@ public class PauseMenuUI : MonoBehaviour
     public GameObject Button_Quit_No;
     
     [Header("Buttons/Panel Help")]
+    public GameObject ButtonOpenControlls;
+    public GameObject ButtonOpenTipps;
+    public GameObject ButtonCloseControlls;
+    public GameObject ButtonCloseTipps;
     public GameObject ButtonCloseHelp;
-
+    
     [Header("Buttons/Panel Settings")]
     public GameObject ButtonCloseSettings;
+    
     #endregion
 
     #region Input System -> Pause Game
     public void Pause(InputAction.CallbackContext context)
     {
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
         Canvas_PauseMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(ButtonResume);
     }
@@ -101,6 +109,31 @@ public class PauseMenuUI : MonoBehaviour
     #endregion
     
     #region HelpMenu -> Button Methods
+    public void ControllsPanel()
+    {
+        Panel_HelpMenu.SetActive(false);
+        Panel_Controlls.SetActive(true); 
+        EventSystem.current.SetSelectedGameObject(ButtonCloseControlls);
+    }
+    public void TippsPanel()
+    {
+        Panel_HelpMenu.SetActive(false);
+        Panel_Tipps.SetActive(true); 
+        EventSystem.current.SetSelectedGameObject(ButtonCloseTipps);
+    }
+    
+    public void CloseControllsPanel()
+    {
+        Panel_HelpMenu.SetActive(true);
+        Panel_Controlls.SetActive(false); 
+        EventSystem.current.SetSelectedGameObject(ButtonCloseHelp);
+    }
+    public void CloseTippsPanel()
+    {
+        Panel_HelpMenu.SetActive(true);
+        Panel_Tipps.SetActive(false); 
+        EventSystem.current.SetSelectedGameObject(ButtonCloseHelp);
+    }
     public void CloseHelpMenu()
     {
         Panel_PauseMenu.SetActive(true);
