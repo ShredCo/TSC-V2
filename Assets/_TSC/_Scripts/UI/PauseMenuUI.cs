@@ -9,6 +9,7 @@ using UnityEngine.Audio;
 
 public class PauseMenuUI : MonoBehaviour
 {
+    #region Variables / References
     [Header("Canvas")]
     public GameObject Canvas_PauseMenu;
 
@@ -31,7 +32,8 @@ public class PauseMenuUI : MonoBehaviour
 
     [Header("Buttons/Panel Settings")]
     public GameObject ButtonCloseSettings;
-    
+    #endregion
+
     #region Input System -> Pause Game
     public void Pause(InputAction.CallbackContext context)
     {
@@ -121,7 +123,7 @@ public class PauseMenuUI : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(ButtonResume);
     }
     
-    // Pole controll settings
+    // Pole control settings
     public void SetPoleSpeed(float sliderValue)
     {
         PolesPlayer.Instance.moveSpeed = sliderValue;
