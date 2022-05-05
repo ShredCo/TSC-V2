@@ -30,87 +30,85 @@ public class UserInterfaceOverworld : MonoBehaviour
     #region PauseMenu
     [Header("Pause Menu")] 
     // Canvases
-    public GameObject CanvasPauseMenu;
-    public GameObject CanvasInventory;
+    [SerializeField] GameObject canvasPauseMenu;
+    [SerializeField] GameObject canvasInventory;
+    [SerializeField] GameObject canvasSettings;
+    [SerializeField] GameObject canvasHelpMenu;
     public GameObject CanvasDialoge;
-    public GameObject CanvasSettings;
-    public GameObject CanvasHelpMenu;
     
     // Buttons
-    public GameObject ButtonResume;
-    public GameObject ButtonInventory;
-    public GameObject ButtonSettings;
+    [SerializeField] GameObject buttonResume;
+    [SerializeField] GameObject buttonInventory;
+    [SerializeField] GameObject buttonSettings;
     
     // confirm windows
     #region subRegion | Confirm Windows
     [Header("Confirm Windows")]
     // Confirm Menu/Quit windows
-    public GameObject Image_ConfirmMenu;
-    public GameObject Image_ConfirmQuit;
+    [SerializeField] GameObject ImageConfirmMenu;
+    [SerializeField] GameObject ImageConfirmQuit;
     // Confirm Menu/Quit buttons
-    public GameObject Button_Menu_No;
-    public GameObject Button_Quit_No;
+    [SerializeField] GameObject buttonOpenMenuNo;
+    [SerializeField] GameObject buttonOpenQuitNo;
     #endregion
     #endregion
-    
-    
     
     #region Inventory
     [Header("Inventory")]
     // Panels
-    public GameObject PanelInventory;
-    public GameObject PanelBackpack;
-    public GameObject PanelLineUpPoles;
-    public GameObject PanelLineUpAbilitys;
+    [SerializeField] GameObject panelInventory;
+    [SerializeField] GameObject panelBackpack;
+    [SerializeField] GameObject panelLineUpPoles;
+    [SerializeField] GameObject panelLineUpAbilitys;
     
     private bool inventoryActive = false;
     
     // Panels Equip
-    public GameObject PanelEquipLineUpPoles;
-    public GameObject PanelEquipLineUpAbilitys;
+    [SerializeField] GameObject panelPoleCollection;
+    [SerializeField] GameObject panelAbilityCollection;
     
     // Buttons
-    public GameObject FirstButtonBagpack;
-    public GameObject FirstButtonDefaultCards;
-    public GameObject FirstButtonAbilityCards;
+    [SerializeField] GameObject firstButtonBagpack;
+    [SerializeField] GameObject firstButtonDefaultCards;
+    [SerializeField] GameObject firstButtonAbilityCards;
     
     // Texts equip on pole (1,2,3,4)
-    public Text EquipPoleText;
-    public Text EquipAbilityText;
+    [SerializeField] Text equipPoleText;
+    [SerializeField] Text equipAbilityText;
     
     #region subRegion | Inventory LineUp's
     [Header("Inventory LineUP's")]
     
     // Panels Pole-Cards
-    public GameObject PanelPoleCards1;
-    public GameObject PanelPoleCards2;
-    public GameObject PanelPoleCards3;
+    [SerializeField] GameObject panelPoleCollection_Page1;
+    [SerializeField] GameObject panelPoleCollection_Page2;
+    [SerializeField] GameObject panelPoleCollection_Page3;
     // Panels Ability-Cards
-    public GameObject PanelAbilityCards1;
-    public GameObject PanelAbilityCards2;
-    public GameObject PanelAbilityCards3;
+    [SerializeField] GameObject panelAbilityCollection_Page1;
+    [SerializeField] GameObject panelAbilityCollection_Page2;
+    [SerializeField] GameObject panelAbilityCollection_Page3;
     
     // Buttons
-    public GameObject FirstButtonPoleCardPage1;
-    public GameObject FirstButtonPoleCardPage2;
-    public GameObject FirstButtonPoleCardPage3;
+    [SerializeField] GameObject firstButtonPoleCollection_Page1;
+    [SerializeField] GameObject firstButtonPoleCollection_Page2;
+    [SerializeField] GameObject firstButtonPoleCollection_Page3;
 
-    public GameObject FirstButtonAbilityCardPage1;
-    public GameObject FirstButtonAbilityCardPage2;
-    public GameObject FirstButtonAbilityCardPage3;
+    [SerializeField] GameObject firstButtonAbilityCollection_Page1;
+    [SerializeField] GameObject firstButtonAbilityCollection_Page2;
+    [SerializeField] GameObject firstButtonAbilityCollection_Page3;
 
     [Header("Buttons switching LineUp Panels")]
-    public GameObject FirstButtonLeftArrowPoles;
-    public GameObject FirstButtonRightArrowPoles;
+    [SerializeField] GameObject previousButtonPoleCollection;
+    [SerializeField] GameObject nextButtonPoleCollection;
 
-    public GameObject FirstButtonLeftArrowAbilitys;
-    public GameObject FirstButtonRightArrowAbilitys;
+    [SerializeField] GameObject previousButtonAbilityCollection;
+    [SerializeField] GameObject nextButtonAbilityCollection;
     #endregion
     #region subRegion | Inventory L1/R1 Navigation System
 
-    public Button SwitchButtonBackpack;
-    public Button SwitchButtonPoleCards;
-    public Button SwitchButtonAbilityCards;
+    [SerializeField] Button switchButtonBackpack;
+    [SerializeField] Button switchButtonPoleCards;
+    [SerializeField] Button switchButtonAbilityCards;
 
     void SwitchInventoryPanels()
     {
@@ -133,31 +131,31 @@ public class UserInterfaceOverworld : MonoBehaviour
         switch (currentPanel)
         {
             case 1:
-                SwitchButtonBackpack.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
-                SwitchButtonPoleCards.image.color = Color.white;
-                SwitchButtonAbilityCards.image.color = Color.white;
-                PanelBackpack.SetActive(true);
-                PanelLineUpPoles.SetActive(false);
-                PanelLineUpAbilitys.SetActive(false);
-                EventSystem.current.SetSelectedGameObject(FirstButtonBagpack);
+                switchButtonBackpack.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
+                switchButtonPoleCards.image.color = Color.white;
+                switchButtonAbilityCards.image.color = Color.white;
+                panelBackpack.SetActive(true);
+                panelLineUpPoles.SetActive(false);
+                panelLineUpAbilitys.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(firstButtonBagpack);
                 break;
             case 2:
-                SwitchButtonBackpack.image.color = Color.white;
-                SwitchButtonPoleCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
-                SwitchButtonAbilityCards.image.color = Color.white;
-                PanelBackpack.SetActive(false);
-                PanelLineUpPoles.SetActive(true);
-                PanelLineUpAbilitys.SetActive(false);
-                EventSystem.current.SetSelectedGameObject(FirstButtonDefaultCards);
+                switchButtonBackpack.image.color = Color.white;
+                switchButtonPoleCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
+                switchButtonAbilityCards.image.color = Color.white;
+                panelBackpack.SetActive(false);
+                panelLineUpPoles.SetActive(true);
+                panelLineUpAbilitys.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(firstButtonDefaultCards);
                 break;
             case 3:
-                SwitchButtonBackpack.image.color = Color.white;
-                SwitchButtonPoleCards.image.color = Color.white;
-                SwitchButtonAbilityCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
-                PanelBackpack.SetActive(false);
-                PanelLineUpPoles.SetActive(false);
-                PanelLineUpAbilitys.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(FirstButtonAbilityCards);
+                switchButtonBackpack.image.color = Color.white;
+                switchButtonPoleCards.image.color = Color.white;
+                switchButtonAbilityCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
+                panelBackpack.SetActive(false);
+                panelLineUpPoles.SetActive(false);
+                panelLineUpAbilitys.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(firstButtonAbilityCards);
                 break;
         }
     }
@@ -167,23 +165,32 @@ public class UserInterfaceOverworld : MonoBehaviour
     #region Settings
     [Header("Settings")]
     // Buttons
-    public GameObject FirstSelectedButtonSettings;
+    [SerializeField] GameObject closeButtonSettings;
     
     // Audio
-    public AudioMixer MusicMixer;
-    public AudioMixer BallMixer;
+    [SerializeField] AudioMixer musicMixer;
+    [SerializeField] AudioMixer ballMixer;
     #endregion
     
     #region Dialogue
     [Header("Dialogue")]
     // Buttons
-    public GameObject FirstSelectedButtonDialoge;
+    [SerializeField] GameObject nextButtonDialoge;
     #endregion
     
     #region Help
     [Header("Help")]
+    //Panels
+    [SerializeField] GameObject panelHelpMenu;
+    [SerializeField] GameObject panelControlls;
+    [SerializeField] GameObject panelTipps;
+    
     // Buttons
-    public GameObject FirstSelectedButtonHelpMenu;
+    [SerializeField] GameObject buttonControlls;
+    [SerializeField] GameObject buttonTipps;
+    [SerializeField] GameObject closeButtonControlls;
+    [SerializeField] GameObject closeButtonHelpMenu;
+    [SerializeField] GameObject closeButtonTipps;
     #endregion
     
     void Update()
@@ -193,8 +200,8 @@ public class UserInterfaceOverworld : MonoBehaviour
         TextWood.text = Inventory.Wood.ToString();
         
         // Get first selected buttons for pole and ability card equipping
-        FirstButtonPoleCardPage1 = FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1;
-        FirstButtonAbilityCardPage1 = FirstButtonCardSelection.FirstButtonLineUpAbilityCardPage1;
+        firstButtonPoleCollection_Page1 = FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1;
+        firstButtonAbilityCollection_Page1 = FirstButtonCardSelection.FirstButtonLineUpAbilityCardPage1;
 
         var gamepad = Gamepad.current;
         if (gamepad.startButton.wasPressedThisFrame)
@@ -222,33 +229,33 @@ public class UserInterfaceOverworld : MonoBehaviour
         #region close Inventory with east button
         if (inventoryActive == true && gamepad.buttonEast.wasPressedThisFrame)
         {
-            CanvasPauseMenu.SetActive(true);
-            CanvasInventory.SetActive(false);
+            canvasPauseMenu.SetActive(true);
+            canvasInventory.SetActive(false);
             inventoryActive = false;
 
             EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(ButtonResume);
+            EventSystem.current.SetSelectedGameObject(buttonResume);
         }
         #endregion
         
         #region close LineUp selection with east button
-        if (PanelEquipLineUpPoles.activeInHierarchy && gamepad.buttonEast.wasPressedThisFrame)
+        if (panelPoleCollection.activeInHierarchy && gamepad.buttonEast.wasPressedThisFrame)
         {
             inventoryActive = true;
-            PanelInventory.SetActive(true);
-            PanelEquipLineUpPoles.SetActive(false);
+            panelInventory.SetActive(true);
+            panelPoleCollection.SetActive(false);
             EnableFirstPoleCardPage();
 
-            EventSystem.current.SetSelectedGameObject(FirstButtonDefaultCards);
+            EventSystem.current.SetSelectedGameObject(firstButtonDefaultCards);
         }
-        if (PanelEquipLineUpAbilitys.activeInHierarchy && gamepad.buttonEast.wasPressedThisFrame)
+        if (panelAbilityCollection.activeInHierarchy && gamepad.buttonEast.wasPressedThisFrame)
         {
             inventoryActive = true;
-            PanelInventory.SetActive(true);
-            PanelEquipLineUpAbilitys.SetActive(false);
+            panelInventory.SetActive(true);
+            panelAbilityCollection.SetActive(false);
             EnableFirstAbilityCardPage();
 
-            EventSystem.current.SetSelectedGameObject(FirstButtonAbilityCards);
+            EventSystem.current.SetSelectedGameObject(firstButtonAbilityCards);
         }
         #endregion
     }
@@ -260,10 +267,10 @@ public class UserInterfaceOverworld : MonoBehaviour
         #region subRegion | open/close Pausemenu
         void Pause()
         {
-            CanvasPauseMenu.SetActive(true);
+            canvasPauseMenu.SetActive(true);
             gamePaused = true;
             //Time.timeScale = 0f;
-            EventSystem.current.SetSelectedGameObject(ButtonResume);
+            EventSystem.current.SetSelectedGameObject(buttonResume);
         }
 
         public void Resume()
@@ -277,8 +284,8 @@ public class UserInterfaceOverworld : MonoBehaviour
             GameStateManager.Instance.SetState(newGameState);
             
             // close UI
-            CanvasPauseMenu.SetActive(false);
-            CanvasInventory.SetActive(false);
+            canvasPauseMenu.SetActive(false);
+            canvasInventory.SetActive(false);
             CanvasDialoge.SetActive(false);
             gamePaused = false;
             Time.timeScale = 1f;
@@ -287,17 +294,17 @@ public class UserInterfaceOverworld : MonoBehaviour
         #region subRegion | open/close Inventory
         public void OpenInventory()
         {
-            PanelBackpack.SetActive(false);
-            PanelLineUpPoles.SetActive(true);
-            PanelLineUpAbilitys.SetActive(false);
-            CanvasPauseMenu.SetActive(false);
-            CanvasInventory.SetActive(true);
-            SwitchButtonBackpack.image.color = Color.white;
-            SwitchButtonPoleCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
-            SwitchButtonAbilityCards.image.color = Color.white;
+            panelBackpack.SetActive(false);
+            panelLineUpPoles.SetActive(true);
+            panelLineUpAbilitys.SetActive(false);
+            canvasPauseMenu.SetActive(false);
+            canvasInventory.SetActive(true);
+            switchButtonBackpack.image.color = Color.white;
+            switchButtonPoleCards.image.color = new Color(0.6705f, 0.3176f, 0.3176f);
+            switchButtonAbilityCards.image.color = Color.white;
 
             inventoryActive = true;
-            EventSystem.current.SetSelectedGameObject(FirstButtonDefaultCards);
+            EventSystem.current.SetSelectedGameObject(firstButtonDefaultCards);
         }
     
         // Close Inventory Method is in Update
@@ -305,28 +312,28 @@ public class UserInterfaceOverworld : MonoBehaviour
         #region subRegion | open/close Setings
         public void OpenSettingsCanvas()
         {
-            CanvasPauseMenu.SetActive(false);
-            CanvasSettings.SetActive(true);
+            canvasPauseMenu.SetActive(false);
+            canvasSettings.SetActive(true);
         
             EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(FirstSelectedButtonSettings);
+            EventSystem.current.SetSelectedGameObject(closeButtonSettings);
         }
         public void CloseSettingsCanvas()
         {
-            CanvasPauseMenu.SetActive(true);
-            CanvasSettings.SetActive(false);
+            canvasPauseMenu.SetActive(true);
+            canvasSettings.SetActive(false);
         
             EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(ButtonResume);
+            EventSystem.current.SetSelectedGameObject(buttonResume);
         }
         #endregion
         #region subRegion | open/close Dialogue
         public void OpenDialogueCanvas()
         {
-            CanvasPauseMenu.SetActive(false);
+            canvasPauseMenu.SetActive(false);
             CanvasDialoge.SetActive(true);
             
-            EventSystem.current.SetSelectedGameObject(FirstSelectedButtonDialoge);
+            EventSystem.current.SetSelectedGameObject(nextButtonDialoge);
         
             // Close Dialogue Canvas is in dialogue manager script
         }
@@ -334,18 +341,18 @@ public class UserInterfaceOverworld : MonoBehaviour
         #region subRegion | open/close Help
         public void OpenHelpCanvas()
         {
-            CanvasPauseMenu.SetActive(false);
-            CanvasHelpMenu.SetActive(true);
+            canvasPauseMenu.SetActive(false);
+            canvasHelpMenu.SetActive(true);
             
-            EventSystem.current.SetSelectedGameObject(FirstSelectedButtonHelpMenu);
+            EventSystem.current.SetSelectedGameObject(closeButtonHelpMenu);
         }
         
         public void CloseHelpCanvas()
         {
-            CanvasPauseMenu.SetActive(true);
-            CanvasHelpMenu.SetActive(false);
+            canvasPauseMenu.SetActive(true);
+            canvasHelpMenu.SetActive(false);
 
-            EventSystem.current.SetSelectedGameObject(ButtonResume);
+            EventSystem.current.SetSelectedGameObject(buttonResume);
         }
         #endregion
         
@@ -358,8 +365,8 @@ public class UserInterfaceOverworld : MonoBehaviour
         // Confirm Menu/Quit Methods
         public void ConfirmMenuNo()
         {
-            Image_ConfirmMenu.SetActive(false);
-            EventSystem.current.SetSelectedGameObject(ButtonResume);
+            ImageConfirmMenu.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(buttonResume);
         }
         public void ConfirmMenuYes()
         {
@@ -367,15 +374,15 @@ public class UserInterfaceOverworld : MonoBehaviour
         }
         public void Menu()
         {
-            Image_ConfirmMenu.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(Button_Menu_No);
+            ImageConfirmMenu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(buttonOpenMenuNo);
         }
         #endregion
         #region subRegion | Quit
         public void ConfirmQuitNo()
         {
-            Image_ConfirmQuit.SetActive(false);
-            EventSystem.current.SetSelectedGameObject(ButtonResume);
+            ImageConfirmQuit.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(buttonResume);
         }
         public void ConfirmQuitYes()
         {
@@ -384,8 +391,8 @@ public class UserInterfaceOverworld : MonoBehaviour
         }
         public void Quit()
         {
-            Image_ConfirmQuit.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(Button_Quit_No);
+            ImageConfirmQuit.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(buttonOpenQuitNo);
         }
         #endregion
 
@@ -395,13 +402,13 @@ public class UserInterfaceOverworld : MonoBehaviour
     // changes the volume of the music
     public void SetMusicAudioLevel(float sliderValue)
     {
-        MusicMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 50);
+        musicMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 50);
     }
 
     // changes the volume of the music
     public void SetBallAudioLevel(float sliderValue)
     {
-        BallMixer.SetFloat("BallVolume", Mathf.Log10(sliderValue) * 50);
+        ballMixer.SetFloat("BallVolume", Mathf.Log10(sliderValue) * 50);
     }
        
     #endregion
@@ -418,11 +425,11 @@ public class UserInterfaceOverworld : MonoBehaviour
             switch (activePolePage)
             {
                 case ActivePage.Page1:
-                    EventSystem.current.SetSelectedGameObject(FirstButtonRightArrowPoles);
+                    EventSystem.current.SetSelectedGameObject(nextButtonPoleCollection);
                     EnableSecondPoleCardPage();
                     break;
                 case ActivePage.Page2:
-                    EventSystem.current.SetSelectedGameObject(FirstButtonRightArrowPoles);
+                    EventSystem.current.SetSelectedGameObject(nextButtonPoleCollection);
                     EnableThirdPoleCardPage();
                     break;
                 case ActivePage.Page3:
@@ -437,11 +444,11 @@ public class UserInterfaceOverworld : MonoBehaviour
                 case ActivePage.Page1:
                     break;
                 case ActivePage.Page2:
-                    EventSystem.current.SetSelectedGameObject(FirstButtonLeftArrowPoles);
+                    EventSystem.current.SetSelectedGameObject(previousButtonPoleCollection);
                     EnableFirstPoleCardPage();
                     break;
                 case ActivePage.Page3:
-                    EventSystem.current.SetSelectedGameObject(FirstButtonLeftArrowPoles);
+                    EventSystem.current.SetSelectedGameObject(previousButtonPoleCollection);
                     EnableSecondPoleCardPage();
                     break;
             }
@@ -449,27 +456,27 @@ public class UserInterfaceOverworld : MonoBehaviour
 
         public void EnableFirstPoleCardPage()
         {
-            EventSystem.current.SetSelectedGameObject(FirstButtonPoleCardPage1);
+            EventSystem.current.SetSelectedGameObject(firstButtonPoleCollection_Page1);
             activePolePage = ActivePage.Page1;
-            PanelPoleCards1.SetActive(true);
-            PanelPoleCards2.SetActive(false);
-            PanelPoleCards3.SetActive(false);
+            panelPoleCollection_Page1.SetActive(true);
+            panelPoleCollection_Page2.SetActive(false);
+            panelPoleCollection_Page3.SetActive(false);
         }
 
         public void EnableSecondPoleCardPage()
         {
             activePolePage = ActivePage.Page2;
-            PanelPoleCards1.SetActive(false);
-            PanelPoleCards2.SetActive(true);
-            PanelPoleCards3.SetActive(false);
+            panelPoleCollection_Page1.SetActive(false);
+            panelPoleCollection_Page2.SetActive(true);
+            panelPoleCollection_Page3.SetActive(false);
         }
 
         public void EnableThirdPoleCardPage()
         {
             activePolePage = ActivePage.Page3;
-            PanelPoleCards1.SetActive(false);
-            PanelPoleCards2.SetActive(false);
-            PanelPoleCards3.SetActive(true);
+            panelPoleCollection_Page1.SetActive(false);
+            panelPoleCollection_Page2.SetActive(false);
+            panelPoleCollection_Page3.SetActive(true);
         }
 
         #endregion
@@ -482,11 +489,11 @@ public class UserInterfaceOverworld : MonoBehaviour
             switch (activeAbilityPage)
             {
                 case ActivePage.Page1:
-                    EventSystem.current.SetSelectedGameObject(FirstButtonRightArrowAbilitys);
+                    EventSystem.current.SetSelectedGameObject(nextButtonAbilityCollection);
                     EnableSecondAbilityCardPage();
                     break;
                 case ActivePage.Page2:
-                    EventSystem.current.SetSelectedGameObject(FirstButtonRightArrowAbilitys);
+                    EventSystem.current.SetSelectedGameObject(nextButtonAbilityCollection);
                     EnableThirdAbilityCardPage();
                     break;
                 case ActivePage.Page3:
@@ -503,11 +510,11 @@ public class UserInterfaceOverworld : MonoBehaviour
                 case ActivePage.Page1:
                     break;
                 case ActivePage.Page2:
-                    EventSystem.current.SetSelectedGameObject(FirstButtonLeftArrowAbilitys);
+                    EventSystem.current.SetSelectedGameObject(previousButtonAbilityCollection);
                     EnableFirstAbilityCardPage();
                     break;
                 case ActivePage.Page3:
-                    EventSystem.current.SetSelectedGameObject(FirstButtonLeftArrowAbilitys);
+                    EventSystem.current.SetSelectedGameObject(previousButtonAbilityCollection);
                     EnableSecondAbilityCardPage();
                     break;
                 default:
@@ -517,27 +524,27 @@ public class UserInterfaceOverworld : MonoBehaviour
 
         public void EnableFirstAbilityCardPage()
         {
-            EventSystem.current.SetSelectedGameObject(FirstButtonAbilityCardPage1);
+            EventSystem.current.SetSelectedGameObject(firstButtonAbilityCollection_Page1);
             activeAbilityPage = ActivePage.Page1;
-            PanelAbilityCards1.SetActive(true);
-            PanelAbilityCards2.SetActive(false);
-            PanelAbilityCards3.SetActive(false);
+            panelAbilityCollection_Page1.SetActive(true);
+            panelAbilityCollection_Page2.SetActive(false);
+            panelAbilityCollection_Page3.SetActive(false);
         }
 
         public void EnableSecondAbilityCardPage()
         {
             activeAbilityPage = ActivePage.Page2;
-            PanelAbilityCards1.SetActive(false);
-            PanelAbilityCards2.SetActive(true);
-            PanelAbilityCards3.SetActive(false);
+            panelAbilityCollection_Page1.SetActive(false);
+            panelAbilityCollection_Page2.SetActive(true);
+            panelAbilityCollection_Page3.SetActive(false);
         }
 
         public void EnableThirdAbilityCardPage()
         {
             activeAbilityPage = ActivePage.Page3;
-            PanelAbilityCards1.SetActive(false);
-            PanelAbilityCards2.SetActive(false);
-            PanelAbilityCards3.SetActive(true);
+            panelAbilityCollection_Page1.SetActive(false);
+            panelAbilityCollection_Page2.SetActive(false);
+            panelAbilityCollection_Page3.SetActive(true);
         }
         #endregion
         
@@ -547,12 +554,12 @@ public class UserInterfaceOverworld : MonoBehaviour
         public void SetActivePoleMain()
         {
             LineUpController.CardType = true;
-            EquipPoleText.text = "Equip Main Pole\nCards";
+            equipPoleText.text = "Equip Main Pole\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 0;
             
-            PanelInventory.SetActive(false);
-            PanelEquipLineUpPoles.SetActive(true);
+            panelInventory.SetActive(false);
+            panelPoleCollection.SetActive(true);
             EnableFirstPoleCardPage();
             
             EventSystem.current.SetSelectedGameObject(FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1);
@@ -560,12 +567,12 @@ public class UserInterfaceOverworld : MonoBehaviour
         public void SetActivePoleFirst()
         {
             LineUpController.CardType = true;
-            EquipPoleText.text = "Equip Crew1 Pole\nCards";
+            equipPoleText.text = "Equip Crew1 Pole\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 1;
             
-            PanelInventory.SetActive(false);
-            PanelEquipLineUpPoles.SetActive(true);
+            panelInventory.SetActive(false);
+            panelPoleCollection.SetActive(true);
             EnableFirstPoleCardPage();
             
             EventSystem.current.SetSelectedGameObject(FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1);
@@ -573,12 +580,12 @@ public class UserInterfaceOverworld : MonoBehaviour
         public void SetActivePoleSecond()
         {
             LineUpController.CardType = true;
-            EquipPoleText.text = "Equip Crew2 Pole\nCards";
+            equipPoleText.text = "Equip Crew2 Pole\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 2;
             
-            PanelInventory.SetActive(false);
-            PanelEquipLineUpPoles.SetActive(true);
+            panelInventory.SetActive(false);
+            panelPoleCollection.SetActive(true);
             EnableFirstPoleCardPage();
     
             EventSystem.current.SetSelectedGameObject(FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1);
@@ -586,12 +593,12 @@ public class UserInterfaceOverworld : MonoBehaviour
         public void SetActivePoleThird()
         {
             LineUpController.CardType = true;
-            EquipPoleText.text = "Equip Crew3 Pole\nCards";
+            equipPoleText.text = "Equip Crew3 Pole\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 3;
             
-            PanelInventory.SetActive(false);
-            PanelEquipLineUpPoles.SetActive(true);
+            panelInventory.SetActive(false);
+            panelPoleCollection.SetActive(true);
             EnableFirstPoleCardPage();
             
             EventSystem.current.SetSelectedGameObject(FirstButtonCardSelection.FirstButtonLineUpPoleCardPage1);
@@ -603,59 +610,85 @@ public class UserInterfaceOverworld : MonoBehaviour
         public void SetActiveAbilityMain()
         {
             LineUpController.CardType = false;
-            EquipAbilityText.text = "Equip Main Ability\nCards";
+            equipAbilityText.text = "Equip Main Ability\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 0;
     
-            PanelInventory.SetActive(false);
-            PanelEquipLineUpAbilitys.SetActive(true);
+            panelInventory.SetActive(false);
+            panelAbilityCollection.SetActive(true);
             EnableFirstAbilityCardPage();
     
-            EventSystem.current.SetSelectedGameObject(FirstButtonAbilityCardPage1);
+            EventSystem.current.SetSelectedGameObject(firstButtonAbilityCollection_Page1);
         }
         public void SetActiveAbilityFirst()
         {
             LineUpController.CardType = false;
-            EquipAbilityText.text = "Equip Crew Pole 1\nCards";
+            equipAbilityText.text = "Equip Crew Pole 1\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 1;
     
-            PanelInventory.SetActive(false);
-            PanelEquipLineUpAbilitys.SetActive(true);
+            panelInventory.SetActive(false);
+            panelAbilityCollection.SetActive(true);
             EnableFirstAbilityCardPage();
     
-            EventSystem.current.SetSelectedGameObject(FirstButtonAbilityCardPage1);
+            EventSystem.current.SetSelectedGameObject(firstButtonAbilityCollection_Page1);
         }
         public void SetActiveAbilitySecond()
         {
             LineUpController.CardType = false;
-            EquipAbilityText.text = "Equip Crew Pole 2\nCards";
+            equipAbilityText.text = "Equip Crew Pole 2\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 2;
     
-            PanelInventory.SetActive(false);
-            PanelEquipLineUpAbilitys.SetActive(true);
+            panelInventory.SetActive(false);
+            panelAbilityCollection.SetActive(true);
             EnableFirstAbilityCardPage();
     
-            EventSystem.current.SetSelectedGameObject(FirstButtonAbilityCardPage1);
+            EventSystem.current.SetSelectedGameObject(firstButtonAbilityCollection_Page1);
         }
         public void SetActiveAbilityThird()
         {
             LineUpController.CardType = false;
-            EquipAbilityText.text = "Equip Crew Pole 3\nCards";
+            equipAbilityText.text = "Equip Crew Pole 3\nCards";
             inventoryActive = false;
             LineUpController.ActivePole = 3;
     
-            PanelInventory.SetActive(false);
-            PanelEquipLineUpAbilitys.SetActive(true);
+            panelInventory.SetActive(false);
+            panelAbilityCollection.SetActive(true);
             EnableFirstAbilityCardPage();
     
-            EventSystem.current.SetSelectedGameObject(FirstButtonAbilityCardPage1);
+            EventSystem.current.SetSelectedGameObject(firstButtonAbilityCollection_Page1);
         }
         #endregion
         
     #endregion
     
+    #region HelpMenu -> Methods
+    public void OpenControlls()
+    {
+        panelHelpMenu.SetActive(false);
+        panelControlls.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(closeButtonControlls);
+    }
+    public void OpenTipps()
+    {
+        panelHelpMenu.SetActive(false);
+        panelTipps.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(closeButtonTipps);
+    }
+    public void CloseControlls()
+    {
+        panelHelpMenu.SetActive(true);
+        panelControlls.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(buttonControlls);
+    }
+    public void CloseTipps()
+    {
+        panelHelpMenu.SetActive(true);
+        panelTipps.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(buttonTipps);
+    }
+    #endregion
 }
 
 
