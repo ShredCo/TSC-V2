@@ -69,8 +69,8 @@ public class UserInterfaceOverworld : MonoBehaviour
     
     // Buttons
     [SerializeField] GameObject firstButtonBagpack;
-    [SerializeField] GameObject firstButtonDefaultCards;
-    [SerializeField] GameObject firstButtonAbilityCards;
+    [SerializeField] GameObject firstButtonPoleLineup;
+    [SerializeField] GameObject firstButtonAbilityLineUp;
     
     // Texts equip on pole (1,2,3,4)
     [SerializeField] Text equipPoleText;
@@ -146,7 +146,7 @@ public class UserInterfaceOverworld : MonoBehaviour
                 panelBackpack.SetActive(false);
                 panelLineUpPoles.SetActive(true);
                 panelLineUpAbilitys.SetActive(false);
-                EventSystem.current.SetSelectedGameObject(firstButtonDefaultCards);
+                EventSystem.current.SetSelectedGameObject(firstButtonPoleLineup);
                 break;
             case 3:
                 switchButtonBackpack.image.color = Color.white;
@@ -155,7 +155,7 @@ public class UserInterfaceOverworld : MonoBehaviour
                 panelBackpack.SetActive(false);
                 panelLineUpPoles.SetActive(false);
                 panelLineUpAbilitys.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(firstButtonAbilityCards);
+                EventSystem.current.SetSelectedGameObject(firstButtonAbilityLineUp);
                 break;
         }
     }
@@ -246,7 +246,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             panelPoleCollection.SetActive(false);
             EnableFirstPoleCardPage();
 
-            EventSystem.current.SetSelectedGameObject(firstButtonDefaultCards);
+            EventSystem.current.SetSelectedGameObject(firstButtonPoleLineup);
         }
         if (panelAbilityCollection.activeInHierarchy && gamepad.buttonEast.wasPressedThisFrame)
         {
@@ -255,7 +255,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             panelAbilityCollection.SetActive(false);
             EnableFirstAbilityCardPage();
 
-            EventSystem.current.SetSelectedGameObject(firstButtonAbilityCards);
+            EventSystem.current.SetSelectedGameObject(firstButtonAbilityLineUp);
         }
         #endregion
     }
@@ -304,7 +304,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             switchButtonAbilityCards.image.color = Color.white;
 
             inventoryActive = true;
-            EventSystem.current.SetSelectedGameObject(firstButtonDefaultCards);
+            EventSystem.current.SetSelectedGameObject(firstButtonPoleLineup);
         }
     
         // Close Inventory Method is in Update
