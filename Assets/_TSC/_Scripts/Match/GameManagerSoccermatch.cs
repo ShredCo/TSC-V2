@@ -132,14 +132,8 @@ public class GameManagerSoccermatch : MonoBehaviour
                 players.Add(player, id);
                 PlayerController playerController = player.GetComponent<PlayerController>();
 
-                // TODO: if statement daraus machen
-                // playerController.ReceivePoles(id == 1 ? polesPlayerOne : polesPlayerTwo);
-                //playerController.ReceiveArrow(id == 1 ? arrowOne : arrowTwo);
-
-                // Gives the players their poles and arrows
                 switch(id)
                 {
-                    // TODO: Maybe we could simply remove the 2 poles from the offensive.
                     // TODO: Idea for later: Let the players choose which position they want to play
                     case 1:
                         playerController.ReceivePolesPlayer(polesPlayer1);

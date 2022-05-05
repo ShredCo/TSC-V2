@@ -96,9 +96,6 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Player Set Up
-    // NOTE: Do some more research about this topic
-    // when a new player joins he receives an array of poles + an arrow to see which pole is selected
-    // for future 1v1 and 2v2 gamemodes
     internal void ReceivePolesPlayer(PolesPlayer[] poles)
     {
         this.polesPlayer = poles;
