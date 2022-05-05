@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2796,7 +2796,7 @@ GameObject:
   - component: {fileID: 235186131}
   - component: {fileID: 235186130}
   m_Layer: 0
-  m_Name: Text_Max_Health
+  m_Name: Text_Max_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3324,7 +3324,7 @@ GameObject:
   - component: {fileID: 280607932}
   - component: {fileID: 280607931}
   m_Layer: 0
-  m_Name: Text_Current_Health
+  m_Name: Text_Current_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3769,7 +3769,7 @@ GameObject:
   - component: {fileID: 318756199}
   - component: {fileID: 318756198}
   m_Layer: 0
-  m_Name: HealthBar_Main
+  m_Name: ConditionBar_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5999,41 +5999,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 437777363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c4d08fc886be15498da6722faec2887, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ba3debbd72bb9f40b4970b2f669cf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealthMain: 0
-  HealthBarPlayerMain: {fileID: 318756198}
-  TextCurrentHealthPlayerMain: {fileID: 1441763295}
-  TextMaxHealthPlayerMain: {fileID: 1337044268}
-  PlayerHealthCrew1: 0
-  HealthBarPlayerCrew1: {fileID: 891685375}
-  TextCurrentHealthPlayerCrew1: {fileID: 1441763295}
-  TextMaxHealthPlayerCrew1: {fileID: 1337044268}
-  PlayerHealthCrew2: 0
-  HealthBarPlayerCrew2: {fileID: 2145490610}
-  TextCurrentHealthPlayerCrew2: {fileID: 1320393509}
-  TextMaxHealthPlayerCrew2: {fileID: 614525183}
-  PlayerHealthCrew3: 0
-  HealthBarPlayerCrew3: {fileID: 1761507572}
-  TextCurrentHealthPlayerCrew3: {fileID: 1068398497}
-  TextMaxHealthPlayerCrew3: {fileID: 1542981717}
-  AIHealthMain: 0
-  HealthBarAIMain: {fileID: 451264375}
-  TextCurrentHealthAIMain: {fileID: 791404493}
-  TextMaxHealthAIMain: {fileID: 884231448}
-  AIHealthCrew1: 0
-  HealthBarAICrew1: {fileID: 1926485595}
-  TextCurrentHealthAICrew1: {fileID: 1673837731}
-  TextMaxHealthAICrew1: {fileID: 235186130}
-  AIHealthCrew2: 0
-  HealthBarAICrew2: {fileID: 890776842}
-  TextCurrentHealthAICrew2: {fileID: 1459465042}
-  TextMaxHealthAICrew2: {fileID: 1195249438}
-  AIHealthCrew3: 0
-  HealthBarAICrew3: {fileID: 440349848}
-  TextCurrentHealthAICrew3: {fileID: 280607931}
-  TextMaxHealthAICrew3: {fileID: 1320989457}
+  PlayerConditionMain: 0
+  ConditionBarPlayerMain: {fileID: 318756198}
+  TextCurrentConditionPlayerMain: {fileID: 1441763295}
+  TextMaxConditionPlayerMain: {fileID: 1337044268}
+  PlayerConditionCrew1: 0
+  ConditionBarPlayerCrew1: {fileID: 891685375}
+  TextCurrentConditionPlayerCrew1: {fileID: 1472053473}
+  TextMaxConditionPlayerCrew1: {fileID: 769220846}
+  PlayerConditionCrew2: 0
+  ConditionBarPlayerCrew2: {fileID: 2145490610}
+  TextCurrentConditionPlayerCrew2: {fileID: 1320393509}
+  TextMaxConditionPlayerCrew2: {fileID: 614525183}
+  PlayerConditionCrew3: 0
+  ConditionBarPlayerCrew3: {fileID: 1761507572}
+  TextCurrentConditionPlayerCrew3: {fileID: 1068398497}
+  TextMaxConditionPlayerCrew3: {fileID: 1542981717}
+  AIConditionMain: 0
+  ConditionBarAIMain: {fileID: 451264375}
+  TextCurrentConditionAIMain: {fileID: 791404493}
+  TextMaxConditionAIMain: {fileID: 884231448}
+  AIConditionCrew1: 0
+  ConditionBarAICrew1: {fileID: 1926485595}
+  TextCurrentConditionAICrew1: {fileID: 1673837731}
+  TextMaxConditionAICrew1: {fileID: 235186130}
+  AIConditionCrew2: 0
+  ConditionBarAICrew2: {fileID: 890776842}
+  TextCurrentConditionAICrew2: {fileID: 1459465042}
+  TextMaxConditionAICrew2: {fileID: 1195249438}
+  AIConditionCrew3: 0
+  ConditionBarAICrew3: {fileID: 440349848}
+  TextCurrentConditionAICrew3: {fileID: 280607931}
+  TextMaxConditionAICrew3: {fileID: 1320989457}
   PlayerPoleMain: {fileID: 3591735067149766099}
   PlayerPoleCrew1: {fileID: 3591735068730497803}
   PlayerPoleCrew2: {fileID: 3591735069088665900}
@@ -6153,7 +6153,7 @@ GameObject:
   - component: {fileID: 440349849}
   - component: {fileID: 440349848}
   m_Layer: 0
-  m_Name: HealthBar_CP3
+  m_Name: ConditionBar_CP3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6429,7 +6429,7 @@ GameObject:
   - component: {fileID: 451264376}
   - component: {fileID: 451264375}
   m_Layer: 0
-  m_Name: HealthBar_Main
+  m_Name: ConditionBar_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9318,7 +9318,7 @@ GameObject:
   - component: {fileID: 614525184}
   - component: {fileID: 614525183}
   m_Layer: 0
-  m_Name: Text_Max_Health
+  m_Name: Text_Max_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10165,7 +10165,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.000000005796528, y: 0.94154674, z: -0.33688235, w: -0.000000016200616}
+  m_LocalRotation: {x: 0.000000005796526, y: 0.94154674, z: -0.33688235, w: 0.00000001620061}
   m_LocalPosition: {x: -0.3456396, y: 1.2191033, z: 0.4225788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11143,7 +11143,7 @@ GameObject:
   - component: {fileID: 769220847}
   - component: {fileID: 769220846}
   m_Layer: 0
-  m_Name: Text_Max_Health
+  m_Name: Text_Max_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11499,7 +11499,7 @@ GameObject:
   - component: {fileID: 791404494}
   - component: {fileID: 791404493}
   m_Layer: 0
-  m_Name: Text_Current_Health
+  m_Name: Text_Current_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12604,7 +12604,7 @@ GameObject:
   - component: {fileID: 884231449}
   - component: {fileID: 884231448}
   m_Layer: 0
-  m_Name: Text_Max_Health
+  m_Name: Text_Max_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12739,7 +12739,7 @@ GameObject:
   - component: {fileID: 890776843}
   - component: {fileID: 890776842}
   m_Layer: 0
-  m_Name: HealthBar_CP2
+  m_Name: ConditionBar_CP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12819,7 +12819,7 @@ GameObject:
   - component: {fileID: 891685376}
   - component: {fileID: 891685375}
   m_Layer: 0
-  m_Name: HealthBar_CP1
+  m_Name: ConditionBar_CP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14708,7 +14708,7 @@ GameObject:
   - component: {fileID: 1068398498}
   - component: {fileID: 1068398497}
   m_Layer: 0
-  m_Name: Text_Current_Health
+  m_Name: Text_Current_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16474,7 +16474,7 @@ GameObject:
   - component: {fileID: 1195249439}
   - component: {fileID: 1195249438}
   m_Layer: 0
-  m_Name: Text_Max_Health
+  m_Name: Text_Max_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17727,7 +17727,7 @@ GameObject:
   - component: {fileID: 1320393510}
   - component: {fileID: 1320393509}
   m_Layer: 0
-  m_Name: Text_Current_Health
+  m_Name: Text_Current_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17862,7 +17862,7 @@ GameObject:
   - component: {fileID: 1320989458}
   - component: {fileID: 1320989457}
   m_Layer: 0
-  m_Name: Text_Max_Health
+  m_Name: Text_Max_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18207,7 +18207,7 @@ GameObject:
   - component: {fileID: 1337044269}
   - component: {fileID: 1337044268}
   m_Layer: 0
-  m_Name: Text_Max_Health
+  m_Name: Text_Max_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19274,7 +19274,7 @@ GameObject:
   - component: {fileID: 1441763296}
   - component: {fileID: 1441763295}
   m_Layer: 0
-  m_Name: Text_Current_Health
+  m_Name: Text_Current_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19723,7 +19723,7 @@ GameObject:
   - component: {fileID: 1459465043}
   - component: {fileID: 1459465042}
   m_Layer: 0
-  m_Name: Text_Current_Health
+  m_Name: Text_Current_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20160,7 +20160,7 @@ GameObject:
   - component: {fileID: 1472053474}
   - component: {fileID: 1472053473}
   m_Layer: 0
-  m_Name: Text_Current_Health
+  m_Name: Text_Current_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21416,7 +21416,7 @@ GameObject:
   - component: {fileID: 1542981718}
   - component: {fileID: 1542981717}
   m_Layer: 0
-  m_Name: Text_Max_Health
+  m_Name: Text_Max_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23462,7 +23462,7 @@ GameObject:
   - component: {fileID: 1673837732}
   - component: {fileID: 1673837731}
   m_Layer: 0
-  m_Name: Text_Current_Health
+  m_Name: Text_Current_Condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24510,7 +24510,7 @@ GameObject:
   - component: {fileID: 1761507573}
   - component: {fileID: 1761507572}
   m_Layer: 0
-  m_Name: HealthBar_CP3
+  m_Name: ConditionBar_CP3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26008,7 +26008,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.000000005796528, y: 0.94154674, z: -0.33688235, w: -0.000000016200616}
+  m_LocalRotation: {x: 0.000000005796526, y: 0.94154674, z: -0.33688235, w: 0.00000001620061}
   m_LocalPosition: {x: -0.3456396, y: 1.2191033, z: 0.4225788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -27496,7 +27496,7 @@ GameObject:
   - component: {fileID: 1926485596}
   - component: {fileID: 1926485595}
   m_Layer: 0
-  m_Name: HealthBar_CP1
+  m_Name: ConditionBar_CP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31266,7 +31266,7 @@ GameObject:
   - component: {fileID: 2145490611}
   - component: {fileID: 2145490610}
   m_Layer: 0
-  m_Name: HealthBar_CP2
+  m_Name: ConditionBar_CP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
