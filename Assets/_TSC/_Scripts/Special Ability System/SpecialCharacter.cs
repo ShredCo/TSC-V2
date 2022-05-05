@@ -30,6 +30,7 @@ public class SpecialCharacter : MonoBehaviour
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
         rb.velocity = new Vector3(0f,0f,-movement.y);
 
+        Debug.Log(movement.y);
         if (movement.y >= 0)
         {
             rb.transform.rotation = Quaternion.Euler(0f, 180f, 0f);

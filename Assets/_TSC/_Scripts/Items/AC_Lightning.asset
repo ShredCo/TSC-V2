@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8b0608dd90b8541a7ddf09c18123bb, type: 3}
   m_Name: AC_Lightning
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 0}
-  Type: 1
-  Ability: {fileID: 11400000, guid: 907df7425dcc05e40ba2fad7b972b202, type: 2}
+  Type: 0
   Name: Lightning
   Level: 1
-  MaxHealth: 0
-  Health: 0
-  Attack: 0
+  MaxCondition: 100
+  Condition: 100
+  PlayerPrefab: {fileID: 1947145488696995822, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
   CardArtwork: {fileID: 21300000, guid: 7d1195d5a65744a4483cc826d8868792, type: 3}
+  Ability: {fileID: 11400000, guid: 907df7425dcc05e40ba2fad7b972b202, type: 2}
   NextLevelCard: {fileID: 0}
   IsUpgradable: 0

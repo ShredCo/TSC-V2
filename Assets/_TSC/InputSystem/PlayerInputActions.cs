@@ -192,7 +192,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Up"",
                     ""id"": ""26fbd9af-f6e2-4682-80c6-a31cfb599024"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
@@ -203,7 +203,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Down"",
                     ""id"": ""45764631-4134-4dad-9fde-3f2857ba83c3"",
-                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""path"": ""<DualShockGamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
