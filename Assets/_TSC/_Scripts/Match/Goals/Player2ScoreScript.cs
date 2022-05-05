@@ -11,6 +11,6 @@ public class Player2ScoreScript : MonoBehaviour
     }
     void Update()
     {
-        text.text = "2. Player: " + GameManagerOneVsOne.Instance.ScorePlayer2.ToString();
+        text.text = "2. Player: " + GameManagerSoccermatch.Instance.ScorePlayer2.ToString();
     }
 }

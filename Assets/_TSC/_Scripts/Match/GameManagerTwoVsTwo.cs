@@ -46,6 +46,7 @@ public class GameManagerTwoVsTwo : MonoBehaviour
     {
         if (!players.TryGetValue(player, out int value)) // if player doesn't exist
         {
+            
             if (players.Count < 4) // if limit isnt reached
             {
                 int id = players.Count + 1;

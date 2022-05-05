@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class GameManagerOneVsOne : MonoBehaviour
+public class GameManagerSoccermatch : MonoBehaviour
 {
     #region Singleton
-    public static GameManagerOneVsOne Instance;
+    public static GameManagerSoccermatch Instance;
     private void Awake()
     {
         if (Instance == null)
@@ -17,15 +17,24 @@ public class GameManagerOneVsOne : MonoBehaviour
     #endregion
 
     #region References
+    [Header("Singleplayer")]
     // creates an array of poles for the players
     [SerializeField] private PolesPlayer[] polesPlayer = new PolesPlayer[4];
     [SerializeField] private SpecialCharacter[] specialCharacter = new SpecialCharacter[4];
 
-
+    [Header("Co-op")]
+    // creates 2 arrays when a co-op player has joined
+    [SerializeField] private PolesPlayer[] polesPlayer1 = new PolesPlayer[2];
+    [SerializeField] private PolesPlayer[] polesPlayer2 = new PolesPlayer[2];
+    
     [Header("currentPoles")]
+    // for the player and enemy
     [SerializeField] private GameObject arrowOne;
     [SerializeField] private GameObject arrowTwo;
 
+    // co-op modus
+    [SerializeField] private GameObject arrowPlayer2;
+    
     // all players in a dictionary, player input as key, value is the id, can be simplified with only a list or array
     public Dictionary<PlayerInput, int> players = new Dictionary<PlayerInput, int>();
 
@@ -104,19 +113,48 @@ public class GameManagerOneVsOne : MonoBehaviour
     {
         if (!players.TryGetValue(player, out int value)) // if player doesn't exist
         {
-            if (players.Count < 2) // if limit isnt reached
+            if (players.Count < 1) // if one player is playing
             {
                 int id = players.Count + 1;
                 players.Add(player, id);
-
+                
                 // Player receives his team
                 PlayerController playerController = player.GetComponent<PlayerController>();
                 playerController.ReceivePolesPlayer(polesPlayer);
                 playerController.ReceiveArrow(arrowOne);
                 playerController.ReceiveAbility(specialCharacter);
-
-
+                
                 player.gameObject.name = "Player_" + id;
+            }
+            else if (players.Count == 1)
+            {
+                int id = players.Count + 1;
+                players.Add(player, id);
+                PlayerController playerController = player.GetComponent<PlayerController>();
+
+                // TODO: if statement daraus machen
+                // playerController.ReceivePoles(id == 1 ? polesPlayerOne : polesPlayerTwo);
+                //playerController.ReceiveArrow(id == 1 ? arrowOne : arrowTwo);
+
+                // Gives the players their poles and arrows
+                switch(id)
+                {
+                    // TODO: Maybe we could simply remove the 2 poles from the offensive.
+                    // TODO: Idea for later: Let the players choose which position they want to play
+                    case 1:
+                        playerController.ReceivePolesPlayer(polesPlayer1);
+                        playerController.ReceiveArrow(arrowOne);
+                        
+                        player.gameObject.name = "Player_" + id;
+                        break;
+                    case 2:
+                        playerController.ReceivePolesPlayer(polesPlayer2);
+                        playerController.ReceiveArrow(arrowPlayer2);
+                        arrowPlayer2.SetActive(true);
+                        
+                        player.gameObject.name = "Player_" + id;
+                        break;
+                }
             }
         }
         else
