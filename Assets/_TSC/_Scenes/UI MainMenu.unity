@@ -333,7 +333,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1267159438}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Coming soon...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
   m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
@@ -1520,7 +1520,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1267159437}
   - component: {fileID: 1267159438}
-  - component: {fileID: 1267159439}
   m_Layer: 0
   m_Name: Scriptholder
   m_TagString: Untagged
@@ -1555,19 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb395890b4fb2543a712e863d33307c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstSelectedButton: {fileID: 0}
---- !u!114 &1267159439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267159436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af3cf5990cc55a4f93a2b9ec1b9a461, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  FirstSelectedButton: {fileID: 921255848}
 --- !u!1 &1372709044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,7 +1569,7 @@ GameObject:
   - component: {fileID: 1372709047}
   - component: {fileID: 1372709046}
   m_Layer: 5
-  m_Name: Button_Settings
+  m_Name: Button_Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1696,22 +1683,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a12ddbc47b17cd478cb447d1113a22b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonText: Settings
+  buttonText: Coming soon...
   clickEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1267159438}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2454,7 +2429,6 @@ GameObject:
   - component: {fileID: 2063148562}
   - component: {fileID: 2063148561}
   - component: {fileID: 2063148560}
-  - component: {fileID: 2063148564}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -2544,15 +2518,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2063148564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063148559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c7388e965a333840b9a99726729e59d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
