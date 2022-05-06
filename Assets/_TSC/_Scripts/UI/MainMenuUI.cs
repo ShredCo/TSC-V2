@@ -10,11 +10,16 @@ public class MainMenuUI : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(StartGameDelay());
     }
-
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator StartGameDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(3);
     }
 }
