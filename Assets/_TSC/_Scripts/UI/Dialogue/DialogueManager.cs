@@ -107,6 +107,7 @@ public class DialogueManager : MonoBehaviour
             PlayerInventory.AddMoney(LineUpController.MoneyReward);
             //PlayerInventory.AddDefaultCard(LineUpController.DefaultCardReward, 1);
         }
+        dialogueStarted = false;
     }
 
     public IEnumerator CooldownDialogue()
