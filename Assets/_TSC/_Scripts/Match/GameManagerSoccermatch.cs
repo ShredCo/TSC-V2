@@ -104,8 +104,8 @@ public class GameManagerSoccermatch : MonoBehaviour
     public IEnumerator EndGame()
     {
         WinLosePanel.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(1);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(2);
     }
 
     #region Event for Player Input Manager
