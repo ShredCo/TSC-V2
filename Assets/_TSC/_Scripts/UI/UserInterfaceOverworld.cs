@@ -358,6 +358,10 @@ public class UserInterfaceOverworld : MonoBehaviour
         
         // change scenes or quit
         #region subRegion | load MainMenu
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene(0);
+        }
         // Confirm Menu/Quit Methods
         public void ConfirmMenuNo()
         {
@@ -366,8 +370,7 @@ public class UserInterfaceOverworld : MonoBehaviour
         }
         public void ConfirmMenuYes()
         {
-            SceneLoading.Instance.nextScene = NextScene.MainMenu;
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(0);
         }
         public void Menu()
         {

@@ -1,35 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-public enum NextScene
-{
-    Overworld,
-    MainMenu,
-    Soccerfield
-}
 public class SceneLoading : MonoBehaviour
 {
-    #region Singleton
-    public static SceneLoading Instance;
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-    }
-    #endregion
-    
-    // References
-    [SerializeField] GameObject[] tipps = new GameObject[11];
+    [SerializeField] private GameObject[] tipps = new GameObject[11];
     [SerializeField] Image progressBar;
-    public NextScene nextScene;
     
-    string scene;
     void Start()
     {
         DisplayTipp();
@@ -38,20 +18,9 @@ public class SceneLoading : MonoBehaviour
 
     IEnumerator LoadAsyncOperation()
     {
-        yield return new WaitForSeconds(2);
         // create an async operation
-        switch(nextScene)
-        {
-            case NextScene.MainMenu:
-                scene = "MainMenu";
-                break;
-            case NextScene.Overworld:
-                scene = "Overworld";
-                break;
-        }
+        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(1);
 
-        // Loads the right scene
-        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(scene);
         while (gameLevel.progress < 1)
         {
             // take the progress bar fill = async operation progress.
