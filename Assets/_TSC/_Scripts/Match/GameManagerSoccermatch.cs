@@ -59,16 +59,16 @@ public class GameManagerSoccermatch : MonoBehaviour
         switch (LineUpController.MapType)
         {
             case MapType.Route1_1:
-                SceneManager.LoadScene(3, LoadSceneMode.Additive);
+                SceneManager.LoadScene("Route1_1", LoadSceneMode.Additive);
                 break;
             case MapType.Route1_2:
-                SceneManager.LoadScene(4, LoadSceneMode.Additive);
+                SceneManager.LoadScene("Route1_2", LoadSceneMode.Additive);
                 break;
             case MapType.OkinaShores_Default:
-                SceneManager.LoadScene(6, LoadSceneMode.Additive);
+                SceneManager.LoadScene("OkinaShores_Default", LoadSceneMode.Additive);
                 break;
             case MapType.OkinaShores_Arena:
-                SceneManager.LoadScene(5, LoadSceneMode.Additive);
+                SceneManager.LoadScene("OkinaShores_Arena", LoadSceneMode.Additive);
                 break;
         }
         
