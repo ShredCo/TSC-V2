@@ -65,7 +65,7 @@ public class PauseMenuUI : MonoBehaviour
         Panel_PauseMenu.SetActive(false);
         EventSystem.current.SetSelectedGameObject(ButtonCloseHelp);
     }
-
+    
     public void Settings()
     {
         Panel_SettingsMenu.SetActive(true);
@@ -93,7 +93,7 @@ public class PauseMenuUI : MonoBehaviour
     }
     public void ConfirmMenuYes()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     
     public void ConfirmQuitNo()
