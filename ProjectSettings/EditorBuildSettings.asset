@@ -21,16 +21,16 @@ EditorBuildSettings:
     path: Assets/_TSC/_Scenes/Training Center.unity
     guid: 2f5673346b0ae3744a156b98b7d69f7e
   - enabled: 1
-    path: Assets/_TSC/_Scenes/Soccerfield 1.unity
+    path: Assets/_TSC/_Scenes/Route1_2.unity
     guid: 4c61c5a8f8813974fb0cdc6c7e9d93e0
   - enabled: 1
-    path: Assets/_TSC/_Scenes/Soccerfield 2.unity
+    path: Assets/_TSC/_Scenes/Route1_1.unity
     guid: de9c3fd84d7b2fa44961e51d9947e9c0
   - enabled: 1
-    path: Assets/_TSC/_Scenes/Soccerfield 3.unity
+    path: Assets/_TSC/_Scenes/OkinaShores_Arena.unity
     guid: 4fbf820121286634e8482f9d76c122db
   - enabled: 1
-    path: Assets/_TSC/_Scenes/Soccerfield4.unity
+    path: Assets/_TSC/_Scenes/OkinaShores_DefaultMap.unity
     guid: 0533a1a7ca571b94486f6fe49afa02a8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c669e8e71df9185428858d143c1c4773, type: 2}
