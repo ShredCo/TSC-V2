@@ -35368,9 +35368,9 @@ MonoBehaviour:
   - {fileID: 53405358}
   - {fileID: 1596763132}
   movementInputValue: 0.5
-  rotationInputValue: 0.5
+  rotationInputValue: 0.75
   currentPoleIndexAI: 0
-  smoothSpeed: 0.25
+  smoothSpeed: 0.2
   FrontShootRotationIndex: 0
 --- !u!64 &7525578558336090750
 MeshCollider:
