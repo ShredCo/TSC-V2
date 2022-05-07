@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
-    public GameObject FirstSelectedButton;
-
+    // Audio
+    [SerializeField] private GameObject audioSlider;
+    [SerializeField] private AudioMixer musicMixer;
+    
     public void StartGame()
     {
         SceneManager.LoadScene("LoadingScene");
@@ -15,5 +16,13 @@ public class MainMenuUI : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void ShowAudioSlider()
+    {
+        EventSystem.current.SetSelectedGameObject(audioSlider);
+    }
+    public void SetMusicAudioLevel(float sliderValue)
+    {
+        musicMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 50);
     }
 }
