@@ -62,8 +62,8 @@ public class PlayerController : MonoBehaviour
                 polesPlayer[1].PoleFreeze();
                 poleCrew1Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
 
-                //crewPole1AbilityPrefabVFX.transform.rotation = Quaternion.Euler(-rotationWindAbilityInput.x, transform.rotation.y, transform.rotation.z);
-                crewPole1AbilityPrefabVFX.transform.rotation = Quaternion.Euler(rotationWindAbilityInput);
+                crewPole1AbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+
                 crewPole1AbilityPrefabVFX.transform.position = poleCrew1Ability.transform.position;
             }
             else
@@ -381,6 +381,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
-    
+
     #endregion
 }
