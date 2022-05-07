@@ -6,6 +6,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+public enum PlayerSkin
+{
+    Default,
+    Man,
+    Woman,
+}
 public enum DialogueState
 {
     Avaiable,
@@ -27,16 +33,14 @@ public class Player : MonoBehaviour
     public InventoryObject Inventory;
     
     public DialogueState DialogueState;
+    public PlayerSkin playerSkin = default;
     
     // Player HUD
     public GameObject PickedUpMoneyTextGameObject;
     public GameObject PickedUpWoodTextGameObject;
     public Text TextPickedUpMoney;
     public Text TextPickedUpWood;
-    
-    private Rigidbody rb;
 
-    
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<Item>())

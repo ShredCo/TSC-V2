@@ -170,6 +170,10 @@ public class UserInterfaceOverworld : MonoBehaviour
     // Audio
     [SerializeField] AudioMixer musicMixer;
     [SerializeField] AudioMixer ballMixer;
+    
+    // Skins
+    [SerializeField] GameObject playerSkinVillageMan;
+    [SerializeField] GameObject playerSkinVillageWoman;
     #endregion
     
     #region Dialogue
@@ -406,7 +410,19 @@ public class UserInterfaceOverworld : MonoBehaviour
     {
         ballMixer.SetFloat("BallVolume", Mathf.Log10(sliderValue) * 50);
     }
-       
+
+    public void ChooseWomanGender()
+    {
+        playerSkinVillageWoman.SetActive(true);
+        playerSkinVillageMan.SetActive(false);
+        Player.Instance.playerSkin = PlayerSkin.Woman;
+    }
+    public void ChooseManGender()
+    {
+        playerSkinVillageMan.SetActive(true);
+        playerSkinVillageWoman.SetActive(false);
+        Player.Instance.playerSkin = PlayerSkin.Man;
+    }
     #endregion
     
     #region Inventory -> Methods
