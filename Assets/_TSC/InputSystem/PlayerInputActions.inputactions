@@ -24,6 +24,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "RotateWindAbility",
+                    "type": "Value",
+                    "id": "bf9dc91e-6c8c-4b48-a06c-51d5fe161b95",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "PolesUp",
                     "type": "Button",
                     "id": "4d3d9552-48dd-4d0a-abbb-c0022e6ec291",
@@ -181,7 +190,7 @@
                 {
                     "name": "Down",
                     "id": "45764631-4134-4dad-9fde-3f2857ba83c3",
-                    "path": "<DualShockGamepad>/leftStick/down",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
@@ -241,6 +250,17 @@
                     "processors": "",
                     "groups": "Player1",
                     "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8cc39ac6-8a26-4c27-ba8e-de18133d42f7",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "RotateWindAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

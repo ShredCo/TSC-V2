@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24370,6 +24370,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673837729}
   m_CullTransparentMesh: 1
+--- !u!114 &1676434020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7776990381466126141, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+  m_PrefabInstance: {fileID: 1875142156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6038e80719aca0242a176f27ab0f4a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1693092414
 GameObject:
   m_ObjectHideFlags: 0
@@ -25460,7 +25471,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   checkRadius: 0.4
-  ClosestPlayer: {fileID: 0}
+  ClosestPlayer: {fileID: 778915225}
 --- !u!114 &1766185142 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
@@ -27178,7 +27189,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionId
+      value: bf9dc91e-6c8c-4b48-a06c-51d5fe161b95
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionName
+      value: SoccerMatchControlls/RotateWindAbility[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
@@ -27186,11 +27213,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 437777367}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1676434020}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
@@ -27198,11 +27237,23 @@ PrefabInstance:
       value: Pause
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateWind
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseMenuUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -229456059327777998, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3356370671983284950, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}

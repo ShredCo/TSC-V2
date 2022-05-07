@@ -46,6 +46,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""RotateWindAbility"",
+                    ""type"": ""Value"",
+                    ""id"": ""bf9dc91e-6c8c-4b48-a06c-51d5fe161b95"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""PolesUp"",
                     ""type"": ""Button"",
                     ""id"": ""4d3d9552-48dd-4d0a-abbb-c0022e6ec291"",
@@ -203,7 +212,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Down"",
                     ""id"": ""45764631-4134-4dad-9fde-3f2857ba83c3"",
-                    ""path"": ""<DualShockGamepad>/leftStick/down"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
@@ -263,6 +272,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Player1"",
                     ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cc39ac6-8a26-4c27-ba8e-de18133d42f7"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""RotateWindAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -953,6 +973,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_SoccerMatchControlls = asset.FindActionMap("SoccerMatchControlls", throwIfNotFound: true);
         m_SoccerMatchControlls_MoveMainPole = m_SoccerMatchControlls.FindAction("MoveMainPole", throwIfNotFound: true);
         m_SoccerMatchControlls_MoveAbility = m_SoccerMatchControlls.FindAction("MoveAbility", throwIfNotFound: true);
+        m_SoccerMatchControlls_RotateWindAbility = m_SoccerMatchControlls.FindAction("RotateWindAbility", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesUp = m_SoccerMatchControlls.FindAction("PolesUp", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesDown = m_SoccerMatchControlls.FindAction("PolesDown", throwIfNotFound: true);
         m_SoccerMatchControlls_PowerShotResetPole = m_SoccerMatchControlls.FindAction("PowerShot/ResetPole", throwIfNotFound: true);
@@ -1037,6 +1058,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private ISoccerMatchControllsActions m_SoccerMatchControllsActionsCallbackInterface;
     private readonly InputAction m_SoccerMatchControlls_MoveMainPole;
     private readonly InputAction m_SoccerMatchControlls_MoveAbility;
+    private readonly InputAction m_SoccerMatchControlls_RotateWindAbility;
     private readonly InputAction m_SoccerMatchControlls_PolesUp;
     private readonly InputAction m_SoccerMatchControlls_PolesDown;
     private readonly InputAction m_SoccerMatchControlls_PowerShotResetPole;
@@ -1049,6 +1071,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public SoccerMatchControllsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveMainPole => m_Wrapper.m_SoccerMatchControlls_MoveMainPole;
         public InputAction @MoveAbility => m_Wrapper.m_SoccerMatchControlls_MoveAbility;
+        public InputAction @RotateWindAbility => m_Wrapper.m_SoccerMatchControlls_RotateWindAbility;
         public InputAction @PolesUp => m_Wrapper.m_SoccerMatchControlls_PolesUp;
         public InputAction @PolesDown => m_Wrapper.m_SoccerMatchControlls_PolesDown;
         public InputAction @PowerShotResetPole => m_Wrapper.m_SoccerMatchControlls_PowerShotResetPole;
@@ -1070,6 +1093,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @MoveAbility.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveAbility;
                 @MoveAbility.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveAbility;
                 @MoveAbility.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveAbility;
+                @RotateWindAbility.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRotateWindAbility;
+                @RotateWindAbility.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRotateWindAbility;
+                @RotateWindAbility.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRotateWindAbility;
                 @PolesUp.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesUp;
                 @PolesUp.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesUp;
                 @PolesUp.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesUp;
@@ -1098,6 +1124,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @MoveAbility.started += instance.OnMoveAbility;
                 @MoveAbility.performed += instance.OnMoveAbility;
                 @MoveAbility.canceled += instance.OnMoveAbility;
+                @RotateWindAbility.started += instance.OnRotateWindAbility;
+                @RotateWindAbility.performed += instance.OnRotateWindAbility;
+                @RotateWindAbility.canceled += instance.OnRotateWindAbility;
                 @PolesUp.started += instance.OnPolesUp;
                 @PolesUp.performed += instance.OnPolesUp;
                 @PolesUp.canceled += instance.OnPolesUp;
@@ -1296,6 +1325,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         void OnMoveMainPole(InputAction.CallbackContext context);
         void OnMoveAbility(InputAction.CallbackContext context);
+        void OnRotateWindAbility(InputAction.CallbackContext context);
         void OnPolesUp(InputAction.CallbackContext context);
         void OnPolesDown(InputAction.CallbackContext context);
         void OnPowerShotResetPole(InputAction.CallbackContext context);

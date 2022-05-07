@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Input System -> Input Values
     private Vector2 movementPoleInput;
     private Vector2 movementAbilityInput;
+    private Vector2 rotationWindAbilityInput;
 
     private PolesPlayer[] polesPlayer;
     private SpecialCharacter[] specialCharacter;
@@ -45,7 +46,6 @@ public class PlayerController : MonoBehaviour
         {
             if (mainAbility) // check if ability is active, move ability instead of pole
             {
-                
                 polesPlayer[0].PoleFreeze();
                 poleMainAbility.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
             }
@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
             {
                 polesPlayer[1].PoleFreeze();
                 poleCrew1Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
+
+                //crewPole1AbilityPrefabVFX.transform.rotation = Quaternion.Euler(-rotationWindAbilityInput.x, transform.rotation.y, transform.rotation.z);
+                crewPole1AbilityPrefabVFX.transform.rotation = Quaternion.Euler(rotationWindAbilityInput);
+                crewPole1AbilityPrefabVFX.transform.position = poleCrew1Ability.transform.position;
             }
             else
             {
@@ -126,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    #region Input System -> Gets the input for switching  poles and switches special card spawns
+    #region Input System -> Gets the input for switching poles and switches special card spawns
 
     public void PolesMinus(InputAction.CallbackContext context)
     {
@@ -214,7 +218,12 @@ public class PlayerController : MonoBehaviour
     {
         movementAbilityInput = context.ReadValue<Vector2>();
     }
-    
+
+    public void RotateWind(InputAction.CallbackContext context)
+    {
+        rotationWindAbilityInput = context.ReadValue<Vector2>();
+    }
+
     #region Input System -> Special Cards
     // Spawn the Special Cards
     public void SpecialCard_MainPole(InputAction.CallbackContext context)
@@ -273,6 +282,7 @@ public class PlayerController : MonoBehaviour
                 mainAbility = true;
                 yield return new WaitForSeconds(PoleMain.Ability.ActiveTime);
                 mainAbility = false;
+                Destroy(poleMainAbilityPrefabVFX);
                 Destroy(poleMainAbilityPrefab);
             }
         }
@@ -293,6 +303,7 @@ public class PlayerController : MonoBehaviour
                 crew1Ability = true;
                 yield return new WaitForSeconds(PoleCrew1.Ability.ActiveTime);
                 crew1Ability = false;
+                Destroy(crewPole1AbilityPrefabVFX);
                 Destroy(poleCrew1AbilityPrefab);
             }
         }
@@ -312,6 +323,7 @@ public class PlayerController : MonoBehaviour
                 crew2Ability = true;
                 yield return new WaitForSeconds(PoleCrew2.Ability.ActiveTime);
                 crew2Ability = false;
+                Destroy(crewPole2AbilityPrefabVFX);
                 Destroy(poleCrew2AbilityPrefab);
             }
         }
@@ -331,6 +343,7 @@ public class PlayerController : MonoBehaviour
                 crew3Ability = true;
                 yield return new WaitForSeconds(PoleCrew3.Ability.ActiveTime);
                 crew3Ability = false;
+                Destroy(crewPole3AbilityPrefabVFX);
                 Destroy(poleCrew3AbilityPrefab);
             }
         }
@@ -347,28 +360,27 @@ public class PlayerController : MonoBehaviour
     }
     void CrewPole1_Ability()
     {
-        if (crew1Ability == true)
+        if (crew1Ability == true && !GameObject.Find("WindAbility(Clone)"))
         {
-            crewPole1AbilityPrefabVFX = Instantiate(PoleCrew1.Ability.AbilityPrefab, poleCrew1AbilityPrefab.transform);
+            //crewPole1AbilityPrefabVFX = Instantiate(PoleCrew1.Ability.AbilityPrefab, poleCrew1AbilityPrefab.transform);
+            crewPole1AbilityPrefabVFX = Instantiate(PoleCrew1.Ability.AbilityPrefab);
         }
     }
     void CrewPole2_Ability()
     {
         if (crew2Ability == true)
         {
-            poleMainAbilityPrefabVFX = Instantiate(PoleCrew2.Ability.AbilityPrefab, poleCrew2AbilityPrefab.transform);
+            crewPole2AbilityPrefabVFX = Instantiate(PoleCrew2.Ability.AbilityPrefab, poleCrew2AbilityPrefab.transform);
         }
     }
     void CrewPole3_Ability()
     {
         if (crew3Ability == true)
         {
-            poleMainAbilityPrefabVFX = Instantiate(PoleCrew3.Ability.AbilityPrefab, poleCrew3AbilityPrefab.transform);
+            crewPole3AbilityPrefabVFX = Instantiate(PoleCrew3.Ability.AbilityPrefab, poleCrew3AbilityPrefab.transform);
         }
     }
     #endregion
     
     #endregion
 }
-    
-   

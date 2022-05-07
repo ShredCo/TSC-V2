@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Wind
   CooldownTime: 0
-  ActiveTime: 6
+  ActiveTime: 60
   PowerpointsCost: 1
   CharacterPrefab: {fileID: 1947145488696995822, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
   AbilityPrefab: {fileID: 272340965714621035, guid: ae407b0e0d7e12b4083eea3d66c0eb30, type: 3}
