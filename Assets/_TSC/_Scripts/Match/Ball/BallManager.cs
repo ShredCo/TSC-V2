@@ -70,6 +70,7 @@ public class BallManager : MonoBehaviour
     }
     public IEnumerator SpawnFirstBall()
     {
+        BallInGame = true;
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         countdownPanel.SetActive(true);
         audioSource.clip = countdown;
@@ -86,7 +87,7 @@ public class BallManager : MonoBehaviour
         audioSourceCheering3.Play();
         audioSourceCheering4.Play();
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        BallInGame = true;
+        
     }
     #endregion
     
