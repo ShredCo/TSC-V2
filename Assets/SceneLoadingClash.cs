@@ -18,7 +18,7 @@ public class SceneLoadingClash : MonoBehaviour
     IEnumerator LoadAsyncOperation()
     {
         // create an async operation
-        AsyncOperation gameLevel = SceneManager.LoadSceneAsync("Training Center");
+        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(4);
 
         while (gameLevel.progress < 1)
         {
