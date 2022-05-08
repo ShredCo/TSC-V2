@@ -794,7 +794,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 364368271}
-  - component: {fileID: 364368272}
   - component: {fileID: 364368273}
   m_Layer: 0
   m_Name: Scriptholder
@@ -818,31 +817,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &364368272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364368270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af3cf5990cc55a4f93a2b9ec1b9a461, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipps:
-  - {fileID: 1246496255}
-  - {fileID: 522760161}
-  - {fileID: 595631590}
-  - {fileID: 1846790474}
-  - {fileID: 1169297523}
-  - {fileID: 26759155}
-  - {fileID: 1586820223}
-  - {fileID: 961175458}
-  - {fileID: 1855547854}
-  - {fileID: 252320557}
-  - {fileID: 1406569969}
-  progressBar: {fileID: 1777596747}
 --- !u!114 &364368273
 MonoBehaviour:
   m_ObjectHideFlags: 0
