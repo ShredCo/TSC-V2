@@ -107,6 +107,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RespawnBall"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f8c4518-6a32-4bf6-a167-696e496ddac5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -283,6 +292,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Player1"",
                     ""action"": ""RotateWindAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ce1b1cb-8f3d-480c-9d1a-1bb19f7d1025"",
+                    ""path"": ""<DualShockGamepad>/touchpadButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RespawnBall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -980,6 +1000,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_SoccerMatchControlls_Pause = m_SoccerMatchControlls.FindAction("Pause", throwIfNotFound: true);
         m_SoccerMatchControlls_SpecialCard = m_SoccerMatchControlls.FindAction("SpecialCard", throwIfNotFound: true);
         m_SoccerMatchControlls_Ability = m_SoccerMatchControlls.FindAction("Ability", throwIfNotFound: true);
+        m_SoccerMatchControlls_RespawnBall = m_SoccerMatchControlls.FindAction("RespawnBall", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1065,6 +1086,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_SoccerMatchControlls_Pause;
     private readonly InputAction m_SoccerMatchControlls_SpecialCard;
     private readonly InputAction m_SoccerMatchControlls_Ability;
+    private readonly InputAction m_SoccerMatchControlls_RespawnBall;
     public struct SoccerMatchControllsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1078,6 +1100,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_SoccerMatchControlls_Pause;
         public InputAction @SpecialCard => m_Wrapper.m_SoccerMatchControlls_SpecialCard;
         public InputAction @Ability => m_Wrapper.m_SoccerMatchControlls_Ability;
+        public InputAction @RespawnBall => m_Wrapper.m_SoccerMatchControlls_RespawnBall;
         public InputActionMap Get() { return m_Wrapper.m_SoccerMatchControlls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1114,6 +1137,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Ability.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility;
                 @Ability.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility;
                 @Ability.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnAbility;
+                @RespawnBall.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRespawnBall;
+                @RespawnBall.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRespawnBall;
+                @RespawnBall.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRespawnBall;
             }
             m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1145,6 +1171,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Ability.started += instance.OnAbility;
                 @Ability.performed += instance.OnAbility;
                 @Ability.canceled += instance.OnAbility;
+                @RespawnBall.started += instance.OnRespawnBall;
+                @RespawnBall.performed += instance.OnRespawnBall;
+                @RespawnBall.canceled += instance.OnRespawnBall;
             }
         }
     }
@@ -1332,6 +1361,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnSpecialCard(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
+        void OnRespawnBall(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

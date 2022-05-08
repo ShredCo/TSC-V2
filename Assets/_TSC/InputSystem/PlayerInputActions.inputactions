@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RespawnBall",
+                    "type": "Button",
+                    "id": "8f8c4518-6a32-4bf6-a167-696e496ddac5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -261,6 +270,17 @@
                     "processors": "",
                     "groups": "Player1",
                     "action": "RotateWindAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ce1b1cb-8f3d-480c-9d1a-1bb19f7d1025",
+                    "path": "<DualShockGamepad>/touchpadButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RespawnBall",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

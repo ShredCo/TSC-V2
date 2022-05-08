@@ -19,40 +19,50 @@ public class BallManager : MonoBehaviour
     #endregion
     
     // References
-    [SerializeField] GameObject ball;
-    [SerializeField] TextMeshProUGUI countdownText;
-    [SerializeField] GameObject countdownPanel;
+    [SerializeField] private GameObject ball;
+    [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] private GameObject countdownPanel;
     
     // Audio
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip countdown;
-    [SerializeField] AudioSource audioSourceCheering1;
-    [SerializeField] AudioSource audioSourceCheering2;
-    [SerializeField] AudioSource audioSourceCheering3;
-    [SerializeField] AudioSource audioSourceCheering4;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip countdown;
+    [SerializeField] private AudioSource audioSourceCheering1;
+    [SerializeField] private AudioSource audioSourceCheering2;
+    [SerializeField] private AudioSource audioSourceCheering3;
+    [SerializeField] private AudioSource audioSourceCheering4;
 
+    // HUD
+    [SerializeField] private GameObject spawnBallIcon;
+    
     public bool BallInGame = false;
     private Vector3 startPos;
 
     private void Update()
     {
-        var gamepad = Gamepad.current;
-
-        //Spawns a new ball or Respawns
-        if (gamepad.dpad.up.wasPressedThisFrame)
+        if (BallInGame == false)
         {
-            if (BallInGame == false)
-            {
-                SpawnSoccerBall();
-                BallInGame = true;
-            }
-
-            // TODO: Can be deleted when publishing the game.
-            SpawnSoccerBall();
+            spawnBallIcon.SetActive(true);
+        }
+        else
+        {
+            spawnBallIcon.SetActive(false);
         }
     }
 
     #region Methods -> Spawn Ball
+    public void SpawnBallInput(InputAction.CallbackContext context)
+    {
+        // Ball is only respawnable when a goal happened or he stands almost still, when stuck or something like that.
+        if (BallInGame == false || GetComponent<Rigidbody>().velocity.magnitude <= 0.045f)
+        {
+            SpawnSoccerBall();
+            BallInGame = true;
+                
+        }
+
+        // TODO: Can be commented out when publishing the game (but needed for easier development).
+        //SpawnSoccerBall();
+    }
     public void SpawnSoccerBall()
     {
         ball.transform.position = startPos;
@@ -76,6 +86,7 @@ public class BallManager : MonoBehaviour
         audioSourceCheering3.Play();
         audioSourceCheering4.Play();
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        BallInGame = true;
     }
     #endregion
     

@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class GameManagerTwoVsTwo : MonoBehaviour
 {
+    // Note: OLD Script and not used at the moment, just here because we need some logic of this code later on in the project.
+    
     // Singleton
     public static GameManagerTwoVsTwo Instance;
 
@@ -46,14 +48,12 @@ public class GameManagerTwoVsTwo : MonoBehaviour
     {
         if (!players.TryGetValue(player, out int value)) // if player doesn't exist
         {
-            
             if (players.Count < 4) // if limit isnt reached
             {
                 int id = players.Count + 1;
                 players.Add(player, id);
                 PlayerController playerController = player.GetComponent<PlayerController>();
-
-                // TODO: if statement daraus machen
+                
                 // playerController.ReceivePoles(id == 1 ? polesPlayerOne : polesPlayerTwo);
                 //playerController.ReceiveArrow(id == 1 ? arrowOne : arrowTwo);
 
