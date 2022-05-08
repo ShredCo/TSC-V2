@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14.805811, y: 19.842546, z: 25.585207}
-  m_Center: {x: -0.7544259, y: -0.71025217, z: 13.1308}
+  m_Size: {x: 14.805811, y: 19.842546, z: 26.475636}
+  m_Center: {x: -0.7544258, y: -0.71025217, z: 12.685586}
 --- !u!114 &2448217223973909368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520783176558486, guid: 60d9c53605152d3459e9db61f5d3bad2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.37246913
       objectReference: {fileID: 0}
     - target: {fileID: 4520783176558486, guid: 60d9c53605152d3459e9db61f5d3bad2, type: 3}
       propertyPath: m_LocalScale.y
@@ -124,11 +124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198061243068776072, guid: 60d9c53605152d3459e9db61f5d3bad2, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.a
-      value: 0.7176471
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198061243068776072, guid: 60d9c53605152d3459e9db61f5d3bad2, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key1.a
-      value: 0.7764706
+      value: 0.9647059
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60d9c53605152d3459e9db61f5d3bad2, type: 3}
