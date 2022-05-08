@@ -8,21 +8,21 @@ using UnityEngine.InputSystem;
 public class WorkshopUI : MonoBehaviour
 {
     [Header("Canvas")]
-    public GameObject Canvas_WorkshopUI;
+    [SerializeField] private GameObject canvasWorkshopUI;
 
     [Header("Buttons")] 
-    public GameObject firstSelected_MainPole;
+    [SerializeField] private GameObject firstButton;
 
-    public Slider SliderPoleHealthMain;
-    public Slider SliderPoleHealthCrew1;
-    public Slider SliderPoleHealthCrew2;
-    public Slider SliderPoleHealthCrew3;
+    [SerializeField] private Slider sliderPoleHealthMain;
+    [SerializeField] private Slider sliderPoleHealthCrew1;
+    [SerializeField] private Slider sliderPoleHealthCrew2;
+    [SerializeField] private Slider sliderPoleHealthCrew3;
 
     // Repair and Upgrade Costs
-    public Text UpgradeText;
-    public Text RepairText;
+    [SerializeField] private Text upgradeText;
+    [SerializeField] private Text repairText;
 
-    public InventoryObject Inventory;
+    [SerializeField] private InventoryObject inventoryObject;
 
     public void OpenWorkshopUI()
     {
@@ -34,8 +34,8 @@ public class WorkshopUI : MonoBehaviour
             
         GameStateManager.Instance.SetState(newGameState);
         
-        Canvas_WorkshopUI.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(firstSelected_MainPole);
+        canvasWorkshopUI.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(firstButton);
     }
     public void CloseWorkshopUI()
     {
@@ -48,22 +48,22 @@ public class WorkshopUI : MonoBehaviour
         GameStateManager.Instance.SetState(newGameState);
         
         // close UI
-        Canvas_WorkshopUI.SetActive(false);
+        canvasWorkshopUI.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
     }
 
     private void Update()
     {
-        if(Inventory.PlayerDefaultCardLineUp[0] != null)
-            SliderPoleHealthMain.value = Inventory.PlayerDefaultCardLineUp[0].Condition / Inventory.PlayerDefaultCardLineUp[0].MaxCondition;
-        if (Inventory.PlayerDefaultCardLineUp[1] != null)
-            SliderPoleHealthCrew1.value = Inventory.PlayerDefaultCardLineUp[1].Condition / Inventory.PlayerDefaultCardLineUp[1].MaxCondition;
-        if (Inventory.PlayerDefaultCardLineUp[2] != null)
-            SliderPoleHealthCrew2.value = Inventory.PlayerDefaultCardLineUp[2].Condition / Inventory.PlayerDefaultCardLineUp[2].MaxCondition;
-        if (Inventory.PlayerDefaultCardLineUp[3] != null)
-            SliderPoleHealthCrew3.value = Inventory.PlayerDefaultCardLineUp[3].Condition / Inventory.PlayerDefaultCardLineUp[3].MaxCondition;
+        if(inventoryObject.PlayerDefaultCardLineUp[0] != null)
+            sliderPoleHealthMain.value = inventoryObject.PlayerDefaultCardLineUp[0].Condition / inventoryObject.PlayerDefaultCardLineUp[0].MaxCondition;
+        if (inventoryObject.PlayerDefaultCardLineUp[1] != null)
+            sliderPoleHealthCrew1.value = inventoryObject.PlayerDefaultCardLineUp[1].Condition / inventoryObject.PlayerDefaultCardLineUp[1].MaxCondition;
+        if (inventoryObject.PlayerDefaultCardLineUp[2] != null)
+            sliderPoleHealthCrew2.value = inventoryObject.PlayerDefaultCardLineUp[2].Condition / inventoryObject.PlayerDefaultCardLineUp[2].MaxCondition;
+        if (inventoryObject.PlayerDefaultCardLineUp[3] != null)
+            sliderPoleHealthCrew3.value = inventoryObject.PlayerDefaultCardLineUp[3].Condition / inventoryObject.PlayerDefaultCardLineUp[3].MaxCondition;
 
-        UpgradeText.text = "Upgrade Cost\nWood: " + GetComponent<WorkshopLeveling>().UpgradeWoodCost + "\nMoney: " + GetComponent<WorkshopLeveling>().UpgradeMoneyCost;
-        RepairText.text = "Repair Cost\nWood: " + GetComponent<WorkshopLeveling>().RepairWoodCost;
+        upgradeText.text = "Upgrade Cost\nWood: " + GetComponent<WorkshopLeveling>().UpgradeWoodCost + "\nMoney: " + GetComponent<WorkshopLeveling>().UpgradeMoneyCost;
+        repairText.text = "Repair Cost\nWood: " + GetComponent<WorkshopLeveling>().RepairWoodCost;
     }
 }
