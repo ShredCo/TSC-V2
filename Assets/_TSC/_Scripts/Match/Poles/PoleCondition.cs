@@ -126,16 +126,16 @@ public class PoleCondition : MonoBehaviour
     void PoleChangeColor()
     {
         // Player
-        PlayerPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (PlayerConditionMain / playerMaxConditionMain));
-        PlayerPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (PlayerConditionCrew1 / playerMaxConditionCrew1));
-        PlayerPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (PlayerConditionCrew2 / playerMaxConditionCrew2));
-        PlayerPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.red, (PlayerConditionCrew3 / playerMaxConditionCrew3));
+        PlayerPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (PlayerConditionMain / playerMaxConditionMain));
+        PlayerPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (PlayerConditionCrew1 / playerMaxConditionCrew1));
+        PlayerPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (PlayerConditionCrew2 / playerMaxConditionCrew2));
+        PlayerPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (PlayerConditionCrew3 / playerMaxConditionCrew3));
 
         // AI
-        AIPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.blue, (AIConditionMain / AIMaxConditionMain));
-        AIPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.blue, (AIConditionCrew1 / AIMaxConditionCrew1));
-        AIPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.blue, (AIConditionCrew2 / AIMaxConditionCrew2));
-        AIPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.grey, Color.blue, (AIConditionCrew3 / AIMaxConditionCrew3));
+        AIPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (AIConditionMain / AIMaxConditionMain));
+        AIPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (AIConditionCrew1 / AIMaxConditionCrew1));
+        AIPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (AIConditionCrew2 / AIMaxConditionCrew2));
+        AIPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (AIConditionCrew3 / AIMaxConditionCrew3));
     }
 
     #endregion
