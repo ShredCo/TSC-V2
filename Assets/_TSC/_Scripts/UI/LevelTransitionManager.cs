@@ -25,7 +25,7 @@ public class LevelTransitionManager : MonoBehaviour
         Animator.SetTrigger("Start");
         yield return new WaitForSeconds(TransitionTime);
         GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>().dialogueStarted = false;
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(9);
     }
     public void EndTransition()
     {

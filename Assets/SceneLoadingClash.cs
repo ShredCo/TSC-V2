@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-public class SceneLoading : MonoBehaviour
+public class SceneLoadingClash : MonoBehaviour
 {
     [SerializeField] private GameObject[] tipps = new GameObject[11];
     [SerializeField] Image progressBar;
@@ -19,7 +18,7 @@ public class SceneLoading : MonoBehaviour
     IEnumerator LoadAsyncOperation()
     {
         // create an async operation
-        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(2);
+        AsyncOperation gameLevel = SceneManager.LoadSceneAsync(4);
 
         while (gameLevel.progress < 1)
         {

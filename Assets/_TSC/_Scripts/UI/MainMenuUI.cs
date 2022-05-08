@@ -11,7 +11,7 @@ public class MainMenuUI : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene("LoadingScene");
+        SceneManager.LoadScene("LoadingOverworld");
     }
     public void QuitGame()
     {
