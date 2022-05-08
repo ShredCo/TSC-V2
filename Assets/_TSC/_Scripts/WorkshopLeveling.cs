@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorkshopLeveling : MonoBehaviour
 {
-    public int UpgradeWoodCost = 5;
-    public int UpgradeMoneyCost = 1000;
+    public int UpgradeWoodCost = 15;
+    public int UpgradeMoneyCost = 200;
 
-    public int RepairWoodCost = 1;
+    public int RepairWoodCost = 5;
+
+    public GameObject TextNotEnoughMoney;
+    public GameObject TextNotEnoughWood;
 
     public InventoryObject inventory;
 
@@ -44,10 +48,12 @@ public class WorkshopLeveling : MonoBehaviour
                 if (inventory.Wood < UpgradeWoodCost)
                 {
                     Debug.Log("No enough wood, stranger");
+                    StartCoroutine(NotEnoughWood());
                 }
                 if (inventory.Money < UpgradeMoneyCost)
                 {
                     Debug.Log("No enough cash, stranger");
+                    StartCoroutine(NotEnoughMoney());
                 }
             }
         }
@@ -82,10 +88,12 @@ public class WorkshopLeveling : MonoBehaviour
                 if (inventory.Wood < UpgradeWoodCost)
                 {
                     Debug.Log("No enough wood, stranger");
+                    StartCoroutine(NotEnoughWood());
                 }
                 if (inventory.Money < UpgradeMoneyCost)
                 {
                     Debug.Log("No enough cash, stranger");
+                    StartCoroutine(NotEnoughMoney());
                 }
             }
         }
@@ -120,10 +128,12 @@ public class WorkshopLeveling : MonoBehaviour
                 if (inventory.Wood < UpgradeWoodCost)
                 {
                     Debug.Log("No enough wood, stranger");
+                    StartCoroutine(NotEnoughWood());
                 }
                 if (inventory.Money < UpgradeMoneyCost)
                 {
                     Debug.Log("No enough cash, stranger");
+                    StartCoroutine(NotEnoughMoney());
                 }
             }
         }
@@ -158,10 +168,12 @@ public class WorkshopLeveling : MonoBehaviour
                 if (inventory.Wood < UpgradeWoodCost)
                 {
                     Debug.Log("No enough wood, stranger");
+                    StartCoroutine(NotEnoughWood());
                 }
                 if (inventory.Money < UpgradeMoneyCost)
                 {
                     Debug.Log("No enough cash, stranger");
+                    StartCoroutine(NotEnoughMoney());
                 }
             }
         }
@@ -186,6 +198,7 @@ public class WorkshopLeveling : MonoBehaviour
             else
             {
                 Debug.Log("No enough wood, stranger");
+                StartCoroutine(NotEnoughWood());
             }
         }
         else
@@ -207,6 +220,7 @@ public class WorkshopLeveling : MonoBehaviour
             else
             {
                 Debug.Log("No enough wood, stranger");
+                StartCoroutine(NotEnoughWood());
             }
         }
         else
@@ -228,6 +242,7 @@ public class WorkshopLeveling : MonoBehaviour
             else
             {
                 Debug.Log("No enough wood, stranger");
+                StartCoroutine(NotEnoughWood());
             }
         }
         else
@@ -249,11 +264,33 @@ public class WorkshopLeveling : MonoBehaviour
             else
             {
                 Debug.Log("No enough wood, stranger");
+                StartCoroutine(NotEnoughWood());
             }
         }
         else
         {
             Debug.Log("Card is full HP, stranger");
+        }
+    }
+    #endregion
+
+    #region Text when player doesnt have enough wood/money
+    IEnumerator NotEnoughMoney()
+    {
+        if (!TextNotEnoughMoney.activeSelf)
+        {
+            TextNotEnoughMoney.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+            TextNotEnoughMoney.SetActive(false);
+        }
+    }
+    IEnumerator NotEnoughWood()
+    {
+        if (!TextNotEnoughWood.activeSelf)
+        {
+            TextNotEnoughWood.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+            TextNotEnoughWood.SetActive(false);
         }
     }
     #endregion

@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Captain Swordfish
   Level: 2
   MaxCondition: 110
-  Condition: 110
+  Condition: 50
   PlayerPrefab: {fileID: 126762, guid: f25250ad3453a1040b94356587001058, type: 3}
   CardArtwork: {fileID: 21300000, guid: e31ee7b8406e92b4f8a41185bdc22f98, type: 3}
   Ability: {fileID: 0}

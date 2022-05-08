@@ -18,6 +18,10 @@ public class WorkshopUI : MonoBehaviour
     public Slider SliderPoleHealthCrew2;
     public Slider SliderPoleHealthCrew3;
 
+    // Repair and Upgrade Costs
+    public Text UpgradeText;
+    public Text RepairText;
+
     public InventoryObject Inventory;
 
     public void OpenWorkshopUI()
@@ -58,5 +62,8 @@ public class WorkshopUI : MonoBehaviour
             SliderPoleHealthCrew2.value = Inventory.PlayerDefaultCardLineUp[2].Condition / Inventory.PlayerDefaultCardLineUp[2].MaxCondition;
         if (Inventory.PlayerDefaultCardLineUp[3] != null)
             SliderPoleHealthCrew3.value = Inventory.PlayerDefaultCardLineUp[3].Condition / Inventory.PlayerDefaultCardLineUp[3].MaxCondition;
+
+        UpgradeText.text = "Upgrade Cost\nWood: " + GetComponent<WorkshopLeveling>().UpgradeWoodCost + "\nMoney: " + GetComponent<WorkshopLeveling>().UpgradeMoneyCost;
+        RepairText.text = "Repair Cost\nWood: " + GetComponent<WorkshopLeveling>().RepairWoodCost;
     }
 }
