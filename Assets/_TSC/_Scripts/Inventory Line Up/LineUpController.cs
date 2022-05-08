@@ -27,11 +27,11 @@ public class LineUpController : MonoBehaviour
     #region AI Line UP
     public static CardObject[] AIDefaultCardLineUP = new CardObject[4];
     public static CardObject[] AIAbilityCardLineUP = new CardObject[4];
+    #endregion
 
-    public static int MainPoleDifficulty;
-    public static int Crew1PoleDifficulty;
-    public static int Crew2PoleDifficulty;
-    public static int Crew3PoleDifficulty;
+    #region AI Difficulty
+    public static float MovementInputValue;
+    public static float RotationInputValue;
     #endregion
 
     #region Inventory / Line Up Card Management

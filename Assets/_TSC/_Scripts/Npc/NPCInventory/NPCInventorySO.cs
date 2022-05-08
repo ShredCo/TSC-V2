@@ -10,26 +10,17 @@ public class NPCInventorySO : ScriptableObject
     public CardObject[] AIAbilityCardLineUP = new CardObject[4];
 
     // Difficulty
-    public int mainPoleDifficulty;
-    public int crew1PoleDifficulty;
-    public int crew2PoleDifficulty;
-    public int crew3PoleDifficulty;
-
-    // Price if Player wins
-    public DefaultCardObject cardPrice;
-
-    public MoneyObject moneyPrice;
-    // or
-    public int _moneyPrice;
+    [Range(0.1f, 1f)]
+    public float MovementInputValue;
+    [Range(0.1f, 1f)]
+    public float RotationInputValue;
 
     public void SetNPCLineUp()
     {
         LineUpController.AIDefaultCardLineUP = AIDefaultCardLineUP;
         LineUpController.AIAbilityCardLineUP = AIAbilityCardLineUP;
 
-        LineUpController.MainPoleDifficulty = mainPoleDifficulty;
-        LineUpController.Crew1PoleDifficulty = crew1PoleDifficulty;
-        LineUpController.Crew2PoleDifficulty = crew2PoleDifficulty;
-        LineUpController.Crew3PoleDifficulty = crew3PoleDifficulty;
+        LineUpController.RotationInputValue = RotationInputValue;
+        LineUpController.MovementInputValue = MovementInputValue;
     }
 }

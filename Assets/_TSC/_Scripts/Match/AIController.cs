@@ -48,6 +48,14 @@ public class AIController : MonoBehaviour
     // ShootFront
     public int FrontShootRotationIndex;
 
+    private void Start()
+    {
+        if(LineUpController.MovementInputValue > 0f)
+            movementInputValue = LineUpController.MovementInputValue;
+        if (LineUpController.RotationInputValue > 0f)
+            rotationInputValue = LineUpController.RotationInputValue;
+    }
+
     private void Update()
     {
         UpdateCurrentPoleAI();
