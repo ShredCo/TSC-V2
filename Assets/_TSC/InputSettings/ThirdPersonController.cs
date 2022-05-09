@@ -20,12 +20,14 @@ public class ThirdPersonController : MonoBehaviour
     private float maxSpeed = 3.5f;
     private Vector3 forceDirection = Vector3.zero;
 
+    //camera fields
     [SerializeField]
     private Camera playerCamera;
     private Animator animator;
 
     private void Awake()
     {
+        //
         rb = this.GetComponent<Rigidbody>();
         playerActionsAsset = new ThirdPersonActionsAsset();
         animator = this.GetComponent<Animator>();
@@ -98,14 +100,15 @@ public class ThirdPersonController : MonoBehaviour
         return right.normalized;
     }
 
-    private void DoJump(InputAction.CallbackContext obj)
+    /*private void DoJump(InputAction.CallbackContext obj)
     {
         if(IsGrounded())
         {
             forceDirection += Vector3.up * jumpForce;
         }
-    }
+    }*/
 
+    //Creates a sphere and checks for ground
     private bool IsGrounded()
     {
         Ray ray = new Ray(this.transform.position + Vector3.up * 0.25f, Vector3.down);
