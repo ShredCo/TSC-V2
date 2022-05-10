@@ -700,7 +700,6 @@ GameObject:
   - component: {fileID: 3592509115747274343}
   - component: {fileID: 829399328390814719}
   - component: {fileID: 4516542277175511490}
-  - component: {fileID: 6719310729231487366}
   - component: {fileID: 2159669002811400026}
   - component: {fileID: 4510523676928216398}
   m_Layer: 0
@@ -825,6 +824,7 @@ MonoBehaviour:
     sentences:
     - I wonder who is stronger. You or Captain Swordfish?
     - Hmm what am I even thinking about?..  Captain Swordfish is the greatest.
+  TalkState: 0
   NpcType: 1
   MapType: 2
   MoneyReward: 6666
@@ -876,19 +876,6 @@ MonoBehaviour:
   dialogueTrigger: {fileID: 2022661700}
   speed: 1
   rigidbody: {fileID: 2022661699}
---- !u!114 &6719310729231487366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd924c2794c4f741b169ce8e10632e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nPCInventory: {fileID: 11400000, guid: 7bcbcf54c03e35544a94112096f5b610, type: 2}
 --- !u!114 &2159669002811400026
 MonoBehaviour:
   m_ObjectHideFlags: 0
