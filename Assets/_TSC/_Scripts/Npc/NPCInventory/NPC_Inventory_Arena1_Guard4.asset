@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fefaf727402e24193fc542adf8607f, type: 3}
+  m_Name: NPC_Inventory_Arena1_Guard4
+  m_EditorClassIdentifier: 
+  AIDefaultCardLineUP:
+  - {fileID: 11400000, guid: bf26ef2f1b5fb64469ff7e45b711591f, type: 2}
+  - {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
+  - {fileID: 11400000, guid: bf26ef2f1b5fb64469ff7e45b711591f, type: 2}
+  - {fileID: 11400000, guid: 9d337eb2b2be42040b3d60cfb1cca9e6, type: 2}
+  AIAbilityCardLineUP:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SmoothSpeed: 0.4
+  RotationInputValue: 0.8
