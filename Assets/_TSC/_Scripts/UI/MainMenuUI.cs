@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    private void Awake()
+    {
+        ES3AutoSaveMgr.Current.Load();
+    }
+
     // Audio
     [SerializeField] private GameObject audioSlider;
     [SerializeField] private AudioMixer musicMixer;
