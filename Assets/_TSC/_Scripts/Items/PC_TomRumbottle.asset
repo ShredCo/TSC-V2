@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Tom Rumbottle
   Level: 1
   MaxCondition: 100
-  Condition: 88.68534
+  Condition: 100
   PlayerPrefab: {fileID: 110404, guid: b906feebcbe9c7c45ae506d7d768c9dd, type: 3}
   CardArtwork: {fileID: 21300000, guid: 587fc2dcb0241374e97d060ed1a01240, type: 3}
   Ability: {fileID: 0}

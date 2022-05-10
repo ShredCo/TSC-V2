@@ -53,6 +53,9 @@ public class GameManagerSoccermatch : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         LevelTransitionManager.Instance.EndTransition();
 
         // Load Map depending on NPC
@@ -379,12 +382,5 @@ public class GameManagerSoccermatch : MonoBehaviour
         AIDefaultCardLineUP = LineUpController.AIDefaultCardLineUP;
         AISpecialCardLineUP = LineUpController.AIAbilityCardLineUP;
     }
-    #endregion
-
-    #region Ability Card Spawning
-
-    public int PlayerPowerpoints;
-    public int AIPowerpoints;
-
     #endregion
 }

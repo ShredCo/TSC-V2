@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10915,7 +10915,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.000000005796528, y: 0.94154674, z: -0.33688235, w: -0.000000016200616}
+  m_LocalRotation: {x: 0.000000005796526, y: 0.94154674, z: -0.33688235, w: 0.00000001620061}
   m_LocalPosition: {x: -0.3456396, y: 1.2191033, z: 0.4225788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20844,7 +20844,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 37.19995}
+  m_AnchoredPosition: {x: 0, y: 45}
   m_SizeDelta: {x: 820, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420465357
@@ -27907,7 +27907,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -37.19995}
+  m_AnchoredPosition: {x: 0, y: -45}
   m_SizeDelta: {x: 820, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817251005
@@ -28324,7 +28324,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.000000005796528, y: 0.94154674, z: -0.33688235, w: -0.000000016200616}
+  m_LocalRotation: {x: 0.000000005796526, y: 0.94154674, z: -0.33688235, w: 0.00000001620061}
   m_LocalPosition: {x: -0.3456396, y: 1.2191033, z: 0.4225788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -30364,8 +30364,6 @@ MonoBehaviour:
   AISpawnPointCrewPole3_1: {fileID: 1873088159}
   AISpawnPointCrewPole3_2: {fileID: 561967561}
   AISpawnPointCrewPole3_3: {fileID: 332891978}
-  PlayerPowerpoints: 0
-  AIPowerpoints: 0
 --- !u!4 &1939644772
 Transform:
   m_ObjectHideFlags: 0
@@ -35169,7 +35167,7 @@ MonoBehaviour:
   RotationSpeed: 1500
   MoveSpeed: 2
   Pole: 0
-  Ability: {fileID: 11400000, guid: 907df7425dcc05e40ba2fad7b972b202, type: 2}
+  Ability: {fileID: 0}
   lockedDownPressed: 0
 --- !u!64 &3538442427253395497
 MeshCollider:
@@ -35527,7 +35525,7 @@ MonoBehaviour:
   RotationSpeed: 1500
   MoveSpeed: 2
   Pole: 2
-  Ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
+  Ability: {fileID: 0}
   lockedDownPressed: 0
 --- !u!114 &3721826970360703894
 MonoBehaviour:
@@ -35556,7 +35554,7 @@ MonoBehaviour:
   RotationSpeed: 1500
   MoveSpeed: 2
   Pole: 1
-  Ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
+  Ability: {fileID: 0}
   lockedDownPressed: 0
 --- !u!4 &4055817025502164271
 Transform:
@@ -37167,7 +37165,7 @@ MonoBehaviour:
   RotationSpeed: 1500
   MoveSpeed: 2
   Pole: 3
-  Ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
+  Ability: {fileID: 0}
   lockedDownPressed: 0
 --- !u!114 &6316953609336388908
 MonoBehaviour:

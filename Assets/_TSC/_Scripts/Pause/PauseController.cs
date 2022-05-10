@@ -7,7 +7,14 @@ using UnityEngine.InputSystem;
 
 public class PauseController : MonoBehaviour
 {
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+
     private void Update()
     {
         var gamepad = Gamepad.current;

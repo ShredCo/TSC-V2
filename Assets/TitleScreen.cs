@@ -5,14 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreen : MonoBehaviour
 {
-   public void LoadMainMenu()
-   {
-      StartCoroutine(LoadMenu());
-   }
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
-   public IEnumerator LoadMenu()
-   {
-      yield return new WaitForSeconds(1.5f);
-      SceneManager.LoadScene(1);
-   }
+    public void LoadMainMenu()
+    {
+      StartCoroutine(LoadMenu());
+    }
+
+    public IEnumerator LoadMenu()
+    {
+       yield return new WaitForSeconds(1.5f);
+       SceneManager.LoadScene(1);
+    }
 }
