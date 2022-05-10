@@ -11,7 +11,7 @@ public class NPCInventorySO : ScriptableObject
 
     // Difficulty
     [Range(0.1f, 1f)]
-    public float MovementInputValue;
+    public float SmoothSpeed;
     [Range(0.1f, 1f)]
     public float RotationInputValue;
 
@@ -21,6 +21,6 @@ public class NPCInventorySO : ScriptableObject
         LineUpController.AIAbilityCardLineUP = AIAbilityCardLineUP;
 
         LineUpController.RotationInputValue = RotationInputValue;
-        LineUpController.MovementInputValue = MovementInputValue;
+        LineUpController.SmoothSpeed = SmoothSpeed;
     }
 }

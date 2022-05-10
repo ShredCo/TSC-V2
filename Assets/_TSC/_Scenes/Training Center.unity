@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -736,7 +736,6 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
-  smoothSpeed: 0.5
   PoleTransform: {fileID: 53405357}
   sense: {fileID: 1766185139}
   Pole: 2
@@ -9850,7 +9849,6 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
-  smoothSpeed: 0.5
   PoleTransform: {fileID: 631305322}
   sense: {fileID: 1766185139}
   Pole: 0
@@ -10901,7 +10899,7 @@ GameObject:
   - component: {fileID: 731366122}
   - component: {fileID: 731366121}
   - component: {fileID: 731366120}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetweenPlayersZone2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14291,7 +14289,7 @@ GameObject:
   - component: {fileID: 948556591}
   - component: {fileID: 948556590}
   - component: {fileID: 948556589}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetweenPlayersZoneMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15675,7 +15673,6 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
-  smoothSpeed: 0.5
   PoleTransform: {fileID: 1087741145}
   sense: {fileID: 1766185139}
   Pole: 1
@@ -23117,7 +23114,6 @@ MonoBehaviour:
   rotationSpeed: 1500
   moveSpeed: 2
   lockedDownPressed: 0
-  smoothSpeed: 0.5
   PoleTransform: {fileID: 1596763131}
   sense: {fileID: 1766185139}
   Pole: 3
@@ -24783,7 +24779,7 @@ GameObject:
   - component: {fileID: 1717449707}
   - component: {fileID: 1717449706}
   - component: {fileID: 1717449705}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetweenPlayersZone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26018,7 +26014,7 @@ GameObject:
   - component: {fileID: 1792855047}
   - component: {fileID: 1792855046}
   - component: {fileID: 1792855045}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetweenPlayersZone3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35634,7 +35630,6 @@ MonoBehaviour:
   movementInputValue: 0.5
   rotationInputValue: 0.75
   currentPoleIndexAI: 0
-  smoothSpeed: 0.2
   FrontShootRotationIndex: 0
 --- !u!64 &7525578558336090750
 MeshCollider:

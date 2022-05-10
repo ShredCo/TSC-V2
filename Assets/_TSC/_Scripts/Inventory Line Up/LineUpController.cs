@@ -30,7 +30,7 @@ public class LineUpController : MonoBehaviour
     #endregion
 
     #region AI Difficulty
-    public static float MovementInputValue;
+    public static float SmoothSpeed;
     public static float RotationInputValue;
     #endregion
 

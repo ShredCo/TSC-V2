@@ -41,17 +41,12 @@ public class AIController : MonoBehaviour
     // Movement stuff
     private Transform newPolePositionPoleMain;
     private Vector3 velocity = Vector3.zero;
-    [SerializeField]
-    [Range(0f, 1f)]
-    private float smoothSpeed = 0.5f;
 
     // ShootFront
     public int FrontShootRotationIndex;
 
     private void Start()
     {
-        if(LineUpController.MovementInputValue > 0f)
-            movementInputValue = LineUpController.MovementInputValue;
         if (LineUpController.RotationInputValue > 0f)
             rotationInputValue = LineUpController.RotationInputValue;
     }

@@ -22,5 +22,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
   - {fileID: 11400000, guid: 7a3c0e11ca277be40b1f307f9ce89b5e, type: 2}
   - {fileID: 11400000, guid: 7a3c0e11ca277be40b1f307f9ce89b5e, type: 2}
-  MovementInputValue: 1
+  SmoothSpeed: 1
   RotationInputValue: 1

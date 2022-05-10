@@ -24,8 +24,6 @@ public class PolesAI : MonoBehaviour
 
     // movement stuff
     private Vector3 velocity = Vector3.zero;
-    [SerializeField]
-    [Range(0f, 1f)]
     private float smoothSpeed = 0.5f;
     
     public Transform PoleTransform;
@@ -43,9 +41,9 @@ public class PolesAI : MonoBehaviour
     private void Start()
     {
         //GetAbility();
+        if (LineUpController.SmoothSpeed > 0f)
+            smoothSpeed = LineUpController.SmoothSpeed;
     }
-
-    
     
     #region Movement & Rotation -> Methods
     public void RotatePoles(Vector2 movement)
@@ -82,9 +80,6 @@ public class PolesAI : MonoBehaviour
                 // Calculate new position of pole and interpolate player on pole with ball
                 Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
                 rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f),
-                                                 Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f),
-                                                 Mathf.Clamp(transform.position.z, -0.3f, 0.3f));
             }
             else
             {
@@ -99,10 +94,8 @@ public class PolesAI : MonoBehaviour
             // Calculate new position of pole and interpolate player on pole with ball
             Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
             rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), 
-                                             Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f),
-                                             Mathf.Clamp(transform.position.z, -0.05f, 0.05f));
         }
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -0.5f, -0.5f), Mathf.Clamp(transform.position.y, 0.1116f, 0.1116f), Mathf.Clamp(transform.position.z, -0.14f, 0.14f));
     }
     public void MovementCrewPole2(Transform ballTransform)
     {
