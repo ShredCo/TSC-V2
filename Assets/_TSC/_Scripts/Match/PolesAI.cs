@@ -40,7 +40,7 @@ public class PolesAI : MonoBehaviour
 
     private void Start()
     {
-        //GetAbility();
+        GetAbility();
         if (LineUpController.SmoothSpeed > 0f)
             smoothSpeed = LineUpController.SmoothSpeed;
     }
