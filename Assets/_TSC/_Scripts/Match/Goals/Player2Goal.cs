@@ -4,13 +4,13 @@ using UnityEngine;
 public class Player2Goal : MonoBehaviour
 {
     // Cheering sounds
-    [SerializeField] AudioSource playSound1;
-    [SerializeField] AudioSource playSound2;
-    [SerializeField] AudioSource playSound3;
-    [SerializeField] AudioSource playSound4;
+    [SerializeField] private AudioSource playSound1;
+    [SerializeField] private AudioSource playSound2;
+    [SerializeField] private AudioSource playSound3;
+    [SerializeField] private AudioSource playSound4;
 
     // VFX
-    [SerializeField] GameObject explosionGoal2;
+    [SerializeField] private GameObject explosionGoal2;
    
     private void OnTriggerEnter(Collider other)
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PoleLimits : MonoBehaviour
 {
-    Rigidbody rb;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()

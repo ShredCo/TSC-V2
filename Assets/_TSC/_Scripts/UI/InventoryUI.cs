@@ -13,38 +13,38 @@ public class InventoryUI : MonoBehaviour
             Instance = this;
     }
 
-    [SerializeField] GameObject cardPolePage1;
-    [SerializeField] GameObject cardPolePage2;
-    [SerializeField] GameObject cardPolePage3;
+    [SerializeField] private GameObject cardPolePage1;
+    [SerializeField] private GameObject cardPolePage2;
+    [SerializeField] private GameObject cardPolePage3;
 
-    [SerializeField] GameObject cardAbilityPage1;
-    [SerializeField] GameObject cardAbilityPage2;
-    [SerializeField] GameObject cardAbilityPage3;
+    [SerializeField] private GameObject cardAbilityPage1;
+    [SerializeField] private GameObject cardAbilityPage2;
+    [SerializeField] private GameObject cardAbilityPage3;
 
 
-    [SerializeField] CardSlotUI cardSlotUIPrefab;
-    [SerializeField] CardSlotUI poleSelectedCardPrefab;
+    [SerializeField] private CardSlotUI cardSlotUIPrefab;
+    [SerializeField] private CardSlotUI poleSelectedCardPrefab;
 
-    [SerializeField] GameObject spawnPointPoleCardMain;
-    [SerializeField] GameObject spawnPointPoleCard1;
-    [SerializeField] GameObject spawnPointPoleCard2;
-    [SerializeField] GameObject spawnPointPoleCard3;
+    [SerializeField] private GameObject spawnPointPoleCardMain;
+    [SerializeField] private GameObject spawnPointPoleCard1;
+    [SerializeField] private GameObject spawnPointPoleCard2;
+    [SerializeField] private GameObject spawnPointPoleCard3;
 
-    [SerializeField] Slider sliderMainCard;
-    [SerializeField] Slider sliderCrew1Card;
-    [SerializeField] Slider sliderCrew2Card;
-    [SerializeField] Slider sliderCrew3Card;
+    [SerializeField] private Slider sliderMainCard;
+    [SerializeField] private Slider sliderCrew1Card;
+    [SerializeField] private Slider sliderCrew2Card;
+    [SerializeField] private Slider sliderCrew3Card;
 
-    [SerializeField] GameObject spawnPointAbilityCardMain;
-    [SerializeField] GameObject spawnPointAbilityCard1;
-    [SerializeField] GameObject spawnPointAbilityCard2;
-    [SerializeField] GameObject spawnPointAbilityCard3;
+    [SerializeField] private GameObject spawnPointAbilityCardMain;
+    [SerializeField] private GameObject spawnPointAbilityCard1;
+    [SerializeField] private GameObject spawnPointAbilityCard2;
+    [SerializeField] private GameObject spawnPointAbilityCard3;
 
     [Header("Woodshop dude")]
-    [SerializeField] GameObject spawnPointShopMain;
-    [SerializeField] GameObject spawnPointShopCrew1;
-    [SerializeField] GameObject spawnPointShopCrew2;
-    [SerializeField] GameObject spawnPointShopCrew3;
+    [SerializeField] private GameObject spawnPointShopMain;
+    [SerializeField] private GameObject spawnPointShopCrew1;
+    [SerializeField] private GameObject spawnPointShopCrew2;
+    [SerializeField] private GameObject spawnPointShopCrew3;
 
     int indexPole = 0;
     int indexAbility = 0;

@@ -30,85 +30,85 @@ public class UserInterfaceOverworld : MonoBehaviour
     #region PauseMenu
     [Header("Pause Menu")] 
     // Canvases
-    [SerializeField] GameObject canvasPauseMenu;
-    [SerializeField] GameObject canvasInventory;
-    [SerializeField] GameObject canvasSettings;
-    [SerializeField] GameObject canvasHelpMenu;
+    [SerializeField] private GameObject canvasPauseMenu;
+    [SerializeField] private GameObject canvasInventory;
+    [SerializeField] private GameObject canvasSettings;
+    [SerializeField] private GameObject canvasHelpMenu;
     public GameObject CanvasDialoge;
     
     // Buttons
-    [SerializeField] GameObject buttonResume;
-    [SerializeField] GameObject buttonInventory;
-    [SerializeField] GameObject buttonSettings;
+    [SerializeField] private GameObject buttonResume;
+    [SerializeField] private GameObject buttonInventory;
+    [SerializeField] private GameObject buttonSettings;
     
     // confirm windows
     #region subRegion | Confirm Windows
     [Header("Confirm Windows")]
     // Confirm Menu/Quit windows
-    [SerializeField] GameObject ImageConfirmMenu;
-    [SerializeField] GameObject ImageConfirmQuit;
+    [SerializeField] private GameObject ImageConfirmMenu;
+    [SerializeField] private GameObject ImageConfirmQuit;
     // Confirm Menu/Quit buttons
-    [SerializeField] GameObject buttonOpenMenuNo;
-    [SerializeField] GameObject buttonOpenQuitNo;
+    [SerializeField] private GameObject buttonOpenMenuNo;
+    [SerializeField] private GameObject buttonOpenQuitNo;
     #endregion
     #endregion
     
     #region Inventory
     [Header("Inventory")]
     // Panels
-    [SerializeField] GameObject panelInventory;
-    [SerializeField] GameObject panelBackpack;
-    [SerializeField] GameObject panelLineUpPoles;
-    [SerializeField] GameObject panelLineUpAbilitys;
+    [SerializeField] private GameObject panelInventory;
+    [SerializeField] private GameObject panelBackpack;
+    [SerializeField] private GameObject panelLineUpPoles;
+    [SerializeField] private GameObject panelLineUpAbilitys;
     
     private bool inventoryActive = false;
     
     // Panels Equip
-    [SerializeField] GameObject panelPoleCollection;
-    [SerializeField] GameObject panelAbilityCollection;
+    [SerializeField] private GameObject panelPoleCollection;
+    [SerializeField] private GameObject panelAbilityCollection;
     
     // Buttons
-    [SerializeField] GameObject firstButtonBagpack;
-    [SerializeField] GameObject firstButtonPoleLineup;
-    [SerializeField] GameObject firstButtonAbilityLineUp;
+    [SerializeField] private GameObject firstButtonBagpack;
+    [SerializeField] private GameObject firstButtonPoleLineup;
+    [SerializeField] private GameObject firstButtonAbilityLineUp;
     
     // Texts equip on pole (1,2,3,4)
-    [SerializeField] Text equipPoleText;
-    [SerializeField] Text equipAbilityText;
+    [SerializeField] private Text equipPoleText;
+    [SerializeField] private Text equipAbilityText;
     
     #region subRegion | Inventory LineUp's
     [Header("Inventory LineUP's")]
     
     // Panels Pole-Cards
-    [SerializeField] GameObject panelPoleCollection_Page1;
-    [SerializeField] GameObject panelPoleCollection_Page2;
-    [SerializeField] GameObject panelPoleCollection_Page3;
+    [SerializeField] private GameObject panelPoleCollection_Page1;
+    [SerializeField] private GameObject panelPoleCollection_Page2;
+    [SerializeField] private GameObject panelPoleCollection_Page3;
     // Panels Ability-Cards
-    [SerializeField] GameObject panelAbilityCollection_Page1;
-    [SerializeField] GameObject panelAbilityCollection_Page2;
-    [SerializeField] GameObject panelAbilityCollection_Page3;
+    [SerializeField] private GameObject panelAbilityCollection_Page1;
+    [SerializeField] private GameObject panelAbilityCollection_Page2;
+    [SerializeField] private GameObject panelAbilityCollection_Page3;
     
     // Buttons
-    [SerializeField] GameObject firstButtonPoleCollection_Page1;
-    [SerializeField] GameObject firstButtonPoleCollection_Page2;
-    [SerializeField] GameObject firstButtonPoleCollection_Page3;
+    [SerializeField] private GameObject firstButtonPoleCollection_Page1;
+    [SerializeField] private GameObject firstButtonPoleCollection_Page2;
+    [SerializeField] private GameObject firstButtonPoleCollection_Page3;
 
-    [SerializeField] GameObject firstButtonAbilityCollection_Page1;
-    [SerializeField] GameObject firstButtonAbilityCollection_Page2;
-    [SerializeField] GameObject firstButtonAbilityCollection_Page3;
+    [SerializeField] private GameObject firstButtonAbilityCollection_Page1;
+    [SerializeField] private GameObject firstButtonAbilityCollection_Page2;
+    [SerializeField] private GameObject firstButtonAbilityCollection_Page3;
 
     [Header("Buttons switching LineUp Panels")]
-    [SerializeField] GameObject previousButtonPoleCollection;
-    [SerializeField] GameObject nextButtonPoleCollection;
+    [SerializeField] private GameObject previousButtonPoleCollection;
+    [SerializeField] private GameObject nextButtonPoleCollection;
 
-    [SerializeField] GameObject previousButtonAbilityCollection;
-    [SerializeField] GameObject nextButtonAbilityCollection;
+    [SerializeField] private GameObject previousButtonAbilityCollection;
+    [SerializeField] private GameObject nextButtonAbilityCollection;
     #endregion
     #region subRegion | Inventory L1/R1 Navigation System
 
-    [SerializeField] Button switchButtonBackpack;
-    [SerializeField] Button switchButtonPoleCards;
-    [SerializeField] Button switchButtonAbilityCards;
+    [SerializeField] private Button switchButtonBackpack;
+    [SerializeField] private Button switchButtonPoleCards;
+    [SerializeField] private Button switchButtonAbilityCards;
 
     void SwitchInventoryPanels()
     {
@@ -165,36 +165,36 @@ public class UserInterfaceOverworld : MonoBehaviour
     #region Settings
     [Header("Settings")]
     // Buttons
-    [SerializeField] GameObject closeButtonSettings;
+    [SerializeField] private GameObject closeButtonSettings;
     
     // Audio
-    [SerializeField] AudioMixer musicMixer;
-    [SerializeField] AudioMixer ballMixer;
+    [SerializeField] private AudioMixer musicMixer;
+    [SerializeField] private AudioMixer ballMixer;
     
     // Skins
-    [SerializeField] GameObject playerSkinVillageMan;
-    [SerializeField] GameObject playerSkinVillageWoman;
+    [SerializeField] private GameObject playerSkinVillageMan;
+    [SerializeField] private GameObject playerSkinVillageWoman;
     #endregion
     
     #region Dialogue
     [Header("Dialogue")]
     // Buttons
-    [SerializeField] GameObject nextButtonDialoge;
+    [SerializeField] private GameObject nextButtonDialoge;
     #endregion
     
     #region Help
     [Header("Help")]
     //Panels
-    [SerializeField] GameObject panelHelpMenu;
-    [SerializeField] GameObject panelControlls;
-    [SerializeField] GameObject panelTipps;
+    [SerializeField] private GameObject panelHelpMenu;
+    [SerializeField] private GameObject panelControlls;
+    [SerializeField] private GameObject panelTipps;
     
     // Buttons
-    [SerializeField] GameObject buttonControlls;
-    [SerializeField] GameObject buttonTipps;
-    [SerializeField] GameObject closeButtonControlls;
-    [SerializeField] GameObject closeButtonHelpMenu;
-    [SerializeField] GameObject closeButtonTipps;
+    [SerializeField] private GameObject buttonControlls;
+    [SerializeField] private GameObject buttonTipps;
+    [SerializeField] private GameObject closeButtonControlls;
+    [SerializeField] private GameObject closeButtonHelpMenu;
+    [SerializeField] private GameObject closeButtonTipps;
     #endregion
     
     void Update()

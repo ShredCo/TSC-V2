@@ -8,13 +8,7 @@ public class SpecialCharacter : MonoBehaviour
     public static SpecialCharacter Instance;
 
     Rigidbody rb;
-    public GameObject WindObject;
-
-    [Header("movement variables")]
-    [SerializeField] public float rotationSpeed = 1500.0f;
     [SerializeField] public float moveSpeed = 2.0f;
-
-    public bool lockedDownPressed = false;
 
     private void Awake()
     {

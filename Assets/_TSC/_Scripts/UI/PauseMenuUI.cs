@@ -159,11 +159,11 @@ public class PauseMenuUI : MonoBehaviour
     // Pole control settings
     public void SetPoleSpeed(float sliderValue)
     {
-        PolesPlayer.Instance.moveSpeed = sliderValue;
+        PolesPlayer.Instance.MoveSpeed = sliderValue;
     }
     public void SetRotationSpeed(float sliderValue)
     {
-        PolesPlayer.Instance.rotationSpeed = sliderValue;
+        PolesPlayer.Instance.RotationSpeed = sliderValue;
     }
     public void SetMusicAudioLevel(float sliderValue)
     {

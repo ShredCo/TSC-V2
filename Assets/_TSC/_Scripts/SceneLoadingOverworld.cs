@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class SceneLoadingOverworld : MonoBehaviour
 {
     [SerializeField] private GameObject[] tipps = new GameObject[11];
-    [SerializeField] Image progressBar;
+    [SerializeField] private Image progressBar;
     
     void Start()
     {

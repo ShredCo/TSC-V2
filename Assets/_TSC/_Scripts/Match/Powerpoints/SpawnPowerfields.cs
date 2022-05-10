@@ -15,8 +15,8 @@ public class SpawnPowerfields : MonoBehaviour
     #endregion
     
     // Powerfields
-    [SerializeField] GameObject powerfieldPrefabRed;
-    [SerializeField] GameObject powerfieldPrefabBlue;
+    [SerializeField] private GameObject powerfieldPrefabRed;
+    [SerializeField] private GameObject powerfieldPrefabBlue;
     public int PowerfieldsCountRed;
     public int PowerfieldsCountBlue;
 

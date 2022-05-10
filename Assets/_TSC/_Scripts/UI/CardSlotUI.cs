@@ -9,15 +9,15 @@ public class CardSlotUI : MonoBehaviour
     [SerializeField] public DefaultCardObject DefaultCardSlot;
     [SerializeField] public SpecialCardObject SpecialCardSlot;
     
-    [SerializeField] Text nameText;
-    [SerializeField] Text levelText;
+    [SerializeField] private Text nameText;
+    [SerializeField] private Text levelText;
 
-    [SerializeField] Text maxConditionText;
-    [SerializeField] Text conditionText;
+    [SerializeField] private Text maxConditionText;
+    [SerializeField] private Text conditionText;
 
-    [SerializeField] Image cardArtwork; 
+    [SerializeField] private Image cardArtwork; 
 
-    Animator animator;
+    private Animator animator;
 
     private void Start()
     {

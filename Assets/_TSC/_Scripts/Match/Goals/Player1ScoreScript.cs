@@ -3,7 +3,7 @@ using TMPro;
 
 public class Player1ScoreScript : MonoBehaviour
 {
-    [SerializeField] TextMeshPro text;
+    [SerializeField] private TextMeshPro text;
     
     void Start()
     {

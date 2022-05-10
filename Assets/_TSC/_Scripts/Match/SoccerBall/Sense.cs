@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Sense : MonoBehaviour
 {
-    [SerializeField] LayerMask checkLayers;
-    [SerializeField] float checkRadius;
+    [SerializeField] private LayerMask checkLayers;
+    [SerializeField] private float checkRadius;
+    
     public Collider ClosestPlayer;
 
     private void Update()

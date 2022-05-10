@@ -30318,7 +30318,7 @@ MonoBehaviour:
   arrowPlayer2: {fileID: 646328236}
   ScorePlayer1: 0
   ScorePlayer2: 0
-  powerpointsCountRed: 10
+  powerpointsCountRed: 0
   powerpointsCountBlue: 0
   WinLoseText: {fileID: 459416232}
   WinLosePanel: {fileID: 1734624422}
@@ -35166,8 +35166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3cf1f59370f9e44a01b4b77acc2a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1500
-  moveSpeed: 2
+  RotationSpeed: 1500
+  MoveSpeed: 2
   Pole: 0
   Ability: {fileID: 11400000, guid: 907df7425dcc05e40ba2fad7b972b202, type: 2}
   lockedDownPressed: 0
@@ -35524,8 +35524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3cf1f59370f9e44a01b4b77acc2a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1500
-  moveSpeed: 2
+  RotationSpeed: 1500
+  MoveSpeed: 2
   Pole: 2
   Ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
   lockedDownPressed: 0
@@ -35553,8 +35553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3cf1f59370f9e44a01b4b77acc2a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1500
-  moveSpeed: 2
+  RotationSpeed: 1500
+  MoveSpeed: 2
   Pole: 1
   Ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
   lockedDownPressed: 0
@@ -37164,8 +37164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3cf1f59370f9e44a01b4b77acc2a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1500
-  moveSpeed: 2
+  RotationSpeed: 1500
+  MoveSpeed: 2
   Pole: 3
   Ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
   lockedDownPressed: 0

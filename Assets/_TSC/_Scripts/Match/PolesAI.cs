@@ -9,7 +9,7 @@ public class PolesAI : MonoBehaviour
    // Singleton
     public static PolesAI Instance;
     
-    Rigidbody rb;
+    private Rigidbody rb;
 
     Vector3[] shootFrontRotations = new Vector3[2] {new Vector3(0f, 180f, 45f), new Vector3(0f, 180f, -45f) };
     public int ShootIndex = 0;

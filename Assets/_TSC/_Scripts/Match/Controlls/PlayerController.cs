@@ -2,13 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-enum AbilityState
-{
-    ready,
-    active,
-    cooldown
-}
-
 public class PlayerController : MonoBehaviour
 {
     #region Singleton
@@ -148,8 +141,8 @@ public class PlayerController : MonoBehaviour
         // x as rotation, y as movement
         movementPoleInput = context.ReadValue<Vector2>();
 
-        movementPoleInput.x *= PolesPlayer.Instance.rotationSpeed;
-        movementPoleInput.y *= PolesPlayer.Instance.moveSpeed;
+        movementPoleInput.x *= PolesPlayer.Instance.RotationSpeed;
+        movementPoleInput.y *= PolesPlayer.Instance.MoveSpeed;
     }
 
     #endregion

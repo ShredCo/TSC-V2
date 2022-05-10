@@ -14,17 +14,17 @@ public class PolesPlayer : MonoBehaviour
     #endregion
 
     [Header("Movement")]
-    public float rotationSpeed = 1500.0f;
-    public float moveSpeed = 2.0f;
+    public float RotationSpeed = 1500.0f;
+    public float MoveSpeed = 2.0f;
     
     [Header("Ability")]
     public int Pole;
     public Ability Ability;
     
-    Rigidbody rb;
+    private Rigidbody rb;
     
     // reset rotation
-    float speed = 5000f;
+    private float speed = 5000f;
     public bool lockedDownPressed = false;
     
     private void Start()
