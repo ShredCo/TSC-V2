@@ -49,7 +49,10 @@ public class PlayerController : MonoBehaviour
                 polesPlayer[0].PoleFreeze();
                 poleMainAbility.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
 
-                poleMainAbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+                if (rotationWindAbilityInput.x > 0.1f || rotationWindAbilityInput.y > 0.1f)
+                {
+                    poleMainAbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+                }
 
                 poleMainAbilityPrefabVFX.transform.position = poleMainAbility.transform.position;
             }
@@ -66,7 +69,10 @@ public class PlayerController : MonoBehaviour
                 polesPlayer[1].PoleFreeze();
                 poleCrew1Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
 
-                crewPole1AbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+                if (rotationWindAbilityInput.x > 0.1f || rotationWindAbilityInput.y > 0.1f)
+                {
+                    crewPole1AbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+                }
 
                 crewPole1AbilityPrefabVFX.transform.position = poleCrew1Ability.transform.position;
             }
@@ -83,7 +89,10 @@ public class PlayerController : MonoBehaviour
                 polesPlayer[2].PoleFreeze();
                 poleCrew2Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
 
-                crewPole2AbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+                if (rotationWindAbilityInput.x > 0.1f || rotationWindAbilityInput.y > 0.1f)
+                {
+                    crewPole2AbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+                }
 
                 crewPole2AbilityPrefabVFX.transform.position = poleCrew2Ability.transform.position;
             }
@@ -100,7 +109,10 @@ public class PlayerController : MonoBehaviour
                 polesPlayer[3].PoleFreeze();
                 poleCrew3Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
 
-                crewPole3AbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+                if (rotationWindAbilityInput.x > 0.1f || rotationWindAbilityInput.y > 0.1f)
+                {
+                    crewPole3AbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
+                }
 
                 crewPole3AbilityPrefabVFX.transform.position = poleCrew3Ability.transform.position;
             }
