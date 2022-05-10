@@ -34,4 +34,9 @@ public class SaveManager : MonoBehaviour
         }
         LineUpController.NPCName = null;
     }
+
+    public void SaveGame()
+    {
+        ES3AutoSaveMgr.Current.Save();
+    }
 }
