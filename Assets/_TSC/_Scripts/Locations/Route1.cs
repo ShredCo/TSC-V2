@@ -5,8 +5,8 @@ using TMPro;
 public class Route1 : MonoBehaviour
 {
     // Text for HUD
-    [SerializeField] GameObject textLocationGameObject;
-    [SerializeField] TextMeshProUGUI textLocationName;
+    [SerializeField] private GameObject textLocationGameObject;
+    [SerializeField] private TextMeshProUGUI textLocationName;
 
     // Background Music
     AudioManager audioManager;

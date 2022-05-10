@@ -9,8 +9,7 @@ public class MainPoleAI : MonoBehaviour
     
     public Rigidbody Rb;
 
-    [SerializeField]
-    [Range(0f, 1f)]
+    [SerializeField] [Range(0f, 1f)]
     private float smoothSpeed = 0.5f;
 
     private float poleMovement;

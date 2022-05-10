@@ -12,15 +12,15 @@ public class UISoundeffects : MonoBehaviour
     #endregion
     
     // References
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
-    [SerializeField] AudioClip buttonPressMenu;
-    [SerializeField] AudioClip buttonPressCard;
-    [SerializeField] AudioClip openCardSelectionSound;
-    [SerializeField] AudioClip userInterfaceNavigation;
+    [SerializeField] private AudioClip buttonPressMenu;
+    [SerializeField] private AudioClip buttonPressCard;
+    [SerializeField] private AudioClip openCardSelectionSound;
+    [SerializeField] private AudioClip userInterfaceNavigation;
 
-    [SerializeField] AudioClip selectionFailed;
-    [SerializeField] AudioClip[] cardSelection;
+    [SerializeField] private AudioClip selectionFailed;
+    [SerializeField] private AudioClip[] cardSelection;
 
     // Methods
     public void CardSelectSound()

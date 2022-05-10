@@ -11,11 +11,11 @@ public class PickUpSoundeffects : MonoBehaviour
     #endregion
     
     // References
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
-    [SerializeField] AudioClip[] moneyPickUp;
-    [SerializeField] AudioClip[] cardPickUp;
-    [SerializeField] AudioClip[] woodPickUp;
+    [SerializeField] private AudioClip[] moneyPickUp;
+    [SerializeField] private AudioClip[] cardPickUp;
+    [SerializeField] private AudioClip[] woodPickUp;
 
     // Methods
     public void MoneySound()

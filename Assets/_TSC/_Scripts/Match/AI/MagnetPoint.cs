@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MagnetPoint : MonoBehaviour
 {
-    private PoleShooting PoleShooting;
     private float forceFactor = 70;
 
     // A list because maybe we will add multiple balls during one game in the future.
