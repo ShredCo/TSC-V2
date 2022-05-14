@@ -39,9 +39,9 @@ public class SpawnPowerfields : MonoBehaviour
             if (PowerfieldsCountRed < 3)
             {
                 yield return new WaitForSeconds(10f);
-                xPos = Random.Range(-0.7f, 0.7f);
-                zPos = Random.Range(-0.35f, 0.35f);
-                Instantiate(powerfieldPrefabRed, new Vector3(xPos, 0.01f, zPos), Quaternion.identity);
+                xPos = Random.Range(-7f, 7f);
+                zPos = Random.Range(-3.5f, 3.5f);
+                Instantiate(powerfieldPrefabRed, new Vector3(xPos, 0.05f, zPos), Quaternion.identity);
                 PowerfieldsCountRed += 1;
             }
             if (PowerfieldsCountRed == 3)
@@ -57,9 +57,9 @@ public class SpawnPowerfields : MonoBehaviour
             if (PowerfieldsCountBlue < 3)
             {
                 yield return new WaitForSeconds(10f);
-                xPos = Random.Range(-0.7f, 0.7f);
-                zPos = Random.Range(-0.35f, 0.35f);
-                Instantiate(powerfieldPrefabBlue, new Vector3(xPos, 0.01f, zPos), Quaternion.identity);
+                xPos = Random.Range(-7f, 7f);
+                zPos = Random.Range(-3.5f, 3.5f);
+                Instantiate(powerfieldPrefabBlue, new Vector3(xPos, 0.05f, zPos), Quaternion.identity);
                 PowerfieldsCountBlue += 1;
             }
             if (PowerfieldsCountBlue == 3)

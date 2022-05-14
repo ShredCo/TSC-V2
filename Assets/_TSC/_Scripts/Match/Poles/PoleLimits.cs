@@ -16,16 +16,16 @@ public class PoleLimits : MonoBehaviour
         switch (PlayerController.Instance.currentPoleIndex)
         {
             case 0:
-                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -3f, 3f));
                 break;
             case 1:
-                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.25f, 0.25f));
+                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -2.5f, 2.5f));
                 break;
             case 2:
-                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.12f, 0.12f));
+                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -1.2f, 1.2f));
                 break;
             case 3:
-                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.2f, 0.2f));
+                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -2f, 2f));
                 break;
         }
     }
