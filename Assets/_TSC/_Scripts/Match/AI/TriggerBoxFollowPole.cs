@@ -10,7 +10,7 @@ public class TriggerBoxFollowPole : MonoBehaviour
     {
         if (Front)
         {
-            transform.position = new Vector3(Pole.transform.position.x + 0.05f, transform.position.y, PlayerToFollow.transform.position.z);
+            transform.position = new Vector3(Pole.transform.position.x + 0.5f, transform.position.y, PlayerToFollow.transform.position.z);
         }
         else
         {

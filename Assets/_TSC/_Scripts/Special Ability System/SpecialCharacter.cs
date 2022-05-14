@@ -8,7 +8,7 @@ public class SpecialCharacter : MonoBehaviour
     public static SpecialCharacter Instance;
 
     Rigidbody rb;
-    [SerializeField] public float moveSpeed = 2.0f;
+    [SerializeField] public float moveSpeed = 5f;
 
     private void Awake()
     {
@@ -35,6 +35,6 @@ public class SpecialCharacter : MonoBehaviour
             rb.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         // Sets the default limit for the movement
-        rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.6f, 0.6f));
+        rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -6f, 6f));
     }
 }

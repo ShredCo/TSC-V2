@@ -15,7 +15,7 @@ public class PolesPlayer : MonoBehaviour
 
     [Header("Movement")]
     public float RotationSpeed = 1500.0f;
-    public float MoveSpeed = 2.0f;
+    public float MoveSpeed = 2000f;
     
     [Header("Ability")]
     public int Pole;

@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviour
     GameObject crewPole2AbilityPrefabVFX;
     GameObject crewPole3AbilityPrefabVFX;
 
-    Vector3 abilitySize = new Vector3(0.07f, 0.07f, 0.07f);
+    Vector3 abilitySize = new Vector3(1f, 1f, 1f);
     
     public void MoveAbility(InputAction.CallbackContext context)
     {

@@ -27,8 +27,8 @@ public class AIController : MonoBehaviour
     [SerializeField] public PolesAI[] polesAI;
 
     [SerializeField]
-    [Range(-1f, 1f)]
-    private float movementInputValue = 0.3f;
+    [Range(-3f, 3f)]
+    private float movementInputValue = 3f;
     [SerializeField]
     [Range(-1f, 1f)]
     private float rotationInputValue = 0.3f;
@@ -186,19 +186,19 @@ public class AIController : MonoBehaviour
     void UpdateCurrentPoleAI()
     {
         // Simple methods to see where the ball is on the field and change AI currentPoleIndex based on position of ball
-        if (BallTransform.position.x < -0.6f)
+        if (BallTransform.position.x < -6f)
         {
             currentPoleIndexAI = 0;
         }
-        if (BallTransform.position.x is > -0.6f and < -0.3f)
+        if (BallTransform.position.x is > -6f and < -3f)
         {
             currentPoleIndexAI = 1;
         }
-        if (BallTransform.position.x is > -0.3f and < 0.1f)
+        if (BallTransform.position.x is > -3f and < 1f)
         {
             currentPoleIndexAI = 2;
         }
-        if (BallTransform.position.x > 0.1f)
+        if (BallTransform.position.x > 1f)
         {
             currentPoleIndexAI = 3;
         }
