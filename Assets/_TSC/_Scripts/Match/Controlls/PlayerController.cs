@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
     internal void ReceivePolesPlayer(PolesPlayer[] poles)
     {
         this.polesPlayer = poles;
+        Debug.Log("Added Poles to " + this.gameObject);
     }
 
     internal void ReceiveAbility(SpecialCharacter[] character)

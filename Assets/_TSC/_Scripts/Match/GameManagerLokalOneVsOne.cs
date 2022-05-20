@@ -101,12 +101,13 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
     {
         WinLosePanel.SetActive(true);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 
     #region Event for Player Input Manager
     public void OnPlayerJoin(PlayerInput player)
     {
+        Debug.Log("code runns fine till here");
         if (!players.TryGetValue(player, out int value)) // if player doesn't exist
         {
             if (players.Count < 1) // if one player is playing
@@ -114,7 +115,7 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
                 int id = players.Count + 1;
                 players.Add(player, id);
                 
-                // Player 1 receives his team
+                // Player receives his team
                 PlayerController playerController = player.GetComponent<PlayerController>();
                 playerController.ReceivePolesPlayer(polesPlayer1);
                 playerController.ReceiveAbility(specialCharacterPlayer1);
@@ -126,9 +127,8 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
             {
                 int id = players.Count + 1;
                 players.Add(player, id);
-
-                // Player 2 receives his team
                 PlayerController playerController = player.GetComponent<PlayerController>();
+
                 playerController.ReceivePolesPlayer(polesPlayer2);
                 playerController.ReceiveAbility(specialCharacterPlayer2);
                 playerController.ReceiveArrow(arrowPlayer2);
@@ -139,6 +139,7 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
         else
             Debug.LogWarning("Player already joined");
     }
+    
     public void OnPlayerLeave(PlayerInput player)
     {
         players.Remove(player);
@@ -359,10 +360,10 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
     // Get static Line Up Arrays from the LineUpController script
     public void GetLineUps()
     {
-        player1_defaultCardLineUP = LineUpControllerLokalOneVsOne.Player1_DefaultCardLineUP;
-        player1_specialCardLineUP = LineUpControllerLokalOneVsOne.Player1_AbilityCardLineUP;
-        player2_defaultCardLineUp = LineUpControllerLokalOneVsOne.Player2_DefaultCardLineUP;
-        player2_specialCardLineUp = LineUpControllerLokalOneVsOne.Player2_AbilityCardLineUP;
+        //player1_defaultCardLineUP = LineUpControllerLokalOneVsOne.Player1_DefaultCardLineUP;
+        //player1_specialCardLineUP = LineUpControllerLokalOneVsOne.Player1_AbilityCardLineUP;
+        //player2_defaultCardLineUp = LineUpControllerLokalOneVsOne.Player2_DefaultCardLineUP;
+        //player2_specialCardLineUp = LineUpControllerLokalOneVsOne.Player2_AbilityCardLineUP;
     }
     #endregion
 }

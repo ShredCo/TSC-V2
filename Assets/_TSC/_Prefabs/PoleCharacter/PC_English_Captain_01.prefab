@@ -714,7 +714,7 @@ Transform:
   m_GameObject: {fileID: 111782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1002813277}
@@ -798,6 +798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f8fabb377891e4793703cf54d14594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPCInventory: {fileID: 0}
+  PlayerInventory: {fileID: 0}
+  WaypointNavigator: {fileID: 0}
   x_Text: {fileID: 1002813276}
   dialogue:
     name: Henry
@@ -806,6 +809,21 @@ MonoBehaviour:
     - 'Do you think you can beat me?
 
 '
+  AfterMatchDialogue:
+    name: 
+    sentences: []
+  LostDialogue:
+    name: 
+    sentences: []
+  TalkState: 0
+  NpcType: 0
+  MapType: 0
+  MoneyReward: 0
+  DefaultCardReward: {fileID: 0}
+  dialogueState: 0
+  IsTalking: 0
+  IsWalking: 0
+  DidLoose: 0
 --- !u!136 &3592509115747274343
 CapsuleCollider:
   m_ObjectHideFlags: 0
