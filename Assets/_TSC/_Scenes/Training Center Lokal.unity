@@ -11024,7 +11024,7 @@ Transform:
   - {fileID: 1104376727}
   - {fileID: 1816076945}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778915223
 GameObject:
@@ -15903,7 +15903,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1195001472
 GameObject:
@@ -17075,7 +17075,7 @@ PrefabInstance:
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: aiController
       value: 
-      objectReference: {fileID: 7523919988561840312}
+      objectReference: {fileID: 0}
     - target: {fileID: 634203762722141515, guid: 5fa93c729256be44194255bc2d46cffa, type: 3}
       propertyPath: CountdownText
       value: 
@@ -21638,7 +21638,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1590629434
 Transform:
@@ -23575,7 +23575,7 @@ Transform:
   - {fileID: 1831565453}
   - {fileID: 948468807}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1734624422
 GameObject:
@@ -25388,7 +25388,7 @@ Transform:
   - {fileID: 1475142140}
   - {fileID: 381601656}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1850385157
 PrefabInstance:
@@ -25770,7 +25770,7 @@ PrefabInstance:
       objectReference: {fileID: 1454425042}
     - target: {fileID: 9130841617067110222, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9130841617067110222, guid: 08fff6d48e8600242b550ec7d0523d21, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27093,45 +27093,45 @@ MonoBehaviour:
   player1_defaultCardLineUP:
   - {fileID: 11400000, guid: 132f68e6187298e4ba9a804ea9a1badd, type: 2}
   - {fileID: 11400000, guid: 132f68e6187298e4ba9a804ea9a1badd, type: 2}
-  - {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
-  - {fileID: 11400000, guid: f2ce3c0b27ef1f44683c28188dd8faef, type: 2}
+  - {fileID: 11400000, guid: 132f68e6187298e4ba9a804ea9a1badd, type: 2}
+  - {fileID: 11400000, guid: 132f68e6187298e4ba9a804ea9a1badd, type: 2}
   player1_specialCardLineUP:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
+  - {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
+  - {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
+  - {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
   player2_defaultCardLineUp:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e223d1aff641df54c91a8e25ee2995dd, type: 2}
+  - {fileID: 11400000, guid: e223d1aff641df54c91a8e25ee2995dd, type: 2}
+  - {fileID: 11400000, guid: e223d1aff641df54c91a8e25ee2995dd, type: 2}
+  - {fileID: 11400000, guid: e223d1aff641df54c91a8e25ee2995dd, type: 2}
   player2_specialCardLineUp:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c6f2cd1be1d5a204bbd847551c130cfc, type: 2}
+  - {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
+  - {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
+  - {fileID: 11400000, guid: a776f5fc0ffd39f4ab114483ba734a55, type: 2}
   player1_spawnPoint1: {fileID: 3578205361583464485}
-  player1_spawnPoint2: {fileID: 0}
-  player1_spawnPoint3: {fileID: 0}
-  player1_spawnPoint4: {fileID: 0}
-  player1_spawnPoint5: {fileID: 0}
-  player1_spawnPoint6: {fileID: 0}
-  player1_spawnPoint7: {fileID: 0}
-  player1_spawnPoint8: {fileID: 0}
-  player1_spawnPoint9: {fileID: 0}
-  player1_spawnPoint10: {fileID: 0}
-  player1_spawnPoint11: {fileID: 0}
-  player2_spawnPoint1: {fileID: 0}
-  player2_spawnPoint2: {fileID: 0}
-  player2_spawnPoint3: {fileID: 0}
-  player2_spawnPoint4: {fileID: 0}
-  player2_spawnPoint5: {fileID: 0}
-  player2_spawnPoint6: {fileID: 0}
-  player2_spawnPoint7: {fileID: 0}
-  player2_spawnPoint8: {fileID: 0}
-  player2_spawnPoint9: {fileID: 0}
-  player2_spawnPoint10: {fileID: 0}
-  player2_spawnPoint11: {fileID: 0}
+  player1_spawnPoint2: {fileID: 1644354049}
+  player1_spawnPoint3: {fileID: 1594178206}
+  player1_spawnPoint4: {fileID: 1590629437}
+  player1_spawnPoint5: {fileID: 1778748650}
+  player1_spawnPoint6: {fileID: 1811341339}
+  player1_spawnPoint7: {fileID: 865052611}
+  player1_spawnPoint8: {fileID: 1029527047}
+  player1_spawnPoint9: {fileID: 1694074972}
+  player1_spawnPoint10: {fileID: 733918416}
+  player1_spawnPoint11: {fileID: 510169052}
+  player2_spawnPoint1: {fileID: 1066973108}
+  player2_spawnPoint2: {fileID: 1666579043}
+  player2_spawnPoint3: {fileID: 999710618}
+  player2_spawnPoint4: {fileID: 2108213801}
+  player2_spawnPoint5: {fileID: 2124492429}
+  player2_spawnPoint6: {fileID: 1339723846}
+  player2_spawnPoint7: {fileID: 293654526}
+  player2_spawnPoint8: {fileID: 694400821}
+  player2_spawnPoint9: {fileID: 1873088159}
+  player2_spawnPoint10: {fileID: 561967561}
+  player2_spawnPoint11: {fileID: 332891978}
 --- !u!1 &1944094773
 GameObject:
   m_ObjectHideFlags: 0
@@ -29525,7 +29525,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2121801507
 GameObject:
@@ -31660,7 +31660,7 @@ GameObject:
   - component: {fileID: 2984615155870454932}
   - component: {fileID: 3748424725517748101}
   m_Layer: 0
-  m_Name: CrewPole1
+  m_Name: Pole2
   m_TagString: PlayerCrew1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31700,7 +31700,7 @@ GameObject:
   - component: {fileID: 542708964888331951}
   - component: {fileID: 6117699324203261312}
   m_Layer: 0
-  m_Name: CrewPole3
+  m_Name: Pole4
   m_TagString: PlayerCrew3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31721,7 +31721,7 @@ GameObject:
   - component: {fileID: 644127727323942911}
   - component: {fileID: 3696297413138101627}
   m_Layer: 0
-  m_Name: CrewPole2
+  m_Name: Pole3
   m_TagString: PlayerCrew2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31791,21 +31791,6 @@ MonoBehaviour:
   Pole: 1
   Ability: {fileID: 0}
   lockedDownPressed: 0
---- !u!4 &4055817025502164271
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523919988561840311}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2223526, y: 3.8131874, z: 4.5093493}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4108761230664963770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33543,48 +33528,6 @@ Transform:
   m_Father: {fileID: 4220920338524010663}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7523919988561840311
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4055817025502164271}
-  - component: {fileID: 7523919988561840312}
-  m_Layer: 0
-  m_Name: AI_Controlls_SoccerMatch
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &7523919988561840312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523919988561840311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e84f2ce5bfb5443429eda89494628b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AIState: 0
-  ShootingState: 0
-  BallTransform: {fileID: 1110746730}
-  steeringWheelPoleAI: {fileID: 451708527}
-  polesAI:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  movementInputValue: 0.5
-  rotationInputValue: 0.75
-  currentPoleIndexAI: 0
-  FrontShootRotationIndex: 0
 --- !u!64 &7525578558336090750
 MeshCollider:
   m_ObjectHideFlags: 0
