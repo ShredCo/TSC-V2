@@ -20,6 +20,10 @@ public class MainMenuUI : MonoBehaviour
     {
         SceneManager.LoadScene("LoadingOverworld");
     }
+    public void StartOneVsOne()
+    {
+        SceneManager.LoadScene(10);
+    }
     public void QuitGame()
     {
         Application.Quit();

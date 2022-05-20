@@ -101,7 +101,7 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
     {
         WinLosePanel.SetActive(true);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     #region Event for Player Input Manager
@@ -124,6 +124,18 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
                 player.gameObject.name = "Player_" + id;
             }
             else if (players.Count == 1)
+            {
+                int id = players.Count + 1;
+                players.Add(player, id);
+                PlayerController playerController = player.GetComponent<PlayerController>();
+
+                playerController.ReceivePolesPlayer(polesPlayer2);
+                playerController.ReceiveAbility(specialCharacterPlayer2);
+                playerController.ReceiveArrow(arrowPlayer2);
+                
+                player.gameObject.name = "Player_" + id;
+            }
+            else if (players.Count == 2)
             {
                 int id = players.Count + 1;
                 players.Add(player, id);
