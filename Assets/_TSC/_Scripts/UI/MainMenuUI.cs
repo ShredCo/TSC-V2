@@ -20,7 +20,7 @@ public class MainMenuUI : MonoBehaviour
     {
         SceneManager.LoadScene("LoadingOverworld");
     }
-    public void StartOneVsOne()
+    public void StartLokalMultiplayer()
     {
         SceneManager.LoadScene(10);
     }
