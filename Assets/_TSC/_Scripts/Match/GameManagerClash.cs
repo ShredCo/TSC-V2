@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class GameManagerSoccermatch : MonoBehaviour
+public class GameManagerClash : MonoBehaviour
 {
     #region Singleton
-    public static GameManagerSoccermatch Instance;
+    public static GameManagerClash Instance;
     private void Awake()
     {
         if (Instance == null)
@@ -19,22 +19,34 @@ public class GameManagerSoccermatch : MonoBehaviour
     #region References
     [Header("Singleplayer")]
     // creates an array of poles for the players
-    [SerializeField] private PolesPlayer[] polesPlayer = new PolesPlayer[4];
-    [SerializeField] private SpecialCharacter[] specialCharacter = new SpecialCharacter[4];
-
-    [Header("Co-op")]
-    // creates 2 arrays when a co-op player has joined
-    [SerializeField] private PolesPlayer[] polesPlayer1 = new PolesPlayer[2];
-    [SerializeField] private PolesPlayer[] polesPlayer2 = new PolesPlayer[2];
+    //[SerializeField] private PolesPlayer[] polesPlayer = new PolesPlayer[4];
+    //[SerializeField] private SpecialCharacter[] specialCharacter = new SpecialCharacter[4];
+//
+    //[Header("Co-op")]
+    //// creates 2 arrays when a co-op player has joined
+    //[SerializeField] private PolesPlayer[] polesPlayer1 = new PolesPlayer[2];
+    //[SerializeField] private PolesPlayer[] polesPlayer2 = new PolesPlayer[2];
+    //
+    //[Header("currentPoles")]
+    //// for the player and enemy
+    //[SerializeField] private GameObject arrowOne;
+    //[SerializeField] private GameObject arrowTwo;
+//
+    //// co-op modus
+    //[SerializeField] private GameObject arrowPlayer2;
     
-    [Header("currentPoles")]
-    // for the player and enemy
-    [SerializeField] private GameObject arrowOne;
-    [SerializeField] private GameObject arrowTwo;
+    // Player 1
+    [SerializeField] private List<PolesPlayer> polesPlayer1 = new List<PolesPlayer>();
+    [SerializeField] private List<SpecialCharacter> specialCharacterPlayer1 = new List<SpecialCharacter>();
 
-    // co-op modus
-    [SerializeField] private GameObject arrowPlayer2;
-    
+    // Player 2
+    [SerializeField] private List<PolesPlayer> polesPlayer2 = new List<PolesPlayer>();
+    [SerializeField] private List<SpecialCharacter> specialCharacterPlayer2 = new List<SpecialCharacter>();
+
+    // Steering Wheels
+    [SerializeField] private GameObject player1_SteeringWheel;
+    [SerializeField] private GameObject player2_SteeringWheel;
+
     // all players in a dictionary, player input as key, value is the id, can be simplified with only a list or array
     public Dictionary<PlayerInput, int> players = new Dictionary<PlayerInput, int>();
 
@@ -123,9 +135,9 @@ public class GameManagerSoccermatch : MonoBehaviour
                 
                 // Player receives his team
                 PlayerController playerController = player.GetComponent<PlayerController>();
-                playerController.ReceivePolesPlayer(polesPlayer);
-                playerController.ReceiveArrow(arrowOne);
-                playerController.ReceiveAbility(specialCharacter);
+                playerController.ReceivePolesPlayer(polesPlayer1);
+                playerController.ReceiveArrow(player1_SteeringWheel);
+                playerController.ReceiveAbility(specialCharacterPlayer1);
                 
                 player.gameObject.name = "Player_" + id;
             }
@@ -135,22 +147,15 @@ public class GameManagerSoccermatch : MonoBehaviour
                 players.Add(player, id);
                 PlayerController playerController = player.GetComponent<PlayerController>();
 
-                switch(id)
+                if (id == 2)
                 {
-                    // TODO: Idea for later: Let the players choose which position they want to play
-                    case 1:
-                        playerController.ReceivePolesPlayer(polesPlayer1);
-                        playerController.ReceiveArrow(arrowOne);
+                    polesPlayer1.RemoveAt(3);
+                    polesPlayer1.RemoveAt(2);
+                    playerController.ReceivePolesPlayer(polesPlayer2);
+                    playerController.ReceiveArrow(player2_SteeringWheel);
+                    player2_SteeringWheel.SetActive(true);
                         
-                        player.gameObject.name = "Player_" + id;
-                        break;
-                    case 2:
-                        playerController.ReceivePolesPlayer(polesPlayer2);
-                        playerController.ReceiveArrow(arrowPlayer2);
-                        arrowPlayer2.SetActive(true);
-                        
-                        player.gameObject.name = "Player_" + id;
-                        break;
+                    player.gameObject.name = "Player_" + id;
                 }
             }
         }

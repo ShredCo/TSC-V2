@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class GameManagerLokalOneVsOne : MonoBehaviour
+public class GameManagerClashLokalMultiplayer : MonoBehaviour
 {
     
     #region Singleton
-    public static GameManagerLokalOneVsOne Instance;
+    public static GameManagerClashLokalMultiplayer Instance;
     private void Awake()
     {
         if (Instance == null)
@@ -19,15 +19,47 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
 
     #region References
     [Header("Players/Poles")]
+    //// Player 1
+    //[SerializeField] private PolesPlayer[] polesPlayer1 = new PolesPlayer[4];
+    //[SerializeField] private SpecialCharacter[] specialCharacterPlayer1 = new SpecialCharacter[4];
+    //[SerializeField] private GameObject arrowPlayer1;
+    //
+    //// Player 2
+    //[SerializeField] private PolesPlayer[] polesPlayer2 = new PolesPlayer[4];
+    //[SerializeField] private SpecialCharacter[] specialCharacterPlayer2 = new SpecialCharacter[4];
+    //[SerializeField] private GameObject arrowPlayer2;
+    //
+    //// Player 3
+    //[SerializeField] private PolesPlayer[] polesPlayer3 = new PolesPlayer[4];
+    //[SerializeField] private SpecialCharacter[] specialCharacterPlayer3 = new SpecialCharacter[4];
+    //[SerializeField] private GameObject arrowPlayer3;
+    //
+    //// Player 4
+    //[SerializeField] private PolesPlayer[] polesPlayer4 = new PolesPlayer[4];
+    //[SerializeField] private SpecialCharacter[] specialCharacterPlayer4 = new SpecialCharacter[4];
+    //[SerializeField] private GameObject arrowPlayer4;
+    
     // Player 1
-    [SerializeField] private PolesPlayer[] polesPlayer1 = new PolesPlayer[4];
-    [SerializeField] private SpecialCharacter[] specialCharacterPlayer1 = new SpecialCharacter[4];
-    [SerializeField] private GameObject arrowPlayer1;
+    [SerializeField] private List<PolesPlayer> polesPlayer1 = new List<PolesPlayer>();
+    [SerializeField] private List<SpecialCharacter> specialCharacterPlayer1 = new List<SpecialCharacter>();
     
     // Player 2
-    [SerializeField] private PolesPlayer[] polesPlayer2 = new PolesPlayer[4];
-    [SerializeField] private SpecialCharacter[] specialCharacterPlayer2 = new SpecialCharacter[4];
-    [SerializeField] private GameObject arrowPlayer2;
+    [SerializeField] private List<PolesPlayer> polesPlayer2 = new List<PolesPlayer>();
+    [SerializeField] private List<SpecialCharacter> specialCharacterPlayer2 = new List<SpecialCharacter>();
+    
+    // Player 3
+    [SerializeField] private List<PolesPlayer> polesPlayer3 = new List<PolesPlayer>();
+    [SerializeField] private List<SpecialCharacter> specialCharacterPlayer3 = new List<SpecialCharacter>();
+    
+    // Player 4
+    [SerializeField] private List<PolesPlayer> polesPlayer4 = new List<PolesPlayer>();
+    [SerializeField] private List<SpecialCharacter> specialCharacterPlayer4 = new List<SpecialCharacter>();
+
+    // Steering Wheels
+    [SerializeField] private GameObject player1_SteeringWheel;
+    [SerializeField] private GameObject player2_SteeringWheel;
+    [SerializeField] private GameObject player3_SteeringWheel;
+    [SerializeField] private GameObject player4_SteeringWheel;
     
     // all players in a dictionary, player input as key, value is the id, can be simplified with only a list or array
     public Dictionary<PlayerInput, int> players = new Dictionary<PlayerInput, int>();
@@ -38,7 +70,7 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
     private int ScoreToWin = 5;
     public int powerpointsCountRed = 0;
     public int powerpointsCountBlue = 0;
-
+    
     // Win / Lose Display
     public TextMeshProUGUI WinLoseText;
     public GameObject WinLosePanel;
@@ -95,6 +127,8 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
             FindObjectOfType<PoleCondition>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
+        
+        
     }
 
     public IEnumerator EndGame()
@@ -110,7 +144,7 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
         Debug.Log("code runns fine till here");
         if (!players.TryGetValue(player, out int value)) // if player doesn't exist
         {
-            if (players.Count < 1) // if one player is playing
+            if (players.Count < 1) // first player -> Team Red
             {
                 int id = players.Count + 1;
                 players.Add(player, id);
@@ -119,11 +153,11 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
                 PlayerController playerController = player.GetComponent<PlayerController>();
                 playerController.ReceivePolesPlayer(polesPlayer1);
                 playerController.ReceiveAbility(specialCharacterPlayer1);
-                playerController.ReceiveArrow(arrowPlayer1);
+                playerController.ReceiveArrow(player1_SteeringWheel);
                 
                 player.gameObject.name = "Player_" + id;
             }
-            else if (players.Count == 1)
+            else if (players.Count == 1) // first player -> Team Blue
             {
                 int id = players.Count + 1;
                 players.Add(player, id);
@@ -131,19 +165,37 @@ public class GameManagerLokalOneVsOne : MonoBehaviour
 
                 playerController.ReceivePolesPlayer(polesPlayer2);
                 playerController.ReceiveAbility(specialCharacterPlayer2);
-                playerController.ReceiveArrow(arrowPlayer2);
+                playerController.ReceiveArrow(player2_SteeringWheel);
                 
                 player.gameObject.name = "Player_" + id;
             }
-            else if (players.Count == 2)
+            else if (players.Count == 2) // second Player -> Team Red
+            {
+                int id = players.Count + 1;
+                players.Add(player, id);
+                PlayerController playerController = player.GetComponent<PlayerController>();
+                
+                polesPlayer1.RemoveAt(3);
+                polesPlayer1.RemoveAt(2);
+                playerController.ReceivePolesPlayer(polesPlayer3);
+                playerController.ReceiveAbility(specialCharacterPlayer3);
+                playerController.ReceiveArrow(player3_SteeringWheel);
+                player3_SteeringWheel.SetActive(true);
+                
+                player.gameObject.name = "Player_" + id;
+            }
+            else if (players.Count == 3) // second Player -> Team Blue
             {
                 int id = players.Count + 1;
                 players.Add(player, id);
                 PlayerController playerController = player.GetComponent<PlayerController>();
 
-                playerController.ReceivePolesPlayer(polesPlayer2);
-                playerController.ReceiveAbility(specialCharacterPlayer2);
-                playerController.ReceiveArrow(arrowPlayer2);
+                polesPlayer2.RemoveAt(3);
+                polesPlayer2.RemoveAt(2);
+                playerController.ReceivePolesPlayer(polesPlayer4);
+                playerController.ReceiveAbility(specialCharacterPlayer4);
+                playerController.ReceiveArrow(player4_SteeringWheel);
+                player4_SteeringWheel.SetActive(true);
                 
                 player.gameObject.name = "Player_" + id;
             }

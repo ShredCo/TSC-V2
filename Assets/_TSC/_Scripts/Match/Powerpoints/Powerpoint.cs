@@ -11,9 +11,10 @@ public class Powerpoint : MonoBehaviour
                 // Blue player picks up a powerpoint from powerfield
                 Destroy(gameObject);
                 SpawnPowerfields.instance.PowerfieldsCountBlue -= 1;
-                if (GameManagerSoccermatch.Instance.powerpointsCountBlue < 5)
+                if (GameManagerClash.Instance.powerpointsCountBlue < 5)
                 {
-                    GameManagerSoccermatch.Instance.powerpointsCountBlue += 1;
+                    GameManagerClash.Instance.powerpointsCountBlue += 1;
+                    GameManagerClashLokalMultiplayer.Instance.powerpointsCountBlue += 1;
                 }
             }
             if (gameObject.CompareTag("Powerfield Red"))
@@ -21,9 +22,10 @@ public class Powerpoint : MonoBehaviour
                 // Red player picks up a powerpoint from powerfield
                 Destroy(gameObject);
                 SpawnPowerfields.instance.PowerfieldsCountRed -= 1;
-                if (GameManagerSoccermatch.Instance.powerpointsCountRed < 5)
+                if (GameManagerClash.Instance.powerpointsCountRed < 5)
                 {
-                    GameManagerSoccermatch.Instance.powerpointsCountRed += 1;
+                    GameManagerClash.Instance.powerpointsCountRed += 1;
+                    GameManagerClashLokalMultiplayer.Instance.powerpointsCountRed += 1;
                 }
             }
         }

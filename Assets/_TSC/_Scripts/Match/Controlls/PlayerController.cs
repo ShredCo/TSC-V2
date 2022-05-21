@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,8 +21,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementAbilityInput;
     private Vector2 rotationWindAbilityInput;
 
-    private PolesPlayer[] polesPlayer;
-    private SpecialCharacter[] specialCharacter;
+    // private PolesPlayer[] polesPlayer;
+    // private SpecialCharacter[] specialCharacter;
+    private List<PolesPlayer> polesPlayer = new List<PolesPlayer>();
+    [SerializeField] private List<SpecialCharacter> specialCharacter = new List<SpecialCharacter>();
+    
 
     private GameObject steeringWheelPole;
 
@@ -118,13 +122,13 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Player Set Up
-    internal void ReceivePolesPlayer(PolesPlayer[] poles)
+    internal void ReceivePolesPlayer(List<PolesPlayer> poles)
     {
         this.polesPlayer = poles;
         Debug.Log("Added Poles to " + this.gameObject);
     }
 
-    internal void ReceiveAbility(SpecialCharacter[] character)
+    internal void ReceiveAbility(List<SpecialCharacter> character)
     {
         this.specialCharacter = character;
     }
@@ -168,7 +172,7 @@ public class PlayerController : MonoBehaviour
     public void PolesPlus(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
-            if (currentPoleIndex < polesPlayer.Length - 1)
+            if (currentPoleIndex < polesPlayer.Count - 1)
             {
                 currentPoleIndex++;
 
@@ -289,10 +293,10 @@ public class PlayerController : MonoBehaviour
         Debug.Log("main ability = " + mainAbility);
         if (currentPoleIndex == 0 && mainAbility == false)
         {
-            if (GameManagerSoccermatch.Instance.powerpointsCountRed >= PoleMain.Ability.PowerpointsCost)
+            if (GameManagerClash.Instance.powerpointsCountRed >= PoleMain.Ability.PowerpointsCost)
             {
                 // Instantiates special card character on main pole
-                GameManagerSoccermatch.Instance.powerpointsCountRed -= PoleMain.Ability.PowerpointsCost;
+                GameManagerClash.Instance.powerpointsCountRed -= PoleMain.Ability.PowerpointsCost;
                 poleMainAbilityPrefab = Instantiate(PoleMain.Ability.CharacterPrefab, SpawnPointAbility.transform);
                 poleMainAbilityPrefab.transform.parent = null;
                 poleMainAbilityPrefab.transform.localScale = abilitySize;
@@ -310,10 +314,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPoleIndex == 1 && crew1Ability == false)
         {
-            if (GameManagerSoccermatch.Instance.powerpointsCountRed >= PoleCrew1.Ability.PowerpointsCost)
+            if (GameManagerClash.Instance.powerpointsCountRed >= PoleCrew1.Ability.PowerpointsCost)
             {
                 // Instantiates special card character on crew pole 1
-                GameManagerSoccermatch.Instance.powerpointsCountRed -= PoleCrew1.Ability.PowerpointsCost;
+                GameManagerClash.Instance.powerpointsCountRed -= PoleCrew1.Ability.PowerpointsCost;
                 poleCrew1AbilityPrefab = Instantiate(PoleCrew1.Ability.CharacterPrefab, SpawnPointAbility.transform);
                 poleCrew1AbilityPrefab.transform.parent = null;
                 poleCrew1AbilityPrefab.transform.localScale = abilitySize;
@@ -330,10 +334,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPoleIndex == 2 && crew2Ability == false)
         {
-            if (GameManagerSoccermatch.Instance.powerpointsCountRed >= PoleCrew2.Ability.PowerpointsCost)
+            if (GameManagerClash.Instance.powerpointsCountRed >= PoleCrew2.Ability.PowerpointsCost)
             {
                 // Instantiates special card character on crew pole 2
-                GameManagerSoccermatch.Instance.powerpointsCountRed -= PoleCrew2.Ability.PowerpointsCost;
+                GameManagerClash.Instance.powerpointsCountRed -= PoleCrew2.Ability.PowerpointsCost;
                 poleCrew2AbilityPrefab = Instantiate(PoleCrew2.Ability.CharacterPrefab, SpawnPointAbility.transform);
                 poleCrew2AbilityPrefab.transform.parent = null;
                 poleCrew2AbilityPrefab.transform.localScale = abilitySize;
@@ -350,10 +354,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentPoleIndex == 3 && crew3Ability == false)
         {
-            if (GameManagerSoccermatch.Instance.powerpointsCountRed >= PoleCrew3.Ability.PowerpointsCost)
+            if (GameManagerClash.Instance.powerpointsCountRed >= PoleCrew3.Ability.PowerpointsCost)
             {
                 // Instantiates special card character on crew pole 3
-                GameManagerSoccermatch.Instance.powerpointsCountRed -= PoleCrew3.Ability.PowerpointsCost;
+                GameManagerClash.Instance.powerpointsCountRed -= PoleCrew3.Ability.PowerpointsCost;
                 poleCrew3AbilityPrefab = Instantiate(PoleCrew3.Ability.CharacterPrefab, SpawnPointAbility.transform);
                 poleCrew3AbilityPrefab.transform.parent = null;
                 poleCrew3AbilityPrefab.transform.localScale = abilitySize;

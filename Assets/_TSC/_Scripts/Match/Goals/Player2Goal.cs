@@ -16,7 +16,7 @@ public class Player2Goal : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            if (GameManagerSoccermatch.Instance.ScorePlayer1 < 5)
+            if (GameManagerClash.Instance.ScorePlayer1 < 5)
             {
                 StartCoroutine(SpawnNewBall());
             }
@@ -26,7 +26,7 @@ public class Player2Goal : MonoBehaviour
     IEnumerator SpawnNewBall()
     {
         // Give the opponent a point
-        GameManagerSoccermatch.Instance.ScorePlayer1 += 1;
+        GameManagerClash.Instance.ScorePlayer1 += 1;
         BallManager.Instance.BallInGame = false;
 
         // Plays goals cheering sounds

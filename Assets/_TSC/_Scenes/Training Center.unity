@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 53405360}
   - component: {fileID: 53405358}
   m_Layer: 8
-  m_Name: CrewPole2
+  m_Name: Pole3
   m_TagString: AICrew2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6809,7 +6809,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451708528}
   m_Layer: 0
-  m_Name: CurrentPoles_Blue1
+  m_Name: SteeringWheel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6830,7 +6830,7 @@ Transform:
   - {fileID: 534383889}
   - {fileID: 712738702}
   m_Father: {fileID: 1944094774}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459416230
 GameObject:
@@ -9085,7 +9085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563649019}
   m_Layer: 0
-  m_Name: CurrentPoles_Blue2
+  m_Name: SteeringWheel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10426,7 +10426,7 @@ GameObject:
   - component: {fileID: 631305325}
   - component: {fileID: 631305323}
   m_Layer: 8
-  m_Name: MainPole
+  m_Name: Pole1
   m_TagString: AIMain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10654,7 +10654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 646328237}
   m_Layer: 0
-  m_Name: CurrentPoles_Red2
+  m_Name: SteeringWheel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10676,7 +10676,7 @@ Transform:
   - {fileID: 1449550224}
   - {fileID: 148526131}
   m_Father: {fileID: 1944094774}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &649966773
 PrefabInstance:
@@ -10787,7 +10787,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: -0.000000008689153, y: 0.9340715, z: -0.35708606, w: -0.000000022729228}
+  m_LocalRotation: {x: 0.000000008689151, y: 0.9340715, z: -0.35708606, w: 0.000000022729221}
   m_LocalPosition: {x: -0.3456396, y: 12.34, z: 3.5099998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11319,7 +11319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700215835}
   m_Layer: 0
-  m_Name: CurrentPoles_Red1
+  m_Name: SteeringWheel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14398,17 +14398,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897859309}
   m_CullTransparentMesh: 0
---- !u!114 &908269056 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8040446325147259098, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
-  m_PrefabInstance: {fileID: 1850385157}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec31c0b6f5124b6459bab995af06c661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &908269057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1947145488697245676, guid: ffe271e47644aa944a65986a5c1e285a, type: 3}
@@ -16346,7 +16335,7 @@ GameObject:
   - component: {fileID: 1087741148}
   - component: {fileID: 1087741146}
   m_Layer: 8
-  m_Name: CrewPole1
+  m_Name: Pole2
   m_TagString: AICrew1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24065,7 +24054,7 @@ GameObject:
   - component: {fileID: 1596763134}
   - component: {fileID: 1596763132}
   m_Layer: 8
-  m_Name: CrewPole3
+  m_Name: Pole4
   m_TagString: AICrew3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28066,7 +28055,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -28082,7 +28071,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: -0.000000008689153, y: 0.9340715, z: -0.35708606, w: -0.000000022729228}
+  m_LocalRotation: {x: 0.000000008689151, y: 0.9340715, z: -0.35708606, w: 0.000000022729221}
   m_LocalPosition: {x: -0.3456396, y: 12.34, z: 3.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29925,25 +29914,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7b90b823f563747ac262f86244cd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  polesPlayer:
-  - {fileID: 3404912865387980111}
-  - {fileID: 3748424725517748101}
-  - {fileID: 3696297413138101627}
-  - {fileID: 6117699324203261312}
-  specialCharacter:
-  - {fileID: 908269056}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   polesPlayer1:
   - {fileID: 3404912865387980111}
   - {fileID: 3748424725517748101}
+  - {fileID: 3696297413138101627}
+  - {fileID: 6117699324203261312}
+  specialCharacterPlayer1: []
   polesPlayer2:
   - {fileID: 3696297413138101627}
   - {fileID: 6117699324203261312}
-  arrowOne: {fileID: 700215834}
-  arrowTwo: {fileID: 451708527}
-  arrowPlayer2: {fileID: 646328236}
+  specialCharacterPlayer2: []
+  player1_SteeringWheel: {fileID: 700215834}
+  player2_SteeringWheel: {fileID: 646328236}
   ScorePlayer1: 0
   ScorePlayer2: 0
   powerpointsCountRed: 0
@@ -30036,8 +30018,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 700215835}
-  - {fileID: 451708528}
   - {fileID: 646328237}
+  - {fileID: 451708528}
   - {fileID: 563649019}
   m_Father: {fileID: 1727475516}
   m_RootOrder: 5
@@ -34832,7 +34814,7 @@ GameObject:
   - component: {fileID: 1623664614267165708}
   - component: {fileID: 3404912865387980111}
   m_Layer: 0
-  m_Name: MainPole
+  m_Name: Pole1
   m_TagString: PlayerMain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35005,7 +34987,7 @@ GameObject:
   - component: {fileID: 2984615155870454932}
   - component: {fileID: 3748424725517748101}
   m_Layer: 0
-  m_Name: CrewPole1
+  m_Name: Pole2
   m_TagString: PlayerCrew1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35045,7 +35027,7 @@ GameObject:
   - component: {fileID: 542708964888331951}
   - component: {fileID: 6117699324203261312}
   m_Layer: 0
-  m_Name: CrewPole3
+  m_Name: Pole4
   m_TagString: PlayerCrew3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35066,7 +35048,7 @@ GameObject:
   - component: {fileID: 644127727323942911}
   - component: {fileID: 3696297413138101627}
   m_Layer: 0
-  m_Name: CrewPole2
+  m_Name: Pole3
   m_TagString: PlayerCrew2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

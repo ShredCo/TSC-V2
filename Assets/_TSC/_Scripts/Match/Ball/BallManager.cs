@@ -104,37 +104,37 @@ public class BallManager : MonoBehaviour
             case LastPlayerHit.Player:
                 if (other.CompareTag("AIMain"))
                 {
-                    poleHealth.AIConditionMain -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionAIPole1 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("AICrew1"))
                 {
-                    poleHealth.AIConditionCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionAIPole2 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("AICrew2"))
                 {
-                    poleHealth.AIConditionCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionAIPole3 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("AICrew3"))
                 {
-                    poleHealth.AIConditionCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionAIPole4 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 break;
             case LastPlayerHit.AI:
                 if (other.CompareTag("PlayerMain"))
                 {
-                    poleHealth.PlayerConditionMain -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionPole1 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("PlayerCrew1"))
                 {
-                    poleHealth.PlayerConditionCrew1 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionPole2 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("PlayerCrew2"))
                 {
-                    poleHealth.PlayerConditionCrew2 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionPole3 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 else if (other.CompareTag("PlayerCrew3"))
                 {
-                    poleHealth.PlayerConditionCrew3 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionPole4 -= GetComponent<Rigidbody>().velocity.magnitude;
                 }
                 break;
             default:

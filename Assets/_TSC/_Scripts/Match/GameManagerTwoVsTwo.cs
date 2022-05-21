@@ -60,23 +60,23 @@ public class GameManagerTwoVsTwo : MonoBehaviour
                 // Gives the players their poles and arrows
                 switch(id)
                 {
-                    case 1:
-                        playerController.ReceivePolesPlayer(polesPlayerOne);
-                        playerController.ReceiveArrow(arrowOne);
+                   //case 1:
+                   //    playerController.ReceivePolesPlayer(polesPlayerOne);
+                   //    playerController.ReceiveArrow(arrowOne);
                  
-                        break;
-                    case 2:
-                        playerController.ReceivePolesPlayer(polesPlayerTwo);
-                        playerController.ReceiveArrow(arrowTwo);
-                        break;
-                    case 3:
-                        playerController.ReceivePolesPlayer(polesPlayerThree);
-                        playerController.ReceiveArrow(arrowThree);
-                        break;
-                    case 4:
-                        playerController.ReceivePolesPlayer(polesPlayerFour);
-                        playerController.ReceiveArrow(arrowFour);
-                        break;
+                   //    break;
+                   //case 2:
+                   //    playerController.ReceivePolesPlayer(polesPlayerTwo);
+                   //    playerController.ReceiveArrow(arrowTwo);
+                   //    break;
+                   //case 3:
+                   //    playerController.ReceivePolesPlayer(polesPlayerThree);
+                   //    playerController.ReceiveArrow(arrowThree);
+                   //    break;
+                   //case 4:
+                   //    playerController.ReceivePolesPlayer(polesPlayerFour);
+                   //    playerController.ReceiveArrow(arrowFour);
+                   //    break;
                 }
 
                 player.gameObject.name = "Player_" + id;
