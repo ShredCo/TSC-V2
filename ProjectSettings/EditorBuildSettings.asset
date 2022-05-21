@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/_TSC/_Scenes/LoadingClash.unity
     guid: b76f8671ace9bd445aa485d3c13bffaf
   - enabled: 1
-    path: Assets/_TSC/_Scenes/Training Center Lokal.unity
+    path: Assets/_TSC/_Scenes/Training Center Lokal Multiplayer.unity
     guid: 4cd336a5a04875a49970e5bc51b1bd7e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c669e8e71df9185428858d143c1c4773, type: 2}

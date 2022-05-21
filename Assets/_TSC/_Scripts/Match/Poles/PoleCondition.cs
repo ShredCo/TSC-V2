@@ -72,8 +72,8 @@ public class PoleCondition : MonoBehaviour
     public GameObject AIPoleCrew3;
     #endregion
 
-    public TextMeshProUGUI TextPowerpointsPlayer;
-    public TextMeshProUGUI TextPowerpointsEnemy;
+    public TextMeshProUGUI TextPowerpointsRed;
+    public TextMeshProUGUI TextPowerpointsBlue;
 
     float lerpSpeed = 3f;
 
@@ -143,8 +143,8 @@ public class PoleCondition : MonoBehaviour
     #region UI
     void UpdatePowerpointText()
     {
-        TextPowerpointsPlayer.text = GameManagerClash.Instance.powerpointsCountRed.ToString();
-        TextPowerpointsEnemy.text = GameManagerClash.Instance.powerpointsCountBlue.ToString();
+        TextPowerpointsRed.text = GameManagerClash.Instance.powerpointsCountRed.ToString();
+        TextPowerpointsBlue.text = GameManagerClash.Instance.powerpointsCountBlue.ToString();
     }
 
     void UpdateConditionText()
