@@ -180,17 +180,18 @@ public class ClashHUD : MonoBehaviour
 
     void ChangeColor()
     {
-        // Player
-        ConditionBarPole1.color = Color.Lerp(Color.grey, Color.red, (ConditionPole1 / maxConditionPole1));
-        ConditionBarPole2.color = Color.Lerp(Color.grey, Color.red, (ConditionPole2 / maxConditionPole2));
-        ConditionBarPole3.color = Color.Lerp(Color.grey, Color.red, (ConditionPole3 / maxConditionPole3));
-        ConditionBarPole4.color = Color.Lerp(Color.grey, Color.red, (ConditionPole4 / maxConditionPole4));
+        
+        // Player Red
+        ConditionBarPole1.color = Color.Lerp(Color.grey, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole1 / maxConditionPole1));
+        ConditionBarPole2.color = Color.Lerp(Color.grey, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole2 / maxConditionPole2));
+        ConditionBarPole3.color = Color.Lerp(Color.grey, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole3 / maxConditionPole3));
+        ConditionBarPole4.color = Color.Lerp(Color.grey, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole4 / maxConditionPole4));
 
-        // AI
-        ConditionBarAIPole1.color = Color.Lerp(Color.grey, Color.red, (ConditionAIPole1 / maxConditionAIPole1));
-        ConditionBarAIPole2.color = Color.Lerp(Color.grey, Color.red, (ConditionAIPole2 / maxConditionAIPole2));
-        ConditionBarAIPole3.color = Color.Lerp(Color.grey, Color.red, (ConditionAIPole3 / maxConditionAIPole3));
-        ConditionBarAIPole4.color = Color.Lerp(Color.grey, Color.red, (ConditionAIPole4 / maxConditionAIPole4));
+        // Player Blue
+        ConditionBarAIPole1.color = Color.Lerp(Color.grey, new Color(0.1215f, 0.1921f, 0.8392f), (ConditionAIPole1 / maxConditionAIPole1));
+        ConditionBarAIPole2.color = Color.Lerp(Color.grey, new Color(0.1215f, 0.1921f, 0.8392f), (ConditionAIPole2 / maxConditionAIPole2));
+        ConditionBarAIPole3.color = Color.Lerp(Color.grey, new Color(0.1215f, 0.1921f, 0.8392f), (ConditionAIPole3 / maxConditionAIPole3));
+        ConditionBarAIPole4.color = Color.Lerp(Color.grey, new Color(0.1215f, 0.1921f, 0.8392f), (ConditionAIPole4 / maxConditionAIPole4));
     }
     #endregion
 
