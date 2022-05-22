@@ -116,7 +116,7 @@ public class GameManagerClashLokalMultiplayer : MonoBehaviour
             WinLoseText.text = "YOU WIN";
             LineUpController.DidWin = true;
             Time.timeScale = 1f;
-            FindObjectOfType<PoleCondition>().SavePoleHealth();
+            FindObjectOfType<ClashHUD>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
         else if (ScorePlayer2 >= ScoreToWin)
@@ -124,7 +124,7 @@ public class GameManagerClashLokalMultiplayer : MonoBehaviour
             WinLoseText.text = "YOU LOSE";
             LineUpController.DidWin = false;
             Time.timeScale = 1f;
-            FindObjectOfType<PoleCondition>().SavePoleHealth();
+            FindObjectOfType<ClashHUD>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
         
@@ -141,7 +141,6 @@ public class GameManagerClashLokalMultiplayer : MonoBehaviour
     #region Event for Player Input Manager
     public void OnPlayerJoin(PlayerInput player)
     {
-        Debug.Log("code runns fine till here");
         if (!players.TryGetValue(player, out int value)) // if player doesn't exist
         {
             if (players.Count < 1) // first player -> Team Red

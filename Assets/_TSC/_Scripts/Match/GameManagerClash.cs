@@ -103,7 +103,7 @@ public class GameManagerClash : MonoBehaviour
             WinLoseText.text = "YOU WIN";
             LineUpController.DidWin = true;
             Time.timeScale = 1f;
-            FindObjectOfType<PoleCondition>().SavePoleHealth();
+            FindObjectOfType<ClashHUD>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
         else if (ScorePlayer2 >= ScoreToWin)
@@ -111,7 +111,7 @@ public class GameManagerClash : MonoBehaviour
             WinLoseText.text = "YOU LOSE";
             LineUpController.DidWin = false;
             Time.timeScale = 1f;
-            FindObjectOfType<PoleCondition>().SavePoleHealth();
+            FindObjectOfType<ClashHUD>().SavePoleHealth();
             StartCoroutine(EndGame());
         }
     }

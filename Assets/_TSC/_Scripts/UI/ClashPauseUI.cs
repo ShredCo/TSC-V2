@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Audio;
 
-public class PauseMenuUI : MonoBehaviour
+public class ClashPauseUI : MonoBehaviour
 {
     #region Variables / References
     [Header("Canvas")]

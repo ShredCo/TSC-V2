@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PoleCondition : MonoBehaviour
+public class ClashHUD : MonoBehaviour
 {
     #region Health Variables
     [Header("Player Pole Health")]
@@ -74,7 +74,8 @@ public class PoleCondition : MonoBehaviour
 
     public TextMeshProUGUI TextPowerpointsRed;
     public TextMeshProUGUI TextPowerpointsBlue;
-
+    
+    
     float lerpSpeed = 3f;
 
     void Start()

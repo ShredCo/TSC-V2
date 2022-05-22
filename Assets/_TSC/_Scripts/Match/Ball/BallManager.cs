@@ -92,7 +92,7 @@ public class BallManager : MonoBehaviour
     #endregion
     
     #region Damage to poles
-    [SerializeField] PoleCondition poleHealth;
+    [SerializeField] ClashHUD poleHealth;
     [SerializeField] LastPlayerHit lastPlayerHit;
 
     void DealDamage(GameObject other)
