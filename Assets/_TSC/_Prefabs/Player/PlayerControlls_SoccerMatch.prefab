@@ -45,8 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6038e80719aca0242a176f27ab0f4a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 43641db932111c04794b595010d35d78, type: 2}
-  powerpointsCount: 0
+  specialCharacter: []
+  currentPoleIndex: 0
+  player1_pole1: {fileID: 0}
+  player1_pole2: {fileID: 0}
+  player1_pole3: {fileID: 0}
+  player1_pole4: {fileID: 0}
+  pointer1: {fileID: 0}
+  pointer2: {fileID: 0}
+  pointer3: {fileID: 0}
+  pointer4: {fileID: 0}
   characterVelocity: 750
   ball: {fileID: 0}
   SpawnPointAbility: {fileID: 0}
@@ -212,7 +220,19 @@ MonoBehaviour:
     m_ActionId: 4bcbe821-795e-4f35-9cc7-f131a7e45630
     m_ActionName: SoccerMatchControlls/L3[/DualShock4GamepadHID/leftStickPress]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseMenuUI, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ffebbe06-3052-433e-8648-803da08fa104
     m_ActionName: SoccerMatchControlls/Pause[/DualShock4GamepadHID/start]
   - m_PersistentCalls:
@@ -319,6 +339,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b53e2f05-3856-4668-98e7-26f4b020e1af
     m_ActionName: SoccerMatchControlls/Ability[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7776990381466126141}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: RotateWind
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bf9dc91e-6c8c-4b48-a06c-51d5fe161b95
+    m_ActionName: SoccerMatchControlls/RotateWindAbility[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BallManager, Assembly-CSharp
+        m_MethodName: SpawnBallInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8f8c4518-6a32-4bf6-a167-696e496ddac5
+    m_ActionName: SoccerMatchControlls/RespawnBall[/DualShock4GamepadHID/touchpadButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player1
   m_DefaultActionMap: SoccerMatchControlls

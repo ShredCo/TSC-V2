@@ -22,7 +22,7 @@ public class PoleLimits : MonoBehaviour
                 rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -2.5f, 2.5f));
                 break;
             case 2:
-                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -1.2f, 1.2f));
+                rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -0.9f, 0.9f));
                 break;
             case 3:
                 rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -2f, 2f));
