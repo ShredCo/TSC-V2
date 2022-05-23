@@ -41,7 +41,18 @@ public class AIController : MonoBehaviour
     // Movement stuff
     private Transform newPolePositionPoleMain;
     private Vector3 velocity = Vector3.zero;
+    
+    // HUD Pole Condition Gameobjects 
+    [SerializeField] private Animator player2_pole1;
+    [SerializeField] private Animator player2_pole2;
+    [SerializeField] private Animator player2_pole3;
+    [SerializeField] private Animator player2_pole4;
 
+    public GameObject pointer1;
+    public GameObject pointer2;
+    public GameObject pointer3;
+    public GameObject pointer4;
+    
     // ShootFront
     public int FrontShootRotationIndex;
 
@@ -55,6 +66,7 @@ public class AIController : MonoBehaviour
     {
         UpdateCurrentPoleAI();
         UpdateSteeringWheelPosition();
+        UpdateHUD();
     }
     
     void FixedUpdate()
@@ -204,4 +216,65 @@ public class AIController : MonoBehaviour
         }
     }
     #endregion 
+    
+    #region HUD
+    // HUD
+    void UpdateHUD()
+    {
+        switch (currentPoleIndexAI)
+        {
+            case 0:
+                ResetConditionAnimations();
+                pointer1.SetActive(true);
+                player2_pole1.SetTrigger("Selected");
+                player2_pole2.SetTrigger("NotSelected");
+                player2_pole3.SetTrigger("NotSelected");
+                player2_pole4.SetTrigger("NotSelected");
+                break;
+            case 1:
+                ResetConditionAnimations();
+                pointer2.SetActive(true);
+                player2_pole1.SetTrigger("NotSelected");
+                player2_pole2.SetTrigger("Selected");
+                player2_pole3.SetTrigger("NotSelected");
+                player2_pole4.SetTrigger("NotSelected");
+                break;
+            case 2:
+                ResetConditionAnimations();
+                pointer3.SetActive(true);
+                player2_pole1.SetTrigger("NotSelected");
+                player2_pole2.SetTrigger("NotSelected");
+                player2_pole3.SetTrigger("Selected");
+                player2_pole4.SetTrigger("NotSelected");
+                break;
+            case 3:
+                ResetConditionAnimations();
+                pointer4.SetActive(true);
+                player2_pole1.SetTrigger("NotSelected");
+                player2_pole2.SetTrigger("NotSelected");
+                player2_pole3.SetTrigger("NotSelected");
+                player2_pole4.SetTrigger("Selected");
+                break;
+        }
+    }
+
+    void ResetConditionAnimations()
+    {
+        player2_pole1.ResetTrigger("Selected");
+        player2_pole2.ResetTrigger("Selected");
+        player2_pole3.ResetTrigger("Selected");
+        player2_pole4.ResetTrigger("Selected");
+        
+        player2_pole1.ResetTrigger("NotSelected");
+        player2_pole2.ResetTrigger("NotSelected");
+        player2_pole3.ResetTrigger("NotSelected");
+        player2_pole4.ResetTrigger("NotSelected");
+        
+        // Pointers
+        pointer1.SetActive(false);
+        pointer2.SetActive(false);
+        pointer3.SetActive(false);
+        pointer4.SetActive(false);
+    }
+    #endregion
 }

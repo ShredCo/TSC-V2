@@ -430,49 +430,49 @@ public class PlayerController : MonoBehaviour
             case 0:
                 ResetConditionAnimations();
                 pointer1.SetActive(true);
-                //player1_pole1.SetTrigger("Selected");
-                //player1_pole2.SetTrigger("NotSelected");
-                //player1_pole3.SetTrigger("NotSelected");
-                //player1_pole4.SetTrigger("NotSelected");
+                player1_pole1.SetTrigger("Selected");
+                player1_pole2.SetTrigger("NotSelected");
+                player1_pole3.SetTrigger("NotSelected");
+                player1_pole4.SetTrigger("NotSelected");
                 break;
             case 1:
                 ResetConditionAnimations();
                 pointer2.SetActive(true);
-                //player1_pole1.SetTrigger("NotSelected");
-                //player1_pole2.SetTrigger("Selected");
-                //player1_pole3.SetTrigger("NotSelected");
-                //player1_pole4.SetTrigger("NotSelected");
+                player1_pole1.SetTrigger("NotSelected");
+                player1_pole2.SetTrigger("Selected");
+                player1_pole3.SetTrigger("NotSelected");
+                player1_pole4.SetTrigger("NotSelected");
                 break;
             case 2:
                 ResetConditionAnimations();
                 pointer3.SetActive(true);
-                //player1_pole1.SetTrigger("NotSelected");
-                //player1_pole2.SetTrigger("NotSelected");
-                //player1_pole3.SetTrigger("Selected");
-                //player1_pole4.SetTrigger("NotSelected");
+                player1_pole1.SetTrigger("NotSelected");
+                player1_pole2.SetTrigger("NotSelected");
+                player1_pole3.SetTrigger("Selected");
+                player1_pole4.SetTrigger("NotSelected");
                 break;
             case 3:
                 ResetConditionAnimations();
                 pointer4.SetActive(true);
-                //player1_pole1.SetTrigger("NotSelected");
-                //player1_pole2.SetTrigger("NotSelected");
-                //player1_pole3.SetTrigger("NotSelected");
-                //player1_pole4.SetTrigger("Selected");
+                player1_pole1.SetTrigger("NotSelected");
+                player1_pole2.SetTrigger("NotSelected");
+                player1_pole3.SetTrigger("NotSelected");
+                player1_pole4.SetTrigger("Selected");
                 break;
         }
     }
 
     void ResetConditionAnimations()
     {
-        //player1_pole1.ResetTrigger("Selected");
-        //player1_pole2.ResetTrigger("Selected");
-        //player1_pole3.ResetTrigger("Selected");
-        //player1_pole4.ResetTrigger("Selected");
-        //
-        //player1_pole1.ResetTrigger("NotSelected");
-        //player1_pole2.ResetTrigger("NotSelected");
-        //player1_pole3.ResetTrigger("NotSelected");
-        //player1_pole4.ResetTrigger("NotSelected");
+        player1_pole1.ResetTrigger("Selected");
+        player1_pole2.ResetTrigger("Selected");
+        player1_pole3.ResetTrigger("Selected");
+        player1_pole4.ResetTrigger("Selected");
+        
+        player1_pole1.ResetTrigger("NotSelected");
+        player1_pole2.ResetTrigger("NotSelected");
+        player1_pole3.ResetTrigger("NotSelected");
+        player1_pole4.ResetTrigger("NotSelected");
         
         // Pointers
         pointer1.SetActive(false);
