@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -41,6 +42,12 @@ public class PlayerController : MonoBehaviour
     public GameObject pointer2;
     public GameObject pointer3;
     public GameObject pointer4;
+    
+    public Text TextCooldownAbility1;
+    public Text TextCooldownAbility2;
+    public Text TextCooldownAbility3;
+    public Text TextCooldownAbility4;
+    
 
     // Ability Cards move speed;
     public float characterVelocity = 750f;
