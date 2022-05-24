@@ -1,17 +1,35 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using TMPro;
 
-public class Keyboard : MonoBehaviour
+
+public class UsernameManager : MonoBehaviour
 {
    public Text displayedText;
    public string KeyboardInput;
+
+   [SerializeField] private MainCharacterManager mainCharacterManager;
+   [SerializeField] private MainCharacterCreator mainCharacterCreator;
+
+   [Header("Panels")]
+   [SerializeField] private GameObject panelUsername;
+   [SerializeField] private GameObject panelSkinSettings;
+   [SerializeField] private GameObject panelConfirm;
+   // Elements
+   [SerializeField] private GameObject keyboard;
    
-   [SerializeField] private bool shiftButtonActive = false;
+   [Header("Buttons")]
+   [SerializeField] private GameObject buttonDecline;
+   [SerializeField] private GameObject buttonFirstKeyboard;
+   [SerializeField] private GameObject buttonFirstSkinSettings;
    
-   // Alphabet
+   [Header("Cameras")]
+   [SerializeField] private GameObject cameraUsername;
+   [SerializeField] private GameObject cameraSkinSettings;
+   
+   [Header("Alphabet Texts")]
    [SerializeField] private Text textButtonA;
    [SerializeField] private Text textButtonB;
    [SerializeField] private Text textButtonC;
@@ -56,6 +74,8 @@ public class Keyboard : MonoBehaviour
    
    [SerializeField] private Text textButtonBindestrich;
    [SerializeField] private Text textButtonDollar;
+   
+   [SerializeField] private bool shiftButtonActive = false;
 
    private void Update()
    {
@@ -155,6 +175,47 @@ public class Keyboard : MonoBehaviour
       }
    }
 
+   #region other Keys
+   // Special Buttons
+   public void ButtonShift()
+   {
+      if (shiftButtonActive)
+      {
+         shiftButtonActive = false;
+      }
+      else
+      {
+         shiftButtonActive = true;
+      }
+   }
+   public void ButtonEnter()
+   {
+      // open confirm window first
+      keyboard.SetActive(false);
+      panelConfirm.SetActive(true);
+      EventSystem.current.SetSelectedGameObject(buttonDecline);
+   }
+   
+   public void ButtonDelete()
+   {
+      KeyboardInput = "";
+   }
+   public void ButtonSpace()
+   {
+      KeyboardInput += " ";
+   }
+   public void ButtonBindestrich()
+   {
+      if (shiftButtonActive == false)
+         KeyboardInput += "-";
+      else
+      {
+         KeyboardInput += "_";
+         shiftButtonActive = false;
+      }
+   }
+   #endregion
+   
    #region Alphabet
    // Alphabet
    public void ButtonA()
@@ -461,41 +522,7 @@ public class Keyboard : MonoBehaviour
    }
    #endregion
    
-   #region Numbers and other buttons
-   // Special Buttons
-   public void ButtonShift()
-   {
-      if (shiftButtonActive)
-      {
-         shiftButtonActive = false;
-      }
-      else
-      {
-         shiftButtonActive = true;
-      }
-   }
-   public void ButtonEnter()
-   {
-      
-   }
-   public void ButtonDelete()
-   {
-      KeyboardInput = "";
-   }
-   public void ButtonSpace()
-   {
-      KeyboardInput += " ";
-   }
-   public void ButtonBindestrich()
-   {
-      if (shiftButtonActive == false)
-         KeyboardInput += "-";
-      else
-      {
-         KeyboardInput += "_";
-         shiftButtonActive = false;
-      }
-   }
+   #region Numbers
    
    // Numbers
    public void Button1()
@@ -599,4 +626,25 @@ public class Keyboard : MonoBehaviour
       }
    }
    #endregion
+   
+   // Confirm Methods
+   public void ConfirmName()
+   {
+      // gives the player the new name
+      mainCharacterManager.PlayerName = KeyboardInput;
+      mainCharacterCreator.ChoosedPlayerName.text = KeyboardInput;
+      // switch panels
+      panelUsername.SetActive(false);
+      panelSkinSettings.SetActive(true);
+      EventSystem.current.SetSelectedGameObject(buttonFirstSkinSettings);
+      // change cameras
+      cameraUsername.SetActive(false);
+      cameraSkinSettings.SetActive(true);
+   }
+   public void DeclineName()
+   {
+      keyboard.SetActive(true);
+      panelConfirm.SetActive(false);
+      EventSystem.current.SetSelectedGameObject(buttonFirstKeyboard);
+   }
 }
