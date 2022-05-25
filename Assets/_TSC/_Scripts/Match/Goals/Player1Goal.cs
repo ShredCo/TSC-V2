@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,11 +12,15 @@ public class Player1Goal : MonoBehaviour
 
     // VFX
     [SerializeField] private GameObject explosionGoal1;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {
+            // changes the camera
+            CinemachineSwitcher.Instance.SwitchCameraGoal1();
+            
+            // checks win condition and respawns new ball
             if (GameManagerClash.Instance.ScorePlayer2 < 5)
             {
                 StartCoroutine(SpawnNewBall());
@@ -39,6 +44,7 @@ public class Player1Goal : MonoBehaviour
         explosionGoal1.SetActive(true);
         yield return new WaitForSeconds(2f);
         explosionGoal1.SetActive(false);
+        
         
         // Spawns a new ball
         yield return new WaitForSeconds(1f);
