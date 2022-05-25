@@ -12,11 +12,7 @@ public class RotatingPlatform : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
-        if (!cameraSkinSettings.active)
-        {
-            Debug.Log("skin settings camera off");
-        }
-        else
+        if (cameraSkinSettings.active)
         {
             transform.Rotate(0, rotationValue.x, 0 * Time.deltaTime);
         }

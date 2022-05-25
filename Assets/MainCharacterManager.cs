@@ -9,4 +9,6 @@ public class MainCharacterManager : MonoBehaviour
     
     // Skin
     
+    
+    
 }
