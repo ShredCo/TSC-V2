@@ -51,6 +51,14 @@ public class MainCharacterCreator : MonoBehaviour
     [SerializeField] private List<GameObject> lowerBodyFemale;
     [SerializeField] private int currentLowerBodyMaleIndex;
     [SerializeField] private int currentLowerBodyFemaleIndex;
+    
+    [Header("Legs")]
+    [SerializeField] private List<GameObject> leftLegMale;
+    [SerializeField] private List<GameObject> rightLegMale;
+    [SerializeField] private List<GameObject> leftLegFemale;
+    [SerializeField] private List<GameObject> rightLegFemale;
+    [SerializeField] private int currentLegsMaleIndex;
+    [SerializeField] private int currentLegsFemaleIndex;
 
 
     public enum Gender { Male, Female }
@@ -376,6 +384,64 @@ public class MainCharacterCreator : MonoBehaviour
                 currentLowerBodyFemaleIndex -= 1;
                 lowerBodyFemale[currentLowerBodyFemaleIndex].SetActive(true);
                 textCurrentIndex.text = currentLowerBodyFemaleIndex.ToString();
+            }
+        }
+    }
+    #endregion
+    
+    #region Methods -> Legs
+    public void IndexLegsUp()
+    {
+        if (maleBody.active)
+        {
+            if (currentLegsMaleIndex < leftLegMale.Count - 1)
+            {
+                leftLegMale[currentLegsMaleIndex].SetActive(false);
+                rightLegMale[currentLegsMaleIndex].SetActive(false);
+                currentLegsMaleIndex += 1;
+                leftLegMale[currentLegsMaleIndex].SetActive(true);
+                rightLegMale[currentLegsMaleIndex].SetActive(true);
+                textCurrentIndex.text = currentLegsMaleIndex.ToString();
+            }
+        }
+        else if (femaleBody.active)
+        {
+            if (currentLegsFemaleIndex < leftLegFemale.Count - 1)
+            {
+                leftLegFemale[currentLegsFemaleIndex].SetActive(false);
+                rightLegFemale[currentLegsFemaleIndex].SetActive(false);
+                currentLegsFemaleIndex += 1;
+                leftLegFemale[currentLegsFemaleIndex].SetActive(true);
+                rightLegFemale[currentLegsFemaleIndex].SetActive(true);
+                textCurrentIndex.text = currentLegsFemaleIndex.ToString();
+            }
+        }
+        
+    }
+    public void IndexLegsDown()
+    {
+        if (maleBody.active)
+        {
+            if (currentLegsMaleIndex > 0)
+            {
+                leftLegMale[currentLegsMaleIndex].SetActive(false);
+                rightLegMale[currentLegsMaleIndex].SetActive(false);
+                currentLegsMaleIndex -= 1;
+                leftLegMale[currentLegsMaleIndex].SetActive(true);
+                rightLegMale[currentLegsMaleIndex].SetActive(true);
+                textCurrentIndex.text = currentLegsMaleIndex.ToString();
+            }
+        }
+        else if (femaleBody.active)
+        {
+            if (currentLegsFemaleIndex > 0)
+            {
+                leftLegFemale[currentLegsFemaleIndex].SetActive(false);
+                rightLegFemale[currentLegsFemaleIndex].SetActive(false);
+                currentLegsFemaleIndex -= 1;
+                leftLegFemale[currentLegsFemaleIndex].SetActive(true);
+                rightLegFemale[currentLegsFemaleIndex].SetActive(true);
+                textCurrentIndex.text = currentLegsFemaleIndex.ToString();
             }
         }
     }
