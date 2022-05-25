@@ -8,18 +8,34 @@ public class MainCharacterCreator : MonoBehaviour
 {
     public Text ChoosedPlayerName;
     [SerializeField] private Text textCurrentIndex;
+    [SerializeField] private Text textCurrentBodypart;
     [SerializeField] private MainCharacterManager mainCharacterManager;
-    [SerializeField] [Range(0,10)] private int currentItemIndex;
+    
+    [Header("Bodyparts")]
+    [SerializeField] private List<GameObject> bodyparts;
+    [SerializeField] private int currentBodypartIndex;
     
     [Header("Gender")]
     [SerializeField] private GameObject maleBody;
     [SerializeField] private GameObject femaleBody;
     private Gender gender;
     
+    [Header("Hair")]
+    [SerializeField] private List<GameObject> hairtypes;
+    [SerializeField] private int currentHairIndex;
     
+    [Header("Heads")]
+    [SerializeField] private List<GameObject> headsMale;
+    [SerializeField] private List<GameObject> headsFemale;
+    [SerializeField] private int currentHeadsMaleIndex;
+    [SerializeField] private int currentHeadsFemaleIndex;
     
+    [Header("Eyebrows")]
+    [SerializeField] private List<GameObject> eyebrowsMale;
+    [SerializeField] private List<GameObject> eyebrowsFemale;
+    [SerializeField] private int currentEyebrowsMaleIndex;
+    [SerializeField] private int currentEyebrowsFemaleIndex;
     
-    public List<GameObject> headgear;
     
     public enum Gender { Male, Female }
     public enum Race { Human, Elf }
@@ -58,35 +74,165 @@ public class MainCharacterCreator : MonoBehaviour
 
     
     
-    public void IndexUp()
+    #region Methods -> Back / Use
+    public void Use()
     {
-        if (currentItemIndex < 10)
+        if (currentBodypartIndex < bodyparts.Count - 1)
         {
-            currentItemIndex += 1;
-            textCurrentIndex.text = currentItemIndex.ToString();
+            bodyparts[currentBodypartIndex].SetActive(false);
+            currentBodypartIndex += 1;
+            bodyparts[currentBodypartIndex].SetActive(true);
+            textCurrentBodypart.text = bodyparts[currentBodypartIndex].name.ToString();
         }
     }
-
-    public void IndexDown()
+    public void Back()
     {
-        if (currentItemIndex > 0)
+        if (currentBodypartIndex > 0)
         {
-            currentItemIndex -= 1;
-            textCurrentIndex.text = currentItemIndex.ToString();
+            bodyparts[currentBodypartIndex].SetActive(false);
+            currentBodypartIndex -= 1;
+            bodyparts[currentBodypartIndex].SetActive(true);
+            textCurrentBodypart.text = bodyparts[currentBodypartIndex].name.ToString();
         }
     }
+   
+    #endregion
 
+    #region Methods -> Gender
     public void ChooseMale()
     {
         gender = Gender.Male;
         maleBody.SetActive(true);
         femaleBody.SetActive(false);
     }
-
     public void ChooseFemale()
     {
         gender = Gender.Female;
         maleBody.SetActive(false);
         femaleBody.SetActive(true);
     }
+    #endregion
+    
+    #region Methods -> Hairs
+    public void IndexHairUp()
+    {
+        if (currentHairIndex < hairtypes.Count - 1)
+        {
+            hairtypes[currentHairIndex].SetActive(false);
+            currentHairIndex += 1;
+            hairtypes[currentHairIndex].SetActive(true);
+            textCurrentIndex.text = currentHairIndex.ToString();
+        }
+    }
+    public void IndexHairDown()
+    {
+        if (currentHairIndex > 0)
+        {
+            hairtypes[currentHairIndex].SetActive(false);
+            currentHairIndex -= 1;
+            hairtypes[currentHairIndex].SetActive(true);
+            textCurrentIndex.text = currentHairIndex.ToString();
+        }
+    }
+    #endregion
+    
+    #region Methods -> Heads
+    public void IndexHeadsUp()
+    {
+        if (maleBody.active)
+        {
+            if (currentHeadsMaleIndex < headsMale.Count - 1)
+            {
+                headsMale[currentHeadsMaleIndex].SetActive(false);
+                currentHeadsMaleIndex += 1;
+                headsMale[currentHeadsMaleIndex].SetActive(true);
+                textCurrentIndex.text = currentHeadsMaleIndex.ToString();
+            }
+        }
+        else if (femaleBody.active)
+        {
+            if (currentHeadsFemaleIndex < headsFemale.Count - 1)
+            {
+                headsFemale[currentHeadsFemaleIndex].SetActive(false);
+                currentHeadsFemaleIndex += 1;
+                headsFemale[currentHeadsFemaleIndex].SetActive(true);
+                textCurrentIndex.text = currentHeadsFemaleIndex.ToString();
+            }
+        }
+        
+    }
+    public void IndexHeadsDown()
+    {
+        if (maleBody.active)
+        {
+            if (currentHeadsMaleIndex > 0)
+            {
+                headsMale[currentHeadsMaleIndex].SetActive(false);
+                currentHeadsMaleIndex -= 1;
+                headsMale[currentHeadsMaleIndex].SetActive(true);
+                textCurrentIndex.text = currentHeadsMaleIndex.ToString();
+            }
+        }
+        else if (femaleBody.active)
+        {
+            if (currentHeadsFemaleIndex > 0)
+            {
+                headsFemale[currentHeadsFemaleIndex].SetActive(false);
+                currentHeadsFemaleIndex -= 1;
+                headsFemale[currentHeadsFemaleIndex].SetActive(true);
+                textCurrentIndex.text = currentHeadsFemaleIndex.ToString();
+            }
+        }
+    }
+    #endregion
+    
+    #region Methods -> Eyebrows
+    public void IndexEyebrowsUp()
+    {
+        if (maleBody.active)
+        {
+            if (currentEyebrowsMaleIndex < eyebrowsMale.Count - 1)
+            {
+                eyebrowsMale[currentEyebrowsMaleIndex].SetActive(false);
+                currentEyebrowsMaleIndex += 1;
+                eyebrowsMale[currentEyebrowsMaleIndex].SetActive(true);
+                textCurrentIndex.text = currentEyebrowsMaleIndex.ToString();
+            }
+        }
+        else if (femaleBody.active)
+        {
+            if (currentEyebrowsFemaleIndex < eyebrowsFemale.Count - 1)
+            {
+                eyebrowsFemale[currentEyebrowsFemaleIndex].SetActive(false);
+                currentEyebrowsFemaleIndex += 1;
+                eyebrowsFemale[currentEyebrowsFemaleIndex].SetActive(true);
+                textCurrentIndex.text = currentEyebrowsFemaleIndex.ToString();
+            }
+        }
+        
+    }
+    public void IndexEyebrowsDown()
+    {
+        if (maleBody.active)
+        {
+            if (currentEyebrowsMaleIndex > 0)
+            {
+                eyebrowsMale[currentEyebrowsMaleIndex].SetActive(false);
+                currentEyebrowsMaleIndex -= 1;
+                eyebrowsMale[currentEyebrowsMaleIndex].SetActive(true);
+                textCurrentIndex.text = currentEyebrowsMaleIndex.ToString();
+            }
+        }
+        else if (femaleBody.active)
+        {
+            if (currentEyebrowsFemaleIndex > 0)
+            {
+                eyebrowsFemale[currentEyebrowsFemaleIndex].SetActive(false);
+                currentEyebrowsFemaleIndex -= 1;
+                eyebrowsFemale[currentEyebrowsFemaleIndex].SetActive(true);
+                textCurrentIndex.text = currentEyebrowsFemaleIndex.ToString();
+            }
+        }
+    }
+    #endregion
 }
