@@ -957,6 +957,56 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""SkinSettings"",
+            ""id"": ""0b8629fb-b6ba-4e6a-987d-c639aa73e112"",
+            ""actions"": [
+                {
+                    ""name"": ""RotateViewSkin"",
+                    ""type"": ""Value"",
+                    ""id"": ""fa83ad7f-389a-4bf7-9c69-9010bd988260"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Rotate"",
+                    ""id"": ""13f35c18-b616-4dfd-a45d-fb3d11852401"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone(min=0.07)"",
+                    ""groups"": """",
+                    ""action"": ""RotateViewSkin"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""83704776-269d-4bc4-b78b-00e11ea76f57"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""RotateViewSkin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6eb62f97-7f25-4f86-8ac2-afe20c094388"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""RotateViewSkin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1018,6 +1068,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_TestPlayer_Movement = m_TestPlayer.FindAction("Movement", throwIfNotFound: true);
         m_TestPlayer_Rotation = m_TestPlayer.FindAction("Rotation", throwIfNotFound: true);
         m_TestPlayer_OpenInventory = m_TestPlayer.FindAction("OpenInventory", throwIfNotFound: true);
+        // SkinSettings
+        m_SkinSettings = asset.FindActionMap("SkinSettings", throwIfNotFound: true);
+        m_SkinSettings_RotateViewSkin = m_SkinSettings.FindAction("RotateViewSkin", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1332,6 +1385,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public TestPlayerActions @TestPlayer => new TestPlayerActions(this);
+
+    // SkinSettings
+    private readonly InputActionMap m_SkinSettings;
+    private ISkinSettingsActions m_SkinSettingsActionsCallbackInterface;
+    private readonly InputAction m_SkinSettings_RotateViewSkin;
+    public struct SkinSettingsActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public SkinSettingsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @RotateViewSkin => m_Wrapper.m_SkinSettings_RotateViewSkin;
+        public InputActionMap Get() { return m_Wrapper.m_SkinSettings; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SkinSettingsActions set) { return set.Get(); }
+        public void SetCallbacks(ISkinSettingsActions instance)
+        {
+            if (m_Wrapper.m_SkinSettingsActionsCallbackInterface != null)
+            {
+                @RotateViewSkin.started -= m_Wrapper.m_SkinSettingsActionsCallbackInterface.OnRotateViewSkin;
+                @RotateViewSkin.performed -= m_Wrapper.m_SkinSettingsActionsCallbackInterface.OnRotateViewSkin;
+                @RotateViewSkin.canceled -= m_Wrapper.m_SkinSettingsActionsCallbackInterface.OnRotateViewSkin;
+            }
+            m_Wrapper.m_SkinSettingsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @RotateViewSkin.started += instance.OnRotateViewSkin;
+                @RotateViewSkin.performed += instance.OnRotateViewSkin;
+                @RotateViewSkin.canceled += instance.OnRotateViewSkin;
+            }
+        }
+    }
+    public SkinSettingsActions @SkinSettings => new SkinSettingsActions(this);
     private int m_Player1SchemeIndex = -1;
     public InputControlScheme Player1Scheme
     {
@@ -1381,5 +1467,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
+    }
+    public interface ISkinSettingsActions
+    {
+        void OnRotateViewSkin(InputAction.CallbackContext context);
     }
 }
