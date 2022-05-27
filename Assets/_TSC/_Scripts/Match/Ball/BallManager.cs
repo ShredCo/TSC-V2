@@ -34,9 +34,10 @@ public class BallManager : MonoBehaviour
     
     public bool BallInGame = false;
     [SerializeField] private Vector3 startPos;
-
+    private float damageAmount = 0.25f;
     private void Update()
     {
+        
         if (BallInGame == false)
         {
             spawnBallIcon.SetActive(true);
@@ -102,37 +103,37 @@ public class BallManager : MonoBehaviour
             case LastPlayerHit.Player:
                 if (other.CompareTag("AIMain"))
                 {
-                    poleHealth.ConditionAIPole1 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionAIPole1 -= GetComponent<Rigidbody>().velocity.magnitude * damageAmount;
                 }
                 else if (other.CompareTag("AICrew1"))
                 {
-                    poleHealth.ConditionAIPole2 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionAIPole2 -= GetComponent<Rigidbody>().velocity.magnitude * damageAmount;
                 }
                 else if (other.CompareTag("AICrew2"))
                 {
-                    poleHealth.ConditionAIPole3 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionAIPole3 -= GetComponent<Rigidbody>().velocity.magnitude * damageAmount;
                 }
                 else if (other.CompareTag("AICrew3"))
                 {
-                    poleHealth.ConditionAIPole4 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionAIPole4 -= GetComponent<Rigidbody>().velocity.magnitude * damageAmount;
                 }
                 break;
             case LastPlayerHit.AI:
                 if (other.CompareTag("PlayerMain"))
                 {
-                    poleHealth.ConditionPole1 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionPole1 -= GetComponent<Rigidbody>().velocity.magnitude * damageAmount;
                 }
                 else if (other.CompareTag("PlayerCrew1"))
                 {
-                    poleHealth.ConditionPole2 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionPole2 -= GetComponent<Rigidbody>().velocity.magnitude * damageAmount;
                 }
                 else if (other.CompareTag("PlayerCrew2"))
                 {
-                    poleHealth.ConditionPole3 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionPole3 -= GetComponent<Rigidbody>().velocity.magnitude * damageAmount;
                 }
                 else if (other.CompareTag("PlayerCrew3"))
                 {
-                    poleHealth.ConditionPole4 -= GetComponent<Rigidbody>().velocity.magnitude;
+                    poleHealth.ConditionPole4 -= GetComponent<Rigidbody>().velocity.magnitude * damageAmount;
                 }
                 break;
             default:
