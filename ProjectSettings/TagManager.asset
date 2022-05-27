@@ -40,8 +40,8 @@ TagManager:
   - Ball
   - Enemy
   - Player
-  - 
-  - 
+  - CameraGoal1
+  - CameraGoal2
   - 
   - 
   - 

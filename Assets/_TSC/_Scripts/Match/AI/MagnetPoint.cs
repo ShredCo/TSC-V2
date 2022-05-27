@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MagnetPoint : MonoBehaviour
 {
-    private float forceFactor = 70;
+    private float forceFactor = 5000;
 
     // A list because maybe we will add multiple balls during one game in the future.
     List<Rigidbody> rgdBalls = new List<Rigidbody>();

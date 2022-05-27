@@ -50,7 +50,7 @@ public class CinemachineSwitcher : MonoBehaviour
         if (soccerfieldCamera)
         {
             animator.Play("CameraGoal1");
-            Debug.Log("Activate Camera Goal 1");
+            Debug.Log("Activate CameraGoal1");
         }
         else
         {

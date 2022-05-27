@@ -12,8 +12,6 @@ public class BallManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-
-        startPos = new Vector3(0f, 0.42f, -0.837f); // position of the GameObject the script is placed on
         StartCoroutine(SpawnFirstBall());
     }
     #endregion
@@ -35,7 +33,7 @@ public class BallManager : MonoBehaviour
     [SerializeField] private GameObject spawnBallIcon;
     
     public bool BallInGame = false;
-    private Vector3 startPos;
+    [SerializeField] private Vector3 startPos;
 
     private void Update()
     {
@@ -61,7 +59,7 @@ public class BallManager : MonoBehaviour
         }
 
         // TODO: Can be commented out when publishing the game (but needed for easier development).
-        //SpawnSoccerBall();
+        SpawnSoccerBall();
     }
     public void SpawnSoccerBall()
     {
