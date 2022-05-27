@@ -64,7 +64,9 @@ public class BallManager : MonoBehaviour
     }
     public void SpawnSoccerBall()
     {
+        ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         ball.transform.position = startPos;
+        ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         BallInGame = true;
     }
     public IEnumerator SpawnFirstBall()
