@@ -173,6 +173,20 @@ public class PlayerController : MonoBehaviour
         movementPoleInput.y *= PolesPlayer.Instance.MoveSpeed;
     }
 
+    public void LowerSensitivity(InputAction.CallbackContext context)
+    {
+        // When this action is performed it will decrease the sensitivity while west button is holded
+        // This allows the player to get more controll over their poles.
+        if(context.performed)
+        {
+            PolesPlayer.Instance.RotationSpeed = PolesPlayer.Instance.LowSensitivityRotationSpeed;
+        }
+        else if(context.canceled)
+        {
+            PolesPlayer.Instance.RotationSpeed = PolesPlayer.Instance.DefaultRotationSpeed;
+        }
+    }
+    
     #endregion
 
     #region Input System -> Gets the input for switching poles and switches special card spawns

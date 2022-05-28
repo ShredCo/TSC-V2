@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LowerSensitivity",
+                    "type": "Button",
+                    "id": "173e2817-2f2d-4b2a-93f1-bfc3e69bbfd4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -281,6 +290,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RespawnBall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e72753e4-c23f-46b4-9bc7-aeadb048893c",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LowerSensitivity",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

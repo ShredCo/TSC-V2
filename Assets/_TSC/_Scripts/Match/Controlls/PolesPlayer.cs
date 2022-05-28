@@ -14,9 +14,11 @@ public class PolesPlayer : MonoBehaviour
     #endregion
 
     [Header("Movement")]
-    public float RotationSpeed = 1500.0f;
-    public float MoveSpeed = 2000f;
-    
+    public float RotationSpeed;
+    public float MoveSpeed;
+    public float DefaultRotationSpeed;
+    public float LowSensitivityRotationSpeed;
+
     [Header("Ability")]
     public int Pole;
     public Ability Ability;
@@ -30,7 +32,7 @@ public class PolesPlayer : MonoBehaviour
     private void Start()
     {
         GetAbility();
-        
+        RotationSpeed = DefaultRotationSpeed;
     }
 
     #region Methods -> Movement Poles

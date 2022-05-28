@@ -116,6 +116,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LowerSensitivity"",
+                    ""type"": ""Button"",
+                    ""id"": ""173e2817-2f2d-4b2a-93f1-bfc3e69bbfd4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -303,6 +312,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RespawnBall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e72753e4-c23f-46b4-9bc7-aeadb048893c"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LowerSensitivity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1051,6 +1071,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_SoccerMatchControlls_SpecialCard = m_SoccerMatchControlls.FindAction("SpecialCard", throwIfNotFound: true);
         m_SoccerMatchControlls_Ability = m_SoccerMatchControlls.FindAction("Ability", throwIfNotFound: true);
         m_SoccerMatchControlls_RespawnBall = m_SoccerMatchControlls.FindAction("RespawnBall", throwIfNotFound: true);
+        m_SoccerMatchControlls_LowerSensitivity = m_SoccerMatchControlls.FindAction("LowerSensitivity", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1140,6 +1161,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_SoccerMatchControlls_SpecialCard;
     private readonly InputAction m_SoccerMatchControlls_Ability;
     private readonly InputAction m_SoccerMatchControlls_RespawnBall;
+    private readonly InputAction m_SoccerMatchControlls_LowerSensitivity;
     public struct SoccerMatchControllsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1154,6 +1176,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @SpecialCard => m_Wrapper.m_SoccerMatchControlls_SpecialCard;
         public InputAction @Ability => m_Wrapper.m_SoccerMatchControlls_Ability;
         public InputAction @RespawnBall => m_Wrapper.m_SoccerMatchControlls_RespawnBall;
+        public InputAction @LowerSensitivity => m_Wrapper.m_SoccerMatchControlls_LowerSensitivity;
         public InputActionMap Get() { return m_Wrapper.m_SoccerMatchControlls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1193,6 +1216,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @RespawnBall.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRespawnBall;
                 @RespawnBall.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRespawnBall;
                 @RespawnBall.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnRespawnBall;
+                @LowerSensitivity.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnLowerSensitivity;
+                @LowerSensitivity.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnLowerSensitivity;
+                @LowerSensitivity.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnLowerSensitivity;
             }
             m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1227,6 +1253,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @RespawnBall.started += instance.OnRespawnBall;
                 @RespawnBall.performed += instance.OnRespawnBall;
                 @RespawnBall.canceled += instance.OnRespawnBall;
+                @LowerSensitivity.started += instance.OnLowerSensitivity;
+                @LowerSensitivity.performed += instance.OnLowerSensitivity;
+                @LowerSensitivity.canceled += instance.OnLowerSensitivity;
             }
         }
     }
@@ -1448,6 +1477,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnSpecialCard(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
         void OnRespawnBall(InputAction.CallbackContext context);
+        void OnLowerSensitivity(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
