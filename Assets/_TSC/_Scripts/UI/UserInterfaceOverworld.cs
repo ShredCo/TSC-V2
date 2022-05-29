@@ -34,6 +34,7 @@ public class UserInterfaceOverworld : MonoBehaviour
     [SerializeField] private GameObject canvasInventory;
     [SerializeField] private GameObject canvasSettings;
     [SerializeField] private GameObject canvasHelpMenu;
+    [SerializeField] private GameObject poleConditionHUD;
     public GameObject CanvasDialoge;
     
     // Buttons
@@ -272,6 +273,7 @@ public class UserInterfaceOverworld : MonoBehaviour
         void Pause()
         {
             canvasPauseMenu.SetActive(true);
+            poleConditionHUD.SetActive(false);
             gamePaused = true;
             //Time.timeScale = 0f;
             EventSystem.current.SetSelectedGameObject(buttonResume);
@@ -291,6 +293,7 @@ public class UserInterfaceOverworld : MonoBehaviour
             canvasPauseMenu.SetActive(false);
             canvasInventory.SetActive(false);
             CanvasDialoge.SetActive(false);
+            poleConditionHUD.SetActive(true);
             gamePaused = false;
             Time.timeScale = 1f;
         }

@@ -28,9 +28,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ""id"": ""3e057471-fd5a-433b-b520-ed920eaacb4b"",
             ""actions"": [
                 {
-                    ""name"": ""MoveMainPole"",
+                    ""name"": ""MoveSelectedPole"",
                     ""type"": ""Value"",
                     ""id"": ""550ae3c5-7951-4d43-a9df-f7c11b3d2d9d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveUnselectedPoles"",
+                    ""type"": ""Value"",
+                    ""id"": ""3393570f-b2b9-4b9a-ad24-26dac5ff8eb3"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -73,9 +82,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PowerShot/ResetPole"",
+                    ""name"": ""ResetShotSelectedPole"",
                     ""type"": ""Button"",
                     ""id"": ""4bcbe821-795e-4f35-9cc7-f131a7e45630"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetShotUnselectedPoles"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2609d74-8b23-4f0b-9560-a05d7df13c76"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -135,7 +153,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone(min=0.07)"",
                     ""groups"": """",
-                    ""action"": ""MoveMainPole"",
+                    ""action"": ""MoveSelectedPole"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -146,7 +164,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""MoveMainPole"",
+                    ""action"": ""MoveSelectedPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -157,7 +175,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""MoveMainPole"",
+                    ""action"": ""MoveSelectedPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -168,7 +186,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""MoveMainPole"",
+                    ""action"": ""MoveSelectedPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -179,7 +197,29 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player1"",
-                    ""action"": ""MoveMainPole"",
+                    ""action"": ""MoveSelectedPole"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9976d0f0-0d9b-45f5-8a54-15d27db2cee8"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveSelectedPole"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""99077e70-26ac-4f88-9ed3-fcb1f0a002ac"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveSelectedPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -245,7 +285,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PowerShot/ResetPole"",
+                    ""action"": ""ResetShotSelectedPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -256,7 +296,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PowerShot/ResetPole"",
+                    ""action"": ""ResetShotSelectedPole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -323,6 +363,72 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LowerSensitivity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Move&Rotation"",
+                    ""id"": ""7cc17947-958a-43c8-b40b-cd5cf09afe20"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone(min=0.07)"",
+                    ""groups"": """",
+                    ""action"": ""MoveUnselectedPoles"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""92cad69a-d250-48e4-8168-b8631fdd8ca6"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveUnselectedPoles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""d0a5509d-19a4-413a-8279-3bf5e7227c7b"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveUnselectedPoles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a1ac45e5-9657-42b4-950e-cc0406094958"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveUnselectedPoles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7a1b13b8-1c50-4f0c-8412-e3be14152808"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1"",
+                    ""action"": ""MoveUnselectedPoles"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccec98f3-6831-4daf-95c0-2080752ee367"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetShotUnselectedPoles"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1061,12 +1167,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
 }");
         // SoccerMatchControlls
         m_SoccerMatchControlls = asset.FindActionMap("SoccerMatchControlls", throwIfNotFound: true);
-        m_SoccerMatchControlls_MoveMainPole = m_SoccerMatchControlls.FindAction("MoveMainPole", throwIfNotFound: true);
+        m_SoccerMatchControlls_MoveSelectedPole = m_SoccerMatchControlls.FindAction("MoveSelectedPole", throwIfNotFound: true);
+        m_SoccerMatchControlls_MoveUnselectedPoles = m_SoccerMatchControlls.FindAction("MoveUnselectedPoles", throwIfNotFound: true);
         m_SoccerMatchControlls_MoveAbility = m_SoccerMatchControlls.FindAction("MoveAbility", throwIfNotFound: true);
         m_SoccerMatchControlls_RotateWindAbility = m_SoccerMatchControlls.FindAction("RotateWindAbility", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesUp = m_SoccerMatchControlls.FindAction("PolesUp", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesDown = m_SoccerMatchControlls.FindAction("PolesDown", throwIfNotFound: true);
-        m_SoccerMatchControlls_PowerShotResetPole = m_SoccerMatchControlls.FindAction("PowerShot/ResetPole", throwIfNotFound: true);
+        m_SoccerMatchControlls_ResetShotSelectedPole = m_SoccerMatchControlls.FindAction("ResetShotSelectedPole", throwIfNotFound: true);
+        m_SoccerMatchControlls_ResetShotUnselectedPoles = m_SoccerMatchControlls.FindAction("ResetShotUnselectedPoles", throwIfNotFound: true);
         m_SoccerMatchControlls_Pause = m_SoccerMatchControlls.FindAction("Pause", throwIfNotFound: true);
         m_SoccerMatchControlls_SpecialCard = m_SoccerMatchControlls.FindAction("SpecialCard", throwIfNotFound: true);
         m_SoccerMatchControlls_Ability = m_SoccerMatchControlls.FindAction("Ability", throwIfNotFound: true);
@@ -1151,12 +1259,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     // SoccerMatchControlls
     private readonly InputActionMap m_SoccerMatchControlls;
     private ISoccerMatchControllsActions m_SoccerMatchControllsActionsCallbackInterface;
-    private readonly InputAction m_SoccerMatchControlls_MoveMainPole;
+    private readonly InputAction m_SoccerMatchControlls_MoveSelectedPole;
+    private readonly InputAction m_SoccerMatchControlls_MoveUnselectedPoles;
     private readonly InputAction m_SoccerMatchControlls_MoveAbility;
     private readonly InputAction m_SoccerMatchControlls_RotateWindAbility;
     private readonly InputAction m_SoccerMatchControlls_PolesUp;
     private readonly InputAction m_SoccerMatchControlls_PolesDown;
-    private readonly InputAction m_SoccerMatchControlls_PowerShotResetPole;
+    private readonly InputAction m_SoccerMatchControlls_ResetShotSelectedPole;
+    private readonly InputAction m_SoccerMatchControlls_ResetShotUnselectedPoles;
     private readonly InputAction m_SoccerMatchControlls_Pause;
     private readonly InputAction m_SoccerMatchControlls_SpecialCard;
     private readonly InputAction m_SoccerMatchControlls_Ability;
@@ -1166,12 +1276,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         private @PlayerInputActions m_Wrapper;
         public SoccerMatchControllsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MoveMainPole => m_Wrapper.m_SoccerMatchControlls_MoveMainPole;
+        public InputAction @MoveSelectedPole => m_Wrapper.m_SoccerMatchControlls_MoveSelectedPole;
+        public InputAction @MoveUnselectedPoles => m_Wrapper.m_SoccerMatchControlls_MoveUnselectedPoles;
         public InputAction @MoveAbility => m_Wrapper.m_SoccerMatchControlls_MoveAbility;
         public InputAction @RotateWindAbility => m_Wrapper.m_SoccerMatchControlls_RotateWindAbility;
         public InputAction @PolesUp => m_Wrapper.m_SoccerMatchControlls_PolesUp;
         public InputAction @PolesDown => m_Wrapper.m_SoccerMatchControlls_PolesDown;
-        public InputAction @PowerShotResetPole => m_Wrapper.m_SoccerMatchControlls_PowerShotResetPole;
+        public InputAction @ResetShotSelectedPole => m_Wrapper.m_SoccerMatchControlls_ResetShotSelectedPole;
+        public InputAction @ResetShotUnselectedPoles => m_Wrapper.m_SoccerMatchControlls_ResetShotUnselectedPoles;
         public InputAction @Pause => m_Wrapper.m_SoccerMatchControlls_Pause;
         public InputAction @SpecialCard => m_Wrapper.m_SoccerMatchControlls_SpecialCard;
         public InputAction @Ability => m_Wrapper.m_SoccerMatchControlls_Ability;
@@ -1186,9 +1298,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface != null)
             {
-                @MoveMainPole.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveMainPole;
-                @MoveMainPole.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveMainPole;
-                @MoveMainPole.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveMainPole;
+                @MoveSelectedPole.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveSelectedPole;
+                @MoveSelectedPole.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveSelectedPole;
+                @MoveSelectedPole.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveSelectedPole;
+                @MoveUnselectedPoles.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveUnselectedPoles;
+                @MoveUnselectedPoles.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveUnselectedPoles;
+                @MoveUnselectedPoles.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveUnselectedPoles;
                 @MoveAbility.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveAbility;
                 @MoveAbility.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveAbility;
                 @MoveAbility.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnMoveAbility;
@@ -1201,9 +1316,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @PolesDown.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
                 @PolesDown.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
                 @PolesDown.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
-                @PowerShotResetPole.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPowerShotResetPole;
-                @PowerShotResetPole.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPowerShotResetPole;
-                @PowerShotResetPole.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPowerShotResetPole;
+                @ResetShotSelectedPole.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotSelectedPole;
+                @ResetShotSelectedPole.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotSelectedPole;
+                @ResetShotSelectedPole.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotSelectedPole;
+                @ResetShotUnselectedPoles.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotUnselectedPoles;
+                @ResetShotUnselectedPoles.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotUnselectedPoles;
+                @ResetShotUnselectedPoles.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotUnselectedPoles;
                 @Pause.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
@@ -1223,9 +1341,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @MoveMainPole.started += instance.OnMoveMainPole;
-                @MoveMainPole.performed += instance.OnMoveMainPole;
-                @MoveMainPole.canceled += instance.OnMoveMainPole;
+                @MoveSelectedPole.started += instance.OnMoveSelectedPole;
+                @MoveSelectedPole.performed += instance.OnMoveSelectedPole;
+                @MoveSelectedPole.canceled += instance.OnMoveSelectedPole;
+                @MoveUnselectedPoles.started += instance.OnMoveUnselectedPoles;
+                @MoveUnselectedPoles.performed += instance.OnMoveUnselectedPoles;
+                @MoveUnselectedPoles.canceled += instance.OnMoveUnselectedPoles;
                 @MoveAbility.started += instance.OnMoveAbility;
                 @MoveAbility.performed += instance.OnMoveAbility;
                 @MoveAbility.canceled += instance.OnMoveAbility;
@@ -1238,9 +1359,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @PolesDown.started += instance.OnPolesDown;
                 @PolesDown.performed += instance.OnPolesDown;
                 @PolesDown.canceled += instance.OnPolesDown;
-                @PowerShotResetPole.started += instance.OnPowerShotResetPole;
-                @PowerShotResetPole.performed += instance.OnPowerShotResetPole;
-                @PowerShotResetPole.canceled += instance.OnPowerShotResetPole;
+                @ResetShotSelectedPole.started += instance.OnResetShotSelectedPole;
+                @ResetShotSelectedPole.performed += instance.OnResetShotSelectedPole;
+                @ResetShotSelectedPole.canceled += instance.OnResetShotSelectedPole;
+                @ResetShotUnselectedPoles.started += instance.OnResetShotUnselectedPoles;
+                @ResetShotUnselectedPoles.performed += instance.OnResetShotUnselectedPoles;
+                @ResetShotUnselectedPoles.canceled += instance.OnResetShotUnselectedPoles;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -1467,12 +1591,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     }
     public interface ISoccerMatchControllsActions
     {
-        void OnMoveMainPole(InputAction.CallbackContext context);
+        void OnMoveSelectedPole(InputAction.CallbackContext context);
+        void OnMoveUnselectedPoles(InputAction.CallbackContext context);
         void OnMoveAbility(InputAction.CallbackContext context);
         void OnRotateWindAbility(InputAction.CallbackContext context);
         void OnPolesUp(InputAction.CallbackContext context);
         void OnPolesDown(InputAction.CallbackContext context);
-        void OnPowerShotResetPole(InputAction.CallbackContext context);
+        void OnResetShotSelectedPole(InputAction.CallbackContext context);
+        void OnResetShotUnselectedPoles(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnSpecialCard(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);

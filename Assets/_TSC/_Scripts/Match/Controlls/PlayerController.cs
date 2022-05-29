@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
 
     #region Variables / References
     // Input System -> Input Values
-    private Vector2 movementPoleInput;
+    private Vector2 movementSelectedPoleInput;
+    private Vector2 movementUnselectedPolesInput;
     private Vector2 movementAbilityInput;
     private Vector2 rotationWindAbilityInput;
 
@@ -76,10 +77,18 @@ public class PlayerController : MonoBehaviour
 
                 poleMainAbilityPrefabVFX.transform.position = poleMainAbility.transform.position;
             }
-            else
+            else 
             {
-                polesPlayer[currentPoleIndex].MoveAndRotate(movementPoleInput * Time.deltaTime);
-                polesPlayer[currentPoleIndex].PoleLockedDown();
+                polesPlayer[currentPoleIndex].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndex].ResetShotSelectedPole();
+                
+                // Move unselected poles with right stick.
+                polesPlayer[1].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f * Time.deltaTime);
+                //polesPlayer[2].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f * Time.deltaTime);
+                //polesPlayer[3].MoveAndRotatePole(movementUnselectedPolesInput * 0.1f * Time.deltaTime);
+                polesPlayer[1].ResetShotUnselectedPoles();
+                //polesPlayer[2].ResetShotUnselectedPoles();
+                //polesPlayer[3].ResetShotUnselectedPoles();
             }
         }
         else if (currentPoleIndex == 1)
@@ -98,9 +107,19 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                polesPlayer[currentPoleIndex].MoveAndRotate(movementPoleInput * Time.deltaTime);
-                polesPlayer[currentPoleIndex].PoleLockedDown();
+                polesPlayer[currentPoleIndex].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndex].ResetShotSelectedPole();
+                
+                // Move unselected poles with right stick.
+                //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f  * Time.deltaTime);
+                polesPlayer[2].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f * Time.deltaTime);
+                //polesPlayer[3].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f  * Time.deltaTime);
+                //polesPlayer[0].ResetShotUnselectedPoles();
+                polesPlayer[2].ResetShotUnselectedPoles();
+                //polesPlayer[3].ResetShotUnselectedPoles();
             }
+            
+            
         }
         else if (currentPoleIndex == 2)
         {
@@ -118,9 +137,19 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                polesPlayer[currentPoleIndex].MoveAndRotate(movementPoleInput * Time.deltaTime);
-                polesPlayer[currentPoleIndex].PoleLockedDown();
+                polesPlayer[currentPoleIndex].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndex].ResetShotSelectedPole();
+                
+                // Move unselected poles with right stick.
+                //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f  * Time.deltaTime);
+                //polesPlayer[1].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f  * Time.deltaTime);
+                polesPlayer[3].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f * Time.deltaTime);
+                //polesPlayer[0].ResetShotUnselectedPoles();
+                //polesPlayer[1].ResetShotUnselectedPoles();
+                polesPlayer[3].ResetShotUnselectedPoles();
             }
+            
+           
         }
         else if (currentPoleIndex == 3)
         {
@@ -138,8 +167,16 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                polesPlayer[currentPoleIndex].MoveAndRotate(movementPoleInput * Time.deltaTime);
-                polesPlayer[currentPoleIndex].PoleLockedDown();
+                polesPlayer[currentPoleIndex].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndex].ResetShotSelectedPole();
+                
+                // Move unselected poles with right stick.
+                //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.1f  * Time.deltaTime);
+                //polesPlayer[1].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f  * Time.deltaTime);
+                //polesPlayer[2].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f * Time.deltaTime);
+                //polesPlayer[0].ResetShotUnselectedPoles();
+                //polesPlayer[1].ResetShotUnselectedPoles();
+                //polesPlayer[2].ResetShotUnselectedPoles();
             }
         }
     }
@@ -164,13 +201,22 @@ public class PlayerController : MonoBehaviour
 
     #region Input System -> Gets the movement values from controller
 
-    public void MoveMainPole(InputAction.CallbackContext context)
+    public void MoveSelectedPole(InputAction.CallbackContext context)
     {
         // x as rotation, y as movement
-        movementPoleInput = context.ReadValue<Vector2>();
+        movementSelectedPoleInput = context.ReadValue<Vector2>();
 
-        movementPoleInput.x *= PolesPlayer.Instance.RotationSpeed;
-        movementPoleInput.y *= PolesPlayer.Instance.MoveSpeed;
+        movementSelectedPoleInput.x *= PolesPlayer.Instance.RotationSpeed;
+        movementSelectedPoleInput.y *= PolesPlayer.Instance.MoveSpeed;
+    }
+    
+    public void MoveUnselectedPoles(InputAction.CallbackContext context)
+    {
+        // x as rotation, y as movement
+        movementUnselectedPolesInput = context.ReadValue<Vector2>();
+
+        movementUnselectedPolesInput.x *= PolesPlayer.Instance.RotationSpeed;
+        movementUnselectedPolesInput.y *= PolesPlayer.Instance.MoveSpeed;
     }
 
     public void LowerSensitivity(InputAction.CallbackContext context)
@@ -225,18 +271,37 @@ public class PlayerController : MonoBehaviour
 
     #region Input System -> Gets Input to reset current pole rotation
 
-    public void LockPoleDown(InputAction.CallbackContext context)
+    public void ResetShotSelectedPole(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
             //Pole.Instance.lockedDownPressed = true;
-            polesPlayer[currentPoleIndex].lockedDownPressed = true;
+            polesPlayer[currentPoleIndex].ResetShotSelectedPolePressed = true;
         }
 
         if (context.phase == InputActionPhase.Canceled)
         {
             //Pole.Instance.lockedDownPressed = false;
-            polesPlayer[currentPoleIndex].lockedDownPressed = false;
+            polesPlayer[currentPoleIndex].ResetShotSelectedPolePressed = false;
+        }
+    }
+    
+    public void ResetShotUnselectedPoles(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            polesPlayer[0].ResetShotUnselectedPolesPressed = true;
+            polesPlayer[1].ResetShotUnselectedPolesPressed = true;
+            polesPlayer[2].ResetShotUnselectedPolesPressed = true;
+            polesPlayer[3].ResetShotUnselectedPolesPressed = true;
+        }
+
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            polesPlayer[0].ResetShotUnselectedPolesPressed = false;
+            polesPlayer[1].ResetShotUnselectedPolesPressed = false;
+            polesPlayer[2].ResetShotUnselectedPolesPressed = false;
+            polesPlayer[3].ResetShotUnselectedPolesPressed = false;
         }
     }
 

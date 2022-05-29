@@ -27,7 +27,8 @@ public class PolesPlayer : MonoBehaviour
     
     // reset rotation
     private float speed = 5000f;
-    public bool lockedDownPressed = false;
+    public bool ResetShotSelectedPolePressed = false;
+    public bool ResetShotUnselectedPolesPressed = false;
     
     private void Start()
     {
@@ -36,7 +37,7 @@ public class PolesPlayer : MonoBehaviour
     }
 
     #region Methods -> Movement Poles
-    public void MoveAndRotate(Vector2 movement)
+    public void MoveAndRotatePole(Vector2 movement)
     {
         // rotation
         Quaternion testQuaternion = new Quaternion();
@@ -47,9 +48,20 @@ public class PolesPlayer : MonoBehaviour
         // movement up & down
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
     }
-    public void PoleLockedDown()
+   
+    public void ResetShotSelectedPole()
     {
-        if (lockedDownPressed == true)
+        if (ResetShotSelectedPolePressed == true)
+        {
+            var step = speed * Time.deltaTime;
+            Quaternion normalQuaternion = Quaternion.identity;
+            Quaternion lockedUpQuaternion = Quaternion.RotateTowards(transform.rotation, normalQuaternion, step);
+            rb.MoveRotation(lockedUpQuaternion);
+        }
+    }
+    public void ResetShotUnselectedPoles()
+    {
+        if (ResetShotUnselectedPolesPressed == true)
         {
             var step = speed * Time.deltaTime;
             Quaternion normalQuaternion = Quaternion.identity;
