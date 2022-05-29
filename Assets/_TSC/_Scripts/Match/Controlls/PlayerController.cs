@@ -29,9 +29,10 @@ public class PlayerController : MonoBehaviour
     private List<PolesPlayer> polesPlayer = new List<PolesPlayer>();
     [SerializeField] private List<SpecialCharacter> specialCharacter = new List<SpecialCharacter>();
     
-
-    private GameObject steeringWheelPole;
-    public int currentPoleIndex;
+    private GameObject steeringWheelLeftHand;
+    private GameObject steeringWheelRightHand;
+    public int currentPoleIndexLeftHand = 0;
+    public int currentPoleIndexRightHand = 1;
     
     // HUD Pole Condition Gameobjects 
     [SerializeField] private Animator player1_pole1;
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public Text TextCooldownAbility3;
     public Text TextCooldownAbility4;
     
-
+    
     // Ability Cards move speed;
     public float characterVelocity = 750f;
 
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentPoleIndex == 0) // check for active pole
+        if (currentPoleIndexLeftHand == 0) // check for active pole
         {
             if (mainAbility) // check if ability is active, move ability instead of pole
             {
@@ -79,11 +80,11 @@ public class PlayerController : MonoBehaviour
             }
             else 
             {
-                polesPlayer[currentPoleIndex].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
-                polesPlayer[currentPoleIndex].ResetShotSelectedPole();
+                polesPlayer[currentPoleIndexLeftHand].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPole();
                 
                 // Move unselected poles with right stick.
-                polesPlayer[1].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f * Time.deltaTime);
+                polesPlayer[1].MoveAndRotatePole(movementUnselectedPolesInput * Time.deltaTime);
                 //polesPlayer[2].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f * Time.deltaTime);
                 //polesPlayer[3].MoveAndRotatePole(movementUnselectedPolesInput * 0.1f * Time.deltaTime);
                 polesPlayer[1].ResetShotUnselectedPoles();
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 //polesPlayer[3].ResetShotUnselectedPoles();
             }
         }
-        else if (currentPoleIndex == 1)
+        else if (currentPoleIndexLeftHand == 1)
         {
             if (crew1Ability)
             {
@@ -107,12 +108,12 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                polesPlayer[currentPoleIndex].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
-                polesPlayer[currentPoleIndex].ResetShotSelectedPole();
+                polesPlayer[currentPoleIndexLeftHand].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPole();
                 
                 // Move unselected poles with right stick.
                 //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f  * Time.deltaTime);
-                polesPlayer[2].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f * Time.deltaTime);
+                polesPlayer[2].MoveAndRotatePole(movementUnselectedPolesInput * Time.deltaTime);
                 //polesPlayer[3].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f  * Time.deltaTime);
                 //polesPlayer[0].ResetShotUnselectedPoles();
                 polesPlayer[2].ResetShotUnselectedPoles();
@@ -121,7 +122,7 @@ public class PlayerController : MonoBehaviour
             
             
         }
-        else if (currentPoleIndex == 2)
+        else if (currentPoleIndexLeftHand == 2)
         {
             if (crew2Ability)
             {
@@ -137,13 +138,13 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                polesPlayer[currentPoleIndex].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
-                polesPlayer[currentPoleIndex].ResetShotSelectedPole();
+                polesPlayer[currentPoleIndexLeftHand].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPole();
                 
                 // Move unselected poles with right stick.
                 //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f  * Time.deltaTime);
                 //polesPlayer[1].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f  * Time.deltaTime);
-                polesPlayer[3].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f * Time.deltaTime);
+                polesPlayer[3].MoveAndRotatePole(movementUnselectedPolesInput * Time.deltaTime);
                 //polesPlayer[0].ResetShotUnselectedPoles();
                 //polesPlayer[1].ResetShotUnselectedPoles();
                 polesPlayer[3].ResetShotUnselectedPoles();
@@ -151,7 +152,7 @@ public class PlayerController : MonoBehaviour
             
            
         }
-        else if (currentPoleIndex == 3)
+        else if (currentPoleIndexLeftHand == 3)
         {
             if (crew3Ability)
             {
@@ -167,8 +168,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                polesPlayer[currentPoleIndex].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
-                polesPlayer[currentPoleIndex].ResetShotSelectedPole();
+                polesPlayer[currentPoleIndexLeftHand].MoveAndRotatePole(movementSelectedPoleInput * Time.deltaTime);
+                polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPole();
                 
                 // Move unselected poles with right stick.
                 //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.1f  * Time.deltaTime);
@@ -193,9 +194,10 @@ public class PlayerController : MonoBehaviour
         this.specialCharacter = character;
     }
 
-    internal void ReceiveArrow(GameObject gO)
+    internal void ReceiveArrow(GameObject leftHand, GameObject rightHand)
     {
-        steeringWheelPole = gO;
+        steeringWheelLeftHand = leftHand;
+        steeringWheelRightHand = rightHand;
     }
     #endregion
 
@@ -240,30 +242,43 @@ public class PlayerController : MonoBehaviour
     public void PolesMinus(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
-            if (currentPoleIndex > 0)
+            if (currentPoleIndexLeftHand > 0)
             {
-                currentPoleIndex--;
+                currentPoleIndexLeftHand--;
+                currentPoleIndexRightHand--;
 
                 // updates to show the current pole
-                Vector3 offsetPositionArrow = polesPlayer[currentPoleIndex].transform.position;
-                offsetPositionArrow.z = 0f;
-                offsetPositionArrow.y = 0f;
-                steeringWheelPole.transform.position = offsetPositionArrow;
+                Vector3 wheelPositionLeftHand = polesPlayer[currentPoleIndexLeftHand].transform.position;
+                wheelPositionLeftHand.z = 0f;
+                wheelPositionLeftHand.y = 0f;
+                steeringWheelLeftHand.transform.position = wheelPositionLeftHand;
+                
+                Vector3 wheelPositionRightHand = polesPlayer[currentPoleIndexRightHand].transform.position;
+                wheelPositionRightHand.z = 0f;
+                wheelPositionRightHand.y = 0f;
+                steeringWheelRightHand.transform.position = wheelPositionRightHand;
             }
+            
     }
 
     public void PolesPlus(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
-            if (currentPoleIndex < polesPlayer.Count - 1)
+            if (currentPoleIndexLeftHand < polesPlayer.Count - 2)
             {
-                currentPoleIndex++;
+                currentPoleIndexLeftHand++;
+                currentPoleIndexRightHand++;
 
                 // updates to show the current pole
-                Vector3 offsetPosition = polesPlayer[currentPoleIndex].transform.position;
-                offsetPosition.z = 0f;
-                offsetPosition.y = 0f;
-                steeringWheelPole.transform.position = offsetPosition;
+                Vector3 wheelPositionLeftHand = polesPlayer[currentPoleIndexLeftHand].transform.position;
+                wheelPositionLeftHand.z = 0f;
+                wheelPositionLeftHand.y = 0f;
+                steeringWheelLeftHand.transform.position = wheelPositionLeftHand;
+                
+                Vector3 wheelPositionRightHand = polesPlayer[currentPoleIndexRightHand].transform.position;
+                wheelPositionRightHand.z = 0f;
+                wheelPositionRightHand.y = 0f;
+                steeringWheelRightHand.transform.position = wheelPositionRightHand;
             }
     }
 
@@ -276,13 +291,13 @@ public class PlayerController : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             //Pole.Instance.lockedDownPressed = true;
-            polesPlayer[currentPoleIndex].ResetShotSelectedPolePressed = true;
+            polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPolePressed = true;
         }
 
         if (context.phase == InputActionPhase.Canceled)
         {
             //Pole.Instance.lockedDownPressed = false;
-            polesPlayer[currentPoleIndex].ResetShotSelectedPolePressed = false;
+            polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPolePressed = false;
         }
     }
     
@@ -393,7 +408,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator MainPole_AbilityCharacter()
     {
         Debug.Log("main ability = " + mainAbility);
-        if (currentPoleIndex == 0 && mainAbility == false)
+        if (currentPoleIndexLeftHand == 0 && mainAbility == false)
         {
             if (GameManagerClash.Instance.powerpointsCountRed >= PoleMain.Ability.PowerpointsCost)
             {
@@ -414,7 +429,7 @@ public class PlayerController : MonoBehaviour
     // Pole 1
     IEnumerator CrewPole1_AbilityCharacter()
     {
-        if (currentPoleIndex == 1 && crew1Ability == false)
+        if (currentPoleIndexLeftHand == 1 && crew1Ability == false)
         {
             if (GameManagerClash.Instance.powerpointsCountRed >= PoleCrew1.Ability.PowerpointsCost)
             {
@@ -434,7 +449,7 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator CrewPole2_AbilityCharacter()
     {
-        if (currentPoleIndex == 2 && crew2Ability == false)
+        if (currentPoleIndexLeftHand == 2 && crew2Ability == false)
         {
             if (GameManagerClash.Instance.powerpointsCountRed >= PoleCrew2.Ability.PowerpointsCost)
             {
@@ -454,7 +469,7 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator CrewPole3_AbilityCharacter()
     {
-        if (currentPoleIndex == 3 && crew3Ability == false)
+        if (currentPoleIndexLeftHand == 3 && crew3Ability == false)
         {
             if (GameManagerClash.Instance.powerpointsCountRed >= PoleCrew3.Ability.PowerpointsCost)
             {
@@ -511,7 +526,7 @@ public class PlayerController : MonoBehaviour
     // HUD
     void UpdateHUD()
     {
-        switch (currentPoleIndex)
+        switch (currentPoleIndexLeftHand)
         {
             case 0:
                 ResetConditionAnimations();

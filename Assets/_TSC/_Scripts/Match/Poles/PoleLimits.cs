@@ -13,7 +13,7 @@ public class PoleLimits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (PlayerController.Instance.currentPoleIndex)
+        switch (PlayerController.Instance.currentPoleIndexLeftHand)
         {
             case 0:
                 rb.transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -3f, 3f));

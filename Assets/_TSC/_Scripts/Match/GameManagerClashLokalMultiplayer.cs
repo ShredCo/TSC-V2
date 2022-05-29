@@ -56,10 +56,15 @@ public class GameManagerClashLokalMultiplayer : MonoBehaviour
     [SerializeField] private List<SpecialCharacter> specialCharacterPlayer4 = new List<SpecialCharacter>();
 
     // Steering Wheels
-    [SerializeField] private GameObject player1_SteeringWheel;
-    [SerializeField] private GameObject player2_SteeringWheel;
-    [SerializeField] private GameObject player3_SteeringWheel;
-    [SerializeField] private GameObject player4_SteeringWheel;
+    // Steering Wheels
+    [SerializeField] private GameObject player1_SteeringWheelLeftHand;
+    [SerializeField] private GameObject player1_SteeringWheelRightHand;
+    [SerializeField] private GameObject player2_SteeringWheelLeftHand;
+    [SerializeField] private GameObject player2_SteeringWheelRightHand;
+    [SerializeField] private GameObject player3_SteeringWheelLeftHand;
+    [SerializeField] private GameObject player3_SteeringWheelRightHand;
+    [SerializeField] private GameObject player4_SteeringWheelLeftHand;
+    [SerializeField] private GameObject player4_SteeringWheelRightHand;
     
     // all players in a dictionary, player input as key, value is the id, can be simplified with only a list or array
     public Dictionary<PlayerInput, int> players = new Dictionary<PlayerInput, int>();
@@ -152,8 +157,8 @@ public class GameManagerClashLokalMultiplayer : MonoBehaviour
                 PlayerController playerController = player.GetComponent<PlayerController>();
                 playerController.ReceivePolesPlayer(polesPlayer1);
                 playerController.ReceiveAbility(specialCharacterPlayer1);
-                playerController.ReceiveArrow(player1_SteeringWheel);
-                
+                playerController.ReceiveArrow(player1_SteeringWheelLeftHand, player1_SteeringWheelRightHand);
+
                 player.gameObject.name = "Player_" + id;
             }
             else if (players.Count == 1) // first player -> Team Blue
@@ -164,7 +169,7 @@ public class GameManagerClashLokalMultiplayer : MonoBehaviour
 
                 playerController.ReceivePolesPlayer(polesPlayer2);
                 playerController.ReceiveAbility(specialCharacterPlayer2);
-                playerController.ReceiveArrow(player2_SteeringWheel);
+                playerController.ReceiveArrow(player2_SteeringWheelLeftHand, player2_SteeringWheelRightHand);
                 
                 player.gameObject.name = "Player_" + id;
             }
@@ -178,8 +183,9 @@ public class GameManagerClashLokalMultiplayer : MonoBehaviour
                 polesPlayer1.RemoveAt(2);
                 playerController.ReceivePolesPlayer(polesPlayer3);
                 playerController.ReceiveAbility(specialCharacterPlayer3);
-                playerController.ReceiveArrow(player3_SteeringWheel);
-                player3_SteeringWheel.SetActive(true);
+                playerController.ReceiveArrow(player3_SteeringWheelLeftHand, player3_SteeringWheelRightHand);
+                player3_SteeringWheelLeftHand.SetActive(true);
+                player3_SteeringWheelRightHand.SetActive(true);
                 
                 player.gameObject.name = "Player_" + id;
             }
@@ -193,8 +199,9 @@ public class GameManagerClashLokalMultiplayer : MonoBehaviour
                 polesPlayer2.RemoveAt(2);
                 playerController.ReceivePolesPlayer(polesPlayer4);
                 playerController.ReceiveAbility(specialCharacterPlayer4);
-                playerController.ReceiveArrow(player4_SteeringWheel);
-                player4_SteeringWheel.SetActive(true);
+                playerController.ReceiveArrow(player3_SteeringWheelLeftHand, player3_SteeringWheelRightHand);
+                player3_SteeringWheelLeftHand.SetActive(true);
+                player3_SteeringWheelRightHand.SetActive(true);
                 
                 player.gameObject.name = "Player_" + id;
             }

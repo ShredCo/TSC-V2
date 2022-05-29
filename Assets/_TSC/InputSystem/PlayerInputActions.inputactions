@@ -6,7 +6,7 @@
             "id": "3e057471-fd5a-433b-b520-ed920eaacb4b",
             "actions": [
                 {
-                    "name": "MoveSelectedPole",
+                    "name": "MoveLeftHand",
                     "type": "Value",
                     "id": "550ae3c5-7951-4d43-a9df-f7c11b3d2d9d",
                     "expectedControlType": "",
@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MoveUnselectedPoles",
+                    "name": "MoveRightHand",
                     "type": "Value",
                     "id": "3393570f-b2b9-4b9a-ad24-26dac5ff8eb3",
                     "expectedControlType": "",
@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ResetShotSelectedPole",
+                    "name": "ResetShotLeftHand",
                     "type": "Button",
                     "id": "4bcbe821-795e-4f35-9cc7-f131a7e45630",
                     "expectedControlType": "Button",
@@ -131,7 +131,7 @@
                     "interactions": "",
                     "processors": "StickDeadzone(min=0.07)",
                     "groups": "",
-                    "action": "MoveSelectedPole",
+                    "action": "MoveLeftHand",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -142,7 +142,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveSelectedPole",
+                    "action": "MoveLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -153,18 +153,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveSelectedPole",
+                    "action": "MoveLeftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9976d0f0-0d9b-45f5-8a54-15d27db2cee8",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "AxisDeadzone(min=0.4)",
+                    "groups": "Player1",
+                    "action": "MoveLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "22a52de3-5c7b-42f1-8e77-e5313da1a898",
-                    "path": "<Gamepad>/leftTrigger",
+                    "id": "99077e70-26ac-4f88-9ed3-fcb1f0a002ac",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "AxisDeadzone(min=0.4)",
                     "groups": "Player1",
-                    "action": "MoveSelectedPole",
+                    "action": "MoveLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -175,29 +186,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveSelectedPole",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "9976d0f0-0d9b-45f5-8a54-15d27db2cee8",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "MoveSelectedPole",
+                    "action": "MoveLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "99077e70-26ac-4f88-9ed3-fcb1f0a002ac",
-                    "path": "<Gamepad>/leftStick/left",
+                    "id": "22a52de3-5c7b-42f1-8e77-e5313da1a898",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveSelectedPole",
+                    "action": "MoveLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -258,23 +258,12 @@
                 },
                 {
                     "name": "",
-                    "id": "88bd1412-3592-404e-b384-969e3eb99ba4",
-                    "path": "<Gamepad>/leftStickPress",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ResetShotSelectedPole",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "492cefed-f674-4bfe-ae84-522a5b5464a2",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ResetShotSelectedPole",
+                    "action": "ResetShotLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -336,7 +325,18 @@
                 {
                     "name": "",
                     "id": "e72753e4-c23f-46b4-9bc7-aeadb048893c",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LowerSensitivity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d92b143-ae97-4c50-b269-c9cf0b15b201",
+                    "path": "<Gamepad>/rightStickPress",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -351,7 +351,7 @@
                     "interactions": "",
                     "processors": "StickDeadzone(min=0.07)",
                     "groups": "",
-                    "action": "MoveUnselectedPoles",
+                    "action": "MoveRightHand",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -362,7 +362,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveUnselectedPoles",
+                    "action": "MoveRightHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -373,7 +373,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveUnselectedPoles",
+                    "action": "MoveRightHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -382,9 +382,9 @@
                     "id": "a1ac45e5-9657-42b4-950e-cc0406094958",
                     "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "AxisDeadzone(min=0.4)",
                     "groups": "Player1",
-                    "action": "MoveUnselectedPoles",
+                    "action": "MoveRightHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -393,9 +393,31 @@
                     "id": "7a1b13b8-1c50-4f0c-8412-e3be14152808",
                     "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
+                    "processors": "AxisDeadzone(min=0.4)",
+                    "groups": "Player1",
+                    "action": "MoveRightHand",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "996a5388-94da-47de-a924-4136a5b0d01c",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "MoveUnselectedPoles",
+                    "action": "MoveRightHand",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "149094a9-66c9-468c-95f2-13257ddd3d81",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "MoveRightHand",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },

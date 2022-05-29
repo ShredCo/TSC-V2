@@ -44,8 +44,10 @@ public class GameManagerClash : MonoBehaviour
     [SerializeField] private List<SpecialCharacter> specialCharacterPlayer2 = new List<SpecialCharacter>();
 
     // Steering Wheels
-    [SerializeField] private GameObject player1_SteeringWheel;
-    [SerializeField] private GameObject player2_SteeringWheel;
+    [SerializeField] private GameObject player1_SteeringWheelLeftHand;
+    [SerializeField] private GameObject player1_SteeringWheelRightHand;
+    [SerializeField] private GameObject player2_SteeringWheelLeftHand;
+    [SerializeField] private GameObject player2_SteeringWheelRightHand;
 
     // all players in a dictionary, player input as key, value is the id, can be simplified with only a list or array
     public Dictionary<PlayerInput, int> players = new Dictionary<PlayerInput, int>();
@@ -136,7 +138,7 @@ public class GameManagerClash : MonoBehaviour
                 // Player receives his team
                 PlayerController playerController = player.GetComponent<PlayerController>();
                 playerController.ReceivePolesPlayer(polesPlayer1);
-                playerController.ReceiveArrow(player1_SteeringWheel);
+                playerController.ReceiveArrow(player1_SteeringWheelLeftHand,player1_SteeringWheelRightHand);
                 playerController.ReceiveAbility(specialCharacterPlayer1);
                 
                 player.gameObject.name = "Player_" + id;
@@ -152,8 +154,8 @@ public class GameManagerClash : MonoBehaviour
                     polesPlayer1.RemoveAt(3);
                     polesPlayer1.RemoveAt(2);
                     playerController.ReceivePolesPlayer(polesPlayer2);
-                    playerController.ReceiveArrow(player2_SteeringWheel);
-                    player2_SteeringWheel.SetActive(true);
+                    playerController.ReceiveArrow(player2_SteeringWheelLeftHand,player2_SteeringWheelRightHand);
+                    player2_SteeringWheelLeftHand.SetActive(true);
                         
                     player.gameObject.name = "Player_" + id;
                 }
