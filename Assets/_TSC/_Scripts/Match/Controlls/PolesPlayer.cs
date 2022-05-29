@@ -39,14 +39,20 @@ public class PolesPlayer : MonoBehaviour
     #region Methods -> Movement Poles
     public void MoveAndRotatePole(Vector2 movement)
     {
+        movement *= 6f;
+
         // rotation
         Quaternion testQuaternion = new Quaternion();
         testQuaternion.eulerAngles = new Vector3(0f, 0f, -movement.x);
-        testQuaternion.eulerAngles += transform.rotation.eulerAngles;
+        //testQuaternion.eulerAngles += transform.rotation.eulerAngles;
         rb.MoveRotation(testQuaternion);
 
+        //movement *= 6f;
+
         // movement up & down
-        rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
+
+        rb.MovePosition(new Vector3(0f, 0f, -movement.y));
+        //rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
     }
    
     public void ResetShotSelectedPole()
