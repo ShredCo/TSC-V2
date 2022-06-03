@@ -16,6 +16,8 @@ public class PolesPlayer : MonoBehaviour
     [Header("Movement")]
     public float RotationSpeed;
     public float MoveSpeed;
+    public float DefaultMoveSpeed;
+    public float LowSensitivityMoveSpeed;
     public float DefaultRotationSpeed;
     public float LowSensitivityRotationSpeed;
 
@@ -33,6 +35,7 @@ public class PolesPlayer : MonoBehaviour
     private void Start()
     {
         GetAbility();
+        MoveSpeed = DefaultMoveSpeed;
         RotationSpeed = DefaultRotationSpeed;
     }
 
@@ -51,8 +54,8 @@ public class PolesPlayer : MonoBehaviour
 
         // movement up & down
 
-        rb.MovePosition(new Vector3(0f, 0f, -movement.y));
-        //rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
+        //rb.MovePosition(new Vector3(0f, 0f, -movement.y));
+        rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
     }
    
     public void ResetShotSelectedPole()

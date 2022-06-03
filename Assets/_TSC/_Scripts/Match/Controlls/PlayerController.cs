@@ -228,10 +228,12 @@ public class PlayerController : MonoBehaviour
         if(context.performed)
         {
             PolesPlayer.Instance.RotationSpeed = PolesPlayer.Instance.LowSensitivityRotationSpeed;
+            PolesPlayer.Instance.MoveSpeed = PolesPlayer.Instance.LowSensitivityMoveSpeed;
         }
         else if(context.canceled)
         {
             PolesPlayer.Instance.RotationSpeed = PolesPlayer.Instance.DefaultRotationSpeed;
+            PolesPlayer.Instance.MoveSpeed = PolesPlayer.Instance.DefaultMoveSpeed;
         }
     }
     
