@@ -23,7 +23,8 @@ public class AIController : MonoBehaviour
     public ShootingState ShootingState;
     
     [SerializeField] private Transform BallTransform;
-    [SerializeField] private GameObject steeringWheelPoleAI;
+    [SerializeField] private GameObject steeringWheelLeftHandAI;
+    [SerializeField] private GameObject steeringWheelRightHandAI;
     [SerializeField] public PolesAI[] polesAI;
 
     [SerializeField]
@@ -34,7 +35,7 @@ public class AIController : MonoBehaviour
     private float rotationInputValue = 0.3f;
     [SerializeField]
     [Range(0, 3)]
-    public int currentPoleIndexAI = 0;
+    public int currentPoleIndexLeftHand = 0;
     
     private Vector2 rotationPoleInput;
 
@@ -65,7 +66,6 @@ public class AIController : MonoBehaviour
     private void Update()
     {
         UpdateCurrentPoleAI();
-        UpdateSteeringWheelPosition();
         UpdateHUD();
     }
     
@@ -105,31 +105,31 @@ public class AIController : MonoBehaviour
         }
 
         // movement goalkeeper
-        if (currentPoleIndexAI != 0)
-            polesAI[0].MovementGoalkeeper(BallTransform);
+        if (currentPoleIndexLeftHand != 0)
+            polesAI[0].MovementOneManPole(BallTransform);
     }
 
     public void RotateAndMovePolesInput()
     {
         rotationPoleInput = new Vector2(rotationInputValue, movementInputValue);
         rotationPoleInput.x *= PolesAI.Instance.rotationSpeed;
-        polesAI[currentPoleIndexAI].RotatePoles(rotationPoleInput * Time.deltaTime);
+        polesAI[currentPoleIndexLeftHand].RotatePoles(rotationPoleInput * Time.deltaTime);
 
-        if (currentPoleIndexAI == 0)
+        if (currentPoleIndexLeftHand == 0)
         {
-            polesAI[currentPoleIndexAI].MovementGoalkeeper(BallTransform);
+            polesAI[currentPoleIndexLeftHand].MovementOneManPole(BallTransform);
         }
-        else if (currentPoleIndexAI == 1)
+        else if (currentPoleIndexLeftHand == 1)
         {
-            polesAI[currentPoleIndexAI].MovementCrewPole1(BallTransform);
+            polesAI[currentPoleIndexLeftHand].MovementTwoManPole(BallTransform);
         }
-        else if (currentPoleIndexAI == 2)
+        else if (currentPoleIndexLeftHand == 2)
         {
-            polesAI[currentPoleIndexAI].MovementCrewPole2(BallTransform);
+            polesAI[currentPoleIndexLeftHand].MovementFiveManPole(BallTransform);
         }
-        else if (currentPoleIndexAI == 3)
+        else if (currentPoleIndexLeftHand == 3)
         {
-            polesAI[currentPoleIndexAI].MovementCrewPole3(BallTransform);
+            polesAI[currentPoleIndexLeftHand].MovementThreeManPole(BallTransform);
         }
     }
 
@@ -137,26 +137,26 @@ public class AIController : MonoBehaviour
     {
         rotationPoleInput = new Vector2(rotationInputValue, movementInputValue);
         rotationPoleInput.x *= PolesAI.Instance.rotationSpeed;
-        polesAI[currentPoleIndexAI].RotatePoles(rotationPoleInput * Time.deltaTime);
+        polesAI[currentPoleIndexLeftHand].RotatePoles(rotationPoleInput * Time.deltaTime);
     }
 
     public void MovePolesInput()
     {
-        if (currentPoleIndexAI == 0)
+        if (currentPoleIndexLeftHand == 0)
         {
-            polesAI[currentPoleIndexAI].MovementGoalkeeper(BallTransform);
+            polesAI[currentPoleIndexLeftHand].MovementOneManPole(BallTransform);
         }
-        else if (currentPoleIndexAI == 1)
+        else if (currentPoleIndexLeftHand == 1)
         {
-            polesAI[currentPoleIndexAI].MovementCrewPole1(BallTransform);
+            polesAI[currentPoleIndexLeftHand].MovementTwoManPole(BallTransform);
         }
-        else if (currentPoleIndexAI == 2)
+        else if (currentPoleIndexLeftHand == 2)
         {
-            polesAI[currentPoleIndexAI].MovementCrewPole2(BallTransform);
+            polesAI[currentPoleIndexLeftHand].MovementFiveManPole(BallTransform);
         }
-        else if (currentPoleIndexAI == 3)
+        else if (currentPoleIndexLeftHand == 3)
         {
-            polesAI[currentPoleIndexAI].MovementCrewPole3(BallTransform);
+            polesAI[currentPoleIndexLeftHand].MovementThreeManPole(BallTransform);
         }
     }
 
@@ -170,49 +170,77 @@ public class AIController : MonoBehaviour
 
     public void ShootFront()
     {
-        polesAI[currentPoleIndexAI].ShootFront();
+        polesAI[currentPoleIndexLeftHand].ShootFront();
     }
     
     public void BallBetweenPlayers()
     {
-        polesAI[currentPoleIndexAI].BallBetweenPlayers();
+        polesAI[currentPoleIndexLeftHand].BallBetweenPlayers();
     }
 
     IEnumerator FastShot()
     {
-        polesAI[currentPoleIndexAI].lockedDownPressed = true;
+        polesAI[currentPoleIndexLeftHand].lockedDownPressed = true;
         yield return new WaitForSeconds(0.2f);
-        polesAI[currentPoleIndexAI].lockedDownPressed = false;
+        polesAI[currentPoleIndexLeftHand].lockedDownPressed = false;
     }
     
     
     #region SteeringWheel + Current Pole Index Methods
-    void UpdateSteeringWheelPosition()
-    {
-        // updates to show the current pole
-        Vector3 offsetPositionArrow = polesAI[currentPoleIndexAI].transform.position;
-        offsetPositionArrow.z = 0f;
-        offsetPositionArrow.y = 0f;
-        steeringWheelPoleAI.transform.position = offsetPositionArrow;
-    }
     void UpdateCurrentPoleAI()
     {
         // Simple methods to see where the ball is on the field and change AI currentPoleIndex based on position of ball
         if (BallTransform.position.x < -6f)
         {
-            currentPoleIndexAI = 0;
+            currentPoleIndexLeftHand = 0;
+            
+            // updates to show the current pole
+            Vector3 wheelPositionLeftHand = polesAI[0].transform.position;
+            wheelPositionLeftHand.z = 0f;
+            wheelPositionLeftHand.y = 0f;
+            steeringWheelLeftHandAI.transform.position = wheelPositionLeftHand;
+            
+            // updates to show the current pole
+            Vector3 wheelPositionRightHand = polesAI[1].transform.position;
+            wheelPositionRightHand.z = 0f;
+            wheelPositionRightHand.y = 0f;
+            steeringWheelRightHandAI.transform.position = wheelPositionRightHand;
         }
         if (BallTransform.position.x is > -6f and < -3f)
         {
-            currentPoleIndexAI = 1;
+            currentPoleIndexLeftHand = 1;
+            
+            // updates to show the current pole
+            Vector3 wheelPositionLeftHand = polesAI[1].transform.position;
+            wheelPositionLeftHand.z = 0f;
+            wheelPositionLeftHand.y = 0f;
+            steeringWheelLeftHandAI.transform.position = wheelPositionLeftHand;
+            
+            // updates to show the current pole
+            Vector3 wheelPositionRightHand = polesAI[2].transform.position;
+            wheelPositionRightHand.z = 0f;
+            wheelPositionRightHand.y = 0f;
+            steeringWheelRightHandAI.transform.position = wheelPositionRightHand;
         }
         if (BallTransform.position.x is > -3f and < 1f)
         {
-            currentPoleIndexAI = 2;
+            currentPoleIndexLeftHand = 2;
+            
+            // updates to show the current pole
+            Vector3 wheelPositionLeftHand = polesAI[2].transform.position;
+            wheelPositionLeftHand.z = 0f;
+            wheelPositionLeftHand.y = 0f;
+            steeringWheelLeftHandAI.transform.position = wheelPositionLeftHand;
+            
+            // updates to show the current pole
+            Vector3 wheelPositionRightHand = polesAI[3].transform.position;
+            wheelPositionRightHand.z = 0f;
+            wheelPositionRightHand.y = 0f;
+            steeringWheelRightHandAI.transform.position = wheelPositionRightHand;
         }
         if (BallTransform.position.x > 1f)
         {
-            currentPoleIndexAI = 3;
+            currentPoleIndexLeftHand = 3;
         }
     }
     #endregion 
@@ -221,7 +249,7 @@ public class AIController : MonoBehaviour
     // HUD
     void UpdateHUD()
     {
-        switch (currentPoleIndexAI)
+        switch (currentPoleIndexLeftHand)
         {
             case 0:
                 ResetConditionAnimations();

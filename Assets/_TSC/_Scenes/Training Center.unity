@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 53405360}
   - component: {fileID: 53405358}
   m_Layer: 8
-  m_Name: Pole3
+  m_Name: FiveManPole
   m_TagString: AICrew2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10667,7 +10667,7 @@ GameObject:
   - component: {fileID: 631305325}
   - component: {fileID: 631305323}
   m_Layer: 8
-  m_Name: Pole1
+  m_Name: OneManPole
   m_TagString: AIMain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17239,7 +17239,7 @@ GameObject:
   - component: {fileID: 1087741148}
   - component: {fileID: 1087741146}
   m_Layer: 8
-  m_Name: Pole2
+  m_Name: TwoManPole
   m_TagString: AICrew1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20185,7 +20185,6 @@ Transform:
   - {fileID: 4220920339553501617}
   - {fileID: 4220920339194416022}
   - {fileID: 4220920339673354961}
-  - {fileID: 1703083814}
   m_Father: {fileID: 1727475516}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25709,7 +25708,7 @@ GameObject:
   - component: {fileID: 1596763134}
   - component: {fileID: 1596763132}
   m_Layer: 8
-  m_Name: Pole4
+  m_Name: ThreeManPole
   m_TagString: AICrew3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27285,37 +27284,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 495432, guid: bbabaf7b50e34504e9c9fd4e9374adb8, type: 3}
   m_PrefabInstance: {fileID: 1701832772}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1703083813
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1703083814}
-  m_Layer: 0
-  m_Name: scaler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1703083814
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703083813}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1230140950}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1711930052
 GameObject:
   m_ObjectHideFlags: 0
@@ -37327,18 +37295,6 @@ Transform:
   m_Father: {fileID: 4220920337928121586}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &542708964888331951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3591735068776974443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &611433763202462497
 Transform:
   m_ObjectHideFlags: 0
@@ -37367,18 +37323,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.03
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &644127727323942911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3591735069088665900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &855758316957036405
 GameObject:
   m_ObjectHideFlags: 0
@@ -37625,18 +37569,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1623664614267165708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3591735067149766099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1850547060661495639
 GameObject:
   m_ObjectHideFlags: 0
@@ -37753,18 +37685,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4636860336688308701, guid: 1e19a7158ab5b744a98f20b3cd6dd96f, type: 3}
---- !u!114 &2984615155870454932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3591735068730497803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &3087380768480811976
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38526,10 +38446,10 @@ GameObject:
   - component: {fileID: 953746323339335884}
   - component: {fileID: 3087380769197861894}
   - component: {fileID: 6982402745074930514}
-  - component: {fileID: 1623664614267165708}
   - component: {fileID: 3404912865387980111}
+  - component: {fileID: 6982402745074930515}
   m_Layer: 0
-  m_Name: Pole1
+  m_Name: OneManPole
   m_TagString: PlayerMain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38699,10 +38619,10 @@ GameObject:
   - component: {fileID: 953746322899455508}
   - component: {fileID: 3087380769766718174}
   - component: {fileID: 7207399361577278493}
-  - component: {fileID: 2984615155870454932}
   - component: {fileID: 3748424725517748101}
+  - component: {fileID: 7207399361577278494}
   m_Layer: 0
-  m_Name: Pole2
+  m_Name: TwoManPole
   m_TagString: PlayerCrew1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38739,10 +38659,10 @@ GameObject:
   - component: {fileID: 953746322819423604}
   - component: {fileID: 3087380769751722430}
   - component: {fileID: 1535606453812752290}
-  - component: {fileID: 542708964888331951}
   - component: {fileID: 6117699324203261312}
+  - component: {fileID: 6117699324203261313}
   m_Layer: 0
-  m_Name: Pole4
+  m_Name: ThreeManPole
   m_TagString: PlayerCrew3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38760,10 +38680,10 @@ GameObject:
   - component: {fileID: 953746322474173491}
   - component: {fileID: 3087380769677013241}
   - component: {fileID: 1031040965898632239}
-  - component: {fileID: 644127727323942911}
   - component: {fileID: 3696297413138101627}
+  - component: {fileID: 4220920339194416023}
   m_Layer: 0
-  m_Name: Pole3
+  m_Name: FiveManPole
   m_TagString: PlayerCrew2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39098,6 +39018,18 @@ Transform:
   m_Father: {fileID: 1230140950}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4220920339194416023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591735069088665900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba13e5e9b88d56141869eb5502ced4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4220920339553501617
 Transform:
   m_ObjectHideFlags: 0
@@ -40424,6 +40356,18 @@ MonoBehaviour:
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
   ResetShotUnselectedPolesPressed: 0
+--- !u!114 &6117699324203261313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591735068776974443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69607fd1301a019458e3b55d942dcab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6316953609336388908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40537,6 +40481,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 54
   m_CollisionDetection: 3
+--- !u!114 &6982402745074930515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591735067149766099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92f38c95e0947049965a7274c2c0510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &6993379039651568965
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40567,6 +40523,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 54
   m_CollisionDetection: 3
+--- !u!114 &7207399361577278494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591735068730497803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51ac2cef5315934ab24886c36061661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7238611402950260927
 GameObject:
   m_ObjectHideFlags: 0
@@ -40632,7 +40600,8 @@ MonoBehaviour:
   AIState: 0
   ShootingState: 0
   BallTransform: {fileID: 1110746730}
-  steeringWheelPoleAI: {fileID: 0}
+  steeringWheelLeftHandAI: {fileID: 1848513473}
+  steeringWheelRightHandAI: {fileID: 454333071}
   polesAI:
   - {fileID: 631305323}
   - {fileID: 1087741146}
@@ -40640,7 +40609,7 @@ MonoBehaviour:
   - {fileID: 1596763132}
   movementInputValue: 0.5
   rotationInputValue: 0.75
-  currentPoleIndexAI: 0
+  currentPoleIndexLeftHand: 0
   player2_pole1: {fileID: 1397618284}
   player2_pole2: {fileID: 1655662209}
   player2_pole3: {fileID: 1995328029}

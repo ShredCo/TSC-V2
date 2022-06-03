@@ -58,7 +58,7 @@ public class PolesAI : MonoBehaviour
     {
         rb.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0f, 180f, 0f)), 3f * Time.deltaTime));
     }
-    public void MovementGoalkeeper(Transform ballTransform)
+    public void MovementOneManPole(Transform ballTransform)
     {
         //transform.position = Vector3.SmoothDamp(transform.position, ballTransform.position, ref velocity, smoothSpeed);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7f, -7f),
@@ -67,7 +67,7 @@ public class PolesAI : MonoBehaviour
 
         rb.MovePosition(Vector3.SmoothDamp(transform.position, ballTransform.position, ref velocity, smoothSpeed));
     }
-    public void MovementCrewPole1(Transform ballTransform)
+    public void MovementTwoManPole(Transform ballTransform)
     {
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
@@ -95,9 +95,12 @@ public class PolesAI : MonoBehaviour
             Vector3 desiredPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - poleMovement);
             rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed));
         }
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -5f, -5f), Mathf.Clamp(transform.position.y, 1.116f, 1.116f), Mathf.Clamp(transform.position.z, -1.4f, 1.4f));
+        //transform.position = new Vector3(Mathf.Clamp(transform.position.x, -5f, -5f), Mathf.Clamp(transform.position.y, 1.116f, 1.116f), Mathf.Clamp(transform.position.z, -1.4f, 1.4f));
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -5f, -5f), 
+                                         Mathf.Clamp(transform.position.y, 1.116f, 1.116f), 
+                                         Mathf.Clamp(transform.position.z, -2.5f, 2.5f));
     }
-    public void MovementCrewPole2(Transform ballTransform)
+    public void MovementFiveManPole(Transform ballTransform)
     {
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
@@ -119,9 +122,9 @@ public class PolesAI : MonoBehaviour
         }
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1f, -1f), 
                                          Mathf.Clamp(transform.position.y, 1.116f, 1.116f), 
-                                         Mathf.Clamp(transform.position.z, -1f, 1f));
+                                         Mathf.Clamp(transform.position.z, -0.7f, 0.7f));
     }
-    public void MovementCrewPole3(Transform ballTransform)
+    public void MovementThreeManPole(Transform ballTransform)
     {
         if (ballTransform.position.x >= PoleTransform.position.x - 0.08f)
         {
@@ -143,7 +146,7 @@ public class PolesAI : MonoBehaviour
         }
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, 3f, 3f), 
                                          Mathf.Clamp(transform.position.y, 1.116f, 1.116f), 
-                                         Mathf.Clamp(transform.position.z, -1.5f, 1.5f));
+                                         Mathf.Clamp(transform.position.z, -1.2f, 1.2f));
     }
 
     public void ShootFront()
