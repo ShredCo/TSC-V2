@@ -156,7 +156,9 @@ public class GameManagerClash : MonoBehaviour
                     playerController.ReceivePolesPlayer(polesPlayer2);
                     playerController.ReceiveArrow(player2_SteeringWheelLeftHand,player2_SteeringWheelRightHand);
                     player2_SteeringWheelLeftHand.SetActive(true);
-                        
+                    player2_SteeringWheelRightHand.SetActive(true);
+
+                    playerController.currentPoleIndexLeftHand = 0;
                     player.gameObject.name = "Player_" + id;
                 }
             }
