@@ -92,12 +92,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""SnakeShot Right Hand"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""b2609d74-8b23-4f0b-9560-a05d7df13c76"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Pause"",

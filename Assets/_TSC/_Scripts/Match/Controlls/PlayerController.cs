@@ -24,11 +24,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementAbilityInput;
     private Vector2 rotationWindAbilityInput;
 
-    private bool noTrickshotActive;
     private float snakeShotLeftHandInput;
-
-    // private PolesPlayer[] polesPlayer;
-    // private SpecialCharacter[] specialCharacter;
+    private float snakeShotRightHandInput;
+    
+    private bool noTrickshotActive;
+    private bool snakeShotInactive;
+    
+    // Poles and special Characters
     private List<PolesPlayer> polesPlayer = new List<PolesPlayer>();
     [SerializeField] private List<SpecialCharacter> specialCharacter = new List<SpecialCharacter>();
     
@@ -67,6 +69,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Left Hand -> One Man Pole
+        // Right Hand -> Two Man Pole
         if (currentPoleIndexLeftHand == 0) // check for active pole
         {
             if (mainAbility) // check if ability is active, move ability instead of pole
@@ -83,22 +87,27 @@ public class PlayerController : MonoBehaviour
             }
             else if(noTrickshotActive)
             {
-                polesPlayer[currentPoleIndexLeftHand].MoveAndRotatePole(movementLeftHandInput * Time.deltaTime);
-                polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPole();
+                // normal movement
+                // left hand
+                polesPlayer[0].MoveAndRotatePole(movementLeftHandInput * Time.deltaTime);
+                polesPlayer[0].ResetShotSelectedPole();
                 
-                // Move unselected poles with right stick.
+                // right hand
                 polesPlayer[1].MoveAndRotatePole(movementRightHandInput * Time.deltaTime);
                 polesPlayer[1].ResetShotUnselectedPoles();
-
             }
             else
             {
                 // When the snake shot is active
-                polesPlayer[currentPoleIndexLeftHand].SnakeShot(snakeShotLeftHandInput * Time.deltaTime);
+                polesPlayer[0].SnakeShot(snakeShotLeftHandInput * Time.deltaTime); // left hand
+                polesPlayer[1].SnakeShot(snakeShotRightHandInput * Time.deltaTime); // right hand
             }
             
         }
-        else if (currentPoleIndexLeftHand == 1)
+        
+        // Left Hand -> Two Man Pole
+        // Right Hand -> Five Man Pole
+        if (currentPoleIndexLeftHand == 1)
         {
             if (crew1Ability)
             {
@@ -112,23 +121,29 @@ public class PlayerController : MonoBehaviour
 
                 crewPole1AbilityPrefabVFX.transform.position = poleCrew1Ability.transform.position;
             }
+            else if(noTrickshotActive)
+            {
+                // normal movement
+                // left hand
+                polesPlayer[1].MoveAndRotatePole(movementLeftHandInput * Time.deltaTime);
+                polesPlayer[1].ResetShotSelectedPole();
+                
+                // right hand
+                polesPlayer[2].MoveAndRotatePole(movementRightHandInput * Time.deltaTime);
+                polesPlayer[2].ResetShotUnselectedPoles();
+
+            }
             else
             {
-                polesPlayer[currentPoleIndexLeftHand].MoveAndRotatePole(movementLeftHandInput * Time.deltaTime);
-                polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPole();
-                
-                // Move unselected poles with right stick.
-                //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f  * Time.deltaTime);
-                polesPlayer[2].MoveAndRotatePole(movementRightHandInput * Time.deltaTime);
-                //polesPlayer[3].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f  * Time.deltaTime);
-                //polesPlayer[0].ResetShotUnselectedPoles();
-                polesPlayer[2].ResetShotUnselectedPoles();
-                //polesPlayer[3].ResetShotUnselectedPoles();
-            }
-            
-            
+                // When the snake shot is active
+                polesPlayer[1].SnakeShot(snakeShotLeftHandInput * Time.deltaTime); // left hand
+                polesPlayer[2].SnakeShot(snakeShotRightHandInput * Time.deltaTime); // right hand
+            }        
         }
-        else if (currentPoleIndexLeftHand == 2)
+        
+        // Left Hand -> Five Man Pole
+        // Right Hand -> Three Man Pole
+        if (currentPoleIndexLeftHand == 2)
         {
             if (crew2Ability)
             {
@@ -142,48 +157,22 @@ public class PlayerController : MonoBehaviour
 
                 crewPole2AbilityPrefabVFX.transform.position = poleCrew2Ability.transform.position;
             }
-            else
+            else if(noTrickshotActive)
             {
-                polesPlayer[currentPoleIndexLeftHand].MoveAndRotatePole(movementLeftHandInput * Time.deltaTime);
-                polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPole();
+                // normal movement
+                // left hand
+                polesPlayer[2].MoveAndRotatePole(movementLeftHandInput * Time.deltaTime);
+                polesPlayer[2].ResetShotSelectedPole();
                 
-                // Move unselected poles with right stick.
-                //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f  * Time.deltaTime);
-                //polesPlayer[1].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f  * Time.deltaTime);
+                // right hand
                 polesPlayer[3].MoveAndRotatePole(movementRightHandInput * Time.deltaTime);
-                //polesPlayer[0].ResetShotUnselectedPoles();
-                //polesPlayer[1].ResetShotUnselectedPoles();
                 polesPlayer[3].ResetShotUnselectedPoles();
             }
-            
-           
-        }
-        else if (currentPoleIndexLeftHand == 3)
-        {
-            if (crew3Ability)
-            {
-                polesPlayer[3].PoleFreeze();
-                poleCrew3Ability.MoveAbilityUpAndDown(movementAbilityInput * Time.deltaTime);
-
-                if (rotationWindAbilityInput.x > 0.1f || rotationWindAbilityInput.y > 0.1f)
-                {
-                    crewPole3AbilityPrefabVFX.transform.localEulerAngles = new Vector3(0f, Mathf.Atan2(-rotationWindAbilityInput.x, -rotationWindAbilityInput.y) * 180 / Mathf.PI, 0f);
-                }
-
-                crewPole3AbilityPrefabVFX.transform.position = poleCrew3Ability.transform.position;
-            }
             else
             {
-                polesPlayer[currentPoleIndexLeftHand].MoveAndRotatePole(movementLeftHandInput * Time.deltaTime);
-                polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPole();
-                
-                // Move unselected poles with right stick.
-                //polesPlayer[0].MoveAndRotatePole(movementUnselectedPolesInput * 0.1f  * Time.deltaTime);
-                //polesPlayer[1].MoveAndRotatePole(movementUnselectedPolesInput * 0.25f  * Time.deltaTime);
-                //polesPlayer[2].MoveAndRotatePole(movementUnselectedPolesInput * 0.5f * Time.deltaTime);
-                //polesPlayer[0].ResetShotUnselectedPoles();
-                //polesPlayer[1].ResetShotUnselectedPoles();
-                //polesPlayer[2].ResetShotUnselectedPoles();
+                // When the snake shot is active
+                polesPlayer[2].SnakeShot(snakeShotLeftHandInput * Time.deltaTime); // left hand
+                polesPlayer[3].SnakeShot(snakeShotRightHandInput * Time.deltaTime); // right hand
             }
         }
     }
@@ -301,35 +290,31 @@ public class PlayerController : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             noTrickshotActive = false;
-            //Pole.Instance.lockedDownPressed = true;
-            //polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPolePressed = true;
-            
+            snakeShotInactive = false;
         }
 
         if (context.phase == InputActionPhase.Canceled)
         {
-            //Pole.Instance.lockedDownPressed = false;
-            //polesPlayer[currentPoleIndexLeftHand].ResetShotSelectedPolePressed = false;
             noTrickshotActive = true;
+            snakeShotInactive = true;
         }
     }
     
     public void SnakeShotRightHand(InputAction.CallbackContext context)
     {
+        snakeShotRightHandInput = context.ReadValue<float>();
+        snakeShotRightHandInput *= PolesPlayer.Instance.SnakeShotSpeed;
+        
         if (context.phase == InputActionPhase.Performed)
         {
-            //polesPlayer[0].ResetShotUnselectedPolesPressed = true;
-            //polesPlayer[1].ResetShotUnselectedPolesPressed = true;
-            //polesPlayer[2].ResetShotUnselectedPolesPressed = true;
-            //polesPlayer[3].ResetShotUnselectedPolesPressed = true;
+            noTrickshotActive = false;
+            snakeShotInactive = false;
         }
 
         if (context.phase == InputActionPhase.Canceled)
         {
-            //polesPlayer[0].ResetShotUnselectedPolesPressed = false;
-            //polesPlayer[1].ResetShotUnselectedPolesPressed = false;
-            //polesPlayer[2].ResetShotUnselectedPolesPressed = false;
-            //polesPlayer[3].ResetShotUnselectedPolesPressed = false;
+            noTrickshotActive = true;
+            snakeShotInactive = true;
         }
     }
 
