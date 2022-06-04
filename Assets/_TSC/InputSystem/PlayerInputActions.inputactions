@@ -60,16 +60,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ResetShotLeftHand",
-                    "type": "Button",
+                    "name": "SnakeShot Left Hand",
+                    "type": "Value",
                     "id": "4bcbe821-795e-4f35-9cc7-f131a7e45630",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "ResetShotUnselectedPoles",
+                    "name": "SnakeShot Right Hand",
                     "type": "Button",
                     "id": "b2609d74-8b23-4f0b-9560-a05d7df13c76",
                     "expectedControlType": "Button",
@@ -180,28 +180,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "d769f038-4255-448b-babc-24e949dbeea8",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "MoveLeftHand",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "22a52de3-5c7b-42f1-8e77-e5313da1a898",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "MoveLeftHand",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "e53d087a-02f9-4976-b540-56d77a254ad7",
                     "path": "<Gamepad>/leftShoulder",
@@ -259,11 +237,11 @@
                 {
                     "name": "",
                     "id": "492cefed-f674-4bfe-ae84-522a5b5464a2",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ResetShotLeftHand",
+                    "action": "SnakeShot Left Hand",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -400,35 +378,13 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "996a5388-94da-47de-a924-4136a5b0d01c",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1",
-                    "action": "MoveRightHand",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "149094a9-66c9-468c-95f2-13257ddd3d81",
+                    "name": "",
+                    "id": "ccec98f3-6831-4daf-95c0-2080752ee367",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player1",
-                    "action": "MoveRightHand",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "ccec98f3-6831-4daf-95c0-2080752ee367",
-                    "path": "<Gamepad>/rightStickPress",
-                    "interactions": "",
-                    "processors": "",
                     "groups": "",
-                    "action": "ResetShotUnselectedPoles",
+                    "action": "SnakeShot Right Hand",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

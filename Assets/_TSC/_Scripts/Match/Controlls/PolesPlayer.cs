@@ -20,6 +20,7 @@ public class PolesPlayer : MonoBehaviour
     public float LowSensitivityMoveSpeed;
     public float DefaultRotationSpeed;
     public float LowSensitivityRotationSpeed;
+    public float SnakeShotSpeed;
 
     [Header("Ability")]
     public int Pole;
@@ -58,6 +59,18 @@ public class PolesPlayer : MonoBehaviour
         rb.MovePosition(new Vector3(0f, 0f, -movement.y) + transform.position);
     }
    
+    public void SnakeShot(float snakeShotSpeed)
+    {
+        snakeShotSpeed *= 6f;
+
+        // rotation
+        Quaternion testQuaternion = new Quaternion();
+        testQuaternion.eulerAngles = new Vector3(0f, 0f, -snakeShotSpeed);
+        testQuaternion.eulerAngles += transform.rotation.eulerAngles;
+        rb.MoveRotation(testQuaternion);
+    }
+    
+    
     public void ResetShotSelectedPole()
     {
         if (ResetShotSelectedPolePressed == true)
@@ -66,6 +79,8 @@ public class PolesPlayer : MonoBehaviour
             Quaternion normalQuaternion = Quaternion.identity;
             Quaternion lockedUpQuaternion = Quaternion.RotateTowards(transform.rotation, normalQuaternion, step);
             rb.MoveRotation(lockedUpQuaternion);
+            
+            
         }
     }
     public void ResetShotUnselectedPoles()
@@ -76,6 +91,8 @@ public class PolesPlayer : MonoBehaviour
             Quaternion normalQuaternion = Quaternion.identity;
             Quaternion lockedUpQuaternion = Quaternion.RotateTowards(transform.rotation, normalQuaternion, step);
             rb.MoveRotation(lockedUpQuaternion);
+            
+            
         }
     }
     public void PoleFreeze()

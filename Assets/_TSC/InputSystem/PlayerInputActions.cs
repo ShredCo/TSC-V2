@@ -82,16 +82,16 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ResetShotLeftHand"",
-                    ""type"": ""Button"",
+                    ""name"": ""SnakeShot Left Hand"",
+                    ""type"": ""Value"",
                     ""id"": ""4bcbe821-795e-4f35-9cc7-f131a7e45630"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""ResetShotUnselectedPoles"",
+                    ""name"": ""SnakeShot Right Hand"",
                     ""type"": ""Button"",
                     ""id"": ""b2609d74-8b23-4f0b-9560-a05d7df13c76"",
                     ""expectedControlType"": ""Button"",
@@ -202,28 +202,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""d769f038-4255-448b-babc-24e949dbeea8"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""MoveLeftHand"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""22a52de3-5c7b-42f1-8e77-e5313da1a898"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""MoveLeftHand"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""e53d087a-02f9-4976-b540-56d77a254ad7"",
                     ""path"": ""<Gamepad>/leftShoulder"",
@@ -281,11 +259,11 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""492cefed-f674-4bfe-ae84-522a5b5464a2"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ResetShotLeftHand"",
+                    ""action"": ""SnakeShot Left Hand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -422,35 +400,13 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""996a5388-94da-47de-a924-4136a5b0d01c"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""MoveRightHand"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""149094a9-66c9-468c-95f2-13257ddd3d81"",
+                    ""name"": """",
+                    ""id"": ""ccec98f3-6831-4daf-95c0-2080752ee367"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Player1"",
-                    ""action"": ""MoveRightHand"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ccec98f3-6831-4daf-95c0-2080752ee367"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ResetShotUnselectedPoles"",
+                    ""action"": ""SnakeShot Right Hand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1195,8 +1151,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_SoccerMatchControlls_RotateWindAbility = m_SoccerMatchControlls.FindAction("RotateWindAbility", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesUp = m_SoccerMatchControlls.FindAction("PolesUp", throwIfNotFound: true);
         m_SoccerMatchControlls_PolesDown = m_SoccerMatchControlls.FindAction("PolesDown", throwIfNotFound: true);
-        m_SoccerMatchControlls_ResetShotLeftHand = m_SoccerMatchControlls.FindAction("ResetShotLeftHand", throwIfNotFound: true);
-        m_SoccerMatchControlls_ResetShotUnselectedPoles = m_SoccerMatchControlls.FindAction("ResetShotUnselectedPoles", throwIfNotFound: true);
+        m_SoccerMatchControlls_SnakeShotLeftHand = m_SoccerMatchControlls.FindAction("SnakeShot Left Hand", throwIfNotFound: true);
+        m_SoccerMatchControlls_SnakeShotRightHand = m_SoccerMatchControlls.FindAction("SnakeShot Right Hand", throwIfNotFound: true);
         m_SoccerMatchControlls_Pause = m_SoccerMatchControlls.FindAction("Pause", throwIfNotFound: true);
         m_SoccerMatchControlls_SpecialCard = m_SoccerMatchControlls.FindAction("SpecialCard", throwIfNotFound: true);
         m_SoccerMatchControlls_Ability = m_SoccerMatchControlls.FindAction("Ability", throwIfNotFound: true);
@@ -1287,8 +1243,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_SoccerMatchControlls_RotateWindAbility;
     private readonly InputAction m_SoccerMatchControlls_PolesUp;
     private readonly InputAction m_SoccerMatchControlls_PolesDown;
-    private readonly InputAction m_SoccerMatchControlls_ResetShotLeftHand;
-    private readonly InputAction m_SoccerMatchControlls_ResetShotUnselectedPoles;
+    private readonly InputAction m_SoccerMatchControlls_SnakeShotLeftHand;
+    private readonly InputAction m_SoccerMatchControlls_SnakeShotRightHand;
     private readonly InputAction m_SoccerMatchControlls_Pause;
     private readonly InputAction m_SoccerMatchControlls_SpecialCard;
     private readonly InputAction m_SoccerMatchControlls_Ability;
@@ -1304,8 +1260,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @RotateWindAbility => m_Wrapper.m_SoccerMatchControlls_RotateWindAbility;
         public InputAction @PolesUp => m_Wrapper.m_SoccerMatchControlls_PolesUp;
         public InputAction @PolesDown => m_Wrapper.m_SoccerMatchControlls_PolesDown;
-        public InputAction @ResetShotLeftHand => m_Wrapper.m_SoccerMatchControlls_ResetShotLeftHand;
-        public InputAction @ResetShotUnselectedPoles => m_Wrapper.m_SoccerMatchControlls_ResetShotUnselectedPoles;
+        public InputAction @SnakeShotLeftHand => m_Wrapper.m_SoccerMatchControlls_SnakeShotLeftHand;
+        public InputAction @SnakeShotRightHand => m_Wrapper.m_SoccerMatchControlls_SnakeShotRightHand;
         public InputAction @Pause => m_Wrapper.m_SoccerMatchControlls_Pause;
         public InputAction @SpecialCard => m_Wrapper.m_SoccerMatchControlls_SpecialCard;
         public InputAction @Ability => m_Wrapper.m_SoccerMatchControlls_Ability;
@@ -1338,12 +1294,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @PolesDown.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
                 @PolesDown.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
                 @PolesDown.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPolesDown;
-                @ResetShotLeftHand.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotLeftHand;
-                @ResetShotLeftHand.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotLeftHand;
-                @ResetShotLeftHand.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotLeftHand;
-                @ResetShotUnselectedPoles.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotUnselectedPoles;
-                @ResetShotUnselectedPoles.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotUnselectedPoles;
-                @ResetShotUnselectedPoles.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnResetShotUnselectedPoles;
+                @SnakeShotLeftHand.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSnakeShotLeftHand;
+                @SnakeShotLeftHand.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSnakeShotLeftHand;
+                @SnakeShotLeftHand.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSnakeShotLeftHand;
+                @SnakeShotRightHand.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSnakeShotRightHand;
+                @SnakeShotRightHand.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSnakeShotRightHand;
+                @SnakeShotRightHand.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnSnakeShotRightHand;
                 @Pause.started -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_SoccerMatchControllsActionsCallbackInterface.OnPause;
@@ -1381,12 +1337,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @PolesDown.started += instance.OnPolesDown;
                 @PolesDown.performed += instance.OnPolesDown;
                 @PolesDown.canceled += instance.OnPolesDown;
-                @ResetShotLeftHand.started += instance.OnResetShotLeftHand;
-                @ResetShotLeftHand.performed += instance.OnResetShotLeftHand;
-                @ResetShotLeftHand.canceled += instance.OnResetShotLeftHand;
-                @ResetShotUnselectedPoles.started += instance.OnResetShotUnselectedPoles;
-                @ResetShotUnselectedPoles.performed += instance.OnResetShotUnselectedPoles;
-                @ResetShotUnselectedPoles.canceled += instance.OnResetShotUnselectedPoles;
+                @SnakeShotLeftHand.started += instance.OnSnakeShotLeftHand;
+                @SnakeShotLeftHand.performed += instance.OnSnakeShotLeftHand;
+                @SnakeShotLeftHand.canceled += instance.OnSnakeShotLeftHand;
+                @SnakeShotRightHand.started += instance.OnSnakeShotRightHand;
+                @SnakeShotRightHand.performed += instance.OnSnakeShotRightHand;
+                @SnakeShotRightHand.canceled += instance.OnSnakeShotRightHand;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -1619,8 +1575,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnRotateWindAbility(InputAction.CallbackContext context);
         void OnPolesUp(InputAction.CallbackContext context);
         void OnPolesDown(InputAction.CallbackContext context);
-        void OnResetShotLeftHand(InputAction.CallbackContext context);
-        void OnResetShotUnselectedPoles(InputAction.CallbackContext context);
+        void OnSnakeShotLeftHand(InputAction.CallbackContext context);
+        void OnSnakeShotRightHand(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnSpecialCard(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
