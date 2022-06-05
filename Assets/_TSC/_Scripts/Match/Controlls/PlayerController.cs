@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
+
+        noTrickshotActive = true;
     }
     #endregion
 
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public BallManager ball;
     #endregion
 
+    
     private void Update()
     {
         UpdateHUD();
