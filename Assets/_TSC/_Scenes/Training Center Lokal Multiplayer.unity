@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374111, g: 0.48521167, b: 0.56548846, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -998,6 +998,7 @@ MonoBehaviour:
   LowSensitivityMoveSpeed: 0
   DefaultRotationSpeed: 0
   LowSensitivityRotationSpeed: 0
+  SnakeShotSpeed: 0
   Pole: 0
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
@@ -9897,6 +9898,7 @@ MonoBehaviour:
   LowSensitivityMoveSpeed: 0
   DefaultRotationSpeed: 0
   LowSensitivityRotationSpeed: 0
+  SnakeShotSpeed: 0
   Pole: 0
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
@@ -14858,7 +14860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1012955395
 Light:
   m_ObjectHideFlags: 0
@@ -15716,6 +15718,7 @@ MonoBehaviour:
   LowSensitivityMoveSpeed: 0
   DefaultRotationSpeed: 0
   LowSensitivityRotationSpeed: 0
+  SnakeShotSpeed: 0
   Pole: 0
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
@@ -22740,6 +22743,7 @@ MonoBehaviour:
   LowSensitivityMoveSpeed: 0
   DefaultRotationSpeed: 0
   LowSensitivityRotationSpeed: 0
+  SnakeShotSpeed: 0
   Pole: 0
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
@@ -32991,6 +32995,7 @@ MonoBehaviour:
   LowSensitivityMoveSpeed: 0
   DefaultRotationSpeed: 0
   LowSensitivityRotationSpeed: 0
+  SnakeShotSpeed: 0
   Pole: 0
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
@@ -33354,6 +33359,7 @@ MonoBehaviour:
   LowSensitivityMoveSpeed: 0
   DefaultRotationSpeed: 0
   LowSensitivityRotationSpeed: 0
+  SnakeShotSpeed: 0
   Pole: 2
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
@@ -33388,6 +33394,7 @@ MonoBehaviour:
   LowSensitivityMoveSpeed: 0
   DefaultRotationSpeed: 0
   LowSensitivityRotationSpeed: 0
+  SnakeShotSpeed: 0
   Pole: 1
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
@@ -34954,6 +34961,7 @@ MonoBehaviour:
   LowSensitivityMoveSpeed: 0
   DefaultRotationSpeed: 0
   LowSensitivityRotationSpeed: 0
+  SnakeShotSpeed: 0
   Pole: 3
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0

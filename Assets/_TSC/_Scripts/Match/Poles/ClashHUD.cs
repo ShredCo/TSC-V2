@@ -127,16 +127,16 @@ public class ClashHUD : MonoBehaviour
     void PoleChangeColor()
     {
         // Player
-        PlayerPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole1 / maxConditionPole1));
-        PlayerPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole2 / maxConditionPole2));
-        PlayerPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole3 / maxConditionPole3));
-        PlayerPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole4 / maxConditionPole4));
+        //PlayerPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole1 / maxConditionPole1));
+        //PlayerPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole2 / maxConditionPole2));
+        //PlayerPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole3 / maxConditionPole3));
+        //PlayerPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.6705f, 0.3176f, 0.3176f), (ConditionPole4 / maxConditionPole4));
 
         // AI
-        AIPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (ConditionAIPole1 / maxConditionAIPole1));
-        AIPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (ConditionAIPole2 / maxConditionAIPole2));
-        AIPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (ConditionAIPole3 / maxConditionAIPole3));
-        AIPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (ConditionAIPole4 / maxConditionAIPole4));
+        //AIPoleMain.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (ConditionAIPole1 / maxConditionAIPole1));
+        //AIPoleCrew1.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (ConditionAIPole2 / maxConditionAIPole2));
+        //AIPoleCrew2.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (ConditionAIPole3 / maxConditionAIPole3));
+        //AIPoleCrew3.GetComponent<Renderer>().material.color = Color.Lerp(Color.black, new Color(0.3066038f, 0.3803922f, 1f), (ConditionAIPole4 / maxConditionAIPole4));
     }
 
     #endregion
