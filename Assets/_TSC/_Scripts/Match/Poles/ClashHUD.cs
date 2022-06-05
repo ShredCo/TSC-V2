@@ -74,8 +74,6 @@ public class ClashHUD : MonoBehaviour
 
     public TextMeshProUGUI TextPowerpointsRed;
     public TextMeshProUGUI TextPowerpointsBlue;
-    
-    
     float lerpSpeed = 3f;
 
     void Start()

@@ -884,7 +884,6 @@ GameObject:
   - component: {fileID: 53405362}
   - component: {fileID: 53405361}
   - component: {fileID: 53405360}
-  - component: {fileID: 53405364}
   - component: {fileID: 53405363}
   m_Layer: 8
   m_Name: Pole3
@@ -1003,18 +1002,6 @@ MonoBehaviour:
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
   ResetShotUnselectedPolesPressed: 0
---- !u!114 &53405364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53405356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &56828653
 GameObject:
   m_ObjectHideFlags: 0
@@ -9788,7 +9775,6 @@ GameObject:
   - component: {fileID: 631305327}
   - component: {fileID: 631305326}
   - component: {fileID: 631305325}
-  - component: {fileID: 631305329}
   - component: {fileID: 631305328}
   m_Layer: 8
   m_Name: Pole1
@@ -9903,18 +9889,6 @@ MonoBehaviour:
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
   ResetShotUnselectedPolesPressed: 0
---- !u!114 &631305329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631305321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &635600423
 GameObject:
   m_ObjectHideFlags: 0
@@ -10381,7 +10355,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662104799}
-  m_LocalRotation: {x: 0.000000008689151, y: 0.9340715, z: -0.35708606, w: 0.000000022729221}
+  m_LocalRotation: {x: -0.000000008689153, y: 0.9340715, z: -0.35708606, w: -0.000000022729228}
   m_LocalPosition: {x: -0.3456396, y: 12.34, z: 3.5099998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15607,7 +15581,6 @@ GameObject:
   - component: {fileID: 1087741150}
   - component: {fileID: 1087741149}
   - component: {fileID: 1087741148}
-  - component: {fileID: 1087741152}
   - component: {fileID: 1087741151}
   m_Layer: 8
   m_Name: Pole2
@@ -15723,18 +15696,6 @@ MonoBehaviour:
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
   ResetShotUnselectedPolesPressed: 0
---- !u!114 &1087741152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087741144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1088958210
 GameObject:
   m_ObjectHideFlags: 0
@@ -22631,7 +22592,6 @@ GameObject:
   - component: {fileID: 1596763136}
   - component: {fileID: 1596763135}
   - component: {fileID: 1596763134}
-  - component: {fileID: 1596763138}
   - component: {fileID: 1596763137}
   m_Layer: 8
   m_Name: Pole4
@@ -22748,18 +22708,6 @@ MonoBehaviour:
   Ability: {fileID: 0}
   ResetShotSelectedPolePressed: 0
   ResetShotUnselectedPolesPressed: 0
---- !u!114 &1596763138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596763130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5d6ce006cbc314bae1d82629653c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1597119578
 GameObject:
   m_ObjectHideFlags: 0
@@ -25959,7 +25907,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -25975,7 +25923,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841743767}
-  m_LocalRotation: {x: 0.000000008689151, y: 0.9340715, z: -0.35708606, w: 0.000000022729221}
+  m_LocalRotation: {x: -0.000000008689153, y: 0.9340715, z: -0.35708606, w: -0.000000022729228}
   m_LocalPosition: {x: -0.3456396, y: 12.34, z: 3.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
