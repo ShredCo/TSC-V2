@@ -35,6 +35,9 @@ MonoBehaviour:
     - AllIn1VfxDemoScriptAssemblies
     - AllIn1VfxAssmebly
     - AllIn1VfxTexDemoAssembly
+    - sc.stylizedwater2.runtime
+    - PPv2URPConverters
+    - sc.stylizedwater2.editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
