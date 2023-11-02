@@ -736,7 +736,6 @@ GameObject:
   - component: {fileID: 453966}
   - component: {fileID: 3369098}
   - component: {fileID: 2334272}
-  - component: {fileID: 64563109104328330}
   m_Layer: 0
   m_Name: SM_Veh_Veh_Boat_Large_01_Hull_Attachments
   m_TagString: Untagged
@@ -816,20 +815,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64563109104328330
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134070}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 34f1a28e97fa40b48845cac26b338e8c, type: 3}
 --- !u!1 &136198
 GameObject:
   m_ObjectHideFlags: 0
