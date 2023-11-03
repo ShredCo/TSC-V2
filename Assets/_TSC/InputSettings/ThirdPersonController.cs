@@ -56,8 +56,9 @@ public class ThirdPersonController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;
-        forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
+        Vector2 moveValue = move.ReadValue<Vector2>();
+        forceDirection += moveValue.x * GetCameraRight(playerCamera) * movementForce;
+        forceDirection += moveValue.y * GetCameraForward(playerCamera) * movementForce;
 
         rb.AddForce(forceDirection, ForceMode.Impulse);
         forceDirection = Vector3.zero;
